@@ -1,0 +1,163 @@
+\documentclass[8pt,a4paper,compress]{beamer}
+%\documentclass[8pt,a4paper,compress,handout]{beamer}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{wrapfig}
+
+\usecolortheme{dove}
+\useinnertheme{circles}
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{headline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=6ex]{secsubsec}%
+    \raggedright
+    \hspace*{1.5em}%
+    \normalsize
+    \ifx\insertsection\empty\else
+      \textbf{\insertsection\text{ }}%
+      \ifx\insertsubsection\empty\else
+        \textbf{$\bullet$\text{ }\insertsubsection}%
+      \fi
+    \fi
+    \hspace*{2em}%
+  \end{beamercolorbox}%
+  }%
+}
+\setbeamerfont{frametitle}{size=\normalsize}
+\setbeamertemplate{mini frames}{}
+\setbeamertemplate{footline}[page number]
+
+\definecolor{lightgray}{RGB}{240,240,240}
+\definecolor{darkgreen}{RGB}{51,102,0}
+
+\title{Overview}
+\date{}
+
+\lstset{
+  backgroundcolor=\color{lightgray},
+  basicstyle=\footnotesize\ttfamily,
+  showstringspaces=false,
+  commentstyle=\color{darkgreen},
+  keywordstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+
+\begin{document}
+\begin{frame}
+\vfill
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents
+\end{frame}
+
+\section{What are Algorithms and Data Structures?}
+\begin{frame}[fragile]
+\begin{flushright}
+\tiny \textsc{An algorithm must be seen to be believed. - \href{http://en.wikipedia.org/wiki/Donald_Knuth}{Don Knuth}}
+\end{flushright}
+
+\pause
+\textbf{Algorithms} Methods for solving problems suited for computer implementation.
+
+\pause
+\smallskip
+
+\textbf{Example} Euclid's algorithm for computing the greatest common divisor of two nonnegative integers $p$ and $q$: 
+
+\begin{itemize}
+\item In English: If $q$ is 0, the answer is $p$. If not, divide $p$ by $q$ and take the remainder $r$. The answer is the greatest common divisor of $q$ and $r$.
+\item In Java:
+\begin{lstlisting}[language=Java]
+public static int gcd(int p, int q) {
+    if (q == 0) {
+        return p;
+    }
+    int r = p % q;
+    return gcd(q, r);
+}
+\end{lstlisting}
+\end{itemize}
+
+\pause
+\smallskip
+
+\textbf{Data Structures} Schemes for arranging data that leave them amenable to efficient processing by algorithms.
+\end{frame}
+
+\section{Summary of Topics}
+\begin{frame}[fragile]
+\pause
+\textbf{Fundamentals}
+\begin{itemize}
+\item Our Java programming model; 
+\item Data abstraction; 
+\item Basic data structures (bags, queues, and stacks);
+\item Methods for analyzing algorithm performance; and
+\item Case study (union-find).
+\end{itemize}
+
+\pause
+\smallskip
+\textbf{Sorting}
+\begin{itemize}
+\item Insertion sort; 
+\item Selection sort;
+\item Shell sort; 
+\item Merge sort; 
+\item Heap sort; and
+\item Priority queues, selection, and merging.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+\textbf{Searching}
+\begin{itemize}
+\item Binary search trees; 
+\item Balanced search trees; and
+\item Hashing.
+\end{itemize}
+
+\pause
+\smallskip
+\textbf{Graphs}
+\begin{itemize}
+\item Depth-first search; 
+\item Breadth-first search; 
+\item Connectivity problems; 
+\item Kruskal and Prim's algorithms for finding minimum spanning trees; and
+\item Dijkstra and Bellman-Ford's algorithms for solving shortest-path problems.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+\textbf{Strings}
+\begin{itemize}
+\item Faster algorithms for sorting and searching when keys are strings; 
+\item Substring search;
+\item Regular expression pattern matching; and
+\item Data compression algorithms.
+\end{itemize}
+
+\pause
+\smallskip
+\textbf{Context}
+\begin{itemize}
+\item Event-driven simulation; 
+\item B-trees; 
+\item Suffix arrays; 
+\item Maximum flow; and 
+\item Search problems, reduction, NP-completeness.
+\end{itemize}
+\end{frame}
+
+\end{document}

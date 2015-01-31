@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# This script converts a PDF to a form suitable for online viewing (one 
+# slide per page) or printing (four slides per page). 
+
 if [ $# -ne 1 ]; then
     echo "Usage: nupslides <pdf>"
     exit 1

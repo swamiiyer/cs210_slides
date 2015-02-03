@@ -81,7 +81,7 @@
 \begin{frame}[fragile]
 \pause
 
-\textbf{Binary Search and Whitelisting}
+Eg: Binary search and whitelisting
 
 \begin{lstlisting}[language=Java]
 public class BinarySearch {
@@ -332,7 +332,7 @@ String[] b = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
 
 \pause
 \smallskip
-\textbf{Using an Array} After declaring and creating an array, you can refer to any individual value by enclosing an integer index (zero based) in square brackets after the array name. A program can refer to the length of an array \lstinline$a[]$ as \lstinline$a.length$. Eg, the following code reverses the array \lstinline$a$ in place.
+\textbf{Using an Array} After declaring and creating an array, you can refer to any individual value by enclosing an integer index (zero based) in square brackets after the array name. A program can refer to the length of an array \lstinline$a[]$ as \lstinline$a.length$. Eg, the following code reverses the array \lstinline$a$ in place:
 \begin{lstlisting}[language=Java]
 int N = a.length;
 for (int i = 0; i < N / 2; i++) {
@@ -372,7 +372,7 @@ for (int i = 0; i < m; i++) {
 \begin{frame}[fragile]
 \pause
 
-\textbf{Defining a Static Method} A method encapsulates a computation defined as a sequence of statements. A static method is composed of a \emph{signature} (the keywords \lstinline$public static$ followed by a return type, the method name, and a sequence of arguments, each with a declared type) and a \emph{body} (a statement block: a sequence of statements enclosed by curly brackets). Eg, the following static method tests if the argument \lstinline$N$ is prime and returns \lstinline$true$ if it is and \lstinline$false$ otherwise.
+\textbf{Defining a Static Method} A method encapsulates a computation defined as a sequence of statements. A static method is composed of the keywords \lstinline$public static$ followed by a return type (or \lstinline$void$), the signature (method name and a sequence of arguments, each with a declared type), and a \emph{body} (a statement block: a sequence of statements enclosed by curly brackets). Eg, the following static method tests if the argument \lstinline$N$ is prime and returns \lstinline$true$ if it is and \lstinline$false$ otherwise.
 
 \begin{lstlisting}[language=Java]
 public static boolean isPrime(int N) {
@@ -409,12 +409,7 @@ public static boolean isPrime(int N) {
 \pause
 \smallskip
 
-\textbf{Recursion} A method can call itself. Eg, \lstinline$rank()$ method in \lstinline$BinarySearch$. 
-
-\pause
-\smallskip
-
-\textbf{Important Rules in Developing Recursive Methods}
+\textbf{Recursion} A method that calls itself. Important rules in developing recursive methods:
 \begin{itemize}
 \item The recursion has a \emph{base case}; 
 \item Recursive calls must address subproblems that are \emph{smaller} in some sense; and
@@ -461,7 +456,7 @@ public static int fibonacci(int N) {
 \section{APIs}
 \begin{frame}[fragile]
 \pause
-\textbf{Application Programming Interface (API)} Lists the library name and the signatures and short descriptions of each of the methods. 
+\textbf{Application Programming Interface (API)} Lists the library name and the return type, signatures, and short descriptions of each of the methods. 
 
 \pause
 \smallskip

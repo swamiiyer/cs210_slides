@@ -1,12 +1,8 @@
 #!/bin/bash
 
-# This script converts a PDF to a form suitable for online viewing (one 
-# slide per page) or printing (four slides per page). 
-
 if [ $# -ne 1 ]; then
     echo "Usage: nupslides <pdf>"
     exit 1
 fi
 
-pdfnup --a4paper --nup 1x1 --delta "2mm 2mm" --scale 0.95 --frame true --suffix 1up $1
 pdfnup --a4paper --nup 2x2 --delta "2mm 2mm" --scale 0.95 --frame true --suffix 4up $1

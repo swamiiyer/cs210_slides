@@ -664,4 +664,13 @@ public class LinkedStack<Item> implements Stack<Item> {
 \end{lstlisting}
 \end{itemize}
 \end{frame}
+
+\section{Performance Characteristics}
+\begin{frame}[fragile]
+\begin{itemize}
+\item in the linked-list implementations of the \lstinline{Bag}, \lstinline{Queue}, and \lstinline{Stack} APIs, all operations take constant time in the worst case
+
+\item in the resizing array implementations of the \lstinline{Bag}, \lstinline{Queue}, and \lstinline{Stack} APIs, the average number of array accesses (amortized cost) for any sequence of operations starting from an empty data structure is constant in the worst case
+\end{itemize}
+\end{frame}
 \end{document}

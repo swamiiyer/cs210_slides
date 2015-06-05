@@ -235,9 +235,10 @@ public class WeightedQuickUnionUF {
 \begin{center}
 \begin{tabular}{p{3cm}ccc}
 \centering \textbf{algorithm} & \textbf{$N=10$} & \textbf{$N=625$} & \textbf{$N=10^6$} \\ \hline \\
-\centering quick-find & 0.112s & 0.175s & 14m49.525s \\
-\centering quick-union & 0.113s & 0.175s & 134m5.980s \\
-\centering weighted quick-union & 0.125s & 0.204s & 6.718s
+\centering quick-find & 0.1s & 0.19s & $\approx$ 17m \\
+\centering quick-union & 0.09s & 0.19s & $\approx$ 2h14m \\
+\centering weighted quick-union & 0.1s & 0.19s & 6.06s \\
+\centering weighted quick-union with path compression & 0.1s & 0.2s & 5.92s
 \end{tabular} 
 \end{center}
 

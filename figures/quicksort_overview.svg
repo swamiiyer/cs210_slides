@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="444.49643"
+   height="116.97943"
+   id="svg3091"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="quicksort_overview.svg">
+  <defs
+     id="defs3093" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="265.53537"
+     inkscape:cy="13.360718"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1364"
+     inkscape:window-height="710"
+     inkscape:window-x="1"
+     inkscape:window-y="1"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata3096">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-109.46463,-28.743471)">
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Sans Bold"
+       x="167.94533"
+       y="37.143471"
+       id="text3012"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3014"
+         x="167.94533"
+         y="37.143471">Q  U  I  C  K  S  O  R  T  E  X  A  M  P  L  E</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="168.57144"
+       y="57.647896"
+       id="text3120"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3122"
+         x="168.57144"
+         y="57.647896">K  R  A  T  E  L  E  P  U  I  M  Q  C  X  O  S</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="168.85715"
+       y="80.219322"
+       id="text3124"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3126"
+         x="168.85715"
+         y="80.219322">E  C  A  I  E  <tspan
+   style="fill:#800000"
+   id="tspan3128">K</tspan>  L  P  U  T  M  Q  R  X  O  S</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="168.14285"
+       y="101.07648"
+       id="text3130"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3132"
+         x="168.14285"
+         y="101.07648">A  C  E  E  I  <tspan
+   style="fill:#999999"
+   id="tspan3134">K  L  P  U  T  M  Q  R  X  O  S</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="167.28571"
+       y="124.50504"
+       id="text3136"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3138"
+         x="167.28571"
+         y="124.50504"><tspan
+   style="fill:#999999"
+   id="tspan3140">A  C  E  E  I  K</tspan>  L  M  O  P  Q  R  S  T  U  X</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="167.64848"
+       y="143.9729"
+       id="text3136-6"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3138-4"
+         x="167.64848"
+         y="143.9729"><tspan
+   style="fill:#000000"
+   id="tspan3140-7">A  C  E  E  I  K</tspan>  L  M  O  P  Q  R  S  T  U  X</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#800000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="128.20836"
+       y="36.549545"
+       id="text3102"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3104"
+         x="128.20836"
+         y="36.549545"
+         style="font-size:10px">input</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#800000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="120.20836"
+       y="55.835258"
+       id="text3102-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3104-2"
+         x="120.20836"
+         y="55.835258"
+         style="font-size:10px">shuffle</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#800000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="111.0655"
+       y="79.406685"
+       id="text3102-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3104-1"
+         x="111.0655"
+         y="79.406685"
+         style="font-size:10px">partition</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#800000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="116.0655"
+       y="100.12097"
+       id="text3102-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3104-6"
+         x="116.0655"
+         y="100.12097"
+         style="font-size:10px">sort left</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#800000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="108.92264"
+       y="122.26382"
+       id="text3102-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3104-3"
+         x="108.92264"
+         y="122.26382"
+         style="font-size:10px">sort right</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#800000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="126.0655"
+       y="142.26384"
+       id="text3102-2"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3104-61"
+         x="126.0655"
+         y="142.26384"
+         style="font-size:10px">result</tspan></text>
+  </g>
+</svg>

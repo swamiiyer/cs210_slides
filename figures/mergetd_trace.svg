@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="649.07751"
+   height="356.07584"
+   id="svg3025"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="mergetd_trace.svg">
+  <defs
+     id="defs3027" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="316.8681"
+     inkscape:cy="270.75"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1364"
+     inkscape:window-height="710"
+     inkscape:window-x="1"
+     inkscape:window-y="1"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata3030">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-15.922493,-5.52561)">
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Sans Bold"
+       x="275.0882"
+       y="58.572052"
+       id="text3012"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3014"
+         x="275.0882"
+         y="58.572052">M  E  R  G  E  S  O  R  T  E  X  A  M  P  L  E</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="275.85715"
+       y="33.790752"
+       id="text3042"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3044"
+         x="275.85715"
+         y="33.790752">0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="468.42856"
+       y="14.93361"
+       id="text3046"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3048"
+         x="468.42856"
+         y="14.93361">a[]</tspan></text>
+    <path
+       style="fill:#800000;stroke:#800000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 273.57143,38.790753 665,39.505039"
+       id="path3050"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#b3b3b3;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="275.71429"
+       y="79.505035"
+       id="text3071"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3073"
+         x="275.71429"
+         y="79.505035"><tspan
+   style="fill:#000000"
+   id="tspan3075">E  M</tspan>  R  G  E  S  O  R  T  E  X  A  M  P  L  E</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#b3b3b3;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="275.71429"
+       y="99.505051"
+       id="text3077"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3079"
+         x="275.71429"
+         y="99.505051">E  M  <tspan
+   style="fill:#000000"
+   id="tspan3081">G  R</tspan>  E  S  O  R  T  E  X  A  M  P  L  E</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="275.42856"
+       y="120.21931"
+       id="text3083"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3085"
+         x="275.42856"
+         y="120.21931"><tspan
+   style="fill:#000000"
+   id="tspan3087">E  G  M  R</tspan>  E  S  O  R  T  E  X  A  M  P  L  E</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="276.28571"
+       y="140.79074"
+       id="text3089"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3091"
+         x="276.28571"
+         y="140.79074">E  G  M  R  <tspan
+   style="fill:#000000"
+   id="tspan3093">E  S</tspan>  O  R  T  E  X  A  M  P  L  E</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="275.71429"
+       y="160.21931"
+       id="text3095"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3097"
+         x="275.71429"
+         y="160.21931">E  G  M  R  E  S  <tspan
+   style="fill:#000000"
+   id="tspan3099">O  R</tspan>  T  E  X  A  M  P  L  E</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="275.57144"
+       y="180.64789"
+       id="text3101"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3103"
+         x="275.57144"
+         y="180.64789">E  G  M  R  <tspan
+   style="fill:#000000"
+   id="tspan3105">E  O  R  S</tspan>  T  E  X  A  M  P  L  E</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="275.42856"
+       y="200.64789"
+       id="text3107"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3109"
+         x="275.42856"
+         y="200.64789">E  E  G  M  O  R  R  S  <tspan
+   style="fill:#999999"
+   id="tspan3111">T  E  X  A  M  P  L  E</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="275.57141"
+       y="220.50504"
+       id="text3113"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3115"
+         x="275.57141"
+         y="220.50504">E  E  G  M  O  R  R  S  <tspan
+   style="fill:#000000"
+   id="tspan3117">E  T</tspan>  X  A  M  P  L  E</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="275.57141"
+       y="241.21933"
+       id="text3119"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3121"
+         x="275.57141"
+         y="241.21933">E  E  G  M  O  R  R  S  E  T  <tspan
+   style="fill:#000000"
+   id="tspan3123">A  X</tspan>  M  P  L  E</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="275.14285"
+       y="260.79074"
+       id="text3125"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3127"
+         x="275.14285"
+         y="260.79074">E  E  G  M  O  R  R  S  <tspan
+   style="fill:#000000"
+   id="tspan3129">A  E  T  X</tspan>  M  P  L  E</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="275.71429"
+       y="280.07648"
+       id="text3131"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3133"
+         x="275.71429"
+         y="280.07648">E  E  G  M  O  R  R  S  A  E  T  X  <tspan
+   style="fill:#000000"
+   id="tspan3135">M  P</tspan>  L  E</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="276.57141"
+       y="300.36218"
+       id="text3137"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3139"
+         x="276.57141"
+         y="300.36218">E  E  G  M  O  R  R  S  A  E  T  X  M  P  <tspan
+   style="fill:#000000"
+   id="tspan3141">E  L</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="276.57141"
+       y="319.36218"
+       id="text3143"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3145"
+         x="276.57141"
+         y="319.36218">E  E  G  M  O  R  R  S  A  E  T  X  <tspan
+   style="fill:#000000"
+   id="tspan3147">E  L  M  P</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="275.85715"
+       y="339.36218"
+       id="text3149"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3151"
+         x="275.85715"
+         y="339.36218">E  E  G  M  O  R  R  S  <tspan
+   style="fill:#000000"
+   id="tspan3153">A  E  E  L  M  P  T  X</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="276.14285"
+       y="358.50504"
+       id="text3155"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3157"
+         x="276.14285"
+         y="358.50504">A  E  E  E  E  G  L  M  M  O  P  R  R  S  T  X</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="83"
+       y="79.076462"
+       id="text3159"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3161"
+         x="83"
+         y="79.076462">merge(a, 0, 0, 1)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="83.234039"
+       y="99.531609"
+       id="text3159-5"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3161-2"
+         x="83.234039"
+         y="99.531609">merge(a, 2, 2, 3)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="63.234039"
+       y="119.53161"
+       id="text3159-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3161-1"
+         x="63.234039"
+         y="119.53161">merge(a, 0, 1, 3)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="83.688454"
+       y="139.01834"
+       id="text3159-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3161-5"
+         x="83.688454"
+         y="139.01834">merge(a, 4, 4, 5)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="83.922493"
+       y="159.47345"
+       id="text3159-5-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3161-2-9"
+         x="83.922493"
+         y="159.47345">merge(a, 6, 6, 7)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="63.922493"
+       y="179.47346"
+       id="text3159-3-0"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3161-1-1"
+         x="63.922493"
+         y="179.47346">merge(a, 4, 5, 7)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="37.688454"
+       y="199.01834"
+       id="text3159-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3161-4"
+         x="37.688454"
+         y="199.01834">merge(a, 0, 3, 7)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="79.922493"
+       y="219.47345"
+       id="text3159-5-5"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3161-2-0"
+         x="79.922493"
+         y="219.47345">merge(a, 8, 8, 9)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="79.922493"
+       y="239.47346"
+       id="text3159-3-5"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3161-1-7"
+         x="79.922493"
+         y="239.47346">merge(a, 10, 10, 11)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="61.688454"
+       y="259.01834"
+       id="text3159-59"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3161-48"
+         x="61.688454"
+         y="259.01834">merge(a, 8, 9, 11)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="79.922493"
+       y="279.47345"
+       id="text3159-5-54"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3161-2-4"
+         x="79.922493"
+         y="279.47345">merge(a, 12, 12, 13)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="79.922493"
+       y="299.47345"
+       id="text3159-3-51"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3161-1-5"
+         x="79.922493"
+         y="299.47345">merge(a, 14, 14, 15)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="59.688454"
+       y="319.01834"
+       id="text3159-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3161-6"
+         x="59.688454"
+         y="319.01834">merge(a, 12, 13, 15)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="37.922493"
+       y="339.47345"
+       id="text3159-5-0"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3161-2-08"
+         x="37.922493"
+         y="339.47345">merge(a, 8, 11, 15)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       x="15.922493"
+       y="359.47345"
+       id="text3159-3-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3161-1-2"
+         x="15.922493"
+         y="359.47345">merge(a, 0, 7, 15)</tspan></text>
+  </g>
+</svg>

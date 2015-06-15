@@ -115,7 +115,7 @@ impossible & 1 & 1
 \section{Heap Definitions}
 \begin{frame}[fragile]
 \begin{itemize}
-\item a binary tree is a tree data structure in which each node has atmost two children
+\item a binary tree is a tree data structure in which each node has at most two children
 
 \item a minimum- (or maximum-) oriented heap-ordered binary tree is a binary tree in which each node is smaller (or larger) than or equal to the keys in that node's two children (if any)
 
@@ -151,6 +151,12 @@ private void swim(int k) {
 \begin{minipage}{130pt}
 \hfill \includegraphics[scale=0.35]{./figures/heapify_swim.pdf}
 \end{minipage}
+
+\smallskip
+
+\begin{center}
+swim operation in a maximum-oriented heap-ordered binary tree
+\end{center}
 \end{itemize}
 \end{frame}
 
@@ -179,6 +185,12 @@ private void sink(int k) {
 \begin{minipage}{130pt}
 \hfill \includegraphics[scale=0.35]{./figures/heapify_sink.pdf}
 \end{minipage}
+
+\smallskip
+
+\begin{center}
+sink operation in a maximum-oriented heap-ordered binary tree
+\end{center}
 \end{itemize}
 \end{frame}
 

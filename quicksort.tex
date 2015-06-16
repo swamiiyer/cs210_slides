@@ -177,9 +177,9 @@ the $i$th key value is found when a random entry of the array is sampled
 H &=& -(p_1\lg p_1 + p_2\lg p_2 + \dots + p_k\lg p_k) \nonumber \\
   &=& -\sum_{i=1}^k p_i\lg p_i \nonumber 
 \end{eqnarray}
+with a minimum value of 0 when the keys are all identical, and a maximum value of $\ln N$ when the keys are all distinct
 
 \item no comparison-based sorting algorithm can guarantee to sort $N$ items with fewer than $NH-N$ comparisons, where $H$ is the Shannon entropy, defined from the frequencies of key values
-
 
 \item 3-way quick sort uses $\sim (2\ln 2)NH$ comparisons to sort $N$ items, where $H$ is the Shannon entropy, defined from the frequencies of key values
 \end{itemize}
@@ -188,7 +188,7 @@ H &=& -(p_1\lg p_1 + p_2\lg p_2 + \dots + p_k\lg p_k) \nonumber \\
 \section{Quick Sort and Other Sorts}
 \begin{frame}[fragile]
 \begin{itemize}
-\item a comparison of merge sort and other sorts seen so far
+\item a comparison of quick sort and other sorts seen so far
 \begin{lstlisting}[language={}]
 $ java SortCompare Quick Insertion 10000 100
 For 10000 random Doubles

@@ -343,6 +343,8 @@ A A B B B C D E F F G H I I J N P Q Q Z
 \begin{frame}[fragile]
 \begin{itemize}
 \item insert all the items to be sorted into a minimum-oriented priority queue, then repeatedly remove the minimum to remove them all in order
+
+\item to sort in place, heapify the array \lstinline$a[]$ of $N$ items to  represent a maximum-oriented heap-ordered binary tree, and then repeatedly exchange the maximum key (at index 1) with the key at index $N$ and reheapify the first $N - 1$ keys in the array 
 \begin{lstlisting}[language=Java]
 public class Heap {
     ...
@@ -354,6 +356,16 @@ public class Heap {
         while (N > 1) {
             exch(a, 1, N--);
             sink(a, 1, N);
+        }
+    }
+    
+    private static void sink(Comparable[] pq, int k, int N) {
+        while (2 * k <= N) {
+            int j = 2 * k;
+            if (j < N && less(pq, j, j + 1)) { j++; }
+            if (!less(pq, k, j)) { break; }
+            exch(pq, k, j);
+            k = j;
         }
     }
     ...

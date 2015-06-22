@@ -75,7 +75,7 @@ public class Transaction {
     ...
     public static class WhoOrder implements Comparator<Transaction> {
         public int compare(Transaction v, Transaction w) { 
-            return v.who.compareTo(w.when); 
+            return v.who.compareTo(w.who); 
         }        
     }
     
@@ -111,7 +111,7 @@ public class Transaction {
 \textbf{algorithm} & \textbf{stable?} & \textbf{in-place?} & \textbf{running time} & \textbf{space} \\ \hline \\
 selection & no & yes & $N^2$ & 1 \\
 insertion & yes & yes & between $N$ and $N^2$ & 1 \\
-shell & no & yes & $N\log N$?, $N^{6/5}$? & 1 \\
+shell & no & yes & $N\log N$?, $N^{3/2}$? & 1 \\
 merge & yes & no & $N\log N$ & $N$ \\
 quick & no & yes & $N\log N$ & $\lg N$ \\
 3-way quick & no & yes & between $N$ and $N\log N$ & $\lg N$ \\

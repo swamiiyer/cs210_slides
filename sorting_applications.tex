@@ -71,7 +71,7 @@ Insertion.sort(a, new Transaction.HowMuchOrder());
 \begin{lstlisting}[language=Java]
 import java.util.Comparator;
 
-public class Transaction {  
+public class Transaction implements Comparable<Transaction> {  
     ...
     public static class WhoOrder implements Comparator<Transaction> {
         public int compare(Transaction v, Transaction w) { 
@@ -97,8 +97,90 @@ public class Transaction {
 \end{lstlisting}
 
 \item the flexibility to use comparators is also useful for priority queues
+\end{itemize}
+\end{frame}
 
-\item a sorting method is stable if it preserves the relative order of equal keys in the array --- insertion and merge sorts are stable, but selection, shell, quick, and heap sorts are not
+\begin{frame}[fragile]
+\begin{itemize}
+\item a sorting method is stable if it preserves the relative order of equal keys in the array
+
+\begin{minipage}{65pt}
+\begin{lstlisting}[language={},backgroundcolor=\color{white}]
+Chicago 09:00:00
+Phoenix 09:00:03
+Houston 09:00:13
+Chicago 09:00:59
+Houston 09:01:10
+Chicago 09:03:13
+Seattle 09:10:11
+Seattle 09:10:25
+Phoenix 09:14:25
+Chicago 09:19:32
+Chicago 09:19:46
+Chicago 09:21:05
+Seattle 09:22:43
+Seattle 09:22:54
+Chicago 09:25:52
+Chicago 09:35:21
+Seattle 09:36:14
+Phoenix 09:37:44
+\end{lstlisting}
+\begin{center}
+\tiny sorted by time
+\end{center}
+\end{minipage}\hfill
+\begin{minipage}{65pt}
+\begin{lstlisting}[language={},backgroundcolor=\color{white}]
+Chicago 09:25:52
+Chicago 09:03:13
+Chicago 09:21:05
+Chicago 09:19:46
+Chicago 09:19:32
+Chicago 09:00:00
+Chicago 09:35:21
+Chicago 09:00:59
+Houston 09:01:10
+Houston 09:00:13
+Phoenix 09:37:44
+Phoenix 09:00:03
+Phoenix 09:14:25
+Seattle 09:10:25
+Seattle 09:36:14
+Seattle 09:22:43
+Seattle 09:10:11
+Seattle 09:22:54
+\end{lstlisting}
+\begin{center}
+\tiny sorted by location (unstable)
+\end{center}
+\end{minipage}\hfill
+\begin{minipage}{65pt}
+\begin{lstlisting}[language={},backgroundcolor=\color{white}]
+Chicago 09:00:00
+Chicago 09:00:59
+Chicago 09:03:13
+Chicago 09:19:32
+Chicago 09:19:46
+Chicago 09:21:05
+Chicago 09:25:52
+Chicago 09:35:21
+Houston 09:00:13
+Houston 09:01:10
+Phoenix 09:00:03
+Phoenix 09:14:25
+Phoenix 09:37:44
+Seattle 09:10:11
+Seattle 09:10:25
+Seattle 09:22:43
+Seattle 09:22:54
+Seattle 09:36:14
+\end{lstlisting}
+\begin{center}
+\tiny sorted by location (stable)
+\end{center}
+\end{minipage}
+
+\item insertion and merge sorts are stable, but selection, shell, quick, and heap sorts are not
 \end{itemize}
 \end{frame}
 

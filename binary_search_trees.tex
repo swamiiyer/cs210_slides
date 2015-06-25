@@ -19,9 +19,9 @@
 \section{What is a Binary Search Tree (BST)?}
 \begin{frame}[fragile]
 \begin{itemize}
-\item a binary tree is either empty or two disjoint binary trees (left and right)
+\item a binary tree is either empty or a node with a key (and associated value) and links (left and right) to two disjoint binary subtrees
 
-\item a binary tree is in symmetric order if each node has a key and every node's key larger than all keys in its left subtree and smaller than all keys in its right subtree
+\item a binary tree is in symmetric order if each node's key is larger than all keys in its left subtree and smaller than all keys in its right subtree
 
 \item a binary search tree (BST) is a binary tree in symmetric order
 
@@ -425,9 +425,7 @@ to delete the minimum (maximum) key:
 \begin{frame}[fragile]
 \begin{itemize}
 \item deletion (contd.)
-
-\smallskip
-
+\begin{minipage}{200pt}
 to delete a node with key $k$ (Hibbard deletion), search for the node $t$ containing key $k$
 \begin{itemize}
 \item case 1 (0 children): delete $t$ by setting parent link to null
@@ -437,7 +435,18 @@ to delete a node with key $k$ (Hibbard deletion), search for the node $t$ contai
 \item case 3 (2 children): find successor $x$ of $t$ ($x$ has no left child); delete the minimum in $t$'s right subtree; and put $x$ in $t$'s spot
 \end{itemize}
 and update subtree counts
+\end{minipage}%
+\begin{minipage}{100pt}
+\begin{center}
+\includegraphics[scale=0.35]{{./figures/bst_delete}.png}
+\end{center}
+\end{minipage}
+\end{itemize}
+\end{frame}
 
+\begin{frame}[fragile]
+\begin{itemize}
+\item deletion (contd.)
 \begin{lstlisting}[language=Java]
     ...
     public void delete(Key key) {

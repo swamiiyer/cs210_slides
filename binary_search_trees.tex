@@ -57,6 +57,8 @@ private class Node {
 \begin{itemize}
 \item basic operations
 \begin{lstlisting}[language=Java]
+import java.util.NoSuchElementException;
+
 public class BinarySearchTreeST<Key extends Comparable<Key>, Value> 
     implements OrderedST<Key, Value> {
     private Node root;
@@ -493,7 +495,7 @@ ordered iteration & - & $N$ & $N$
 
 \bigskip
 
-\tiny $\dagger$ $h$ is the height of BST, proportional to $\log N$ if keys inserted in random order
+\tiny $\dagger$ $h$ is the height of BST, proportional to $\lg N$ if keys inserted in random order
 
 $\dagger\dagger$ $\sqrt{N}$ in the average case; other operations also become $\sqrt{N}$ if deletions are allowed
 \end{center}

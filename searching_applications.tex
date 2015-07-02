@@ -1,0 +1,599 @@
+\documentclass[8pt,a4paper,compress]{beamer}
+
+\usepackage{/home/siyer/lib/slides}
+
+\title{Searching Applications}
+\date{}
+\begin{document}
+\begin{frame}
+\vfill
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents
+\end{frame}
+
+\section{Sets}
+\begin{frame}[fragile]
+\begin{itemize}
+\item mathematical set: a collection of distinct keys
+\begin{lstlisting}[language={},mathescape]
+public interface Set<Key extends Comparable<Key>> extends Iterable<Key>
+
+    public void add(Key key)         // add $key$ to the set
+    public boolean contains(Key key) // is $key$ in the set?
+    public void delete(Key key)      // delete $key$ from the set
+    public int size()                // the number of keys in the set
+\end{lstlisting}
+
+\item exception filter
+\begin{itemize}
+\item read in a list of words from one file
+
+\item print out all words from standard input that are (are not) in the list
+\end{itemize}
+
+\begin{lstlisting}[language={}]
+$ more list.txt
+was it the of
+$ more tinyTale.txt
+it was the best of times it was the worst of times
+...
+\end{lstlisting}
+
+\begin{lstlisting}[language={}]
+$ java WhiteFilter list.txt < tinyTale.txt 
+it 
+was 
+the 
+of 
+...
+\end{lstlisting}
+
+\begin{lstlisting}[language={}]
+$ java BlackFilter list.txt < tinyTale.txt
+best 
+times 
+worst 
+times
+...
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item exception filter: applications
+\begin{center}
+\begin{tabular}{cccc}
+\textbf{application} & \textbf{purpose} & \textbf{key} & \textbf{in list} \\ \hline \\
+spell checker & identify misspelled words & word & dictionary words \\
+browser & mark visited pages & URL & visited pages \\
+parental controls & block sites & URL & bad sites \\
+chess & detect draw & board & positions \\
+spam filter & eliminate spam  & IP address & spam addresses \\
+credit cards & check for stolen cards & number & stolen cards
+\end{tabular} 
+\end{center}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item exception filter: implementations
+\begin{lstlisting}[language=Java]
+public class WhiteFilter {  
+    public static void main(String[] args) {
+        OrderedSet<String> set = new OrderedSet<String>();
+        In in = new In(args[0]);
+        while (!in.isEmpty()) {
+            String word = in.readString();
+            set.add(word);
+        }
+        while (!StdIn.isEmpty()) {
+            String word = StdIn.readString();
+            if (set.contains(word)) { StdOut.println(word); }
+        }
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=Java]
+public class BlackFilter {  
+    public static void main(String[] args) {
+        OrderedSet<String> set = new OrderedSet<String>();
+        In in = new In(args[0]);
+        while (!in.isEmpty()) {
+            String word = in.readString();
+            set.add(word);
+        }
+        while (!StdIn.isEmpty()) {
+            String word = StdIn.readString();
+            if (!set.contains(word)) { StdOut.println(word); }
+        }
+    }
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\section{Dictionary Clients}
+\begin{frame}[fragile]
+\begin{itemize}
+\item dictionary lookup: given a comma-separated value (CSV) file, a key field, and a value field as command-line arguments, lookup the keys read from standard input and print the corresponding values if they are found
+
+\item examples
+\begin{itemize}
+\item DNS lookup
+\begin{lstlisting}[language={}]
+$ more ip.csv
+www.princeton.edu,128.112.128.15
+espn.com,199.181.135.201
+yahoo.com,66.94.234.13
+msn.com,207.68.172.246
+google.com,64.233.167.99
+baidu.com,202.108.22.33
+adobe.com,192.150.18.60
+yahoo.co.jp,202.93.91.141
+sina.com.cn,202.108.33.32
+ebay.com,66.135.192.87
+...
+\end{lstlisting}
+\begin{lstlisting}[language={}]
+$ java LookupCSV ip.csv 0 1
+adobe.com
+192.150.18.60
+www.princeton.edu
+128.112.128.15
+ebay.edu
+Not found 
+<ctrl-d>
+\end{lstlisting}
+\begin{lstlisting}[language={}]
+$ java LookupCSV ip.csv 1 0
+128.112.128.15
+www.princeton.edu
+999.999.999.99
+Not found
+<ctrl-d>
+\end{lstlisting}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item examples (contd.)
+\begin{itemize}
+\item amino acid lookup
+\begin{lstlisting}[language={}]
+$ more amino.csv
+TTT,Phe,F,Phenylalanine
+TTC,Phe,F,Phenylalanine
+TTA,Leu,L,Leucine
+TTG,Leu,L,Leucine
+TCT,Ser,S,Serine
+TCC,Ser,S,Serine
+TCA,Ser,S,Serine
+TCG,Ser,S,Serine
+TAT,Tyr,Y,Tyrosine
+TAC,Tyr,Y,Tyrosine
+TAA,Stop,Stop,Stop
+TAG,Stop,Stop,Stop
+TGT,Cys,C,Cysteine
+TGC,Cys,C,Cysteine
+TGA,Stop,Stop,Stop
+TGG,Trp,W,Tryptophan
+...
+\end{lstlisting}
+\begin{lstlisting}[language={}]
+$ java LookupCSV amino.csv 0 3
+TCT
+Serine
+TAG
+Stop
+TAC
+Tyrosine
+<ctrl-d>
+\end{lstlisting}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item dictionary lookup: implementation
+\begin{lstlisting}[language=Java]
+public class LookupCSV {
+    public static void main(String[] args) {
+        int keyField = Integer.parseInt(args[1]);
+        int valField = Integer.parseInt(args[2]);
+        SeparateChainingHashST<String, String> st = 
+            new SeparateChainingHashST<String, String>();
+        In in = new In(args[0]);
+        while (in.hasNextLine()) {
+            String line = in.readLine();
+            String[] tokens = line.split(",");
+            String key = tokens[keyField];
+            String val = tokens[valField];
+            st.put(key, val);
+        }
+        while (!StdIn.isEmpty()) {
+            String s = StdIn.readString();
+            if (st.contains(s)) { StdOut.println(st.get(s)); }
+            else                { StdOut.println("Not found"); }
+        }
+    }
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\section{Indexing Clients}
+\begin{frame}[fragile]
+\begin{itemize}
+\item file index: given a list of files, create an index so that you can efficiently find all files containing a given query string
+
+\begin{lstlisting}[language={}]
+$ ls *.txt
+aesop.txt magna.txt moby.txt sawyer.txt tale.txt 
+\end{lstlisting}
+
+\begin{lstlisting}[language={}]
+$ java FileIndex *.txt
+Indexing files
+  aesop.txt 
+  magna.txt 
+  moby.txt 
+  sawyer.txt 
+  tale.txt 
+
+freedom
+  magna.txt 
+  moby.txt 
+  tale.txt
+whale
+  moby.txt
+lamb
+  aesop.txt
+  sawyer.txt 
+<ctrl-d>
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item file index: implementation
+\begin{lstlisting}[language=Java]
+import java.io.File;
+
+public class FileIndex { 
+    public static void main(String[] args) {
+        SeparateChainingHashST<String, Set<File>> st = 
+            new SeparateChainingHashST<String, Set<File>>();
+        StdOut.println("Indexing files");
+        for (String filename : args) {
+            StdOut.println("  " + filename);
+            File file = new File(filename);
+            In in = new In(file);
+            while (!in.isEmpty()) {
+                String word = in.readString();
+                if (!st.contains(word)) { 
+                    st.put(word, new OrderedSet<File>());
+                }
+                Set<File> set = st.get(word);
+                set.add(file);
+            }
+        }
+        while (!StdIn.isEmpty()) {
+            String query = StdIn.readString();
+            if (st.contains(query)) {
+                Set<File> set = st.get(query);
+                for (File file : set) {
+                    StdOut.println("  " + file.getName());
+                }
+            }
+        }
+    }
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item concordance: preprocess a text corpus to support concordance queries, ie, given a word, find all occurrences with their immediate contexts
+
+\begin{lstlisting}[language={}]
+$ java Concordance tale.txt
+Finished building concordance
+
+cities
+tongues of the two *cities* that were blended in
+
+majesty
+their turnkeys and the *majesty* of the law fired
+me treason against the *majesty* of the people in
+of his most gracious *majesty* king george the third
+
+princeton
+<ctrl-d>
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item concordance: implementation
+
+\begin{lstlisting}[language=Java]
+public class Concordance {
+    public static void main(String[] args) {
+        int CONTEXT = 5;
+        In in = new In(args[0]);
+        String[] words = in.readAllStrings();
+        SeparateChainingHashST<String, OrderedSet<Integer>> st = 
+            new SeparateChainingHashST<String, OrderedSet<Integer>>();
+        for (int i = 0; i < words.length; i++) {
+            String s = words[i];
+            if (!st.contains(s)) { st.put(s, new OrderedSet<Integer>()); }
+            OrderedSet<Integer> set = st.get(s);
+            set.add(i);
+        }
+        StdOut.println("Finished building concordance");
+        while (!StdIn.isEmpty()) {
+            String query = StdIn.readString();
+            OrderedSet<Integer> set = st.get(query);
+            if (set == null) { set = new OrderedSet<Integer>(); }
+            for (int k : set) {
+                for (int i = Math.max(0, k - CONTEXT + 1); i < k; i++) {
+                    StdOut.print(words[i] + " ");
+                }
+                StdOut.print("*" + words[k] + "* ");
+                for (int i = k + 1; i < 
+                    Math.min(k + CONTEXT, words.length); i++)
+                    StdOut.print(words[i] + " ");
+                StdOut.println();
+            }
+            StdOut.println();
+        }  
+    }
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\section{Sparse Vectors and Matrices}
+\begin{frame}[fragile]
+\begin{itemize}
+\item sparse vector: standard representation
+\begin{itemize}
+\item constant time access to elements
+
+\item space proportional to $N$
+\end{itemize}
+
+\item sparse vector: symbol table representation
+\begin{itemize}
+\item key = index, value = entry
+
+\item efficient iterator
+
+\item space proportional to number of nonzeros
+\end{itemize}
+
+\item sparse matrix: standard representation
+\begin{itemize}
+\item each row of matrix is an array
+
+\item constant time access to elements
+
+\item space proportional to $N^2$
+\end{itemize}
+
+\item sparse matrix: symbol table representation
+\begin{itemize}
+\item each row of matrix is a sparse vector
+
+\item efficient access to elements
+
+\item space proportional to number of nonzeros (plus $N$)
+\end{itemize}
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item sparse vector: implementation
+\begin{lstlisting}[language=Java]
+public class SparseVector {
+    private int N; 
+    private SeparateChainingHashST<Integer, Double> st; 
+
+    public SparseVector(int N) {
+        this.N  = N;
+        this.st = new SeparateChainingHashST<Integer, Double>();
+    }
+
+    public void put(int i, double value) {
+        if (i < 0 || i >= N) {
+            throw new IndexOutOfBoundsException("Illegal index");
+        }
+        if (value == 0.0) { st.delete(i); }
+        else              { st.put(i, value); }
+    }
+
+    public double get(int i) {
+        if (i < 0 || i >= N) { 
+            throw new IndexOutOfBoundsException("Illegal index");
+        }
+        if (st.contains(i)) { return st.get(i); }
+        else                { return 0.0; }
+    }
+
+    public int nnz() { return st.size(); }
+
+    public int size() { return N; }
+    ...
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item sparse vector: implementation (contd.)
+\begin{lstlisting}[language=Java]
+public class SparseVector {
+    ...
+    public double dot(SparseVector that) {
+        if (this.N != that.N) {
+            throw new IllegalArgumentException("Vector lengths disagree");
+        }
+        double sum = 0.0;
+        if (this.st.size() <= that.st.size()) {
+            for (int i : this.st.keys()) {
+                if (that.st.contains(i)) { 
+                    sum += this.get(i) * that.get(i); 
+                }
+            }
+        }
+        else  {
+            for (int i : that.st.keys()) {
+                if (this.st.contains(i)) {
+                    sum += this.get(i) * that.get(i);
+                }
+            }
+        }
+        return sum;
+    }
+
+    public double norm() {
+        SparseVector a = this;
+        return Math.sqrt(a.dot(a));
+    }
+    ...
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item sparse vector: implementation (contd.)
+\begin{lstlisting}[language=Java]
+public class SparseVector {
+    ...
+    public SparseVector scale(double alpha) {
+        SparseVector c = new SparseVector(N);
+        for (int i : this.st.keys()) { c.put(i, alpha * this.get(i)); }
+        return c;
+    }
+
+    public SparseVector plus(SparseVector that) {
+        if (this.N != that.N) {
+            throw new IllegalArgumentException("Vector lengths disagree"); 
+        }
+        SparseVector c = new SparseVector(N);
+        for (int i : this.st.keys()) { c.put(i, this.get(i)); }
+        for (int i : that.st.keys()) { c.put(i, that.get(i) + c.get(i)); } 
+        return c;
+    }
+
+    public String toString() {
+        String s = "";
+        for (int i : st.keys()) {
+            s += "(" + i + ", " + st.get(i) + ") ";
+        }
+        return s;
+    }
+    ...
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item sparse matrix: implementation
+\begin{lstlisting}[language=Java]
+public class SparseMatrix {
+    private int N; 
+    private SparseVector[] rows; 
+
+    public SparseMatrix(int N) {
+        this.N  = N;
+        rows = new SparseVector[N];
+        for (int i = 0; i < N; i++) { rows[i] = new SparseVector(N); }
+    }
+
+    public void put(int i, int j, double value) {
+        if (i < 0 || i >= N || j < 0 || j >= N) { 
+            throw new RuntimeException("Illegal index"); 
+        }
+        rows[i].put(j, value);
+    }
+
+    public double get(int i, int j) {
+        if (i < 0 || i >= N || j < 0 || j >= N) { 
+            throw new RuntimeException("Illegal index"); 
+        }
+        return rows[i].get(j);
+    }
+
+    public int nnz() { 
+        int sum = 0;
+        for (int i = 0; i < N; i++) { sum += rows[i].nnz(); }
+        return sum;
+    }
+    ...
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item sparse matrix: implementation (contd.)
+\begin{lstlisting}[language=Java]
+public class SparseMatrix {
+    ...
+    public SparseVector times(SparseVector x) {
+        if (N != x.size()) {
+            throw new RuntimeException("Dimensions disagree");
+        }
+        SparseVector b = new SparseVector(N);
+        for (int i = 0; i < N; i++) { b.put(i, rows[i].dot(x)); }
+        return b;
+    }
+
+    public SparseMatrix plus(SparseMatrix B) {
+        SparseMatrix A = this;
+        if (A.N != B.N) { 
+            throw new RuntimeException("Dimensions disagree"); 
+        }
+        SparseMatrix C = new SparseMatrix(N);
+        for (int i = 0; i < N; i++) { 
+            C.rows[i] = A.rows[i].plus(B.rows[i]); 
+        }
+        return C;
+    }
+
+    public String toString() {
+        String s = "N = " + N + ", nonzeros = " + nnz() + "\n";
+        for (int i = 0; i < N; i++) {
+            s += i + ": " + rows[i] + "\n";
+        }
+        return s;
+    }
+    ...
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,330 @@
+\documentclass[8pt,a4paper,compress]{beamer}
+
+\usepackage{/home/siyer/lib/slides}
+
+\title{Undirected Graphs}
+\date{}
+\begin{document}
+\begin{frame}
+\vfill
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents
+\end{frame}
+
+\section{What are Graphs?}
+\begin{frame}[fragile]
+\begin{itemize}
+\item a graph is a set of $V$ vertices connected pairwise by $E$ edges
+
+\smallskip
+
+\begin{center}
+\includegraphics[scale=0.4]{{./figures/graph1}.png}
+\end{center}
+
+\item we use the names 0 through $V-1$ for the vertices in a $V$-vertex graph
+
+\item we use the notation $v$-$w$ to refer to an edge that connects vertices $v$ and $w$
+
+\item a self-loop is an edge that connects a vertex to itself
+
+\item parallel edges are edges that connect the same pair of vertices  
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{minipage}{220pt}
+\begin{itemize}
+\item the degree of a vertex is the number of vertices connected to it
+
+\item  a path is a sequence of vertices connected by edges
+
+\item a cycle is a path with at least one edge whose first and last vertices are the same
+
+\item the length of a path or a cycle is its number of edges
+
+\item a graph is connected if there is a path from every vertex to every other vertex in the graph
+
+\item a graph that is not connected consists of a set of connected components, which are maximal connected subgraphs
+
+\item an acyclic graph is a graph with no cycles
+
+\item a tree is an acyclic connected graph
+\end{itemize}
+\end{minipage}%
+\begin{minipage}{100pt}
+\begin{center}
+\includegraphics[scale=0.45]{{./figures/graph2}.png}
+\end{center}
+\begin{center}
+\includegraphics[scale=0.45]{{./figures/graph3}.png}
+\end{center}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item graph applications
+\begin{center}
+\begin{tabular}{ccc}
+\textbf{graph} & \textbf{vertex} & \textbf{edge} \\ \hline \\
+communication & telephone, computer & fiber optic cable \\
+circuit & gate, register, processor & wire \\
+mechanical & joint & rod, beam, spring \\
+financial & stock, currency & transactions \\
+transportation & intersection & street \\
+internet & class C network & connection \\
+game & board position & legal move \\
+social relationship & person & friendship \\
+neural network & neuron & synapse \\
+protein network & protein & protein-protein interaction \\
+molecule & atom & bond
+\end{tabular}  
+\end{center}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item Internet
+
+\smallskip
+
+\begin{center}
+\includegraphics[scale=0.1]{{./figures/internet}.png}
+\end{center}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item facebook
+
+\smallskip
+
+\begin{center}
+\includegraphics[scale=0.25]{{./figures/facebook}.png}
+\end{center}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item c.elegans connectome
+
+\smallskip
+
+\begin{center}
+\includegraphics[scale=0.12]{{./figures/celegans}.png}
+\end{center}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item coauthorship
+
+\smallskip
+
+\begin{center}
+\includegraphics[scale=0.25]{{./figures/erdos}.png}
+\end{center}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item some graph-processing problems
+\begin{center}
+\begin{tabular}{cc}
+\textbf{problem} & \textbf{description} \\ \hline \\
+$s$-$t$ path & is there a path between $s$ and $t$? \\ 
+shortest $s$-$t$ path & what is the shortest path between $s$ and $t$? \\
+cycle & is there a cycle in the graph? \\
+Euler cycle & is there a cycle that uses each edge exactly once? \\
+Hamilton cycle & is there a cycle that uses each vertex exactly once? \\
+connectivity & is there a way to connect all of the vertices? \\
+biconnectivity & is there a vertex whose removal disconnects the graph? \\
+planarity & can the graph be drawn in the plane with no crossing edges? \\
+graph isomorphism & do two graph representations denote the same graph?
+\end{tabular}  
+\end{center}
+\end{itemize}
+\end{frame}
+
+\section{Undirected Graphs}
+\begin{frame}[fragile]
+\begin{itemize}
+\item undirected graph API
+\begin{lstlisting}[language={},mathescape]
+public class Graph
+
+    Graph(int V) // create a $V$-vertex graph with no edges
+    Graph(In in) // read a graph from input stream in
+    int V()      // number of vertices
+    int E()      // number of edges
+    void addEdge(int v, int w)   // add edge $v$-$w$ to this graph
+    Iterable<Integer> adj(int v) // vertices adjacent to $v$
+\end{lstlisting}
+
+\item graph input format
+\begin{minipage}{150pt}
+\begin{lstlisting}[language={}]
+$ more tinyG.txt
+13 13
+0 5
+4 3
+0 1
+9 12
+6 4
+5 4
+0 2
+11 12
+9 10
+0 6
+7 8
+9 11
+5 3
+\end{lstlisting}
+\end{minipage}%
+\begin{minipage}{150pt}
+\begin{center}
+\includegraphics[scale=0.5]{{./figures/graph4}.png}
+\end{center}
+\end{minipage}
+
+\item typical graph-processing code
+\begin{lstlisting}[language=Java]
+public static int degree(Graph G, int v) {
+    int degree = 0;
+    for (int w : G.adj(v)) { degree++; }
+    return degree;
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item graph representations
+\begin{itemize}
+\item edge list: maintain a list of the edges (linked list or array)
+
+\item adjacency matrix: maintain a $V$-by-$V$ matrix $M$, such that $M[v][w]$ is 1 if there is an edge from $v$ to $w$, and 0 otherwise
+
+\item adjacency list: maintain a vertex-indexed array of lists
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{ccccc}
+\textbf{representation} & \textbf{space} & \textbf{add edge} & \textbf{is $v$-$w$ an edge?} & \textbf{enumerate \lstinline{adj(v)}} \\ \hline \\
+edge list & $E$ & 1 & $E$ & $E$ \\
+adjacency matrix & $V^2$ & 1$^\dagger$ & 1 & $V$ \\ 
+adjacency list & $E+V$ & 1 & $degree(v)$ & $degree(v)$ 
+\end{tabular}  
+
+\smallskip
+
+\small $\dagger$ disallows parallel edges
+\end{center}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item implementation
+\begin{lstlisting}[language=Java]
+public class Graph {
+    private final int V;
+    private int E;
+    private LinkedBag<Integer>[] adj;
+
+    public Graph(int V) {
+        if (V < 0) {
+            throw new IllegalArgumentException(...); 
+        }
+        this.V = V;
+        this.E = 0;
+        adj = (LinkedBag<Integer>[]) new LinkedBag[V];
+        for (int v = 0; v < V; v++) {
+            adj[v] = new LinkedBag<Integer>();
+        }
+    }
+
+    public Graph(In in) {
+        this(in.readInt());
+        int E = in.readInt();
+        if (E < 0) { 
+            throw new IllegalArgumentException(...);
+        }
+        for (int i = 0; i < E; i++) {
+            int v = in.readInt();
+            int w = in.readInt();
+            addEdge(v, w);
+        }
+    }
+    ...
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item implementation (contd.)
+\begin{lstlisting}[language=Java]
+public class Graph {
+    ...
+    public int V() { return V; }
+
+    public int E() { return E; }
+ 
+    private void validateVertex(int v) {
+        if (v < 0 || v >= V) {
+            throw new IndexOutOfBoundsException(...);
+        }
+    }
+
+    public void addEdge(int v, int w) {
+        validateVertex(v);
+        validateVertex(w);
+        E++;
+        adj[v].add(w);
+        adj[w].add(v);
+    }
+
+    public Iterable<Integer> adj(int v) {
+        validateVertex(v);
+        return adj[v];
+    }
+    ...
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\section{Depth-First Search}
+\begin{frame}[fragile]
+\begin{itemize}
+\item 
+\end{itemize}
+\end{frame}
+
+\section{Breadth-First Search}
+\begin{frame}[fragile]
+\begin{itemize}
+\item 
+\end{itemize}
+\end{frame}
+
+\section{Connected Components}
+\begin{frame}[fragile]
+\begin{itemize}
+\item 
+\end{itemize}
+\end{frame}
+\end{document}

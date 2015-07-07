@@ -54,14 +54,23 @@
 \item an acyclic graph is a graph with no cycles
 
 \item a tree is an acyclic connected graph
+
+\item a bipartite graph is a graph whose vertices can be divided into two sets such that all edges connect a vertex in one set with a vertex in the other set
 \end{itemize}
 \end{minipage}%
 \begin{minipage}{100pt}
 \begin{center}
 \includegraphics[scale=0.45]{{./figures/graph2}.png}
-\end{center}
-\begin{center}
+
+\tiny anatomy of a graph
+
 \includegraphics[scale=0.45]{{./figures/graph3}.png}
+
+\tiny a tree
+
+\includegraphics[scale=0.45]{{./figures/bipartite}.png}
+
+\tiny a bipartite graph
 \end{center}
 \end{minipage}
 \end{frame}
@@ -149,6 +158,7 @@ Euler cycle & is there a cycle that uses each edge exactly once? \\
 Hamilton cycle & is there a cycle that uses each vertex exactly once? \\
 connectivity & is there a way to connect all of the vertices? \\
 biconnectivity & is there a vertex whose removal disconnects the graph? \\
+bipartiteness & is a graph bipartite? \\ 
 planarity & can the graph be drawn in the plane with no crossing edges? \\
 graph isomorphism & do two graph representations denote the same graph?
 \end{tabular}  
@@ -307,24 +317,334 @@ public class Graph {
 \end{itemize}
 \end{frame}
 
-\section{Depth-First Search}
+\section{Depth-First Search (DFS)}
+\begin{frame}[fragile]
+\begin{minipage}{210pt}
+\begin{itemize}
+\item goal: systematically traverse a graph
+
+\item idea: mimic maze exploration
+
+\item typical applications
+\begin{itemize}
+\item find all vertices connected to a given source vertex
+
+\item find a path between two vertices
+\end{itemize}
+
+\item to visit a vertex $v$
+\begin{itemize}
+\item mark vertex $v$ as visited
+
+\item recursively visit all unmarked vertices adjacent to $v$
+\end{itemize}
+
+\item data structures
+\begin{itemize}
+\item Boolean array \lstinline{marked[][]} to mark visited vertices
+
+\item integer array \lstinline{edgeTo[]} to keep track of paths; \lstinline{edgeTo[w] = v} means that edge $v$-$w$ taken to visit $w$ for first time
+
+\item function-call stack for recursion
+\end{itemize}
+\end{itemize}
+\end{minipage}
+\begin{minipage}{90pt}
+\begin{center}
+\includegraphics[scale=0.4]{{./figures/graph5}.png}
+
+\smallskip
+
+\small depth-first maze exploration
+\end{center}
+\end{minipage}
+\end{frame}
+
 \begin{frame}[fragile]
 \begin{itemize}
-\item 
+\item design pattern for graph processing: decouple graph data type from graph processing
+\begin{itemize}
+\item create a \lstinline{Graph} object
+
+\item pass the \lstinline{Graph} object to a graph-processing routine
+
+\item query the graph-processing routine for information
+\end{itemize}
+
+\begin{lstlisting}[language={},mathescape]
+public class Paths
+
+    Paths(Graph G, int s)           // find paths in $G$ from source $s$
+    boolean hasPathTo(int v)        // is there a path from $s$ to $v$?
+    Iterable<Integer> pathTo(int v) // path from $s$ to $v$, or null
+\end{lstlisting}
+
+\begin{lstlisting}[language=Java]
+    ...
+    Paths paths = new Paths(G, s);
+    for (int v = 0; v < G.V(); v++) {
+        if (paths.hasPathTo(v)) {
+            StdOut.println(v);
+        }
+    }
+    ...
+\end{lstlisting}
 \end{itemize}
 \end{frame}
 
-\section{Breadth-First Search}
 \begin{frame}[fragile]
 \begin{itemize}
-\item 
+\item depth-first search: implementation
+\begin{lstlisting}[language=Java]
+public class DepthFirstPaths {
+    private boolean[] marked; 
+    private int[] edgeTo; 
+    private final int s; 
+
+    public DepthFirstPaths(Graph G, int s) {
+        this.s = s;
+        edgeTo = new int[G.V()];
+        marked = new boolean[G.V()];
+        dfs(G, s);
+    }
+
+    private void dfs(Graph G, int v) {
+        marked[v] = true;
+        for (int w : G.adj(v)) {
+            if (!marked[w]) {
+                edgeTo[w] = v;
+                dfs(G, w);
+            }
+        }
+    }
+
+    public boolean hasPathTo(int v) { return marked[v]; }
+
+    public Iterable<Integer> pathTo(int v) {
+        if (!hasPathTo(v)) { return null; }
+        LinkedStack<Integer> path = new LinkedStack<Integer>();
+        for (int x = v; x != s; x = edgeTo[x]) { path.push(x); }
+        path.push(s);
+        return path;
+    }
+    ...
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item depth-first search: trace
+\begin{center}
+\includegraphics[scale=0.37]{{./figures/graph6}.png}
+
+\smallskip
+
+\small trace of depth-first search to find vertices connected to 0
+\end{center}
+\end{itemize}
+\end{frame}
+
+\section{Breadth-First Search (BFS)}
+\begin{frame}[fragile]
+\begin{minipage}{210pt}
+\begin{itemize}
+\item goal: given a graph and a source vertex $s$, support queries of the form
+\begin{itemize}
+\item is there a path from $s$ to a given target vertex $v$?
+
+\item if so, find a shortest such path (one with minimal number of edges)
+\end{itemize}
+
+\item repeat until queue is empty
+\begin{itemize}
+\item remove vertex $v$ from queue
+
+\item add to queue all unmarked vertices adjacent to v and mark them
+\end{itemize}
+\end{itemize}
+\end{minipage}
+\begin{minipage}{90pt}
+\begin{center}
+\includegraphics[scale=0.4]{{./figures/graph7}.png}
+
+\smallskip
+
+\small breadth-first maze exploration
+\end{center}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item breadth-first search: implementation
+\begin{lstlisting}[language=Java]
+public class BreadthFirstPaths {
+    private static final int INFINITY = Integer.MAX_VALUE;
+    private boolean[] marked; 
+    private int[] edgeTo; 
+    private int[] distTo;   
+
+    public BreadthFirstPaths(Graph G, int s) {
+        marked = new boolean[G.V()];
+        distTo = new int[G.V()];
+        edgeTo = new int[G.V()];
+        bfs(G, s);
+    }
+
+    private void bfs(Graph G, int s) {
+        LinkedQueue<Integer> q = new LinkedQueue<Integer>();
+        for (int v = 0; v < G.V(); v++) { distTo[v] = INFINITY; }
+        distTo[s] = 0;
+        marked[s] = true;
+        q.enqueue(s);
+        while (!q.isEmpty()) {
+            int v = q.dequeue();
+            for (int w : G.adj(v)) {
+                if (!marked[w]) {
+                    edgeTo[w] = v;
+                    distTo[w] = distTo[v] + 1;
+                    marked[w] = true;
+                    q.enqueue(w);
+                }
+            }
+        }
+    }
+    ...
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item breadth-first search: implementation (contd.)
+\begin{lstlisting}[language=Java]
+public class BreadthFirstPaths {
+    ...
+    public boolean hasPathTo(int v) { return marked[v]; }
+
+    public int distTo(int v) { return distTo[v]; }
+
+    public Iterable<Integer> pathTo(int v) {
+        if (!hasPathTo(v)) return null;
+        LinkedStack<Integer> path = new LinkedStack<Integer>();
+        int x;
+        for (x = v; distTo[x] != 0; x = edgeTo[x]) {
+            path.push(x);
+        }
+        path.push(x);
+        return path;
+    }
+    ...
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item breadth-first search: trace
+\begin{center}
+\includegraphics[scale=0.37]{{./figures/graph8}.png}
+
+\smallskip
+
+\small trace of breadth-first search to find all paths from 0
+\end{center}
 \end{itemize}
 \end{frame}
 
 \section{Connected Components}
 \begin{frame}[fragile]
 \begin{itemize}
-\item 
+\item vertices $v$ and $w$ are connected if there is a path between them
+
+\item goal: preprocess graph to answer queries of the form \emph{is $v$ connected to $w$} in constant time
+
+\begin{lstlisting}[language={},mathescape]
+public class CC
+
+    CC(Graph G)                     // find connected components in $G$
+    boolean connected(int v, int w) // are $v$ and $w$ connected?
+    int count()     // number of connected components
+    int id(int v)   // component identifier for $v$ from $[0, \text{count()} - 1]$
+    int size(int v) // number of vertices in $v$'s component
+\end{lstlisting} 
+
+\smallskip
+
+use union-find? not quite
+
+\smallskip
+
+use depth-first search? yes
 \end{itemize}
 \end{frame}
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item connected components: implementation
+\begin{lstlisting}[language=Java]
+public class CC {
+    private boolean[] marked; 
+    private int[] id; 
+    private int[] size;  
+    private int count;  
+    
+   public CC(Graph G) {
+        marked = new boolean[G.V()];
+        id = new int[G.V()];
+        size = new int[G.V()];
+        for (int v = 0; v < G.V(); v++) {
+            if (!marked[v]) {
+                dfs(G, v);
+                count++;
+            }
+        }
+    }
+
+    private void dfs(Graph G, int v) {
+        marked[v] = true;
+        id[v] = count;
+        size[count]++;
+        for (int w : G.adj(v)) { if (!marked[w]) { dfs(G, w); } }
+    }
+    
+    public boolean connected(int v, int w) { return id(v) == id(w); }
+
+    public int count() { return count; }
+
+    public int id(int v) { return id[v]; }
+
+    public int size(int v) { return size[id[v]]; }
+    ...
+}
+\end{lstlisting} 
+\end{itemize}
+\end{frame}
+
+\section{Graph Traversal Summary}
+\begin{frame}[fragile]
+\begin{itemize}
+\item BFS and DFS enables efficient solution of many (but not all) graph problems
+\begin{center}
+\begin{tabular}{cccc}
+\textbf{problem} & \textbf{BFS} & \textbf{DFS} & \textbf{time} \\ \hline \\
+path between $s$ and $t$ & \cmark & \cmark & $E + V$ \\
+shortest path between $s$ and $t$ & \cmark & & $E+V$ \\
+cycle & \cmark & \cmark & $E+V$ \\
+Euler cycle & & \cmark & $E+V$ \\
+Hamilton cycle & & & $2^{1.657V}$ \\
+connected components & \cmark & \cmark & $E+V$ \\
+biconnected components & & \cmark & $E+V$ \\
+bipartiteness & \cmark & \cmark & $E+V$ \\
+planarity & & \cmark & $E+V$ \\
+graph isomorphism & & & $2^{c\sqrt{V\log V}}$ 
+\end{tabular} 
+\end{center}
+\end{itemize}
+\end{frame}
+
 \end{document}

@@ -271,7 +271,7 @@ $ java KruskalMST tinyEWG.txt
 
 \item the greedy algorithm computes the MST
 
-\item Kruskal's and Prim's aogrithms that we will encounter later choose cuts and minimum-weight edges efficiently
+\item Kruskal's and Prim's algorithms that we will encounter later choose cuts and minimum-weight edges efficiently
 \end{itemize}
 \end{minipage}%
 \begin{minipage}{100pt}
@@ -321,7 +321,7 @@ public class KruskalMST {
 \end{lstlisting}
 
 \item Kruskal's algorithm computes MST in time proportional to
-$E \log E$ and extra space proportional to $V$ in the worst case
+$E \log E$ in the worst case
 \end{itemize}
 \end{minipage}%
 \begin{minipage}{100pt}
@@ -380,7 +380,7 @@ public class LazyPrimMST {
         pq = new HeapMinPQ<Edge>();
         marked = new boolean[G.V()];
         for (int v = 0; v < G.V(); v++) {
-            if (!marked[v]) prim(G, v);  
+            if (!marked[v]) { prim(G, v); }  
         }  
     }
     ...
@@ -424,7 +424,7 @@ public class LazyPrimMST {
 \end{lstlisting}
 
 \item lazy Prim's algorithm computes the MST in time proportional
-to $E \log E$ and extra space proportional to $E$ in the worst case
+to $E \log E$ in the worst case
 \end{itemize}
 \end{minipage}%
 \begin{minipage}{90pt}
@@ -526,21 +526,25 @@ public class PrimMST {
         LinkedQueue<Edge> mst = new LinkedQueue<Edge>();
         for (int v = 0; v < edgeTo.length; v++) {
             Edge e = edgeTo[v];
-            if (e != null) { mst.enqueue(e); }
+            if (e != null) { 
+                mst.enqueue(e); 
+            }
         }
         return mst;
     }
 
     public double weight() {
         double weight = 0.0;
-        for (Edge e : edges()) { weight += e.weight(); }
+        for (Edge e : edges()) { 
+            weight += e.weight(); 
+        }
         return weight;
     }
     ...
 }
 \end{lstlisting}
 
-\item a binary heap based implementation of eager Prim's algorithm computes the MST in time proportional to $E \log V$ and extra space proportional to $V$ in the worst case
+\item a binary heap based implementation of eager Prim's algorithm computes the MST in time proportional to $E \log V$ in the worst case
 \end{itemize}
 \end{minipage}%
 \begin{minipage}{90pt}

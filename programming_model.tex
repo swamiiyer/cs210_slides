@@ -550,6 +550,38 @@ Bird's-eye biew of a Java program:
 
 \bigskip
 
+Command-line arguments are listed after the program name as follows:
+
+\begin{lstlisting}[language=bash]
+$ java P arg_1 arg_2 ... arg_n
+\end{lstlisting}
+and accessed within the \lstinline$main()$ method of the program via the array \lstinline$args$  as \lstinline$args[0]$, \lstinline$args[1]$, $\dots$, \lstinline$args[n - 1]$
+
+\bigskip
+
+Example:
+
+\begin{lstlisting}[language=Java]
+import edu.princeton.cs.algs4.StdOut;
+
+public class UseArgument {
+    public static void main(String[] args) {
+        StdOut.print("Hi, ");
+        StdOut.print(args[0]);
+        StdOut.println(". How are you?");
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language={}]
+$ java UseArgument Alice
+Hi, Alice. How are you?
+$ java UseArgument Bob
+Hi, Bob. How are you?
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
 Standard output (\lstinline{edu.princeton.cs.algs4.StdOut}):
 \begin{center}
 \begin{tabular}{cc}

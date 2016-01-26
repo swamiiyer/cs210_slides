@@ -18,49 +18,59 @@
 
 \section{Using Abstract Data Types}
 \begin{frame}[fragile]
+An abstract data type (ADT) is one whose representation is hidden from the client
+
+\bigskip
+
+We use an API to specify the behavior of an abstract data type
+
+\bigskip
+
+Example (\lstinline{Counter} data type):
+\begin{center}
+\begin{tabular}{cc}
+method & description \\ \hline
+\lstinline$Counter(String id)$ & creates a counter named $id$ \\
+\lstinline$void increment()$ & increments the counter by one \\
+\lstinline$int tally()$ & returns number of increments since creation \\
+\lstinline$String toString()$ & returns string representation of the counter \\
+\lstinline$int compareTo(Counter that)$ & compares this counter to $that$
+\end{tabular} 
+\end{center}
+
+\bigskip
+
+Similarities with a library of static methods:
 \begin{itemize}
-\item an abstract data type (ADT) is a data type whose representation is hidden from the client
-
-\item we use an API to specify the behavior of an abstract data type
-
-\item \lstinline{Counter} data type
-\begin{lstlisting}[language={},mathescape]
-public class Counter implements Comparable<Counter> 
-
-    Counter(String id) // create a counter named $id$
-    void increment()   // increment the counter by one
-    int tally()        // number of increments since creation
-    String toString()  // string representation
-    ...
-\end{lstlisting}
-
-\item similarities with a library of static methods
-\begin{itemize}
-\item both are implemented as a Java class
-\item instance methods may take zero or more arguments of a specified type, separated by commas and enclosed in parentheses
-\item they may provide a return value of a specified type or no return value (signified by \lstinline{void})
+\item Both are implemented as a Java class
+\item Instance methods may take zero or more arguments of a specified type, separated by commas and enclosed in parentheses
+\item They may provide a return value of a specified type or no return value (signified by \lstinline{void})
 \end{itemize}
 
-\item differences from a library of static methods
+\bigskip
+
+Differences from a library of static methods:
 \begin{itemize}
-\item some entries (called constructors) have the same name as the class and lack a return type
-\item instance methods lack the \lstinline{static} modifier, and their purpose is to operate on data type values
-\item some instance methods (called inherited methods) are present so as to follow Java conventions
-\end{itemize}
+\item Some entries (called constructors) have the same name as the class and lack a return type
+\item Instance methods lack the \lstinline{static} modifier, and their purpose is to operate on data type values
+\item Some instance methods are inherited from parent classes
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item every Java data type inherits from \lstinline{java.lang.Object}, the \lstinline{toString()}, \lstinline{equals()}, and \lstinline{hashCode()} methods
+Every Java data type inherits from \lstinline{java.lang.Object}, the \lstinline{toString()}, \lstinline{equals()}, and \lstinline{hashCode()} methods
 
-\item an API for a data type allows us to write client code without knowing details of the implementation
+\bigskip
 
-\item an object is an entity that can take on a data-type value
+An object is an entity that can take on a data-type value
 
-\item objects are characterized by: state, which is a value from its data type; identity (place in memory), which distinguishes one object from another; and behavior, which is the effect of data-type operations
+\bigskip
 
-\item to create (or instantiate) an object, we invoke a constructor by using the keyword \lstinline{new} followed by the class name, followed by \lstinline{()} (or a list of argument values enclosed in parentheses, if the constructor takes arguments)
+An object is characterized by its state (value from its data type), identity (place in memory), and behavior (effect of data-type operations)
+
+\bigskip
+
+To create (or instantiate) an object, we invoke a constructor using the keyword \lstinline{new} followed by the class name, followed by 0 or more arguments, enclosed in parentheses and separated by commas
 
 \begin{lstlisting}[language=Java]
 Counter heads = new Counter("heads");
@@ -69,30 +79,37 @@ Counter tails = new Counter("tails");
 
 \begin{center}
 \includegraphics[scale=0.8]{./figures/obj_rep.pdf}
+
+\smallskip
+
+\tiny Object representation in memory
 \end{center}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item the purpose of an instance method is to operate on data-type values
+The purpose of an instance method is to operate on data-type values
 
-\item an instance method is invoked by writing a variable name that refers to an object, followed by a period, followed by an instance method name, followed by 0 or more arguments, enclosed in parentheses and separated by commas 
+\bigskip
 
-\item simulating $T$ coin flips
+An instance method is invoked as object name, followed by a period, followed by the method name, followed by 0 or more arguments, enclosed in parentheses and separated by commas
+
+\bigskip
+
+Example (simulating $T$ coin flips):
+
 \begin{lstlisting}[language=Java]
+import edu.princeton.cs.algs4.Counter;
+import edu.princeton.cs.algs4.StdOut;
+import edu.princeton.cs.algs4.StdRandom;
+
 public class Flips {
     public static void main(String[] args) {
         int T = Integer.parseInt(args[0]);
         Counter heads = new Counter("heads");
         Counter tails = new Counter("tails");
         for (int t = 0; t < T; t++) {
-            if (StdRandom.bernoulli(0.5)) {
-                heads.increment();
-            }
-            else {
-                tails.increment();
-            }
+            if (StdRandom.bernoulli(0.5)) { heads.increment(); }
+            else { tails.increment(); }
         }
         StdOut.println(heads);
         StdOut.println(tails);
@@ -108,17 +125,23 @@ $ java Flips 1000000
 500578 tails
 delta: 1156
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item an assignment statement with a reference type creates a copy (an alias) of the reference, not a new object
+An assignment statement with a reference type creates a copy (an alias) of the reference, not a new object
 
-\item you can pass objects as arguments to methods and you can also use an object as a return value from a method
+\bigskip
 
-\item simulating $T$ coin flips and finding out who (heads or tails) is the winner
+We can pass objects as arguments to methods and can also use an object as a return value from a method
+
+\bigskip
+
+Example (simulating $T$ coin flips and finding out if heads or tails is the winner):
 \begin{lstlisting}[language=Java]
+import edu.princeton.cs.algs4.Counter;
+import edu.princeton.cs.algs4.StdOut;
+import edu.princeton.cs.algs4.StdRandom;
+
 public class FlipsMax {
     public static Counter max(Counter x, Counter y) {
         return x.tally() > y.tally() ? x : y;
@@ -132,12 +155,8 @@ public class FlipsMax {
             if (StdRandom.bernoulli(0.5)) { heads.increment(); }
             else { tails.increment(); }
         }
-        if (heads.tally() == tails.tally()) {
-            StdOut.println("Tie");
-        }
-        else {
-            StdOut.println(max(heads, tails) + " wins");
-        }
+        if (heads.tally() == tails.tally()) { StdOut.println("Tie"); }
+        else { StdOut.println(max(heads, tails) + " wins"); }
     }
 }
 \end{lstlisting}
@@ -146,32 +165,35 @@ public class FlipsMax {
 $ java FlipsMax 1000000
 501181 heads wins
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item in Java, every value of any nonprimitive type is an object, and in particular, arrays are objects 
+In Java, every value of any nonprimitive type is an object, and in particular, arrays are objects 
 
-\item array entries can be of any type, including reference types, ie, they can be objects
+\bigskip
 
-\item simulating $T$ rolls of a die
+Array entries can be of any type, including reference types, ie, they can be objects
+
+\bigskip
+
+Example (simulating $T$ rolls of a die):
+
 \begin{lstlisting}[language=Java]
+import edu.princeton.cs.algs4.Counter;
+import edu.princeton.cs.algs4.StdOut;
+import edu.princeton.cs.algs4.StdRandom;
+
 public class Rolls {
     public static void main(String[] args) {
         int T = Integer.parseInt(args[0]);
         int SIDES = 6;
         Counter[] rolls = new Counter[SIDES + 1];
-        for (int i = 1; i <= SIDES; i++) {
-            rolls[i] = new Counter(i + "'s");
-        }
+        for (int i = 1; i <= SIDES; i++) { rolls[i] = new Counter(i + "'s"); }
         for (int t = 0; t < T; t++) {
             int result = StdRandom.uniform(1, SIDES + 1);
             rolls[result].increment();
         }
-        for (int i = 1; i <= SIDES; i++) {
-            StdOut.println(rolls[i]);
-        }
+        for (int i = 1; i <= SIDES; i++) { StdOut.println(rolls[i]); }
     }
 }
 \end{lstlisting}
@@ -185,36 +207,46 @@ $ java Rolls 1000000
 166822 5's
 166675 6's
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \section{Examples of Abstract Data Types}
 \begin{frame}[fragile]
-\begin{itemize}
-\item standard Java system types in \lstinline{java.lang}
-\begin{lstlisting}[language={},mathescape]
-Integer       // int wrapper
-Double        // double wrapper
-String        // indexed chars
-StringBuilder // builder for strings
-\end{lstlisting}
+Standard Java system types in \lstinline{java.lang}:
+\begin{center}
+\begin{tabular}{cc}
+type & description \\ \hline
+\lstinline$Integer$ & \lstinline$int$ wrapper \\
+\lstinline$Double$ & \lstinline$double$ wrapper \\
+\lstinline$String$ & indexed chars \\
+$\dots$ & $\dots$
+\end{tabular} 
+\end{center}
 
-\item other Java Types
-\begin{lstlisting}[language={},mathescape]
-java.awt.Color // colors
-java.awt.Font  // fonts
-java.net.URL   // URLs
-java.io.File   // files
-\end{lstlisting}
+\bigskip
 
-\item standard IO types from the text
+Other Java Types:
+\begin{center}
+\begin{tabular}{cc}
+type & description \\ \hline
+\lstinline$java.awt.Color$ & colors \\
+\lstinline$java.net.URL$ & URLs \\
+\lstinline$java.io.File$ & files \\
+$\dots$ & $\dots$
+\end{tabular} 
+\end{center}
+
+\bigskip
+
+Standard IO types from the text:
 \begin{lstlisting}[language={},mathescape]
 In   // input stream
 Out  // output stream
 Draw // drawing
 \end{lstlisting}
 
-\item data-oriented types for client examples
+\bigskip
+
+Data-oriented types for client examples:
 \begin{lstlisting}[language={},mathescape]
 Point2D     // point in the plane
 Interval1D  // 1D interval
@@ -223,19 +255,19 @@ Date        // date
 Transaction // transaction
 \end{lstlisting}
 
-\item types for analysis of algorithms
+\bigskip
+
+Types for analysis of algorithms:
 \begin{lstlisting}[language={},mathescape]
 Counter           // counter
 Accumulator       // accumulator
 VisualAccumulator // visual version
 Stopwatch         // stopwatch
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item collection types
+Collection types:
 \begin{lstlisting}[language={},mathescape]
 Stack                  // pushdown stack
 Queue                  // FIFO queue
@@ -247,7 +279,9 @@ SET                    // set
 StringST               // symbol table (string keys)
 \end{lstlisting}
 
-\item data-oriented graph types
+\bigskip
+
+Data-oriented graph types:
 \begin{lstlisting}[language={},mathescape]
 Graph               // graph
 Digraph             // directed graph
@@ -257,7 +291,9 @@ DirectedEdge        // edge (directed, weighted)
 EdgeWeightedDigraph // graph (directed, weighted)
 \end{lstlisting}
 
-\item operations-oriented graph types
+\bigskip
+
+Operations-oriented graph types:
 \begin{lstlisting}[language={},mathescape]
 UF                // dynamic connectivity
 DepthFirstPaths   // DFS path searcher
@@ -273,7 +309,6 @@ SCC               // strong components
 MST               // minimum spanning tree
 SP                // shortest paths
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -640,146 +675,6 @@ public class Date implements Comparable<Date> {
     
     public String toString() { 
         return month() + "/" + day() + "/" + year();
-    }
-    ...
-}
-\end{lstlisting}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{itemize}
-\item \lstinline{Accumulator} API
-\begin{lstlisting}[language={},mathescape]
-public class Accumulator
-
-    Accumulator()                 // create an accumulator
-    void addDataValue(double val) // add a new data value
-    double mean()                 // mean of all data values
-    String toString()             // string representation
-\end{lstlisting}
-
-\item \lstinline{Accumulator} test client
-\begin{lstlisting}[language=Java]
-public class Accumulator {
-    ...
-    public static void main(String[] args) {
-        int T = Integer.parseInt(args[0]);
-        Accumulator a = new Accumulator();
-        for (int t = 0; t < T; t++) {
-            a.addDataValue(StdRandom.random());
-        }
-        StdOut.println(a);
-    }
-}
-\end{lstlisting}
-
-\begin{lstlisting}[language={}]
-$ java Accumulator 1000
-Mean (1000 values): 0.50832
-$ java Accumulator 1000000
-Mean (1000000 values): 0.49970
-$ java Accumulator 1000000
-Mean (1000000 values): 0.49976
-\end{lstlisting}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{itemize}
-\item \lstinline{Accumulator} implementation
-\begin{lstlisting}[language=Java]
-public class Accumulator {
-    private double total;
-    private int N;
-
-    public void addDataValue(double val) {
-        N++;
-        total += val;
-    }
-
-    public double mean() {
-        return total / N;
-    }
-
-    public String toString() {
-        return "Mean (" + N + " values): " + String.format("%7.5f", mean());
-    }
-    ...
-}
-\end{lstlisting}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{itemize}
-\item \lstinline{VisualAccumulator} API
-\begin{lstlisting}[language={},mathescape]
-public class VisualAccumulator
-
-    VisualAccumulator(int trials, double max) // create a visual accumulator
-    void addDataValue(double val)             // add a new data value
-    double mean()                             // mean of all data values
-    String toString()                         // string representation
-\end{lstlisting}
-
-
-\item \lstinline{VisualAccumulator} test client
-\begin{lstlisting}[language=Java]
-public class VisualAccumulator {
-    ...
-    public static void main(String[] args) {
-        int T = Integer.parseInt(args[0]);
-        VisualAccumulator a = new VisualAccumulator(T, 1.0);
-        for (int t = 0; t < T; t++) {
-            a.addDataValue(StdRandom.random());
-        }
-        StdOut.println(a);
-    }
-}
-\end{lstlisting}
-
-\begin{minipage}{160pt}
-\begin{lstlisting}[language={}]
-$ java VisualAccumulator 10000
-Mean (10000 values):  0.49558
-\end{lstlisting}
-\end{minipage}%
-\begin{minipage}{120pt}
-\hfill \includegraphics[scale=0.13]{./figures/visual_acc.pdf}
-\end{minipage}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{itemize}
-\item \lstinline{VisualAccumulator} implementation
-\begin{lstlisting}[language=Java]
-public class VisualAccumulator {
-    private double total;
-    private int N;
-
-    public VisualAccumulator(int trials, double max) {
-        StdDraw.setXscale(0, trials);
-        StdDraw.setYscale(0, max);
-        StdDraw.setPenRadius(.005);
-    }
-
-    public void addDataValue(double val) {
-        N++;
-        total += val;
-        StdDraw.setPenColor(StdDraw.DARK_GRAY);
-        StdDraw.point(N, val);
-        StdDraw.setPenColor(StdDraw.RED);
-        StdDraw.point(N, mean());
-    }
-
-    public double mean() {
-        return total / N;
-    }
-
-    public String toString() {
-        return "Mean (" + N + " values): " + String.format("%7.5f", mean());
     }
     ...
 }

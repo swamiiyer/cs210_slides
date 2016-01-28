@@ -22,11 +22,11 @@ An abstract data type (ADT) is one whose representation is hidden from the clien
 
 \bigskip
 
-We use an API to specify the behavior of an abstract data type
+We use an API to specify the behavior of an ADT
 
 \bigskip
 
-Example (\lstinline{Counter} data type):
+Example (a comparable \lstinline{Counter} data type)
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
@@ -37,10 +37,10 @@ method & description \\ \hline
 \lstinline$int compareTo(Counter that)$ & compares this counter to $that$
 \end{tabular} 
 \end{center}
+\end{frame}
 
-\bigskip
-
-Similarities with a library of static methods:
+\begin{frame}[fragile]
+Similarities with a library of static methods
 \begin{itemize}
 \item Both are implemented as a Java class
 \item Instance methods may take zero or more arguments of a specified type, separated by commas and enclosed in parentheses
@@ -49,7 +49,7 @@ Similarities with a library of static methods:
 
 \bigskip
 
-Differences from a library of static methods:
+Differences from a library of static methods
 \begin{itemize}
 \item Some entries (called constructors) have the same name as the class and lack a return type
 \item Instance methods lack the \lstinline{static} modifier, and their purpose is to operate on data type values
@@ -66,7 +66,7 @@ An object is an entity that can take on a data-type value
 
 \bigskip
 
-An object is characterized by its state (value from its data type), identity (place in memory), and behavior (effect of data-type operations)
+An object is characterized by its state (values from its data type), identity (place in memory), and behavior (effect of data-type operations)
 
 \bigskip
 
@@ -95,7 +95,7 @@ An instance method is invoked as object name, followed by a period, followed by 
 
 \bigskip
 
-Example (simulating $T$ coin flips):
+Example (simulating $T$ coin flips)
 
 \begin{lstlisting}[language=Java]
 import edu.princeton.cs.algs4.Counter;
@@ -136,7 +136,7 @@ We can pass objects as arguments to methods and can also use an object as a retu
 
 \bigskip
 
-Example (simulating $T$ coin flips and finding out if heads or tails is the winner):
+Example (simulating $T$ coin flips and finding out if heads or tails is the winner)
 \begin{lstlisting}[language=Java]
 import edu.princeton.cs.algs4.Counter;
 import edu.princeton.cs.algs4.StdOut;
@@ -176,7 +176,7 @@ Array entries can be of any type, including reference types, ie, they can be obj
 
 \bigskip
 
-Example (simulating $T$ rolls of a die):
+Example (simulating $T$ rolls of a die)
 
 \begin{lstlisting}[language=Java]
 import edu.princeton.cs.algs4.Counter;
@@ -211,7 +211,7 @@ $ java Rolls 1000000
 
 \section{Examples of Abstract Data Types}
 \begin{frame}[fragile]
-Standard Java system types in \lstinline{java.lang}:
+Standard Java system types in \lstinline{java.lang}
 \begin{center}
 \begin{tabular}{cc}
 type & description \\ \hline
@@ -222,9 +222,7 @@ $\dots$ & $\dots$
 \end{tabular} 
 \end{center}
 
-\bigskip
-
-Other Java Types:
+Other Java Types
 \begin{center}
 \begin{tabular}{cc}
 type & description \\ \hline
@@ -235,335 +233,167 @@ $\dots$ & $\dots$
 \end{tabular} 
 \end{center}
 
-\bigskip
+Standard IO types from the text
+\begin{center}
+\begin{tabular}{cc}
+type & description \\ \hline
+\lstinline$In$  & input stream \\
+\lstinline$Out$ & output stream \\
+$\dots$ & $\dots$
+\end{tabular} 
+\end{center}
 
-Standard IO types from the text:
-\begin{lstlisting}[language={},mathescape]
-In   // input stream
-Out  // output stream
-Draw // drawing
-\end{lstlisting}
-
-\bigskip
-
-Data-oriented types for client examples:
-\begin{lstlisting}[language={},mathescape]
-Point2D     // point in the plane
-Interval1D  // 1D interval
-Interval2D  // 2D interval
-Date        // date
-Transaction // transaction
-\end{lstlisting}
-
-\bigskip
-
-Types for analysis of algorithms:
-\begin{lstlisting}[language={},mathescape]
-Counter           // counter
-Accumulator       // accumulator
-VisualAccumulator // visual version
-Stopwatch         // stopwatch
-\end{lstlisting}
+Data-oriented types for client examples
+\begin{center}
+\begin{tabular}{cc}
+type & description \\ \hline
+\lstinline$Date$ & date \\
+\lstinline$Transaction$ & transaction \\
+$\dots$ & $\dots$
+\end{tabular} 
+\end{center}
 \end{frame}
 
 \begin{frame}[fragile]
-Collection types:
-\begin{lstlisting}[language={},mathescape]
-Stack                  // pushdown stack
-Queue                  // FIFO queue
-Bag                    // bag
-MinPQ, MaxPQ           // priority queue
-IndexMinPQ, IndexMaxPQ // priority queue (indexed)
-ST                     // symbol table
-SET                    // set
-StringST               // symbol table (string keys)
-\end{lstlisting}
+Types for analysis of algorithms
+\begin{center}
+\begin{tabular}{cc}
+type & description \\ \hline
+\lstinline$Counter$ &  counter \\
+\lstinline$Stopwatch$ & stopwatch \\
+$\dots$ & $\dots$
+\end{tabular} 
+\end{center}
 
-\bigskip
+Collection types
+\begin{center}
+\begin{tabular}{cc}
+type & description \\ \hline
+\lstinline$LinkedBag$ & bag \\
+\lstinline$LinkedStack$ & pushdown stack \\
+$\dots$ & $\dots$
+\end{tabular} 
+\end{center}
 
-Data-oriented graph types:
-\begin{lstlisting}[language={},mathescape]
-Graph               // graph
-Digraph             // directed graph
-Edge                // edge (weighted)
-EdgeWeightedGraph   // graph (weighted)
-DirectedEdge        // edge (directed, weighted)
-EdgeWeightedDigraph // graph (directed, weighted)
-\end{lstlisting}
+Data-oriented graph types
+\begin{center}
+\begin{tabular}{cc}
+type & description \\ \hline
+\lstinline$Graph$  & undirected graph \\
+\lstinline$Digraph$ & directed graph \\
+$\dots$ & $\dots$
+\end{tabular} 
+\end{center}
 
-\bigskip
-
-Operations-oriented graph types:
-\begin{lstlisting}[language={},mathescape]
-UF                // dynamic connectivity
-DepthFirstPaths   // DFS path searcher
-CC                // connected components
-BreadhFirstPaths  // BFS path searcher
-DirectedDFS       // DFS digraph path search
-DirectedBFS       // BFS digraph path search
-TransitiveClosure // all paths
-Topological       // topological order
-DepthFirstOrder   // DFS order
-DirectedCycle     // cycle search
-SCC               // strong components
-MST               // minimum spanning tree
-SP                // shortest paths
-\end{lstlisting}
+Operations-oriented graph types
+\begin{center}
+\begin{tabular}{cc}
+type & description \\ \hline
+\lstinline$WeightedQuickUnionUF$ & dynamic connectivity \\
+\lstinline$DepthFirstPaths$ & DFS path searcher \\
+$\dots$ & $\dots$
+\end{tabular} 
+\end{center}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item \lstinline{Point2D}
-\begin{lstlisting}[language={},mathescape]
-public class Point2D
-
-    Point2D(double x, double y) // create a point
-    double x()                  // $x$ coordinate
-    double y()                  // $y$ coordinate
-    double r()                  // radius (polar coordinates)
-    double theta()              // angle (polar coordinates)
-    double distTo(Point2D that) // distance from the point to that
-    void draw()                 // draw the point on StdDraw
-\end{lstlisting}
-
-\item \lstinline{Interval1D}
-\begin{lstlisting}[language={},mathescape]
-public class Interval1D
-
-    Interval1D(double lo, double hi)    // create an interval
-    double length()                     // length of the interval
-    boolean contains(double x)          // does the interval contain $x$?
-    boolean intersects(Interval1D that) // does the interval intersect that?
-    void draw()                         // draw the interval on StdDraw          
-\end{lstlisting}
-
-\item \lstinline{Interval2D}
-\begin{lstlisting}[language={},mathescape]
-public class Interval2D
-          
-    Interval2D(Interval1D x, Interval1D y) // create a 2D interval
-    double area()                          // area of the 2D interval 
-    boolean contains(Point2D p)            // does the interval contain p?
-    boolean intersects(Interval2D that) // does the interval intersect that?
-    void draw()                         // draw the interval on StdDraw
-\end{lstlisting}
-\end{itemize}
+\lstinline{java.lang.String} API
+\begin{center}
+\begin{tabular}{cc}
+method & description \\ \hline
+\lstinline$String()$ & create an empty string \\
+\lstinline$int length()$ & length of the string \\
+\lstinline$int charAt(int i)$ & $i$th character \\
+\lstinline$int indexOf(String p)$ & first occurrence of $p$ or -1 \\ \lstinline$int indexOf(String p, int i)$ & first occurrence of $p$ after $i$ or -1 \\
+\lstinline$String concat(String t)$ & the string with $t$ appended \\
+\lstinline$String substring(int i, int j)$ & substring of the string from $i$ (inclusive) to $j$ (exclusive) \\
+\lstinline$String[] split(String delim)$ & strings between occurrences of $delim$ \\
+\lstinline$int compareTo(String t)$ & string comparison \\
+\lstinline$boolean equals(String t)$ & is the string's value the same as $t$'s? \\
+\lstinline$int hashCode()$ & hash code \\
+$\dots$ & $\dots$
+\end{tabular} 
+\end{center}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item \lstinline{Interval2D} test client
-\begin{lstlisting}[language=Java]
-public class Interval2D {
-    ...
-    public static void main(String[] args) {
-        double xlo = Double.parseDouble(args[0]);
-        double xhi = Double.parseDouble(args[1]);
-        double ylo = Double.parseDouble(args[2]);
-        double yhi = Double.parseDouble(args[3]);
-        int T = Integer.parseInt(args[4]);
-        Interval1D xinterval = new Interval1D(xlo, xhi);
-        Interval1D yinterval = new Interval1D(ylo, yhi);
-        Interval2D box = new Interval2D(xinterval, yinterval);
-        box.draw();
-        Counter counter = new Counter("hits");
-        for (int t = 0; t < T; t++) {
-            double x = StdRandom.uniform(0.0, 1.0);
-            double y = StdRandom.uniform(0.0, 1.0);
-            Point2D p = new Point2D(x, y);
-            if (box.contains(p)) { counter.increment(); }
-            else { p.draw(); }
-        }
-        StdOut.println(counter);
-        StdOut.printf("box area = %.2f\n", box.area());
-    }
-}
-\end{lstlisting}
-
-\begin{minipage}{160pt}
-\begin{lstlisting}[language={}]
-$ java Interval2D 0.2 0.5 0.5 0.6 100000
-3092 hits
-box area = 0.03
-\end{lstlisting}
-\end{minipage}%
-\begin{minipage}{120pt}
-\hfill \includegraphics[scale=0.1]{./figures/interval2D.pdf}
-\end{minipage}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{itemize}
-\item \lstinline{Date}
-\begin{lstlisting}[language={},mathescape]
-public class Date implements Comparable<Date>
-
-    Date(int month, int day, int year) // create a date
-    Date(String date)                  // create a date (parse constructor)
-    int month()                        // month
-    int day()                          // day
-    int year()                         // year
-    String toString()                  // string representation
-    boolean equals(Object that)        // is the date same as that?
-    int compareTo(Date that)           // compare the date to that
-    int hashCode()                     // hash code
-\end{lstlisting}
-
-\item \lstinline{Transaction}
-\begin{lstlisting}[language={},mathescape]
-public class Transaction implements Comparable<Transaction>
-
-    Transaction(String who, Date when, double amount) // create a 
-                                                      // transaction
-    Transaction(String transaction) // create a transaction 
-                                    // (parse constructor)
-    String who()                    // customer name
-    Date when()                     // date
-    double amount()                 // amount
-    String toString()               // string representation
-    boolean equals(Object that)     // is the transaction same as that?
-    int compareTo(Transaction that) // compare the transaction to that
-    int hashCode()                  // hash code
-\end{lstlisting}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{itemize}
-\item \lstinline{String}
-
-\begin{lstlisting}[language={},mathescape]
-public class String implements Comparable<String>
-
-    String()                     // create an empty string
-    int length()                 // length of the string
-    int charAt(int i)            // $i$th character
-    int indexOf(String p)        // first occurrence of $p$ or -1
-    int indexOf(String p, int i) // first occurrence of $p$ after $i$ or -1
-    String concat(String t)        // the string with $t$ appended
-    String substring(int i, int j) // substring of the string $[i, j)$
-    String[] split(String delim)   // strings between occurrences of delim
-    int compareTo(String t)        // string comparison
-    boolean equals(String t)       // is the string's value the same as $t$'s?
-    int hashCode()                 // hash code
-    ...
-\end{lstlisting}
-
-\item \lstinline{In}
-\begin{lstlisting}[language={},mathescape]
-public class In
-
-    In()                // create an input stream from standard input
-    In(String name)     // create an input stream from a file or website
-    int[] readInts()       // read int values
-    double[] readDoubles() // read double values
-    ...
-\end{lstlisting}
-
-\item \lstinline{Out}
-\begin{lstlisting}[language={},mathescape]
-public class Out
-
-    Out()                  // create an output stream to standard output
-    Out(String name)       // create an output stream to a file
-    void write(int[] a)    // write int values
-    void write(double[] a) // write double values
-    ...
-\end{lstlisting}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{itemize}
-\item \lstinline{In}/\lstinline{Out} client
-\begin{lstlisting}[language=Java]
-public class Cat { 
-   public static void main(String[] args) { 
-        Out out = new Out(args[args.length - 1]);
-        for (int i = 0; i < args.length - 1; i++) {
-            In in = new In(args[i]);
-            String s = in.readAll();
-            out.println(s);
-            in.close();
-        }
-        out.close();
-    }
-}
-\end{lstlisting}
-
-\begin{lstlisting}[language={}]
-$ more A.txt
-To be, or not to be, 
-$ more B.txt
-that is the question.
-$ java Cat A.txt B.txt C.txt
-$ more C.txt
-To be, or not to be, that is the question.
-\end{lstlisting}
-
-\item \lstinline{Draw}
-\begin{lstlisting}[language={},mathescape]
-public class Draw
-
-    Draw()
-    void line(double x0, double y0, double x1, double y1)
-    void point(double x, double y)
-    void text(double x, double y, String s)
-    ...
-\end{lstlisting}
-\end{itemize}
+\lstinline{edu.princeton.cs.algs4.Date} API
+\begin{center}
+\begin{tabular}{cc}
+method & description \\ \hline
+\lstinline$Date(int month, int day, int year)$ & create a date \\
+\lstinline$Date(String date)$ & create a date (parse constructor) \\
+\lstinline$int month()$ &  month \\
+\lstinline$int day()$ & day \\
+\lstinline$int year()$ & year \\
+\lstinline$String toString()$ & string representation \\
+\lstinline$boolean equals(Object that)$ & is the date same as $that$? \\
+\lstinline$int compareTo(Date that)$ & compare the date to $that$ \\
+\lstinline$int hashCode()$ & hash code \\
+$\dots$ & $\dots$
+\end{tabular} 
+\end{center}
 \end{frame}
 
 \section{Implementing an Abstract Data Type}
 \begin{frame}[fragile]
-\begin{itemize}
-\item we implement ADTs with a Java class, putting the code (instance variable declarations, constructors, and instance methods) in a file with the same name as the class, followed by the \lstinline{.java} extension
+We implement ADTs with a Java class, putting the code (instance variable declarations, constructors, and instance methods) in a file with the same name as the class, followed by the \lstinline{.java} extension
 
-\item instance variables define the state of each object, and unlike local variables, each instance variable can have numerous values (one per object)
+\bigskip
 
-\item constructors are like static methods, but they can refer directly to instance variables and have no return value, and generally, their purpose is to initialize the instance variables
+Instance variables define the state of each object, and unlike local variables, each instance variable can have numerous values (one per object)
 
-\item instance methods define the behavior of each object
+\bigskip
 
-\item each instance method has a return type (or \lstinline{void}), a signature, and a body
+Constructors have the same name as the class, have no return value, and generally, their purpose is to initialize the instance variables
 
-\item when a client invokes an instance method, the action is the same as for static methods, with one critical distinction: they can access
-and perform operations on instance variables
+\bigskip
 
-\item within an instance method or a constructor, \lstinline{this} is a reference to the current object --- the object whose method or constructor is being called
+Instance methods define the behavior of each object
 
-\item the most common reason for using the \lstinline{this} keyword is because a field (instance variable) is shadowed by a method or constructor parameter
-\end{itemize}
+\bigskip
+
+Each instance method has a return type (or \lstinline{void}), a signature, and a body
+
+\bigskip
+
+When a client invokes an instance method, the action is the same as for static methods, with one critical distinction: they can access and perform operations on instance variables
+
+\bigskip
+
+Within an instance method or a constructor, \lstinline{this} is a reference to the current object --- the object whose method or constructor is being called
+
+\bigskip
+
+The most common reason for using the \lstinline{this} keyword is because a field (instance variable) is shadowed by a method or constructor parameter
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item \lstinline{Counter} API
-\begin{lstlisting}[language={},mathescape]
-public class Counter implements Comparable<Counter> 
+\lstinline{edu.princeton.cs.algs4.Counter} API
+\begin{center}
+\begin{tabular}{cc}
+method & description \\ \hline
+\lstinline$Counter(String id)$ & creates a counter named $id$ \\
+\lstinline$void increment()$ & increments the counter by one \\
+\lstinline$int tally()$ & returns number of increments since creation \\
+\lstinline$String toString()$ & returns string representation of the counter \\
+\lstinline$int compareTo(Counter that)$ & compares this counter to $that$
+\end{tabular} 
+\end{center}
 
-    Counter(String id) // create a counter named $id$
-    void increment()   // increment the counter by one
-    int tally()        // number of increments since creation
-    String toString()  // string representation
-    ...
-\end{lstlisting}
-
-\item \lstinline{Counter} client
 \begin{lstlisting}[language=Java]
+import edu.princeton.cs.algs4.Counter;
+import edu.princeton.cs.algs4.StdOut;
+import edu.princeton.cs.algs4.StdRandom;
+
 public class Flips {
     public static void main(String[] args) {
         int T = Integer.parseInt(args[0]);
         Counter heads = new Counter("heads");
         Counter tails = new Counter("tails");
         for (int t = 0; t < T; t++) {
-            if (StdRandom.bernoulli(0.5)) {
-                heads.increment();
-            }
-            else {
-                tails.increment();
-            }
+            if (StdRandom.bernoulli(0.5)) { heads.increment(); }
+            else { tails.increment(); }
         }
         StdOut.println(heads);
         StdOut.println(tails);
@@ -579,13 +409,13 @@ $ java Flips 1000000
 500578 tails
 delta: 1156
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item \lstinline{Counter} implementation
+\lstinline{edu.princeton.cs.algs4.Counter} implementation
 \begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
 public class Counter implements Comparable<Counter> {
     private final String id;
     private int count;
@@ -608,25 +438,30 @@ public class Counter implements Comparable<Counter> {
     ...
 }
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item \lstinline{Date} API
-\begin{lstlisting}[language={},mathescape]
-public class Date implements Comparable<Date>
+\lstinline{edu.princeton.cs.algs4.Date} API
+\begin{center}
+\begin{tabular}{cc}
+method & description \\ \hline
+\lstinline$Date(int month, int day, int year)$ & create a date \\
+\lstinline$Date(String date)$ & create a date (parse constructor) \\
+\lstinline$int month()$ &  month \\
+\lstinline$int day()$ & day \\
+\lstinline$int year()$ & year \\
+\lstinline$String toString()$ & string representation \\
+\lstinline$boolean equals(Object that)$ & is the date same as $that$? \\
+\lstinline$int compareTo(Date that)$ & compare the date to $that$ \\
+\lstinline$int hashCode()$ & hash code \\
+$\dots$ & $\dots$
+\end{tabular} 
+\end{center}
 
-    Date(int month, int day, int year) // create a date
-    int month()                        // month
-    int day()                          // day
-    int year()                         // year
-    String toString()                  // string representation
-    ...
-\end{lstlisting}
-
-\item \lstinline{Date} test client
+\lstinline{edu.princeton.cs.algs4.Date} test client
 \begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
 public class Date {
     ...
     public static void main(String[] args) {
@@ -643,13 +478,13 @@ public class Date {
 $ java Date 12 31 1999
 12/31/1999
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item \lstinline{Date} implementation
+\lstinline{edu.princeton.cs.algs4.Date} implementation
 \begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
 public class Date implements Comparable<Date> {
     private final int month;
     private final int day;
@@ -661,69 +496,79 @@ public class Date implements Comparable<Date> {
         this.year = year; 
     }
     
-    public int month() { 
-        return month; 
+    public Date(String date) {
+        String[] fields = date.split("/");
+        if (fields.length != 3) { throw new IllegalArgumentException("..."); }
+        month = Integer.parseInt(fields[0]);
+        day   = Integer.parseInt(fields[1]);
+        year  = Integer.parseInt(fields[2]);
+        if (!isValid(month, day, year)) {
+            throw new IllegalArgumentException("...");
+        }
     }
+   
+    public int month() { return month; }
 
-    public int day() { 
-        return day; 
-    }
+    public int day() { return day; }
 
-    public int year() { 
-        return year; 
-    }
+    public int year() { return year; }
     
-    public String toString() { 
-        return month() + "/" + day() + "/" + year();
-    }
+    public String toString() { return month() + "/" + day() + "/" + year(); }
     ...
 }
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \section{Data-type Design}
 \begin{frame}[fragile]
+Encapsulation enables modular programming, allowing us to
 \begin{itemize}
-\item encapsulation enables modular programming, allowing us to
-\begin{itemize}
-\item independently develop client and implementation code
-\item substitute improved implementations without affecting clients
-\item support programs not yet written (the API is a guide for any future client)
+\item Independently develop client and implementation code
+\item Substitute improved implementations without affecting clients
+\item Support programs not yet written (the API is a guide for any future client)
 \end{itemize}
 
-\item consider writing every program as though you
-will need to reuse the code someday, and articulate an API for your program, providing to clients only the methods they need and no others
+\bigskip
 
-\item data abstraction provides a natural framework for precisely specifying both what an algorithm needs to accomplish and how a client can make use of the algorithm
-\end{itemize}
-\end{frame}
+Write every program as though you will reuse the code someday, and articulate an API for your program, providing to clients only the methods they need and no others
 
+\bigskip
 
-\begin{frame}[fragile]
-\begin{itemize}
-\item interface inheritance (aka subtyping) allows us to specify a relationship between otherwise unrelated classes by specifying in
-an interface a set of common methods that each implementing class must contain
-
-\item comparison interfaces (\lstinline{java.lang.Comparable} and \lstinline{java.util.Comparator})
-\begin{lstlisting}[language={},mathescape]
-public interface Comparable<T>
-
-    int compareTo(T o) // compares the object with $o$ for order
-\end{lstlisting}
-
-\begin{lstlisting}[language={},mathescape]
-public interface Comparator<T>
-
-    int compare(T o1, T o2)  // compares $o_1$ and $o_2$ for order
-\end{lstlisting}
-\end{itemize}
+Data abstraction provides a natural framework for precisely specifying both what an algorithm needs to accomplish and how a client can make use of the algorithm
 \end{frame}
 
 \begin{frame}[fragile]
+Interface inheritance (aka subtyping) specifies relationship between otherwise unrelated classes by providing in an interface a set of common methods that each implementing class must contain
+
+\bigskip
+
+Comparison interfaces
 \begin{itemize}
-\item \lstinline{Planet} data type
+\item \lstinline{java.lang.Comparable}
+\begin{center}
+\begin{tabular}{cc}
+method & description \\ \hline
+\lstinline$int compareTo(T o)$ & compares the object with $o$ for order
+\end{tabular} 
+\end{center}
+
+\item \lstinline{java.util.Comparator}
+\begin{center}
+\begin{tabular}{cc}
+method & description \\ \hline
+\lstinline$int compare(T o1, T o2)$ & compares $o_1$ and $o_2$ for order
+\end{tabular} 
+\end{center}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+Example (a comparable \lstinline{Planet} data type)
 \begin{lstlisting}[language=Java]
+import edu.princeton.cs.algs4.StdOut;
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class Planet implements Comparable<Planet> {
     private String name;
     private int moons;
@@ -750,16 +595,11 @@ public class Planet implements Comparable<Planet> {
             return p1.moons() - p2.moons();
         }
     }
-    ...
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item \lstinline{Planet} data type (contd.)
 \begin{lstlisting}[language=Java]
-    ...
     public static void main(String[] args) {
         Planet[] planets = new Planet[8];
         planets[0] = new Planet("Mercury", 0);
@@ -787,12 +627,9 @@ public class Planet implements Comparable<Planet> {
     }
 }
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item \lstinline{Planet} data type (continued)
 \begin{lstlisting}[language={}]
 $ java Planet
 Unsorted:
@@ -823,27 +660,33 @@ Sorted by # of moons:
   Saturn, 62
   Jupiter, 67
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
+Iteration interfaces 
 \begin{itemize}
-\item iteration interfaces (\lstinline{java.lang.Iterable} and \lstinline{java.util.Iterator})
-\begin{lstlisting}[language={},mathescape]
-public interface Iterable<T>
+\item \lstinline{java.lang.Iterable}
+\begin{center}
+\begin{tabular}{cc}
+method & description \\ \hline
+\lstinline$Iterator<T> iterator()$ & an iterator over a set of elements of type $T$
+\end{tabular} 
+\end{center}
 
-    Iterator<T> iterator() // an iterator over a set of elements of type T
-\end{lstlisting}
+\item \lstinline{java.util.Iterator}
+\begin{center}
+\begin{tabular}{cc}
+method & description \\ \hline
+\lstinline$boolean hasNext()$ & does the iteration have more elements? \\
+\lstinline$E next()$ & next element in the iteration \\
+\lstinline$void remove()$ & remove the last element returned
+\end{tabular} 
+\end{center}
+\end{itemize}
 
-\begin{lstlisting}[language={},mathescape]
-public interface Iterator<E>
+\bigskip
 
-    boolean hasNext() // does the iteration have more elements?
-    E next()          // next element in the iteration
-    void remove()     // remove the last element returned
-\end{lstlisting}
-
-\item an iterable type (arrays included) can be enumerated using the enhanced for statement
+An iterable type (arrays included) can be enumerated using the enhanced for statement
 \begin{lstlisting}[language=Java]
 String[] dow = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
 for (String s : dow) {
@@ -859,13 +702,12 @@ while (iter.hasNext()) {
     StdOut.println(s);
 }
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item \lstinline{Fibonacci} data type
+Example (an iterable \lstinline{Fibonacci} data type)
 \begin{lstlisting}[language=Java]
+import edu.princeton.cs.algs4.StdOut;
 import java.util.Iterator;
 
 public class Fibonacci implements Iterable<Long> {
@@ -895,18 +737,13 @@ public class Fibonacci implements Iterable<Long> {
 
     public static void main(String[] args) {
         int n = Integer.parseInt(args[0]);
-        for (long i : new Fibonacci(n)) {
-            StdOut.println(i);
-        }
+        for (long i : new Fibonacci(n)) { StdOut.println(i); }
     }
 }
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item \lstinline{Fibonacci} data type (continued)
 \begin{lstlisting}[language={}]
 $ java Fibonacci 10
 1
@@ -921,50 +758,70 @@ $ java Fibonacci 10
 55
 89
 \end{lstlisting}
-
-\item implementation inheritance (aka subclassing) enables a programmer to change behavior and add functionality without rewriting an entire class from scratch, by defining a new class (subclass or derived class) that inherits instance methods and instance variables from another class (superclass or base class)
-
-\item every class in Java is a subclass of the \lstinline{java.lang.Object} class and therefore inherits its methods
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item since every Java type inherits \lstinline{toString()} from \lstinline{Object}, any client can invoke \lstinline{toString()} for any object
+Implementation inheritance (aka subclassing) enables programmers to define a new class (subclass or derived class) that inherits instance methods and instance variables from another class (superclass or base class)
 
-\item wrapper types are reference types provided by Java for each of the primitive types (eg, \lstinline{Boolean} for \lstinline{boolean}, \lstinline{Integer} for \lstinline{int}, etc)
+\bigskip
 
-\item Java automatically converts primitive types to wrapper types (auto boxing) and wrapper types to primitive types (auto unboxing)
+Every class in Java is a subclass of the \lstinline{java.lang.Object} class and therefore inherits its methods
 
-\item if we test equality with \lstinline{a == b} (instead of \lstinline{a.equals(b)}) where \lstinline{a} and \lstinline{b} are reference variables of the same type, we are testing whether they have the same identity, ie, the same address 
+\bigskip
 
-\item the ability to assign a new value to a reference variable can lead to orphaned objects
+Since every Java type inherits \lstinline{toString()} from \lstinline{Object}, any client can invoke \lstinline{toString()} for any object
+
+\bigskip
+
+Wrapper types are reference types provided by Java for each of the primitive types (eg, \lstinline{Boolean} for \lstinline{boolean}, \lstinline{Integer} for \lstinline{int}, etc)
+
+\bigskip
+
+Java automatically converts primitive types to wrapper types (auto boxing) and wrapper types to primitive types (auto unboxing)
+
+\bigskip
+
+If we test equality with \lstinline{a == b} (instead of \lstinline{a.equals(b)}) where \lstinline{a} and \lstinline{b} are reference variables of the same type, we are testing whether they have the same identity, ie, the same address 
+
+\bigskip
+
+The ability to assign a new value to a reference variable can lead to orphaned objects
 \begin{lstlisting}[language=Java]
 Date a = new Date(12, 31, 2014);
 Date b = new Date(1, 1, 2015);
 b = a;
 \end{lstlisting}
 
-\item one of Java's most significant features is its ability to automatically manage memory (garbage collection) by keeping track of orphaned objects and returning the memory they use to a pool of free memory 
-\end{itemize}
+\bigskip
+
+Java automatically manages memory (garbage collection) by keeping track of orphaned objects and returning the memory they use to a pool of free memory
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item an immutable data type (eg, \lstinline{Date}) has the property that the value of an object never changes once constructed
+An immutable data type (eg, \lstinline{Date}) has the property that the value of an object never changes once constructed
 
-\item Java enforces immutability via the \lstinline{final} modifier
+\bigskip
 
-\item exceptions and errors are disruptive events that occur while a program is running
+Java enforces immutability via the \lstinline{final} modifier
 
-\item we have encountered exceptions thrown by Java system methods, such as   \lstinline{StackOverflowError}, \lstinline{ArithmeticException}, \lstinline{ArrayIndexOutOfBoundsException}, \lstinline{OutOfMemoryError}, and \lstinline{NullPointerException}
+\bigskip
 
-\item we can also raise exceptions within a program, the simplest being a \lstinline{RuntimeException} that terminates execution of the program and prints an error message
+Exceptions and errors are disruptive events that occur while a program is running
+
+\bigskip
+
+Java system methods throw exceptions such as  \lstinline{StackOverflowError}, \lstinline{ArithmeticException}, \lstinline{ArrayIndexOutOfBoundsException}, \lstinline{OutOfMemoryError}, and \lstinline{NullPointerException}
+
+\bigskip
+
+We can also raise exceptions within a program, the simplest being a \lstinline{RuntimeException} that terminates execution of the program and prints an error message
 \begin{lstlisting}[language=Java]
 throw new RuntimeException("Error message here.");
 \end{lstlisting}
 
-\item an assertion is a Boolean expression that we are affirming is true at that point in the program; if the expression is \lstinline{false}, the program will terminate and report an error message
+\bigskip
+
+An assertion is a Boolean expression that we are affirming is true at that point in the program; if the expression is \lstinline{false}, the program will terminate and report an error message
 \begin{lstlisting}[language=Java]
 assert index >= 0;
 \end{lstlisting}
@@ -972,7 +829,5 @@ or
 \begin{lstlisting}[language=Java]
 assert index >= 0 : "Negative index in method X";
 \end{lstlisting}
-\end{itemize}
 \end{frame}
-
 \end{document}

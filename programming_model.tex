@@ -19,7 +19,7 @@
 \section{Basic Structure of a Java Program}
 
 \begin{frame}[fragile]
-The Java workflow:
+The Java workflow
 
 \smallskip
 
@@ -50,7 +50,7 @@ A Java program is either a library of static methods (functions) or a data type 
 
 \bigskip
 
-To create a Java program (class), we use the following programming constructs:
+To create a Java program (class), we use the following programming constructs
 
 \begin{itemize}
 \item Primitive data types and expressions
@@ -70,7 +70,7 @@ To create a Java program (class), we use the following programming constructs:
 \end{frame}
 
 \begin{frame}[fragile]
-Example of a Java program that computes $N!$:
+Example of a Java program that computes $N!$
 
 \begin{lstlisting}[language=Java]
 import edu.princeton.cs.algs4.StdOut;
@@ -107,7 +107,7 @@ A data type (primitive or reference) is a set of values and a set of operations 
 
 \bigskip
 
-Basic primitive types:
+Basic primitive types
 \begin{itemize}
 \item \lstinline{boolean}: true and false values with logical operations (\lstinline{!}, \lstinline{||}, and \lstinline{&&})
 \item \lstinline{char}: 16-bit characters with arithmetic operations (\lstinline{+}, \lstinline{-}, \lstinline{*}, \lstinline{/}, and \lstinline{%})
@@ -117,7 +117,7 @@ Basic primitive types:
 
 \bigskip
 
-Other primitive types:
+Other primitive types
 \begin{itemize}
 \item \lstinline{byte}: 8-bit integers with arithmetic operations
 \item \lstinline{short}: 16-bit integers with arithmetic operations
@@ -193,7 +193,7 @@ Declaration and assignment statements can be combined to provide an initial valu
 A conditional statement is used when different actions are required for different inputs
 
 \begin{itemize}
-\item If statement:
+\item If statement
 \begin{lstlisting}[language={}]
 if (<boolean expression>) {
     <statements>
@@ -207,12 +207,12 @@ else {
 }
 \end{lstlisting}
 
-\item Conditional operator (really an expression):
+\item Conditional operator (really an expression)
 \begin{lstlisting}[language={}]
 <boolean expression> ? <expression> : <expression>
 \end{lstlisting}
 
-\item Switch statement:
+\item Switch statement
 \begin{lstlisting}[language={}]
 switch (<expression>) {
     case <value>:
@@ -231,21 +231,21 @@ switch (<expression>) {
 A loop statement is used for repetitive computations
 
 \begin{itemize}
-\item While statement:
+\item While statement
 \begin{lstlisting}[language={}]
 while (<boolean expression>) {
     <statements>
 }
 \end{lstlisting}
 
-\item For statement:
+\item For statement
 \begin{lstlisting}[language={}]
 for (<initialize>; <boolean expression>; <increment>) {
     <statements>
 }
 \end{lstlisting}
 
-\item Do-while statement: 
+\item Do-while statement
 \begin{lstlisting}[language={}]
 do {
     <statements>
@@ -287,7 +287,7 @@ An array when declared is initialized to \lstinline{null}, and once created, eac
 
 \bigskip
 
-Initializing declaration:
+Initializing declaration
 \begin{lstlisting}[language=Java]
 int[] a = {1, 1, 2, 3, 5, 8, 13, 21, 34, 55};
 String[] b = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
@@ -295,7 +295,7 @@ String[] b = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
 
 \bigskip
 
-Example (reversing an array in place):
+Example (reversing an array in place)
 \begin{lstlisting}[language=Java]
 int N = a.length;
 for (int i = 0; i < N / 2; i++) {
@@ -315,16 +315,16 @@ A two-dimensional array in Java is an array of one-dimensional arrays, and may b
 
 \bigskip
 
-Initializing declaration for two-dimensional arrays:
+Initializing declaration for two-dimensional arrays
 \begin{lstlisting}[language=Java]
 int[][] I = {{1, 0, 0}, 
-              0, 1, 0}, 
-              0, 0, 1}};
+             {0, 1, 0}, 
+             {0, 0, 1}};
 \end{lstlisting}
 
 \bigskip
 
-Example (matrix multiplication $C_{ij}=\sum_{k=1}^{p} A_{ik}B_{kj},$ where $A$ is an $m\times p$, $B$ is a $p \times n$, and $C$ is an $m\times n$ matrix):
+Example (matrix multiplication $C_{ij}=\sum_{k=1}^{p} A_{ik}B_{kj},$ where $A$ is an $m\times p$, $B$ is a $p \times n$, and $C$ is an $m\times n$ matrix)
 \begin{lstlisting}[language=Java]
 int m = A.length;
 int p = B.length;
@@ -350,7 +350,7 @@ A static method is composed of the keywords \lstinline{public static} followed b
 
 \bigskip
 
-Example (primality testing):
+Example (primality testing)
 \begin{lstlisting}[language=Java]
 public static boolean isPrime(int N) {
     if (N < 2) {
@@ -379,7 +379,7 @@ A method call followed by a semicolon is a statement that generally causes side 
 \end{frame}
 
 \begin{frame}[fragile]
-Properties of methods:
+Properties of methods
 \begin{itemize}
 \item Arguments are passed by value
 \item Method names can be overloaded 
@@ -393,7 +393,7 @@ A recursive method is one that calls itself, has a base case, addresses subprobl
 
 \bigskip
 
-Example of a good recursion (computing $N!$):
+Example of a good recursion (computing $N!$)
 \begin{lstlisting}[language=Java]
 public static int factorial(int N) {
     return (N == 0) ? 1 : N * factorial(N - 1); 
@@ -402,7 +402,7 @@ public static int factorial(int N) {
 
 \bigskip
 
-Example of a bad recursion (computing $N$th Fibonacci number):
+Example of a bad recursion (computing $N$th Fibonacci number)
 \begin{lstlisting}[language=Java]
 public static int fibonacci(int N) {
     return (N == 0 || N == 1) ? 1 : fibonacci(N - 1) + fibonacci(N - 2); 
@@ -415,7 +415,7 @@ A best practice in Java programming is to include a \lstinline{main()} method (a
 
 \bigskip
 
-We use static methods from four different kinds of libraries:
+We use static methods from four different kinds of libraries
 \begin{itemize}
 \item Standard system libraries \lstinline{java.lang.*}
 \item Imported system libraries such as \lstinline{java.util.Arrays}
@@ -438,7 +438,7 @@ An implementation is Java code that implements the methods in an API
 
 \bigskip
 
-Standard system library (\lstinline{java.lang.Math}):
+Standard system library (\lstinline{java.lang.Math})
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
@@ -457,7 +457,7 @@ $\dots$ & $\dots$
 
 \bigskip
 
-Imported system library (\lstinline{java.util.Arrays}):
+Imported system library (\lstinline{java.util.Arrays})
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
@@ -470,7 +470,7 @@ $\dots$ & $\dots$
 \begin{frame}[fragile]
 Standard libraries from the text:
 \begin{itemize}
-\item \lstinline{edu.princeton.cs.algs4.StdRandom}:
+\item \lstinline{edu.princeton.cs.algs4.StdRandom}
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
@@ -488,7 +488,7 @@ $\dots$ & $\dots$
 \end{tabular} 
 \end{center}
 
-\item \lstinline{edu.princeton.cs.algs4.StdStats}:
+\item \lstinline{edu.princeton.cs.algs4.StdStats}
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
@@ -559,7 +559,7 @@ and accessed within the \lstinline$main()$ method of the program via the array \
 
 \bigskip
 
-Example:
+Example
 
 \begin{lstlisting}[language=Java]
 import edu.princeton.cs.algs4.StdOut;
@@ -582,7 +582,7 @@ Hi, Bob. How are you?
 \end{frame}
 
 \begin{frame}[fragile]
-Standard output (\lstinline{edu.princeton.cs.algs4.StdOut}):
+Standard output (\lstinline{edu.princeton.cs.algs4.StdOut})
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
@@ -592,7 +592,7 @@ $\dots$ & $\dots$
 \end{tabular} 
 \end{center}
 
-\lstinline{StdOut} client:
+\lstinline{StdOut} client
 \begin{lstlisting}[language=Java]
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
@@ -618,7 +618,7 @@ $ java RandomSeq 2 100.0 200.0
 \end{frame}
 
 \begin{frame}[fragile]
-Standard input (\lstinline{edu.princeton.cs.algs4.StdIn}):
+Standard input (\lstinline{edu.princeton.cs.algs4.StdIn})
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
@@ -632,7 +632,7 @@ $\dots$ & $\dots$
 \end{tabular} 
 \end{center}
 
-\lstinline{StdIn} client:
+\lstinline{StdIn} client
 \begin{lstlisting}[language=Java]
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
@@ -661,7 +661,7 @@ Average is 3.0
 \end{frame}
 
 \begin{frame}[fragile]
-Redirection and piping:
+Redirection and piping
 \begin{lstlisting}[language={}]
 $ java RandomSeq 1000 100.0 200.0 > data.txt
 $ head -5 data.txt
@@ -670,17 +670,10 @@ $ head -5 data.txt
 197.83
 191.90
 111.84
-\end{lstlisting}
-
-\begin{lstlisting}[language={}]
 $ java Average < data.txt
 Average is 149.1812199999999
-\end{lstlisting}
-
-\begin{lstlisting}[language={}]
 $ java RandomSeq 1000 100.0 200.0 | java Average
 Average is 150.0588699999999
 \end{lstlisting}
 \end{frame}
-
 \end{document}

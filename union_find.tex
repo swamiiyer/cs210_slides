@@ -2,7 +2,7 @@
 
 \usepackage{/home/siyer/lib/slides}
 
-\title{Case Study: Union-Find}
+\title{Union-Find}
 \date{}
 
 \begin{document}
@@ -19,23 +19,21 @@
 \section{The Dynamic Connectivity Problem}
 \begin{frame}[fragile]
 \begin{minipage}{250pt}
+Consider an input sequence of pairs of integers, where each integer represents an object of some type, and the pair $(p, q)$ means that ``$p$ is connected to $q$''
+
+\bigskip
+
+The goal of the dynamic connectivity problem is to devise a data structure to decide whether or not a new pair of objects is connected 
+
+\bigskip
+
+Applications
 \begin{itemize}
-\item consider an input sequence of pairs of integers, where each integer represents an object of some type, and the pair $(p, q)$ means that ``$p$ is connected to $q$''
+\item Determine if two vertices in a network are connected
 
-\item we assume that ``is connected to'' is an equivalence relation
+\item Determine if two variable names in a computer program are equivalent, ie, refer to the same object
 
-\item two objects belong to an equivalence class if and only if they are connected
-
-\item the goal of the dynamic connectivity problem is to devise a data structure to decide whether or not a new pair of objects is connected 
-
-\item applications
-\begin{itemize}
-\item determine if two vertices in a network are connected
-
-\item determine if two variable names in a computer program are equivalent, ie, refers to the same object
-
-\item if we think of the integers as belonging to mathematical sets, when we process a pair $(p, q)$, we are asking whether they belong to the same set, and if not, we unite $p$'s set and $q$'s set, putting them in the same set
-\end{itemize}
+\item If we think of the integers as belonging to mathematical sets, when we process a pair $(p, q)$, we are asking whether they belong to the same set, and if not, we unite $p$'s set and $q$'s set, putting them in the same set
 \end{itemize}
 \end{minipage}%
 \begin{minipage}{60pt}
@@ -43,31 +41,43 @@
 \end{minipage}
 \end{frame}
 
-\begin{frame}[fragile]
-\begin{itemize}
-\item following network terminology, we refer to the objects as sites, the pairs as connections, and the equivalence classes as connected components, or just components for short
+\begin{frame}[fragile]We refer to the objects as sites, the pairs as connections, and the groups of connected sites as components
 
-\item for simplicity, we assume that we have $N$ sites with integer names, from 0 to $N-1$
+\bigskip
 
-\item the union-find API
-\begin{lstlisting}[language={},mathescape]
-public interface UF
+For simplicity, we assume that we have $N$ sites with integer names, from 0 to $N-1$
 
-    int find(int p)          // component identifier for $p$ (0 to $N-1$)
-    int count()              // number of components
-    boolean connected(int p, int q) // are $p$ and $q$ in the same component?
-    void union(int p, int q)        // add connection between $p$ and $q$
-\end{lstlisting} 
-\end{itemize}
+\bigskip
+
+We solve the dynamic connectivity problem using the union-find data structure
+
+\bigskip
+
+The union-find (\lstinline{UF}) API
+\begin{center}
+\begin{tabular}{cc}
+method & description \\ \hline
+\lstinline$UF(int N)$ & \makecell{initializes an empty union-find data \\ structure with $N$ sites} \\
+\lstinline$int find(int p)$ & component identifier for $p$ (0 to $N-1$) \\
+\lstinline$int count()$ & number of components \\
+\lstinline$boolean connected(int p, int q)$ & are $p$ and $q$ in the same component? \\
+\lstinline$void union(int p, int q)$ & add connection between $p$ and $q$
+\end{tabular} 
+\end{center}
 \end{frame}
 
 \begin{frame}[fragile]
 \begin{minipage}{250pt}
-\begin{itemize}
-\item \lstinline{UF} client
+
+\smallskip
+
+\lstinline{UF} client
 \begin{lstlisting}[language=Java]
-public class QuickFindUF implements UF {
-    ...
+import edu.princeton.cs.algs4.QuickFindUF;
+import edu.princeton.cs.algs4.StdIn;
+import edu.princeton.cs.algs4.StdOut;
+
+public class UFClient {
     public static void main(String[] args) {
         int N = StdIn.readInt();
         QuickFindUF uf = new QuickFindUF(N);
@@ -76,7 +86,6 @@ public class QuickFindUF implements UF {
             int q = StdIn.readInt();
             if (uf.connected(p, q)) { continue; }
             uf.union(p, q);
-            StdOut.println(p + " " + q);
         }
         StdOut.println(uf.count() + " components");
     }
@@ -90,7 +99,7 @@ $ more tinyUF.txt
 \end{lstlisting}    
 
 \begin{lstlisting}[language={}]
-$ java QuickFindUF < tinyUF.txt 
+$ java UFClient < tinyUF.txt 
 4 3
 3 8
 6 5
@@ -101,7 +110,6 @@ $ java QuickFindUF < tinyUF.txt
 6 1
 2 components
 \end{lstlisting}
-\end{itemize}
 \end{minipage}%
 \begin{minipage}{60pt}
 \hfill \includegraphics[scale=0.35]{./figures/dyn_conn.pdf}
@@ -110,18 +118,18 @@ $ java QuickFindUF < tinyUF.txt
 
 \section{Quick-find}
 \begin{frame}[fragile]
-\begin{itemize}
-\item \lstinline{UF} implementation
 \begin{lstlisting}[language=Java]
-public class QuickFindUF implements UF {
-    private int[] id; 
-    private int count; 
+package edu.princeton.cs.algs4;
+
+public class QuickFindUF {
+    private int[] id;
+    private int count;
 
     public QuickFindUF(int N) {
-        count = N;
         id = new int[N];
-        for (int i = 0; i < N; i++) { 
-            id[i] = i; 
+        count = N;
+        for (int i = 0; i < N; i++) {
+            id[i] = i;
         }
     }
 
@@ -129,131 +137,117 @@ public class QuickFindUF implements UF {
 
     public int count() { return count; }
   
-    public boolean connected(int p, int q) { return find(p) == find(q); }
+    public boolean connected(int p, int q) { return id[p] == id[q]; }
 
     public void union(int p, int q) {
-        int i = find(p);
-        int j = find(q);
-        if (i == j) { return; }
-        for (int k = 0; k < id.length; k++) {
-            if (id[k] == i) { 
-                id[k] = j; 
-            }
+        int pID = id[p];
+        int qID = id[q];
+        if (pID == qID) { return; }
+        for (int i = 0; i < id.length; i++) {
+            if (id[i] == pID) { id[i] = qID; }
         }
-        count--; 
+        count--;
     }
     ...
 }
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \section{Quick-union}
 \begin{frame}[fragile]
-\begin{itemize}
-\item \lstinline{UF} implementation
 \begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
 public class QuickUnionUF {
-    private int[] id;
+    private int[] parent;
     private int count;
 
     public QuickUnionUF(int N) {
+        parent = new int[N];
         count = N;
-        id = new int[N];
-        for (int i = 0; i < N; i++) { id[i] = i; }
+        for (int i = 0; i < N; i++) {
+            parent[i] = i;
+        }
     }
 
     public int find(int p) {
-        while (p != id[p]) { p = id[p]; }
+        while (p != parent[p]) { 
+            p = parent[p]; 
+        }
         return p;
     }
 
     public int count() { return count; }
-
+  
     public boolean connected(int p, int q) { return find(p) == find(q); }
 
     public void union(int p, int q) {
-        int i = find(p);
-        int j = find(q);
-        if (i == j) { return; }
-        id[i] = j;
+        int rootP = find(p);
+        int rootQ = find(q);
+        if (rootP == rootQ) { return; }
+        parent[rootP] = rootQ; 
         count--;
     }
     ...
 }
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \section{Weighted Quick-union}
 \begin{frame}[fragile]
-\begin{itemize}
-\item \lstinline{UF} implementation
 \begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
 public class WeightedQuickUnionUF {
-    private int[] id; 
-    private int[] sz; 
-    private int count; 
+    private int[] parent;
+    private int[] size;
+    private int count;
 
     public WeightedQuickUnionUF(int N) {
+        parent = new int[N];
+        size = new int[N];
         count = N;
-        id = new int[N];
-        sz = new int[N];
-        for (int i = 0; i < N; i++) {
-            id[i] = i;
-            sz[i] = 1;
-        }
+        for (int i = 0; i < N; i++) { parent[i] = i; size[i] = 1; }
     }
 
-    public int count() { return count; }
-
     public int find(int p) {
-        while (p != id[p]) { p = id[p]; }
+        while (p != parent[p]) { p = parent[p]; }
         return p;
     }
 
+    public int count() { return count; }
+  
     public boolean connected(int p, int q) { return find(p) == find(q); }
 
     public void union(int p, int q) {
-        int i = find(p);
-        int j = find(q);
-        if (i == j) { return; }
-        if (sz[i] < sz[j]) { id[i] = j; sz[j] += sz[i]; }
-        else { id[j] = i; sz[i] += sz[j]; }
+        int rootP = find(p), rootQ = find(q);
+        if (rootP == rootQ) { return; }
+        if (size[rootP] < size[rootQ]) {
+            parent[rootP] = rootQ; size[rootQ] += size[rootP];
+        }
+        else {
+            parent[rootQ] = rootP; size[rootP] += size[rootQ];
+        }
         count--;
     }
     ...
 }
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
-\section{Performance Characteristics of Union-find Algorithms}
+\section{Performance Characteristics}
 \begin{frame}[fragile]
-\begin{itemize}
-\item dynamic connectivity experiments
+Worst-case order of growth for $N$ sites
 \begin{center}
-\begin{tabular}{p{3cm}ccc}
-\centering \textbf{algorithm} & \textbf{$N=10$} & \textbf{$N=625$} & \textbf{$N=10^6$} \\ \hline \\
-\centering quick-find & 0.1s & 0.19s & $\approx$ 17m \\
-\centering quick-union & 0.09s & 0.19s & $\approx$ 2h14m \\
-\centering weighted quick-union & 0.1s & 0.19s & 6.06s \\
-\centering weighted quick-union with path compression & 0.1s & 0.2s & 5.92s
+\begin{tabular}{cccc}
+data structure & constructor & union & find \\ \hline \\
+quick-find & $N$ & $N$ & 1 \\
+quick-union & $N$ & tree height & tree height \\
+weighted quick-union & $N$ & $\log N$ & $\log N$ \\
+\makecell{weighted quick-union \\ with path compression} & $N$ & $\approx 1$ (amortized) & $\approx 1$ (amortized) \\
+impossible & $N$ & 1 & 1
 \end{tabular} 
 \end{center}
-
-\item worst-case order of growth for $N$ sites
-\begin{center}
-\begin{tabular}{p{3cm}ccc}
-\centering \textbf{algorithm} & \textbf{constructor} & \textbf{union} & \textbf{find} \\ \hline \\
-\centering quick-find & $N$ & $N$ & 1 \\
-\centering quick-union & $N$ & tree height & tree height \\
-\centering weighted quick-union & $N$ & $\log N$ & $\log N$ \\
-\centering weighted quick-union with path compression & $N$ & $\approx 1$ (amortized) & $\approx 1$ (amortized) \\
-\centering impossible & $N$ & 1 & 1
-\end{tabular} 
-\end{center}
-\end{itemize}
 \end{frame}
 
 \end{document}

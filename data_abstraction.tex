@@ -303,7 +303,7 @@ $\dots$ & $\dots$
 method & description \\ \hline
 \lstinline$String()$ & create an empty string \\
 \lstinline$int length()$ & length of the string \\
-\lstinline$int charAt(int i)$ & $i$th character \\
+\lstinline$char charAt(int i)$ & $i$th character \\
 \lstinline$int indexOf(String p)$ & first occurrence of $p$ or -1 \\ \lstinline$int indexOf(String p, int i)$ & first occurrence of $p$ after $i$ or -1 \\
 \lstinline$String concat(String t)$ & the string with $t$ appended \\
 \lstinline$String substring(int i, int j)$ & substring of the string from $i$ (inclusive) to $j$ (exclusive) \\
@@ -586,11 +586,7 @@ public class Planet implements Comparable<Planet> {
     
     public String toString() { return name + ", " + moons; }
 
-    public static Comparator<Planet> moonOrder() { 
-        return new MoonOrder(); 
-    }
-
-    private static class MoonOrder implements Comparator<Planet> {
+    public static class MoonOrder implements Comparator<Planet> {
         public int compare(Planet p1, Planet p2) {
             return p1.moons() - p2.moons();
         }
@@ -619,7 +615,7 @@ public class Planet implements Comparable<Planet> {
         for (int i = 0; i < planets.length; i++) {
             StdOut.println("  " + planets[i]);
         }
-        Arrays.sort(planets, Planet.moonOrder());
+        Arrays.sort(planets, new Planet.MoonOrder());
         StdOut.println("Sorted by # of moons:");
         for (int i = 0; i < planets.length; i++) {
             StdOut.println("  " + planets[i]);

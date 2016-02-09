@@ -86,6 +86,7 @@ public class UFClient {
             int q = StdIn.readInt();
             if (uf.connected(p, q)) { continue; }
             uf.union(p, q);
+            StdOut.println(p + " " + q);
         }
         StdOut.println(uf.count() + " components");
     }
@@ -94,8 +95,7 @@ public class UFClient {
     
 \begin{lstlisting}[language={}]
 $ more tinyUF.txt
-10
-4 3 3 8 6 5 9 4 2 1 8 9 5 0 7 2 6 1 1 0 6 7
+10 4 3 3 8 6 5 9 4 2 1 8 9 5 0 7 2 6 1 1 0 6 7
 \end{lstlisting}    
 
 \begin{lstlisting}[language={}]

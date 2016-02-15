@@ -18,33 +18,45 @@
 
 \section{Rules of the Game}
 \begin{frame}[fragile]
-\begin{itemize}
-\item sorting is the process of rearranging a sequence of objects so as to put them in some logical order
+Sorting is the process of rearranging a sequence of objects so as to put them in some logical order; for example, your credit card bill presents transactions ordered by date
 
-\item for example, your credit card bill presents transactions ordered by date
+\bigskip
 
-\item as a conservative practice, we include the statement \lstinline{assert isSorted(a)} in our test client to certify that array entries are in order after the sort
+As a conservative practice, we include the statement \lstinline{assert isSorted(a)} in our test client to certify that array entries are in order after the sort
 
-\item we test algorithm performance by counting the number of basic
+\bigskip
+
+We test algorithm performance by counting the number of basic
 operations (comparisons and exchanges or array accesses)
 
-\item there are two types of sorting algorithms: those that sort in place and use no extra memory, and those that need enough extra memory to hold another copy of the array to be sorted
+\bigskip
 
-\item our sort code is effective for any item type that implements the \lstinline{Comparable} interface
-\end{itemize}
+There are two types of sorting algorithms: those that sort in place and use no extra memory, and those that need enough extra memory to hold another copy of the array to be sorted
+
+\bigskip
+
+Our sort code is effective for any item type that is comparable
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item sort template
 \begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
+import java.util.Comparator;
+
 public class SortAlgorithm {
     public static void sort(Comparable[] a) { ... }
     
+    public static void sort(Object[] a, Comparator c) { ... }
+
     private static boolean less(Comparable v , Comparable w) {
         return (v.compareTo(w) < 0);
     }
-    
+
+    private static boolean less(Comparator c, Object v, Object w) {
+        return c.compare(v, w) < 0;
+    }
+        
     private static void exch(Object[] a, int i, int j) {
         Object swap = a[i]; a[i] = a[j]; a[j] = swap;
     }
@@ -52,6 +64,28 @@ public class SortAlgorithm {
     private static boolean isSorted(Comparable[] a) {
         for (int i = 1; i < a.length; i++) {
             if (less(a[i], a[i - 1])) { return false; }
+        }
+        return true;
+    }
+
+    private static boolean isSorted(Comparable[] a, int lo, int hi) {
+        for (int i = lo + 1; i <= hi; i++) {
+            if (less(a[i], a[i-1])) { return false; }
+        }
+        return true;
+    }
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{lstlisting}[language=Java]
+    private static boolean isSorted(Object[] a, Comparator c) {
+        return isSorted(a, c, 0, a.length - 1);
+    }
+
+    private static boolean isSorted(Object[] a, Comparator c, int lo, int hi) {
+        for (int i = lo + 1; i <= hi; i++) {
+            if (less(c, a[i], a[i - 1])) { return false; }
         }
         return true;
     }
@@ -71,17 +105,22 @@ public class SortAlgorithm {
 \end{lstlisting}
 
 \begin{lstlisting}[language={}]
-$ echo "S O R T E X A M P L E" | java SortAlgorithm
+$ echo S O R T E X A M P L E | java SortAlgorithm
 A E E L M O P R S T X
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \section{Selection Sort}
 \begin{frame}[fragile]
-\begin{itemize}
-\item first find the smallest item in the array and exchange it with the first entry (itself if the first entry is already the smallest), then find the next smallest item and exchange it with the second entry, and so on until the entire array is sorted
+First find the smallest item in the array and exchange it with the first entry, then find the next smallest item and exchange it with the second entry, and so on
+
+\bigskip
+
 \begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
+import java.util.Comparator;
+
 public class Selection {
     ...
     public static void sort(Comparable[] a) {
@@ -99,40 +138,42 @@ public class Selection {
     ...
 }
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item trace
-
 \begin{center}
 \includegraphics[scale=0.65]{./figures/selection_trace.pdf}
 
 \smallskip
 
-array contents just before each exchange
+Array contents just before each exchange
 \end{center}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item selection sort uses $\sim N^2/2$ comparisons and $N$ exchanges to sort an array of length $N$
+Selection sort uses $\sim N^2/2$ comparisons and $N$ exchanges to sort an array of length $N$
 
-\item it takes about as long to run selection sort for an
-array that is already in order or for an array with all keys equal as it does for a randomly-ordered array
+\bigskip
 
-\item each of the $N$ exchanges changes the value of two array
+It takes about as long to run selection sort for an array that is already in order or for an array with all keys equal as it does for a randomly-ordered array
+
+\bigskip
+
+Each of the $N$ exchanges changes the value of two array
 entries, so the number of array accesses is a linear function of the array size, a property that none of the other sorting algorithms that we consider have (most involve linearithmic or quadratic growth)
-\end{itemize}
 \end{frame}
 
 \section{Insertion Sort}
 \begin{frame}[fragile]
-\begin{itemize}
-\item similar to the technique that people use to sort bridge hands, ie, consider the cards one at a time, inserting each into its proper place among those already considered (keeping them sorted)
+Similar to the technique that people use to sort bridge hands, ie, consider the cards one at a time, inserting each into its proper place among those already considered
+
+\bigskip
+
 \begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
+import java.util.Comparator;
+
 public class Insertion {
     ...
     public static void sort(Comparable[] a) {
@@ -146,38 +187,41 @@ public class Insertion {
     ...
 }
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item trace
-
 \begin{center}
 \includegraphics[scale=0.65]{./figures/insertion_trace.pdf}
 
 \smallskip
 
-array contents just after each iteration of the inner loop
+Array contents just after each iteration of the inner loop
 \end{center}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item insertion sort uses $\sim N^2 /4$ comparisons and $\sim N^2 /4$ exchanges to sort a randomly ordered array of length $N$ with distinct keys, on the average; the worst case is $\sim N^2 /2$ comparisons and $\sim N^2/2$ exchanges; the best case is $N-1$ comparisons and 0 exchanges
+Insertion sort uses $\sim N^2 /4$ comparisons and $\sim N^2 /4$ exchanges to sort a randomly ordered array of length $N$ with distinct keys, on the average; the worst case is $\sim N^2 /2$ comparisons and $\sim N^2/2$ exchanges; the best case is $N-1$ comparisons and 0 exchanges
 
-\item insertion sort is an excellent method for partially-sorted arrays and is also a fine method for tiny arrays
-\end{itemize}
+\bigskip
+
+Insertion sort is an excellent method for partially-sorted arrays and is also a fine method for tiny arrays
 \end{frame}
 
 \section{Shell Sort}
 \begin{frame}[fragile]
-\begin{itemize}
-\item shell sort is a simple extension of insertion sort that gains speed by allowing exchanges of array entries that are far apart, to produce partially-sorted arrays that can be efficiently sorted, eventually by insertion sort
+Shell sort is a simple extension of insertion sort that gains speed by allowing exchanges of array entries that are far apart, to produce partially-sorted arrays that can be efficiently sorted, eventually by insertion sort
 
-\item the idea is to rearrange the array such that taking every $h$th entry (starting anywhere) yields an $h$-sorted subsequence
+\bigskip
+
+The idea is to rearrange the array such that taking every $h$th entry (starting anywhere) yields an $h$-sorted subsequence
+
+\bigskip
+
 \begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
+import java.util.Comparator;
+
 public class Shell {
     ...
     public static void sort(Comparable[] a) {
@@ -196,72 +240,57 @@ public class Shell {
     ...
 }
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item trace
-
 \begin{center}
 \includegraphics[scale=0.6]{./figures/shell_trace.pdf}
 
 \smallskip
 
-array contents after each pass
+Array contents after each pass
 \end{center}
 
-\item the worst-case number of comparisons is proportional to $N^{3/2}$; no mathematical results are available for the average-case number of comparisons for randomly ordered input
-\end{itemize}
+\bigskip
+
+The worst-case number of comparisons is proportional to $N^{3/2}$; no mathematical results are available for the average-case number of comparisons for randomly ordered input
 \end{frame}
 
 \section{Visualizing Sorting Algorithms}
 \begin{frame}[fragile]
-\begin{itemize}
-\item using animations
-
-\bigskip
-
 \begin{center}
 \includegraphics[scale=0.3]{./figures/algorithm_animations.pdf}
 \end{center}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item using folk dances
-
-\bigskip
-
 \begin{center}
 \includegraphics[scale=0.23]{./figures/algorithm_videos.pdf}
 \end{center}
-\end{itemize}
 \end{frame}
 
 \section{Comparing Sorting Algorithms}
 \begin{frame}[fragile]
-\begin{itemize}
-\item \lstinline{SortCompare}
 \begin{lstlisting}[language=Java]
+import edu.princeton.cs.algs4.*;
 import java.util.Arrays;
 
 public class SortCompare { 
     public static double time(String alg, Double[] a) { 
         Stopwatch sw = new Stopwatch(); 
-        if (alg.equals("Insertion"))       { Insertion.sort(a); }
-        else if (alg.equals("InsertionX")) { InsertionX.sort(a); }
-        else if (alg.equals("Selection"))  { Selection.sort(a); }
-        else if (alg.equals("Shell"))      { Shell.sort(a); }
-        else if (alg.equals("Merge"))      { Merge.sort(a); }
-        else if (alg.equals("MergeX"))     { MergeX.sort(a); }
-        else if (alg.equals("MergeBU"))    { MergeBU.sort(a); } 
-        else if (alg.equals("Quick"))      { Quick.sort(a); }
-        else if (alg.equals("Quick3way"))  { Quick3way.sort(a); }
-        else if (alg.equals("QuickX"))     { QuickX.sort(a); }
-        else if (alg.equals("Heap"))       { Heap.sort(a); }
-        else if (alg.equals("System"))     { Arrays.sort(a); }
+        if (alg.equals("Insertion"))            { Insertion.sort(a); }
+        else if (alg.equals("InsertionX"))      { InsertionX.sort(a); }
+        else if (alg.equals("BinaryInsertion")) { BinaryInsertion.sort(a); }
+        else if (alg.equals("Selection"))       { Selection.sort(a); }
+        else if (alg.equals("Shell"))           { Shell.sort(a); }
+        else if (alg.equals("Merge"))           { Merge.sort(a); }
+        else if (alg.equals("MergeX"))          { MergeX.sort(a); }
+        else if (alg.equals("MergeBU"))         { MergeBU.sort(a); } 
+        else if (alg.equals("Quick"))           { Quick.sort(a); }
+        else if (alg.equals("Quick3way"))       { Quick3way.sort(a); }
+        else if (alg.equals("QuickX"))          { QuickX.sort(a); }
+        else if (alg.equals("Heap"))            { Heap.sort(a); }
+        else if (alg.equals("System"))          { Arrays.sort(a); }
         else {
             throw new IllegalArgumentException("Invalid algorithm: " + alg);
         }
@@ -277,47 +306,45 @@ public class SortCompare {
         } 
         return total; 
     }
-    ... 
-}
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item \lstinline{SortCompare} (contd.)
 \begin{lstlisting}[language=Java]
-    ...
+    public static double timeSortedInput(String alg, int N, int T)  {
+        double total = 0.0; 
+        Double[] a = new Double[N]; 
+        for (int t = 0; t < T; t++) {
+            for (int i = 0; i < N; i++) { a[i] = 1.0 * i; }
+            total += time(alg, a); 
+        } 
+        return total; 
+    } 
+
     public static void main(String[] args) { 
         String alg1 = args[0]; 
         String alg2 = args[1]; 
-        int N = Integer.parseInt(args[2]); 
-        int T = Integer.parseInt(args[3]); 
-        double time1 = timeRandomInput(alg1, N, T); 
-        double time2 = timeRandomInput(alg2, N, T); 
+        int N = Integer.parseInt(args[2]);
+        int T = Integer.parseInt(args[3]);
+        double time1, time2;
+        if (args.length == 5 && args[4].equals("sorted")) {
+            time1 = timeSortedInput(alg1, N, T);
+            time2 = timeSortedInput(alg2, N, T);
+        }
+        else {
+            time1 = timeRandomInput(alg1, N, T);
+            time2 = timeRandomInput(alg2, N, T);
+        }
         StdOut.printf("For %d random Doubles\n    %s is", N, alg1); 
-        StdOut.printf(" %.1f times faster than %s\n", time2 / time1, alg2); 
+        StdOut.printf(" %.1f times faster than %s\n", time2/time1, alg2); 
     } 
 }
 \end{lstlisting}
 
 \begin{lstlisting}[language={}]
-$ java SortCompare Selection Insertion 10000 100
-For 10000 random Doubles
-    Selection is 0.9 times faster than Insertion
-\end{lstlisting}
-
-\begin{lstlisting}[language={}]
-$ java SortCompare Insertion Shell 10000 100
-For 10000 random Doubles
-    Insertion is 0.0 times faster than Shell
-\end{lstlisting}
-
-\begin{lstlisting}[language={}]
 $ java SortCompare Shell Selection 10000 100
 For 10000 random Doubles
-    Shell is 52.5 times faster than Selection
+    Shell is 51.0 times faster than Selection
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 \end{document}

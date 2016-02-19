@@ -188,6 +188,7 @@ A \lstinline{Bag} is an iterable collection that provides clients the ability to
 method & description \\ \hline
 \lstinline$Bag<Item>()$ & constructs an empty bag \\
 \lstinline$boolean isEmpty()$ & is the bag empty? \\
+\lstinline$int size()$ & number of items in the bag \\
 \lstinline$void add(Item item)$ & adds $item$ to the bag \\
 \lstinline$Iterator<Item> iterator()$ & returns an iterator over the items in the bag
 \end{tabular} 
@@ -218,8 +219,7 @@ public class Stats {
 
 \begin{lstlisting}[language={}]
 $ java Stats
-100 99 101 120 98 107 109 81 101 90
-<ctrl-d>
+100 99 101 120 98 107 109 81 101 90 <ctrl-d>
 Mean:    100.60
 Std dev: 10.51
 \end{lstlisting}

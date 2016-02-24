@@ -62,10 +62,7 @@ public class SortAlgorithm {
     }
     
     private static boolean isSorted(Comparable[] a) {
-        for (int i = 1; i < a.length; i++) {
-            if (less(a[i], a[i - 1])) { return false; }
-        }
-        return true;
+        return isSorted(a, 0, a.length - 1);
     }
 
     private static boolean isSorted(Comparable[] a, int lo, int hi) {

@@ -268,9 +268,9 @@ public class LinkedBag<Item> implements Iterable<Item> {
     }
 
     private class ListIterator<Item> implements Iterator<Item> {
-        private Node<Item> current;
+        private Node current;
 
-        public ListIterator(Node<Item> first) { current = first; }
+        public ListIterator(Node first) { current = first; }
 
         public boolean hasNext() { return current != null; }
 
@@ -340,8 +340,8 @@ import java.util.NoSuchElementException;
 
 public class LinkedQueue<Item> implements Iterable<Item> {
     private int N; 
-    private Node<Item> first; 
-    private Node<Item> last; 
+    private Node first; 
+    private Node last; 
 
     public LinkedQueue() {
         first = null;
@@ -354,8 +354,8 @@ public class LinkedQueue<Item> implements Iterable<Item> {
     public int size() { return N; }
 
     public void enqueue(Item item) {
-        Node<Item> oldlast = last;
-        last = new Node<Item>();
+        Node oldlast = last;
+        last = new Node();
         last.item = item;
         last.next = null;
         if (isEmpty()) { first = last; }
@@ -383,9 +383,9 @@ public class LinkedQueue<Item> implements Iterable<Item> {
     }
 
     private class ListIterator<Item> implements Iterator<Item> {
-        private Node<Item> current;
+        private Node current;
 
-        public ListIterator(Node<Item> first) { current = first; }
+        public ListIterator(Node first) { current = first; }
 
         public boolean hasNext() { return current != null; }
 
@@ -457,7 +457,7 @@ import java.util.NoSuchElementException;
 
 public class LinkedStack<Item> implements Iterable<Item> {
     private int N; 
-    private Node<Item> first; 
+    private Node first; 
     
     public LinkedStack() {
         first = null; 
@@ -469,8 +469,8 @@ public class LinkedStack<Item> implements Iterable<Item> {
     public int size() { return N; }
 
     public void push(Item item) {
-        Node<Item> oldfirst = first;
-        first = new Node<Item>(); 
+        Node oldfirst = first;
+        first = new Node(); 
         first.item = item;
         first.next = oldfirst;
         N++;
@@ -502,9 +502,9 @@ public class LinkedStack<Item> implements Iterable<Item> {
     }
 
     private class ListIterator<Item> implements Iterator<Item> {
-        private Node<Item> current;
+        private Node current;
 
-        public ListIterator(Node<Item> first) { current = first; }
+        public ListIterator(Node first) { current = first; }
 
         public boolean hasNext()  { return current != null; }
 

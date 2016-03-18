@@ -18,22 +18,25 @@
 
 \section{What is a Binary Search Tree (BST)?}
 \begin{frame}[fragile]
-\begin{itemize}
-\item a binary tree is either empty or a node with a key (and associated value) and links (left and right) to two disjoint binary subtrees
+A \emph{binary tree} is either empty or a node with a key (and associated value) and links (left and right) to two disjoint binary subtrees
 
-\item a binary tree is in symmetric order if each node's key is larger than all keys in its left subtree and smaller than all keys in its right subtree
+\bigskip
 
-\item a binary search tree (BST) is a binary tree in symmetric order
+A binary tree is in \emph{symmetric order} if each node's key is larger than all keys in its left subtree and smaller than all keys in its right subtree
+
+\bigskip
+
+A \emph{binary search tree} (\emph{BST}) is a binary tree in symmetric order
+
+\smallskip
 
 \begin{center}
 \includegraphics[scale=0.6]{{./figures/bst}.pdf}
 \end{center}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item a BST representation in Java is a reference to a root node, which is composed of five fields: a key, a value, a reference to the left subtree, a reference to the right subtree, and the number of nodes in the subtree
+A BST representation in Java is a reference to a root node, which is composed of five fields: a key, a value, a reference to the left subtree, a reference to the right subtree, and the number of nodes in the subtree
 
 \begin{lstlisting}[language=Java]
 private class Node {
@@ -49,21 +52,21 @@ private class Node {
     }
 }
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \section{Implementation of the Ordered Symbol Table API Using a BST}
 \begin{frame}[fragile]
-\begin{itemize}
-\item basic operations
+Basic operations
+
 \begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
 import java.util.NoSuchElementException;
 
-public class BinarySearchTreeST<Key extends Comparable<Key>, Value> 
-    implements OrderedST<Key, Value> {
+public class BST<Key extends Comparable<Key>, Value> {
     private Node root;
-
-    private class Node { ... }
+    
+    public BST() {}
     
     public boolean isEmpty() { return size() == 0; }
 
@@ -85,17 +88,11 @@ public class BinarySearchTreeST<Key extends Comparable<Key>, Value>
     }
 
     public boolean contains(Key key) { return get(key) != null; }
-    ...
-}
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item basic operations (contd.)
 \begin{lstlisting}[language=Java]
-    ...
     public void put(Key key, Value val) {
         if (val == null) { delete(key); return; }
         root = put(root, key, val);
@@ -111,13 +108,12 @@ public class BinarySearchTreeST<Key extends Comparable<Key>, Value>
         return x;
     }
     ...
+}
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item tree shape depends on order of insertion
+Tree shape depends on order of insertion
 
 \begin{minipage}{100pt}
 \begin{center}
@@ -135,26 +131,26 @@ public class BinarySearchTreeST<Key extends Comparable<Key>, Value>
 \end{center}
 \end{minipage}
 
-\item number of comparisons for search/insert is equal to 1 + depth of node
+\bigskip
 
-\item if $N$ distinct keys are inserted into a BST in random order,
+Number of comparisons for search/insert is equal to 1 + depth of node
+
+\bigskip
+
+If $N$ distinct keys are inserted into a BST in random order,
 the expected number of comparisons for a search/insert is $\sim 2\ln N$
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item typical BST, built from 256 random keys
+Typical BST, built from 256 random keys
 
 \begin{center}
 \includegraphics[scale=0.4]{{./figures/typical_bst}.png}
 \end{center}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item minimum and maximum
+Minimum and maximum
 
 \smallskip
 
@@ -185,14 +181,10 @@ the expected number of comparisons for a search/insert is $\sim 2\ln N$
     } 
     ...
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item floor and ceiling
-
-\smallskip
+Floor and ceiling
 
 \begin{center}
 \includegraphics[scale=0.4]{{./figures/bst_floor_ceil}.pdf}
@@ -200,13 +192,13 @@ the expected number of comparisons for a search/insert is $\sim 2\ln N$
 
 \smallskip
 
-computing the floor of key $k$:
+Computing the floor of key $k$
 \begin{itemize}
-\item case 1 ($k$ equals the key in the node): the floor of $k$ is $k$
+\item Case 1 ($k$ equals the key in the node): the floor of $k$ is $k$
 
-\item case 2 ($k$ is less than the key in the node): the floor of $k$ is in the left subtree
+\item Case 2 ($k$ is less than the key in the node): the floor of $k$ is in the left subtree
 
-\item case 3 ($k$ is greater than the key in the node): the floor of $k$ is in the right subtree if there is any key $\leq k$ in there; otherwise, it is the key in the node
+\item Case 3 ($k$ is greater than the key in the node): the floor of $k$ is in the right subtree if there is any key $\leq k$ in there; otherwise, it is the key in the node
 \end{itemize}
 
 \begin{lstlisting}[language=Java]
@@ -228,23 +220,18 @@ computing the floor of key $k$:
     } 
     ...
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
+Computing the ceiling of key $k$
 \begin{itemize}
-\item floor and ceiling (contd.)
+\item Case 1 ($k$ equals the key in the node): the ceiling of $k$ is $k$
 
-\smallskip
+\item Case 2 ($k$ is greater than the key in the node): the ceiling of $k$ is in the right subtree
 
-computing the ceiling of key $k$:
-\begin{itemize}
-\item case 1 ($k$ equals the key in the node): the ceiling of $k$ is $k$
-
-\item case 2 ($k$ is greater than the key in the node): the ceiling of $k$ is in the right subtree
-
-\item case 3 ($k$ is less than the key in the node): the ceiling of $k$ is in the left subtree if there is any key $\geq k$ in there; otherwise, it is the key in the node
+\item Case 3 ($k$ is less than the key in the node): the ceiling of $k$ is in the left subtree if there is any key $\geq k$ in there; otherwise, it is the key in the node
 \end{itemize}
+
 \begin{lstlisting}[language=Java]
     ...
     public Key ceiling(Key key) {
@@ -264,12 +251,10 @@ computing the ceiling of key $k$:
     } 
     ...
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item rank and selection
+Rank and selection
 
 \begin{center}
 \includegraphics[scale=0.35]{{./figures/bst_rank_select}.pdf}
@@ -302,52 +287,10 @@ computing the ceiling of key $k$:
     } 
     ...
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item tree traversal
-\begin{lstlisting}[language=Java]
-public void preorder() { preorder(root); }
-
-private void preorder(Node x) {
-    if (x == null) { return; }
-    process(x);
-    preorder(x.left);
-    preorder(x.right);
-}
-\end{lstlisting}
-
-\begin{lstlisting}[language=Java]
-public void inorder() { inorder(root); }
-
-private void inorder(Node x) {
-    if (x == null) { return; }
-    inorder(x.left);
-    process(x);
-    inorder(x.right);
-}
-\end{lstlisting}
-
-\begin{lstlisting}[language=Java]
-public void postorder() { postorder(root); }
-
-private void postorder(Node x) {
-    if (x == null) { return; }
-    postorder(x.left);
-    postorder(x.right);
-    process(x);
-}
-\end{lstlisting}
-
-\item inorder traversal of a BST processes keys in ascending order
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{itemize}
-\item range count and range search
+Range count and range search
 \begin{lstlisting}[language=Java]
     ...
     public int size(Key lo, Key hi) {
@@ -361,12 +304,12 @@ private void postorder(Node x) {
     }
 
     public Iterable<Key> keys(Key lo, Key hi) {
-        LinkedQueue<Key> queue = new LinkedQueue<Key>();
+        Queue<Key> queue = new Queue<Key>();
         keys(root, queue, lo, hi);
         return queue;
     } 
 
-    private void keys(Node x, LinkedQueue<Key> queue, Key lo, Key hi) { 
+    private void keys(Node x, Queue<Key> queue, Key lo, Key hi) { 
         if (x == null) { return; }
         int cmplo = lo.compareTo(x.key); 
         int cmphi = hi.compareTo(x.key); 
@@ -376,28 +319,26 @@ private void postorder(Node x) {
     } 
     ...
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
+Deletion
+
+\bigskip
+
+To delete the minimum (maximum) key
 \begin{itemize}
-\item deletion
+\item Go left (right) until you find a node with null left (right) link
 
-\smallskip
+\item Replace that node by its right (left) link
 
-to delete the minimum (maximum) key:
-\begin{itemize}
-\item go left (right) until you find a node with null left (right) link
-
-\item replace that node by its right (left) link
-
-\item update subtree counts
+\item Update subtree counts
 
 \end{itemize}
 \begin{lstlisting}[language=Java]
     ...
     public void deleteMin() {
-        if (isEmpty()) { throw new NoSuchElementException("ST underflow"); }
+        if (isEmpty()) { throw new NoSuchElementException(...); }
         root = deleteMin(root);
     }
 
@@ -409,7 +350,7 @@ to delete the minimum (maximum) key:
     }
 
     public void deleteMax() {
-        if (isEmpty()) { throw new NoSuchElementException("ST underflow"); }
+        if (isEmpty()) { throw new NoSuchElementException(...); }
         root = deleteMax(root);
     }
 
@@ -421,20 +362,17 @@ to delete the minimum (maximum) key:
     }   
     ...
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item deletion (contd.)
 \begin{minipage}{200pt}
-to delete a node with key $k$ (Hibbard deletion), search for the node $t$ containing key $k$
+To delete a node with key $k$ (Hibbard deletion), search for the node $t$ containing key $k$
 \begin{itemize}
-\item case 1 (0 children): delete $t$ by setting parent link to null
+\item Case 1 (0 children): delete $t$ by setting parent link to null
 
-\item case 2 (1 child): delete $t$ by replacing parent link
+\item Case 2 (1 child): delete $t$ by replacing parent link
 
-\item case 3 (2 children): find successor $x$ of $t$ ($x$ has no left child); delete the minimum in $t$'s right subtree; and put $x$ in $t$'s spot
+\item Case 3 (2 children): find successor $x$ of $t$ ($x$ has no left child); delete the minimum in $t$'s right subtree; and put $x$ in $t$'s spot
 \end{itemize}
 and update subtree counts
 \end{minipage}%
@@ -443,12 +381,9 @@ and update subtree counts
 \includegraphics[scale=0.35]{{./figures/bst_delete}.png}
 \end{center}
 \end{minipage}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item deletion (contd.)
 \begin{lstlisting}[language=Java]
     ...
     public void delete(Key key) {
@@ -473,16 +408,61 @@ and update subtree counts
     } 
     ...
 \end{lstlisting}
-\end{itemize}
+\end{frame}
+
+\section{Binary Tree Traversal}
+\begin{frame}[fragile]
+Pre-order traversal
+\begin{lstlisting}[language=Java]
+public void preorder() { preorder(root); }
+
+private void preorder(Node x) {
+    if (x == null) { return; }
+    process(x);
+    preorder(x.left);
+    preorder(x.right);
+}
+\end{lstlisting}
+
+\bigskip
+
+In-order traversal
+\begin{lstlisting}[language=Java]
+public void inorder() { inorder(root); }
+
+private void inorder(Node x) {
+    if (x == null) { return; }
+    inorder(x.left);
+    process(x);
+    inorder(x.right);
+}
+\end{lstlisting}
+
+\bigskip
+
+Post-order traversal
+\begin{lstlisting}[language=Java]
+public void postorder() { postorder(root); }
+
+private void postorder(Node x) {
+    if (x == null) { return; }
+    postorder(x.left);
+    postorder(x.right);
+    process(x);
+}
+\end{lstlisting}
+
+\bigskip
+
+In-order traversal of a BST processes keys in ascending order
 \end{frame}
 
 \section{Performance Characteristics}
 \begin{frame}[fragile]
-\begin{itemize}
-\item symbol table operations summary
+Symbol table operations summary
 \begin{center}
 \begin{tabular}{cccc}
-\textbf{operation} & \textbf{unordered linked list} & \textbf{ordered array} & \textbf{BST} \\ \hline \\
+operation & unordered linked list & ordered array & BST \\ \hline \\
 search & $N$ & $\lg N$ & $h^\dagger$ \\
 insert & $N$ & $N$ & $h$ \\
 delete & $N$ & $N$ & $N^{\dagger\dagger}$ \\
@@ -499,6 +479,5 @@ ordered iteration & - & $N$ & $N$
 
 $\dagger\dagger$ $\sqrt{N}$ in the average case; other operations also become $\sqrt{N}$ if deletions are allowed
 \end{center}
-\end{itemize}
 \end{frame}
 \end{document}

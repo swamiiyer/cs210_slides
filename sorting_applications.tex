@@ -18,24 +18,24 @@
 
 \section{Sorting Various Types of Data}
 \begin{frame}[fragile]
-\begin{itemize}
-\item our implementations sort arrays of \lstinline$Comparable$ objects, which allows us to use Java's callback mechanism to sort arrays of objects of any type that implements the \lstinline$Comparable$ interface
+Our implementations sort arrays of \lstinline$Comparable$ objects, which allows us to use Java's callback mechanism to sort arrays of objects of any type that implements the \lstinline$Comparable$ interface
 
-\item the approach we are using is known in the classical literature as pointer sorting, so called because we process references to items and do not move the data itself
+\bigskip
 
-\item another advantage of using references is that we avoid the cost of moving full items --- the cost saving is significant for arrays with large items (and small keys) because the comparison needs to access just a small part of the item, and most of the item is not even touched during the sort
+The sorting approach we are using is known in the classical literature as \emph{pointer sorting}, so called because we process references to items and do not move the data itself
 
-\item an array might not remain sorted if a client is allowed to change the values of keys after the sort, so it is wise to ensure that key values do not change by using immutable keys
-\end{itemize}
+\bigskip
+
+An array might not remain sorted if a client is allowed to change the values of keys after the sort, so it is wise to ensure that key values do not change by using immutable keys
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item there are many applications where, depending on the situation, we want to use different orders for the objects that we are sorting
-
-\item the \lstinline$Comparator$ interface allows us to build multiple orders within a single class --- it has
-a single public method \lstinline$compare()$ that compares two objects
+There are many applications where we want to use different orders for the objects we are sorting; the \lstinline$Comparator$ interface makes this possible
 \begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
+import java.util.Comparator;
+
 public class Insertion {
     ...
     public static void sort(Object[] a, Comparator c) {
@@ -54,7 +54,9 @@ public class Insertion {
 }
 \end{lstlisting}
 
-\item in typical applications, items have multiple instance variables that might need to serve as sort keys
+\bigskip
+
+In typical applications, items have multiple instance variables that might need to serve as sort keys
 \begin{lstlisting}[language=Java]
 Insertion.sort(a, new Transaction.WhenOrder());
 \end{lstlisting}
@@ -62,17 +64,21 @@ Insertion.sort(a, new Transaction.WhenOrder());
 \begin{lstlisting}[language=Java]
 Insertion.sort(a, new Transaction.HowMuchOrder());
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item alternate orderings
+The \lstinline{Transaction} data type with alternate orderings
 \begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
+import java.util.Arrays;
 import java.util.Comparator;
 
 public class Transaction implements Comparable<Transaction> {  
-    ...
+    private final String who;
+    private final Date   when; 
+    private final double amount;
+
     public static class WhoOrder implements Comparator<Transaction> {
         public int compare(Transaction v, Transaction w) { 
             return v.who.compareTo(w.who); 
@@ -95,14 +101,10 @@ public class Transaction implements Comparable<Transaction> {
     ...
 }
 \end{lstlisting}
-
-\item the flexibility to use comparators is also useful for priority queues
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item a sorting method is stable if it preserves the relative order of equal keys in the array
+A sorting method is \emph{stable} if it preserves the relative order of equal keys in the array
 
 \begin{minipage}{65pt}
 \begin{lstlisting}[language={},backgroundcolor=\color{white}]
@@ -126,7 +128,7 @@ Seattle 09:36:14
 Phoenix 09:37:44
 \end{lstlisting}
 \begin{center}
-\tiny sorted by time
+\tiny Sorted by time
 \end{center}
 \end{minipage}\hfill
 \begin{minipage}{65pt}
@@ -151,7 +153,7 @@ Seattle 09:10:11
 Seattle 09:22:54
 \end{lstlisting}
 \begin{center}
-\tiny sorted by location (unstable)
+\tiny Sorted by location (unstable)
 \end{center}
 \end{minipage}\hfill
 \begin{minipage}{65pt}
@@ -176,21 +178,21 @@ Seattle 09:22:54
 Seattle 09:36:14
 \end{lstlisting}
 \begin{center}
-\tiny sorted by location (stable)
+\tiny Sorted by location (stable)
 \end{center}
 \end{minipage}
 
-\item insertion and merge sorts are stable, but selection, shell, quick, and heap sorts are not
-\end{itemize}
+\bigskip
+
+Insertion and merge sorts are stable, but selection, shell, quick, and heap sorts are not
 \end{frame}
 
 \section{Which Sorting Algorithm Should I Use?}
 \begin{frame}[fragile]
-\begin{itemize}
-\item performance characteristics of sorting algorithms
+Performance characteristics of sorting algorithms
 \begin{center}
 \begin{tabular}{ccccc}
-\textbf{algorithm} & \textbf{stable?} & \textbf{in-place?} & \textbf{running time} & \textbf{space} \\ \hline \\
+algorithm & stable? & in-place? & running time & space \\ \hline \\
 selection & no & yes & $N^2$ & 1 \\
 insertion & yes & yes & between $N$ and $N^2$ & 1 \\
 shell & no & yes & $N\log N$?, $N^{3/2}$? & 1 \\
@@ -201,56 +203,69 @@ heap & no & yes & $N\log N$ & 1
 \end{tabular} 
 \end{center}
 
-\item in some performance-critical applications, the focus may be on sorting numbers, and in such cases, we can develop efficient versions of our sorting programs by replacing \lstinline$Comparable$ with the primitive type name, and redefining \lstinline$less()$ or just replacing calls to \lstinline$less()$ with code like \lstinline$a[i] < a[j]$
+\bigskip
 
-\item Java's primary system sort method  \lstinline$java.util.Arrays.sort()$ represents a collection of methods, and uses 3-way quick sort for primitive-type methods and merge sort for reference-type methods
-\end{itemize}
+In some performance-critical applications, the focus may be on sorting numbers, and in such cases, we can develop efficient versions of our sorting programs by replacing \lstinline$Comparable$ with the primitive type name, and redefining \lstinline$less()$ or just replacing calls to \lstinline$less()$ with code like \lstinline$a[i] < a[j]$
+
+\bigskip
+
+Java's primary system sort method  \lstinline$java.util.Arrays.sort()$ represents a collection of methods, and uses 3-way quick sort for primitive-type methods and merge sort for reference-type methods
 \end{frame}
 
 \section{Reductions}
 \begin{frame}[fragile]
-\begin{itemize}
-\item we can use sorting algorithms to solve other problems --- a technique in algorithm design known as reduction 
+We can use sorting algorithms to solve other problems --- a technique in algorithm design known as \emph{reduction} 
 
-\item examples
+\bigskip
+
+Examples
 \begin{itemize}
-\item duplicates: finding duplicate keys in an array of \lstinline$Comparable$ objects
-\item rankings: finding the Kendall tau distance between two rankings (a ranking or permutation is an array of $N$ integers where each of the integers between 0 and $N-1$ appears exactly once), defined as the number of pairs that are in different order in the two rankings
-\item priority-queue reductions: finding $M$ items in an input stream with the highest keys or merging $M$ sorted input streams together to make a sorted output stream can be reduced to operations on priority queues
-\item median and order statistics: finding the median (the value with the property that half the keys are no larger and half the keys are no smaller) and other order statistics of a collection of keys
-\end{itemize}
+\item Duplicates: finding duplicate keys in an array of \lstinline$Comparable$ objects
+\item Rankings: finding the Kendall tau distance between two rankings (aka permutations), defined as the number of pairs that are in different order in the two rankings
+\item Priority-queue reductions: finding $M$ items in an input stream with the highest keys or merging $M$ sorted input streams together to make a sorted output stream
+\item Median and order statistics: finding the median (the value with the property that half the keys are no larger and half the keys are no smaller) and other order statistics of a collection of keys
 \end{itemize}
 \end{frame}
 
 \section{A Brief Survey of Sorting Applications}
 \begin{frame}[fragile]
-\begin{itemize}
-\item commercial computing: government organizations, financial institutions, and commercial enterprises organize much of their information by sorting it
+Commercial computing: government organizations, financial institutions, and commercial enterprises organize much of their information by sorting it
 
-\item search for information: keeping data in sorted order makes it possible to efficiently search through it using binary search
+\bigskip
 
-\item the classic operations research (a field that develops and applies mathematical models for problem-solving and decision-making) problem known as scheduling makes use of sorting to produce sub-optimal schedules
+Search for information: keeping data in sorted order makes it possible to efficiently search through it using binary search
 
-\item event-driven simulation: many scientific applications involve simulation, where the point of the computation is to model some aspect of the real world in order to be able to better understand it, and such applications often make use of priority queues
+\bigskip
 
-\item numerical computations: scientific computing is often concerned with accuracy (how close are we to the true answer?), and some numerical algorithms use priority queues and sorting to control accuracy in calculations
-\end{itemize}
+The classic operations research (a field that develops and applies mathematical models for problem-solving and decision-making) problem known as \emph{scheduling} makes use of sorting to produce sub-optimal schedules
+
+\bigskip
+
+Event-driven simulation: many scientific applications involve simulation, where the point of the computation is to model some aspect of the real world in order to be able to better understand it, and such applications often make use of priority queues
+
+\bigskip
+
+Numerical computations: scientific computing is often concerned with accuracy, and some numerical algorithms use priority queues and sorting to control accuracy in calculations
 \end{frame}
 
 \begin{frame}[fragile]
+Combinatorial search: a classic paradigm in artificial intelligence and in coping with intractable problems is
 \begin{itemize}
-\item combinatorial search: a classic paradigm in artificial intelligence and in coping with intractable problems is
-\begin{itemize}
-\item to define a set of configurations with well-defined moves from one configuration to the next; a priority associated with each move; a start configuration; and a goal configuration  
+\item To define a set of configurations with well-defined moves from one configuration to the next; a priority associated with each move; a start configuration; and a goal configuration  
 
-\item and then apply the well-known $A^\star$ algorithm, which uses a priority queue, to solve the problem
+\item And then apply the well-known $A^\star$ algorithm, which uses a priority queue, to solve the problem
 \end{itemize}
 
-\item graph algorithms: priority queues play a fundamental role in algorithms in graph search, such as Dijkstra's, Prim's, Kruskal's algorithms, where we proceed from item to item along edges
+\bigskip
 
-\item Huffman compression: a classic data compression algorithm that makes use of a priority queue
+Graph algorithms: priority queues play a fundamental role in graph-search algorithms, such as Dijkstra's and Prim's algorithms, where we proceed from item to item along edges
 
-\item string processing: algorithms that process strings, which are of critical importance in modern applications in cryptography and genomics, are often based on sorting
-\end{itemize}
+\bigskip
+
+Huffman compression: a classic data compression algorithm that makes use of a priority queue
+
+\bigskip
+
+String processing: algorithms that process strings, which are of critical importance in modern applications in cryptography and genomics, are often based on sorting
 \end{frame}
 \end{document}

@@ -17,23 +17,27 @@
 
 \section{Sets}
 \begin{frame}[fragile]
+Mathematical set: a collection of distinct keys
+\begin{center}
+\begin{tabular}{cc}
+method & description \\ \hline
+\lstinline$void add(Key key)$ & add $key$ to the set \\
+\lstinline$boolean contains(Key key)$ & is $key$ in the set? \\
+\lstinline$boolean isEmpty()$ & is the set empty? \\
+$\dots$ & $\dots$
+\end{tabular}
+\end{center}
+
+\bigskip
+
+Exception filter
 \begin{itemize}
-\item mathematical set: a collection of distinct keys
-\begin{lstlisting}[language={},mathescape]
-public interface Set<Key extends Comparable<Key>> extends Iterable<Key>
+\item Read in a list of words from one file
 
-    public void add(Key key)         // add $key$ to the set
-    public boolean contains(Key key) // is $key$ in the set?
-    public void delete(Key key)      // delete $key$ from the set
-    public int size()                // the number of keys in the set
-\end{lstlisting}
-
-\item exception filter
-\begin{itemize}
-\item read in a list of words from one file
-
-\item print out all words from standard input that are (are not) in the list
+\item Print out all words from standard input that are (are not) in the list
 \end{itemize}
+
+\smallskip
 
 \begin{lstlisting}[language={}]
 $ more list.txt
@@ -44,7 +48,7 @@ it was the best of times it was the worst of times
 \end{lstlisting}
 
 \begin{lstlisting}[language={}]
-$ java WhiteFilter list.txt < tinyTale.txt 
+$ java edu.princeton.cs.algs4.WhiteFilter list.txt < tinyTale.txt 
 it 
 was 
 the 
@@ -53,22 +57,20 @@ of
 \end{lstlisting}
 
 \begin{lstlisting}[language={}]
-$ java BlackFilter list.txt < tinyTale.txt
+$ java edu.princeton.cs.algs4.BlackFilter list.txt < tinyTale.txt
 best 
 times 
 worst 
 times
 ...
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item exception filter: applications
+Exception filter Applications
 \begin{center}
 \begin{tabular}{cccc}
-\textbf{application} & \textbf{purpose} & \textbf{key} & \textbf{in list} \\ \hline \\
+application & purpose & key & in list \\ \hline \\
 spell checker & identify misspelled words & word & dictionary words \\
 browser & mark visited pages & URL & visited pages \\
 parental controls & block sites & URL & bad sites \\
@@ -77,16 +79,16 @@ spam filter & eliminate spam  & IP address & spam addresses \\
 credit cards & check for stolen cards & number & stolen cards
 \end{tabular} 
 \end{center}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item exception filter: implementations
+Exception filter Implementations
 \begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
 public class WhiteFilter {  
     public static void main(String[] args) {
-        OrderedSet<String> set = new OrderedSet<String>();
+        SET<String> set = new SET<String>();
         In in = new In(args[0]);
         while (!in.isEmpty()) {
             String word = in.readString();
@@ -101,9 +103,11 @@ public class WhiteFilter {
 \end{lstlisting}
 
 \begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
 public class BlackFilter {  
     public static void main(String[] args) {
-        OrderedSet<String> set = new OrderedSet<String>();
+        SET<String> set = new SET<String>();
         In in = new In(args[0]);
         while (!in.isEmpty()) {
             String word = in.readString();
@@ -116,17 +120,15 @@ public class BlackFilter {
     }
 }
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \section{Dictionary Clients}
 \begin{frame}[fragile]
-\begin{itemize}
-\item dictionary lookup: given a comma-separated value (CSV) file, a key field, and a value field as command-line arguments, lookup the keys read from standard input and print the corresponding values if they are found
+Dictionary lookup: given a comma-separated value (CSV) file, a key field, and a value field as command-line arguments, lookup the keys read from standard input and print the corresponding values if they are found
 
-\item examples
-\begin{itemize}
-\item DNS lookup
+\bigskip
+
+Example (DNS lookup)
 \begin{lstlisting}[language={}]
 $ more ip.csv
 www.princeton.edu,128.112.128.15
@@ -142,7 +144,7 @@ ebay.com,66.135.192.87
 ...
 \end{lstlisting}
 \begin{lstlisting}[language={}]
-$ java LookupCSV ip.csv 0 1
+$ java edu.princeton.cs.algs4.LookupCSV ip.csv 0 1
 adobe.com
 192.150.18.60
 www.princeton.edu
@@ -152,22 +154,17 @@ Not found
 <ctrl-d>
 \end{lstlisting}
 \begin{lstlisting}[language={}]
-$ java LookupCSV ip.csv 1 0
+$ java edu.princeton.cs.algs4.LookupCSV ip.csv 1 0
 128.112.128.15
 www.princeton.edu
 999.999.999.99
 Not found
 <ctrl-d>
 \end{lstlisting}
-\end{itemize}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item examples (contd.)
-\begin{itemize}
-\item amino acid lookup
+Example (amino acid lookup)
 \begin{lstlisting}[language={}]
 $ more amino.csv
 TTT,Phe,F,Phenylalanine
@@ -189,7 +186,7 @@ TGG,Trp,W,Tryptophan
 ...
 \end{lstlisting}
 \begin{lstlisting}[language={}]
-$ java LookupCSV amino.csv 0 3
+$ java edu.princeton.cs.algs4.LookupCSV amino.csv 0 3
 TCT
 Serine
 TAG
@@ -198,14 +195,13 @@ TAC
 Tyrosine
 <ctrl-d>
 \end{lstlisting}
-\end{itemize}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item dictionary lookup: implementation
+Dictionary lookup implementation
 \begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
 public class LookupCSV {
     public static void main(String[] args) {
         int keyField = Integer.parseInt(args[1]);
@@ -228,13 +224,11 @@ public class LookupCSV {
     }
 }
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \section{Indexing Clients}
 \begin{frame}[fragile]
-\begin{itemize}
-\item file index: given a list of files, create an index so that you can efficiently find all files containing a given query string
+File index: given a list of files, create an index so that you can efficiently find all files containing a given query string
 
 \begin{lstlisting}[language={}]
 $ ls *.txt
@@ -242,7 +236,7 @@ aesop.txt magna.txt moby.txt sawyer.txt tale.txt
 \end{lstlisting}
 
 \begin{lstlisting}[language={}]
-$ java FileIndex *.txt
+$ java edu.princeton.cs.algs4.FileIndex *.txt
 Indexing files
   aesop.txt 
   magna.txt 
@@ -261,19 +255,19 @@ lamb
   sawyer.txt 
 <ctrl-d>
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item file index: implementation
+File index implementation
 \begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
 import java.io.File;
 
 public class FileIndex { 
     public static void main(String[] args) {
-        SeparateChainingHashST<String, Set<File>> st = 
-            new SeparateChainingHashST<String, Set<File>>();
+        SeparateChainingHashST<String, SET<File>> st = 
+            new SeparateChainingHashST<String, SET<File>>();
         StdOut.println("Indexing files");
         for (String filename : args) {
             StdOut.println("  " + filename);
@@ -282,16 +276,16 @@ public class FileIndex {
             while (!in.isEmpty()) {
                 String word = in.readString();
                 if (!st.contains(word)) { 
-                    st.put(word, new OrderedSet<File>());
+                    st.put(word, new SET<File>());
                 }
-                Set<File> set = st.get(word);
+                SET<File> set = st.get(word);
                 set.add(file);
             }
         }
         while (!StdIn.isEmpty()) {
             String query = StdIn.readString();
             if (st.contains(query)) {
-                Set<File> set = st.get(query);
+                SET<File> set = st.get(query);
                 for (File file : set) {
                     StdOut.println("  " + file.getName());
                 }
@@ -300,15 +294,13 @@ public class FileIndex {
     }
 }
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item concordance: preprocess a text corpus to support concordance queries, ie, given a word, find all occurrences with their immediate contexts
+Concordance: preprocess a text corpus to support concordance queries, ie, given a word, find all occurrences with their immediate contexts
 
 \begin{lstlisting}[language={}]
-$ java Concordance tale.txt
+$ java edu.princeton.cs.algs4.Concordance tale.txt
 Finished building concordance
 
 cities
@@ -322,32 +314,32 @@ of his most gracious *majesty* king george the third
 princeton
 <ctrl-d>
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item concordance: implementation
+Concordance implementation
 
 \begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
 public class Concordance {
     public static void main(String[] args) {
         int CONTEXT = 5;
         In in = new In(args[0]);
         String[] words = in.readAllStrings();
-        SeparateChainingHashST<String, OrderedSet<Integer>> st = 
-            new SeparateChainingHashST<String, OrderedSet<Integer>>();
+        SeparateChainingHashST<String, SET<Integer>> st = 
+            new SeparateChainingHashST<String, SET<Integer>>();
         for (int i = 0; i < words.length; i++) {
             String s = words[i];
-            if (!st.contains(s)) { st.put(s, new OrderedSet<Integer>()); }
-            OrderedSet<Integer> set = st.get(s);
+            if (!st.contains(s)) { st.put(s, new SET<Integer>()); }
+            SET<Integer> set = st.get(s);
             set.add(i);
         }
         StdOut.println("Finished building concordance");
         while (!StdIn.isEmpty()) {
             String query = StdIn.readString();
-            OrderedSet<Integer> set = st.get(query);
-            if (set == null) { set = new OrderedSet<Integer>(); }
+            SET<Integer> set = st.get(query);
+            if (set == null) { set = new SET<Integer>(); }
             for (int k : set) {
                 for (int i = Math.max(0, k - CONTEXT + 1); i < k; i++) {
                     StdOut.print(words[i] + " ");
@@ -363,53 +355,56 @@ public class Concordance {
     }
 }
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \section{Sparse Vectors and Matrices}
 \begin{frame}[fragile]
+Sparse vector: standard representation
 \begin{itemize}
-\item sparse vector: standard representation
-\begin{itemize}
-\item constant time access to elements
+\item Constant time access to elements
 
-\item space proportional to $N$
+\item Space proportional to $N$
 \end{itemize}
 
-\item sparse vector: symbol table representation
+\bigskip
+
+Sparse vector: symbol table representation
 \begin{itemize}
-\item key = index, value = entry
+\item Key is index, value is entry
 
-\item efficient iterator
+\item Efficient iterator
 
-\item space proportional to number of nonzeros
+\item Space proportional to number of nonzeros
 \end{itemize}
 
-\item sparse matrix: standard representation
+\bigskip
+
+Sparse matrix: standard representation
 \begin{itemize}
-\item each row of matrix is an array
+\item Each row of matrix is an array
 
-\item constant time access to elements
+\item Constant time access to elements
 
-\item space proportional to $N^2$
+\item Space proportional to $N^2$
 \end{itemize}
 
-\item sparse matrix: symbol table representation
+\bigskip
+
+Sparse matrix: symbol table representation
 \begin{itemize}
-\item each row of matrix is a sparse vector
+\item Each row of matrix is a sparse vector
 
-\item efficient access to elements
+\item Efficient access to elements
 
-\item space proportional to number of nonzeros (plus $N$)
-\end{itemize}
-
+\item Space proportional to number of nonzeros (plus $N$)
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item sparse vector: implementation
+Sparse vector implementation
 \begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
 public class SparseVector {
     private int N; 
     private SeparateChainingHashST<Integer, Double> st; 
@@ -421,7 +416,7 @@ public class SparseVector {
 
     public void put(int i, double value) {
         if (i < 0 || i >= N) {
-            throw new IndexOutOfBoundsException("Illegal index");
+            throw new IndexOutOfBoundsException(...);
         }
         if (value == 0.0) { st.delete(i); }
         else              { st.put(i, value); }
@@ -429,7 +424,7 @@ public class SparseVector {
 
     public double get(int i) {
         if (i < 0 || i >= N) { 
-            throw new IndexOutOfBoundsException("Illegal index");
+            throw new IndexOutOfBoundsException(...);
         }
         if (st.contains(i)) { return st.get(i); }
         else                { return 0.0; }
@@ -438,21 +433,14 @@ public class SparseVector {
     public int nnz() { return st.size(); }
 
     public int size() { return N; }
-    ...
-}
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item sparse vector: implementation (contd.)
 \begin{lstlisting}[language=Java]
-public class SparseVector {
-    ...
     public double dot(SparseVector that) {
         if (this.N != that.N) {
-            throw new IllegalArgumentException("Vector lengths disagree");
+            throw new IllegalArgumentException(...);
         }
         double sum = 0.0;
         if (this.st.size() <= that.st.size()) {
@@ -476,18 +464,11 @@ public class SparseVector {
         SparseVector a = this;
         return Math.sqrt(a.dot(a));
     }
-    ...
-}
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item sparse vector: implementation (contd.)
 \begin{lstlisting}[language=Java]
-public class SparseVector {
-    ...
     public SparseVector scale(double alpha) {
         SparseVector c = new SparseVector(N);
         for (int i : this.st.keys()) { c.put(i, alpha * this.get(i)); }
@@ -496,7 +477,7 @@ public class SparseVector {
 
     public SparseVector plus(SparseVector that) {
         if (this.N != that.N) {
-            throw new IllegalArgumentException("Vector lengths disagree"); 
+            throw new IllegalArgumentException(...); 
         }
         SparseVector c = new SparseVector(N);
         for (int i : this.st.keys()) { c.put(i, this.get(i)); }
@@ -514,13 +495,13 @@ public class SparseVector {
     ...
 }
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item sparse matrix: implementation
+Sparse matrix implementation
 \begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
 public class SparseMatrix {
     private int N; 
     private SparseVector[] rows; 
@@ -533,14 +514,14 @@ public class SparseMatrix {
 
     public void put(int i, int j, double value) {
         if (i < 0 || i >= N || j < 0 || j >= N) { 
-            throw new RuntimeException("Illegal index"); 
+            throw new RuntimeException(...); 
         }
         rows[i].put(j, value);
     }
 
     public double get(int i, int j) {
         if (i < 0 || i >= N || j < 0 || j >= N) { 
-            throw new RuntimeException("Illegal index"); 
+            throw new RuntimeException(...); 
         }
         return rows[i].get(j);
     }
@@ -550,21 +531,14 @@ public class SparseMatrix {
         for (int i = 0; i < N; i++) { sum += rows[i].nnz(); }
         return sum;
     }
-    ...
-}
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item sparse matrix: implementation (contd.)
 \begin{lstlisting}[language=Java]
-public class SparseMatrix {
-    ...
     public SparseVector times(SparseVector x) {
         if (N != x.size()) {
-            throw new RuntimeException("Dimensions disagree");
+            throw new RuntimeException(...);
         }
         SparseVector b = new SparseVector(N);
         for (int i = 0; i < N; i++) { b.put(i, rows[i].dot(x)); }
@@ -574,7 +548,7 @@ public class SparseMatrix {
     public SparseMatrix plus(SparseMatrix B) {
         SparseMatrix A = this;
         if (A.N != B.N) { 
-            throw new RuntimeException("Dimensions disagree"); 
+            throw new RuntimeException(...); 
         }
         SparseMatrix C = new SparseMatrix(N);
         for (int i = 0; i < N; i++) { 
@@ -593,7 +567,5 @@ public class SparseMatrix {
     ...
 }
 \end{lstlisting}
-\end{itemize}
 \end{frame}
-
 \end{document}

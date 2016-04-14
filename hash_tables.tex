@@ -18,82 +18,87 @@
 
 \section{Hashing}
 \begin{frame}[fragile]
+The basic idea is to save items in a key-indexed array, where the index is a function of the key
+
+\bigskip
+
+Hash function provides a method for computing an array index from a key
+
+\bigskip
+
+Issues
 \begin{itemize}
-\item the basic idea is to save items in a key-indexed array, where the index is a function of the key
+\item Computing the hash function
 
-\item hash function provides a method for computing an array index from a key
+\item Equality test: method for checking whether two keys are equal
 
-\item issues
-\begin{itemize}
-\item computing the hash function
-
-\item equality test: method for checking whether two keys are equal
-
-\item collision resolution: algorithm and data structure to handle two keys that hash to the same array index
+\item Collision resolution: algorithm and data structure to handle two keys that hash to the same array index
 \end{itemize}
 
-\item classic space-time tradeoff
+\bigskip
+
+Classic space-time tradeoff
 \begin{itemize}
-\item no space limitation: trivial hash function with key as index
+\item No space limitation: trivial hash function with key as index
 
-\item no time limitation: trivial collision resolution with sequential search
+\item No time limitation: trivial collision resolution with sequential search
 
-\item space and time limitations: hashing (the real world)
-\end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{itemize}
-\item idealistic goal: scramble the keys uniformly to produce a table index that is
-\begin{itemize}
-\item efficiently computable
-
-\item equally likely for each key
-\end{itemize}
-
-\item example 1: phone numbers
-\begin{itemize}
-\item bad: first three digits
-
-\item better: last three digits
-\end{itemize}
-
-\item example 2: social security numbers
-\begin{itemize}
-\item bad: first three digits
-
-\item better: last three digits
-\end{itemize}
-
-\item practical challenge: need different approach for each type of key
+\item Space and time limitations: hashing (the real world)
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
+Idealistic goal: scramble the keys uniformly to produce a table index that is
 \begin{itemize}
-\item Java's hash code conventions
-\begin{itemize}
-\item all Java classes inherit a method \lstinline{hashCode()}, which returns a 32-bit \lstinline{int}
+\item Efficiently computable
 
-\item requirement: if \lstinline{x.equals(y)}, then \lstinline{(x.hashCode() == y.hashCode())}
-
-\item highly desirable: if \lstinline{!x.equals(y)}, then \lstinline{(x.hashCode() != y.hashCode())}
-
-\item default implementation: return memory address of \lstinline{x}
-
-\item legal (but poor) implementation: always return 17
-
-\item customized implementations: \lstinline{Integer}, \lstinline{Double}, \lstinline{String}, \lstinline{File}, \lstinline{URL}, \lstinline{Date}, ...
-
-\item user-defined types: users are on their own
+\item Equally likely for each key
 \end{itemize}
+
+\bigskip
+
+Example 1: phone numbers
+\begin{itemize}
+\item Bad: first three digits
+
+\item Better: last three digits
+\end{itemize}
+
+\bigskip
+
+Example 2: social security numbers
+\begin{itemize}
+\item Bad: first three digits
+
+\item Better: last three digits
+\end{itemize}
+
+\bigskip
+
+Practical challenge: need different approach for each type of key
+\end{frame}
+
+\begin{frame}[fragile]
+Java's hash code conventions
+\begin{itemize}
+\item All Java classes inherit a method \lstinline{hashCode()}, which returns a 32-bit \lstinline{int}
+
+\item Requirement: if \lstinline{x.equals(y)}, then \lstinline{x.hashCode() == y.hashCode()}
+
+\item Highly desirable: if \lstinline{!x.equals(y)}, then \lstinline{x.hashCode() != y.hashCode()}
+
+\item Default implementation: return memory address of \lstinline{x}
+
+\item Legal (but poor) implementation: always return 17
+
+\item Customized implementations: \lstinline{Integer}, \lstinline{Double}, \lstinline{String}, \lstinline{File}, \lstinline{URL}, \lstinline{Date}, ...
+
+\item User-defined types: users are on their own
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item Java library implementations
+Java library implementations
 \begin{lstlisting}[language=Java]
 public final class Boolean {
     private final boolean value;
@@ -133,12 +138,10 @@ public final class String {
     }
 } 
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item implementing hash code for user-defined types
+Implementing hash code for user-defined types
 \begin{lstlisting}[language=Java]
 public final class Transaction implements Comparable<Transaction> {
     private final String who;
@@ -155,42 +158,42 @@ public final class Transaction implements Comparable<Transaction> {
 }
 \end{lstlisting}
 
-\item hash code design
+\bigskip
+
+Hash code design
 \begin{itemize}
-\item combine each significant field using the $31x + y$ rule
+\item Combine each significant field using the $31x + y$ rule
 
-\item if field is a primitive type, use wrapper type \lstinline{hashCode()}
+\item If field is a primitive type, use wrapper type \lstinline{hashCode()}
 
-\item if field is \lstinline{null}, return 0
+\item If field is \lstinline{null}, return 0
 
-\item if field is a reference type, use \lstinline{hashCode()}
+\item If field is a reference type, use \lstinline{hashCode()}
 
-\item if field is an array, apply to each entry
-\end{itemize}
+\item If field is an array, apply to each entry
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
+Modular hashing
 \begin{itemize}
-\item modular hashing
-\begin{itemize}
-\item hash code: an \lstinline{int} between $-2^{31}$ and $2^{31} - 1$
+\item Hash code: an \lstinline{int} between $-2^{31}$ and $2^{31} - 1$
 
-\item hash function: an \lstinline{int} between 0 and $M-1$ (for use as array index)
+\item Hash function: an \lstinline{int} between 0 and $M-1$ (for use as array index)
 \end{itemize}
 
-\smallskip
+\bigskip
 
-buggy:
-
+Buggy
 \begin{lstlisting}[language=Java]
 private int hash(Key key) { 
     return key.hashCode() % M; 
 }
 \end{lstlisting}
 
-mostly correct:
+\bigskip
 
+Mostly correct
 \begin{lstlisting}[language=Java]
 private int hash(Key key) { 
     return Math.abs(key.hashCode()) % M;  
@@ -198,60 +201,59 @@ private int hash(Key key) {
 \end{lstlisting}
 
 
-correct:
+\bigskip
 
+Correct
 \begin{lstlisting}[language=Java]
 private int hash(Key key) { 
     return (key.hashCode() & 0x7fffffff) % M;
 }
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
+Uniform hashing assumption: each key is equally likely to hash to an integer between 0 and $M-1$
+
+\bigskip
+
+Throw balls uniformly at random into $M$ bins
 \begin{itemize}
-\item uniform hashing assumption: each key is equally likely to hash to an integer between 0 and $M-1$
+\item Birthday problem: expect two balls in the same bin after $\sim \sqrt{\pi M / 2}$ tosses
 
-\begin{itemize}
-\item bins and balls: throw balls uniformly at random into $M$ bins
+\item Coupon collector problem: expect every bin to have $\geq 1$ ball after $\sim M \ln M$ tosses
 
-\item birthday problem: expect two balls in the same bin after $\sim \sqrt{\pi M / 2}$ tosses
-
-\item coupon collector problem: expect every bin to have $\geq 1$ ball after $\sim M \ln M$ tosses
-
-\item load balancing problem: after $M$ tosses, expect most loaded bin has $\Theta(\log M / \log \log M)$ balls
+\item Load balancing problem: after $M$ tosses, expect most loaded bin has $\Theta(\log M / \log \log M)$ balls
 \end{itemize}
 
 \begin{center}
-\includegraphics[scale=0.4]{{./figures/uniform_hashing}.png}
+\includegraphics[scale=0.35]{{./figures/uniform_hashing}.png}
 
 \smallskip
 
-\tiny hash value frequencies for words in Tale of Two Cities (10,679 keys, $M = 97$)
+\tiny Hash value frequencies for words in Tale of Two Cities (10,679 keys, $M = 97$)
 \end{center}
 
-\item collision: two distinct keys hash to the same index
+\bigskip
+
+Collision: two distinct keys hash to the same index
 \begin{itemize}
-\item birthday problem $\implies$ can't avoid collisions unless you have
-a ridiculous (quadratic) amount of memory
+\item Birthday problem $\implies$ can't avoid collisions unless you have a ridiculous (quadratic) amount of memory
 
-\item coupon collector + load balancing problems $\implies$ collisions are evenly distributed
+\item Coupon collector + load balancing problems $\implies$ collisions are evenly distributed
 
-\item challenge: deal with collisions efficiently
-\end{itemize}
+\item Challenge: deal with collisions efficiently
 \end{itemize}
 \end{frame}
 
 \section{Separate-Chaining Symbol Table}
 \begin{frame}[fragile]
+Use an array of $M < N$ linked lists
 \begin{itemize}
-\item use an array of $M < N$ linked lists
-\begin{itemize}
-\item hash: map key to integer $i \in [0, M - 1]$
+\item Hash: map key to integer $i \in [0, M - 1]$
 
-\item insert: put at front of $i$th chain (if not already there)
+\item Insert: put at front of $i$th chain (if not already there)
 
-\item search: need to search only the $i$th chain
+\item Search: need to search only the $i$th chain
 \end{itemize}
 
 \begin{center}
@@ -259,63 +261,73 @@ a ridiculous (quadratic) amount of memory
 
 \smallskip
 
-\tiny hashing with separate chaining
+\tiny Hashing with separate chaining
 \end{center}
 
-\item the ratio $N / M$ is called the load factor and is denoted by $\alpha$; it is interpreted as the average number of keys per list
-\end{itemize}
+\bigskip
+
+The ratio $N / M$ is called the \emph{load factor} and is denoted by $\alpha$; it is interpreted as the average number of keys per list
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item under uniform hashing assumption, probability that the number of
+Under uniform hashing assumption, probability that the number of
 keys in a list is within a constant factor of $\alpha$ is extremely close to 1
 
-\item consequence: number of probes for search/insert is proportional to $\alpha$
+\bigskip
+
+Consequence: number of probes for search/insert is proportional to $\alpha$
 \begin{itemize}
 \item $M$ too large $\implies$ too many empty chains
 
 \item $M$ too small $\implies$ chains too long
 \end{itemize}
 
-\item goal: $\alpha = $ constant
+\bigskip
+
+Goal: $\alpha = $ constant
 \begin{itemize}
-\item double the size of array when $\alpha \geq 10$
+\item Double the size of array when $\alpha \geq 10$
 
-\item halve the size of array when $\alpha \leq 2$
+\item Halve the size of array when $\alpha \leq 2$
 
-\item need to rehash all keys when resizing
+\item Need to rehash all keys when resizing
 \end{itemize}
 
-\item deleting a key (and its associated value) is easy --- need only consider chain containing key
-\end{itemize}
+\bigskip
+
+Deleting a key (and its associated value) is easy --- need only consider chain containing key
+
+\bigskip
+
+The cost of search, insert, and delete, under the uniform hashing assumption, is constant (between 3 and 5)
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item implementation
+Implementation
 \begin{lstlisting}[language=Java]
-public class SeparateChainingHashST<Key, Value> implements ST<Key, Value> {
+package edu.princeton.cs.algs4;
+
+public class SeparateChainingHashST<Key, Value>  {
     private static final int INIT_CAPACITY = 4;
     private int N;
     private int M; 
-    private LinkedST<Key, Value>[] st; 
+    private SequentialSearchST<Key, Value>[] st; 
 
     public SeparateChainingHashST() { this(INIT_CAPACITY); } 
 
     public SeparateChainingHashST(int M) {
         this.M = M;
-        st = (LinkedST<Key, Value>[]) new LinkedST[M];
-        for (int i = 0; i < M; i++) { st[i] = new LinkedST<Key, Value>(); }
+        st = (SequentialSearchST<Key, Value>[]) new SequentialSearchST[M];
+        for (int i = 0; i < M; i++) { 
+            st[i] = new SequentialSearchST<Key, Value>(); 
+        }
     } 
 
     private void resize(int chains) {
         SeparateChainingHashST<Key, Value> temp = 
             new SeparateChainingHashST<Key, Value>(chains);
         for (int i = 0; i < M; i++) {
-            for (Key key : st[i].keys()) {
-                temp.put(key, st[i].get(key));
-            }
+            for (Key key : st[i].keys()) { temp.put(key, st[i].get(key)); }
         }
         this.M  = temp.M;
         this.N  = temp.N;
@@ -325,20 +337,13 @@ public class SeparateChainingHashST<Key, Value> implements ST<Key, Value> {
     public int size() { return N; } 
 
     public boolean isEmpty() { return size() == 0; }
-
-    public boolean contains(Key key) { return get(key) != null; } 
-    ...
-}
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item implementation (contd.)
 \begin{lstlisting}[language=Java]
-public class SeparateChainingHashST<Key, Value> implements ST<Key, Value> {
-    ...
+    public boolean contains(Key key) { return get(key) != null; } 
+
     public Value get(Key key) {
         int i = hash(key);
         return st[i].get(key);
@@ -363,198 +368,14 @@ public class SeparateChainingHashST<Key, Value> implements ST<Key, Value> {
     } 
 
     public Iterable<Key> keys() {
-        LinkedQueue<Key> queue = new LinkedQueue<Key>();
+        Queue<Key> queue = new Queue<Key>();
         for (int i = 0; i < M; i++) {
             for (Key key : st[i].keys()) { queue.enqueue(key); }
+        }
         return queue;
     } 
     ...
 }
 \end{lstlisting}
-\end{itemize}
 \end{frame}
-
-\section{Linear-Probing Symbol Table}
-\begin{frame}[fragile]
-\begin{itemize}
-\item use an array with $M > N$ slots
-\begin{itemize}
-\item hash: map key to integer $i \in [0, M-1]$
-
-\item insert: put at array index $i$ if free; if not try $i+1$, $i+2$, etc
-
-\item search: search array index $i$; if occupied but no match, try $i+1$, $i+2$, etc
-\end{itemize}
-\begin{center}
-\includegraphics[scale=0.4]{{./figures/linear_probing}.png}
-
-\smallskip
-
-\tiny hashing with linear probing
-\end{center}
-
-\item the ratio $N / M$ is called the load factor and is denoted by $\alpha$; it is interpreted as the percentage of array slots that are occupied
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{itemize}
-\item under uniform hashing assumption, the average number of probes
-in a linear-probing symbol table that contains $N = \alpha M$ keys is $$\sim \frac{1}{2}\Big(1+\frac{1}{1-\alpha}\Big)$$
-for a search hit, and $$\sim \frac{1}{2}\Big[1+\frac{1}{(1-\alpha)^2}\Big]$$ for a search miss/insert
-
-\item consequence: when $\alpha$ is about $1/2$, the average number of probes for a search hit is about $3/2$ and for a search miss is about $5/2$
-\begin{itemize}
-\item $M$ too large $\implies$ too many empty array entries
-
-\item $M$ too small $\implies$ search time blows up
-\end{itemize}
-
-\item goal: the load factor $\alpha < 1/2$.
-\begin{itemize}
-\item double size of array when $\alpha \geq 1/2$
-
-\item halve size of array when $\alpha \leq 1/8$
-
-\item need to rehash all keys when resizing
-\end{itemize}
-
-\item deleting a key (and its associated value) requires some care --- cannot just delete array entries
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{itemize}
-\item implementation
-\begin{lstlisting}[language=Java]
-public class LinearProbingHashST<Key, Value> implements ST<Key, Value> {
-    private static final int INIT_CAPACITY = 4;
-    private int N; 
-    private int M; 
-    private Key[] keys; 
-    private Value[] vals; 
-
-    public LinearProbingHashST() { this(INIT_CAPACITY); }
-
-    public LinearProbingHashST(int capacity) {
-        M = capacity;
-        keys = (Key[])   new Object[M];
-        vals = (Value[]) new Object[M];
-    }
-
-    public int size() { return N; }
-
-    public boolean isEmpty() { return size() == 0; }
-
-    public boolean contains(Key key) { return get(key) != null; }
-
-    private void resize(int capacity) {
-        LinearProbingHashST<Key, Value> temp = 
-            new LinearProbingHashST<Key, Value>(capacity);
-        for (int i = 0; i < M; i++) {
-            if (keys[i] != null) { temp.put(keys[i], vals[i]); }
-        }
-        keys = temp.keys;
-        vals = temp.vals;
-        M    = temp.M;
-    }
-    ...
-}
-\end{lstlisting}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{itemize}
-\item implementation (contd.)
-\begin{lstlisting}[language=Java]
-public class LinearProbingHashST<Key, Value> implements ST<Key, Value> {
-    ...
-    public void put(Key key, Value val) {
-        if (val == null) {
-            delete(key);
-            return;
-        }
-        if (N >= M / 2) { resize(2 * M); }
-        int i;
-        for (i = hash(key); keys[i] != null; i = (i + 1) % M) {
-            if (keys[i].equals(key)) { vals[i] = val; return; }
-        }
-        keys[i] = key;
-        vals[i] = val;
-        N++;
-    }
-
-    public Value get(Key key) {
-        for (int i = hash(key); keys[i] != null; i = (i + 1) % M) {
-            if (keys[i].equals(key)) { return vals[i]; }
-        }
-        return null;
-    }
-    ...
-}
-\end{lstlisting}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{itemize}
-\item implementation (contd.)
-\begin{lstlisting}[language=Java]
-public class LinearProbingHashST<Key, Value> implements ST<Key, Value> {
-    ...
-    public void delete(Key key) {
-        if (!contains(key)) { return; }
-        int i = hash(key);
-        while (!key.equals(keys[i])) {
-            i = (i + 1) % M;
-        }
-        keys[i] = null;
-        vals[i] = null;
-        i = (i + 1) % M;
-        while (keys[i] != null) {
-            Key   keyToRehash = keys[i];
-            Value valToRehash = vals[i];
-            keys[i] = null;
-            vals[i] = null;
-            N--;  
-            put(keyToRehash, valToRehash);
-            i = (i + 1) % M;
-        }
-        N--;        
-        if (N > 0 && N <= M / 8) resize(M / 2);
-    }
-
-    public Iterable<Key> keys() {
-        LinkedQueue<Key> queue = new LinkedQueue<Key>();
-        for (int i = 0; i < M; i++) {
-            if (keys[i] != null) { queue.enqueue(keys[i]); }
-        }
-        return queue;
-    }
-    ...
-}
-\end{lstlisting}
-\end{itemize}
-\end{frame}
-
-\section{Performance Characteristics}
-\begin{frame}[fragile]
-\begin{itemize}
-\item cost summary for symbol table implementations
-\begin{center}
-\begin{tabular}{ccc}
-\textbf{operation} & \textbf{separate chaining} & \textbf{linear probing} \\ \hline \\
-search & 3-5$^\dagger$ & 3-5$^\dagger$ \\
-insert & 3-5$^\dagger$ & 3-5$^\dagger$ \\
-delete & 3-5$^\dagger$ & 3-5$^\dagger$ \\
-\end{tabular}  
-
-\smallskip
-
-\tiny $\dagger$ under uniform hashing assumption
-\end{center}
-\end{itemize}
-\end{frame}
-
 \end{document}

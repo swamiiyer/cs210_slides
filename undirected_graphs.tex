@@ -17,8 +17,7 @@
 
 \section{What are Graphs?}
 \begin{frame}[fragile]
-\begin{itemize}
-\item a graph is a set of $V$ vertices connected pairwise by $E$ edges
+A \emph{graph} is a set of $V$ vertices connected pairwise by $E$ edges
 
 \smallskip
 
@@ -26,37 +25,58 @@
 \includegraphics[scale=0.4]{{./figures/graph1}.png}
 \end{center}
 
-\item we use the names 0 through $V-1$ for the vertices in a $V$-vertex graph
+\bigskip
 
-\item we use the notation $v$-$w$ to refer to an edge that connects vertices $v$ and $w$
+We use the names 0 through $V-1$ for the vertices in a $V$-vertex graph
 
-\item a self-loop is an edge that connects a vertex to itself
+\bigskip
 
-\item parallel edges are edges that connect the same pair of vertices  
-\end{itemize}
+We use the notation $v$-$w$ to refer to an edge that connects vertices $v$ and $w$
+
+\bigskip
+
+A \emph{self-loop} is an edge that connects a vertex to itself
+
+\bigskip
+
+\emph{Parallel edges} are edges that connect the same pair of vertices  
 \end{frame}
 
 \begin{frame}[fragile]
 \begin{minipage}{220pt}
-\begin{itemize}
-\item the degree of a vertex is the number of vertices connected to it
+The \emph{degree} of a vertex is the number of vertices connected to it
 
-\item  a path is a sequence of vertices connected by edges
+\bigskip
 
-\item a cycle is a path with at least one edge whose first and last vertices are the same
+A \emph{path} is a sequence of vertices connected by edges
 
-\item the length of a path or a cycle is its number of edges
+\bigskip
 
-\item a graph is connected if there is a path from every vertex to every other vertex in the graph
+A \emph{cycle} is a path with at least one edge whose first and last vertices are the same
 
-\item a graph that is not connected consists of a set of connected components, which are maximal connected subgraphs
+\bigskip
 
-\item an acyclic graph is a graph with no cycles
+The \emph{length} of a path or a cycle is its number of edges
 
-\item a tree is an acyclic connected graph
+\bigskip
 
-\item a bipartite graph is a graph whose vertices can be divided into two sets such that all edges connect a vertex in one set with a vertex in the other set
-\end{itemize}
+A graph is \emph{connected} if there is a path from every vertex to every other vertex in the graph
+
+\bigskip
+
+A graph that is not connected consists of a set of \emph{connected components}, which are maximal connected subgraphs
+
+\bigskip
+
+An \emph{acyclic graph} is a graph with no cycles
+
+\bigskip
+
+A \emph{tree} is an acyclic connected graph
+
+\bigskip
+
+A \emph{bipartite graph} is a graph whose vertices can be divided into two sets such that all edges connect a vertex in one set with a vertex in the other set
 \end{minipage}%
 \begin{minipage}{100pt}
 \begin{center}
@@ -76,11 +96,10 @@
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item graph applications
+Graph applications
 \begin{center}
 \begin{tabular}{ccc}
-\textbf{graph} & \textbf{vertex} & \textbf{edge} \\ \hline \\
+graph & vertex & edge \\ \hline \\
 communication & telephone, computer & fiber optic cable \\
 circuit & gate, register, processor & wire \\
 mechanical & joint & rod, beam, spring \\
@@ -94,63 +113,53 @@ protein network & protein & protein-protein interaction \\
 molecule & atom & bond
 \end{tabular}  
 \end{center}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item Internet
+Example: Internet graph
 
 \smallskip
 
 \begin{center}
 \includegraphics[scale=0.1]{{./figures/internet}.png}
 \end{center}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item facebook
+Example: facebook graph
 
 \smallskip
 
 \begin{center}
 \includegraphics[scale=0.25]{{./figures/facebook}.png}
 \end{center}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item c.elegans connectome
+Example: c.elegans connectome graph
 
 \smallskip
 
 \begin{center}
 \includegraphics[scale=0.12]{{./figures/celegans}.png}
 \end{center}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item coauthorship
+Example: coauthorship graph
 
 \smallskip
 
 \begin{center}
 \includegraphics[scale=0.25]{{./figures/erdos}.png}
 \end{center}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item some graph-processing problems
+Some graph-processing problems
 \begin{center}
 \begin{tabular}{cc}
-\textbf{problem} & \textbf{description} \\ \hline \\
+problem & description \\ \hline \\
 $s$-$t$ path & is there a path between $s$ and $t$? \\ 
 shortest $s$-$t$ path & what is the shortest path between $s$ and $t$? \\
 cycle & is there a cycle in the graph? \\
@@ -163,42 +172,29 @@ planarity & can the graph be drawn in the plane with no crossing edges? \\
 graph isomorphism & do two graph representations denote the same graph?
 \end{tabular}  
 \end{center}
-\end{itemize}
 \end{frame}
 
 \section{Undirected Graphs}
 \begin{frame}[fragile]
-\begin{itemize}
-\item undirected graph API
-\begin{lstlisting}[language={},mathescape]
-public class Graph
+Undirected graph API
+\begin{center}
+\begin{tabular}{cc}
+method & description \\ \hline
+\lstinline$Graph(int V)$ & creates a $V$-vertex graph with no edges \\ 
+\lstinline$Graph(In in)$ & reads a graph from input stream $in$ \\
+\lstinline$int V()$      & returns number of vertices \\
+\lstinline$int E()$      & returns number of edges \\
+\lstinline$void addEdge(int v, int w)$ & adds edge $v$-$w$ to this graph \\
+\lstinline$Iterable<Integer> adj(int v)$ & returns vertices adjacent to $v$
+\end{tabular} 
+\end{center}
 
-    Graph(int V) // create a $V$-vertex graph with no edges
-    Graph(In in) // read a graph from input stream in
-    int V()      // number of vertices
-    int E()      // number of edges
-    void addEdge(int v, int w)   // add edge $v$-$w$ to this graph
-    Iterable<Integer> adj(int v) // vertices adjacent to $v$
-\end{lstlisting}
-
-\item graph input format
+Graph input format
 \begin{minipage}{150pt}
 \begin{lstlisting}[language={}]
 $ more tinyG.txt
-13 13
-0 5
-4 3
-0 1
-9 12
-6 4
-5 4
-0 2
-11 12
-9 10
-0 6
-7 8
-9 11
-5 3
+13 13 0 5 4 3 0 1 9 12 6 4 5 4 0 2 
+11 12 9 10 0 6 7 8 9 11 5 3
 \end{lstlisting}
 \end{minipage}%
 \begin{minipage}{150pt}
@@ -207,7 +203,9 @@ $ more tinyG.txt
 \end{center}
 \end{minipage}
 
-\item typical graph-processing code
+\bigskip
+
+Typical graph-processing code
 \begin{lstlisting}[language=Java]
 public static int degree(Graph G, int v) {
     int degree = 0;
@@ -215,23 +213,21 @@ public static int degree(Graph G, int v) {
     return degree;
 }
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
+Graph representations
 \begin{itemize}
-\item graph representations
-\begin{itemize}
-\item edge list: maintain a list of the edges (linked list or array)
+\item Edge list: maintain a list of the edges (linked list or array)
 
-\item adjacency matrix: maintain a $V$-by-$V$ matrix $M$, such that $M[v][w]$ is 1 if there is an edge from $v$ to $w$, and 0 otherwise
+\item Adjacency matrix: maintain a $V$-by-$V$ matrix $M$, such that $M[v][w]$ is 1 if there is an edge from $v$ to $w$, and 0 otherwise
 
-\item adjacency list: maintain a vertex-indexed array of lists
+\item Adjacency list: maintain a vertex-indexed array of lists
 \end{itemize}
 
 \begin{center}
 \begin{tabular}{ccccc}
-\textbf{representation} & \textbf{space} & \textbf{add edge} & \textbf{is $v$-$w$ an edge?} & \textbf{enumerate \lstinline{adj(v)}} \\ \hline \\
+representation & space & add edge & is $v$-$w$ an edge? & enumerate \lstinline$adj(v)$ \\ \hline \\
 edge list & $E$ & 1 & $E$ & $E$ \\
 adjacency matrix & $V^2$ & 1$^\dagger$ & 1 & $V$ \\ 
 adjacency list & $E+V$ & 1 & $degree(v)$ & $degree(v)$ 
@@ -241,13 +237,12 @@ adjacency list & $E+V$ & 1 & $degree(v)$ & $degree(v)$
 
 \small $\dagger$ disallows parallel edges
 \end{center}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item implementation
 \begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
 public class Graph {
     private final int V;
     private int E;
@@ -277,18 +272,11 @@ public class Graph {
             addEdge(v, w);
         }
     }
-    ...
-}
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item implementation (contd.)
 \begin{lstlisting}[language=Java]
-public class Graph {
-    ...
     public int V() { return V; }
 
     public int E() { return E; }
@@ -314,39 +302,40 @@ public class Graph {
     ...
 }
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \section{Depth-First Search (DFS)}
 \begin{frame}[fragile]
 \begin{minipage}{210pt}
+Goal: systematically traverse a graph
+
+\bigskip
+
+Idea: mimic maze exploration
+
+\bigskip
+
+Typical applications
 \begin{itemize}
-\item goal: systematically traverse a graph
-
-\item idea: mimic maze exploration
-
-\item typical applications
-\begin{itemize}
-\item find all vertices connected to a given source vertex
-
-\item find a path between two vertices
+\item Find all vertices connected to a given source vertex
+\item Find a path between two vertices
 \end{itemize}
 
-\item to visit a vertex $v$
-\begin{itemize}
-\item mark vertex $v$ as visited
+\bigskip
 
-\item recursively visit all unmarked vertices adjacent to $v$
+To visit a vertex $v$
+\begin{itemize}
+\item Mark vertex $v$ as visited
+\item Recursively visit all unmarked vertices adjacent to $v$
 \end{itemize}
 
-\item data structures
+\bigskip
+
+Data structures
 \begin{itemize}
 \item Boolean array \lstinline{marked[][]} to mark visited vertices
-
-\item integer array \lstinline{edgeTo[]} to keep track of paths; \lstinline{edgeTo[w] = v} means that edge $v$-$w$ taken to visit $w$ for first time
-
-\item function-call stack for recursion
-\end{itemize}
+\item Integer array \lstinline{edgeTo[]} to keep track of paths; \lstinline{edgeTo[w] = v} means that edge $v$-$w$ taken to visit $w$ for first time
+\item Function-call stack for recursion
 \end{itemize}
 \end{minipage}
 \begin{minipage}{90pt}
@@ -361,24 +350,25 @@ public class Graph {
 \end{frame}
 
 \begin{frame}[fragile]
+Design pattern for graph processing: decouple graph data type from graph processing
 \begin{itemize}
-\item design pattern for graph processing: decouple graph data type from graph processing
-\begin{itemize}
-\item create a \lstinline{Graph} object
-
-\item pass the \lstinline{Graph} object to a graph-processing routine
-
-\item query the graph-processing routine for information
+\item Create a \lstinline{Graph} object
+\item Pass the \lstinline{Graph} object to a graph-processing routine
+\item Query the graph-processing routine for information
 \end{itemize}
 
-\begin{lstlisting}[language={},mathescape]
-public class Paths
+\begin{center}
+\begin{tabular}{cc}
+method & description \\ \hline
+\lstinline$Paths(Graph G, int s)$ & finds paths in $G$ from source $s$ \\
+\lstinline$boolean hasPathTo(int v)$ & is there a path from $s$ to $v$? \\
+\lstinline$Iterable<Integer> pathTo(int v)$ & returns path from $s$ to $v$, or \lstinline$null$
+\end{tabular} 
+\end{center}
 
-    Paths(Graph G, int s)           // find paths in $G$ from source $s$
-    boolean hasPathTo(int v)        // is there a path from $s$ to $v$?
-    Iterable<Integer> pathTo(int v) // path from $s$ to $v$, or null
-\end{lstlisting}
+\bigskip
 
+Typical graph-processing code
 \begin{lstlisting}[language=Java]
     ...
     Paths paths = new Paths(G, s);
@@ -389,13 +379,12 @@ public class Paths
     }
     ...
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item depth-first search: implementation
 \begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
 public class DepthFirstPaths {
     private boolean[] marked; 
     private int[] edgeTo; 
@@ -430,12 +419,9 @@ public class DepthFirstPaths {
     ...
 }
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item depth-first search: trace
 \begin{center}
 \includegraphics[scale=0.37]{{./figures/graph6}.png}
 
@@ -443,26 +429,25 @@ public class DepthFirstPaths {
 
 \small trace of depth-first search to find vertices connected to 0
 \end{center}
-\end{itemize}
 \end{frame}
 
 \section{Breadth-First Search (BFS)}
 \begin{frame}[fragile]
 \begin{minipage}{210pt}
+Goal: given a graph and a source vertex $s$, support queries of the form
 \begin{itemize}
-\item goal: given a graph and a source vertex $s$, support queries of the form
-\begin{itemize}
-\item is there a path from $s$ to a given target vertex $v$?
+\item Is there a path from $s$ to a given target vertex $v$?
 
-\item if so, find a shortest such path (one with minimal number of edges)
+\item If so, find a shortest such path (one with minimal number of edges)
 \end{itemize}
 
-\item repeat until queue is empty
-\begin{itemize}
-\item remove vertex $v$ from queue
+\bigskip
 
-\item add to queue all unmarked vertices adjacent to v and mark them
-\end{itemize}
+Repeat until queue is empty
+\begin{itemize}
+\item Remove vertex $v$ from queue
+
+\item Add to queue all unmarked vertices adjacent to v and mark them
 \end{itemize}
 \end{minipage}
 \begin{minipage}{90pt}
@@ -477,9 +462,9 @@ public class DepthFirstPaths {
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item breadth-first search: implementation
 \begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
 public class BreadthFirstPaths {
     private static final int INFINITY = Integer.MAX_VALUE;
     private boolean[] marked; 
@@ -511,18 +496,11 @@ public class BreadthFirstPaths {
             }
         }
     }
-    ...
-}
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item breadth-first search: implementation (contd.)
 \begin{lstlisting}[language=Java]
-public class BreadthFirstPaths {
-    ...
     public boolean hasPathTo(int v) { return marked[v]; }
 
     public int distTo(int v) { return distTo[v]; }
@@ -540,12 +518,9 @@ public class BreadthFirstPaths {
     ...
 }
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item breadth-first search: trace
 \begin{center}
 \includegraphics[scale=0.37]{{./figures/graph8}.png}
 
@@ -553,40 +528,40 @@ public class BreadthFirstPaths {
 
 \small trace of breadth-first search to find all paths from 0
 \end{center}
-\end{itemize}
 \end{frame}
 
 \section{Connected Components}
 \begin{frame}[fragile]
-\begin{itemize}
-\item vertices $v$ and $w$ are connected if there is a path between them
+Vertices $v$ and $w$ are \emph{connected} if there is a path between them
 
-\item goal: preprocess graph to answer queries of the form \emph{is $v$ connected to $w$} in constant time
+\bigskip
 
-\begin{lstlisting}[language={},mathescape]
-public class CC
+Goal: preprocess graph to answer queries of the form \emph{is $v$ connected to $w$} in constant time
 
-    CC(Graph G)                     // find connected components in $G$
-    boolean connected(int v, int w) // are $v$ and $w$ connected?
-    int count()     // number of connected components
-    int id(int v)   // component identifier for $v$ from $[0, \text{count()} - 1]$
-    int size(int v) // number of vertices in $v$'s component
-\end{lstlisting} 
+\begin{center}
+\begin{tabular}{cc}
+method & description \\ \hline
+\lstinline$CC(Graph G)$ & finds connected components in $G$ \\
+\lstinline$boolean connected(int v, int w)$ & are $v$ and $w$ connected? \\
+\lstinline$int count()$ & returns the number of connected components \\
+\lstinline$int id(int v)$ & returns the component identifier for $v$ \\
+\lstinline$int size(int v)$ & returns the number of vertices in $v$'s component
+\end{tabular} 
+\end{center}
 
-\smallskip
+\bigskip
 
-use union-find? not quite
+Use union-find? not quite
 
-\smallskip
+\bigskip
 
-use depth-first search? yes
-\end{itemize}
+Use depth-first search? yes
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{itemize}
-\item connected components: implementation
 \begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
 public class CC {
     private boolean[] marked; 
     private int[] id; 
@@ -622,16 +597,14 @@ public class CC {
     ...
 }
 \end{lstlisting} 
-\end{itemize}
 \end{frame}
 
 \section{Graph Traversal Summary}
 \begin{frame}[fragile]
-\begin{itemize}
-\item BFS and DFS enables efficient solution of many (but not all) graph problems
+BFS and DFS enables efficient solution of many (but not all) graph problems
 \begin{center}
 \begin{tabular}{cccc}
-\textbf{problem} & \textbf{BFS} & \textbf{DFS} & \textbf{time} \\ \hline \\
+problem & BFS & DFS & time \\ \hline \\
 path between $s$ and $t$ & \cmark & \cmark & $E + V$ \\
 shortest path between $s$ and $t$ & \cmark & & $E+V$ \\
 cycle & \cmark & \cmark & $E+V$ \\
@@ -644,7 +617,6 @@ planarity & & \cmark & $E+V$ \\
 graph isomorphism & & & $2^{c\sqrt{V\log V}}$ 
 \end{tabular} 
 \end{center}
-\end{itemize}
 \end{frame}
 
 \end{document}

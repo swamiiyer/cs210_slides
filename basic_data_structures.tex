@@ -18,6 +18,8 @@
 
 \section{Some Java Preliminaries}
 \begin{frame}[fragile]
+\pause
+
 Generics (aka parametrized types) is a Java mechanism that enables the implementation of collection ADTs that can store any type of data
 
 \begin{lstlisting}[language=Java]
@@ -29,6 +31,7 @@ String s = s1.pop();
 Date d = s2.pop();
 \end{lstlisting}
 
+\pause
 \bigskip
 
 Since generics are reference types, Java allows generic code to be used with primitive types by automatically converting (auto boxing) them to their corresponding (wrapper) reference types and vice versa (auto unboxing)
@@ -38,6 +41,7 @@ stack.push(42);      // auto boxing (int -> Integer)
 int i = stack.pop(); // auto unboxing (Integer -> int)
 \end{lstlisting}
 
+\pause
 \bigskip
 
 Iterable collections can be enumerated using foreach statement 
@@ -57,8 +61,11 @@ while (iter.hasNext()) { StdOut.println(iter.next()); }
 
 \section{Linked Lists}
 \begin{frame}[fragile]
-A \emph{linked list} is a recursive data structure that is either empty (\lstinline{null}) or a reference to a node having a generic item and a reference to a linked list
+\pause
 
+A linked list is a recursive data structure that is either empty (\lstinline{null}) or a reference to a node having a generic item and a reference to a linked list
+
+\pause
 \bigskip
 
 Node record 
@@ -69,6 +76,7 @@ private class Node {
 }
 \end{lstlisting}
 
+\pause
 \bigskip
 
 Traversal
@@ -82,6 +90,8 @@ for (Node x = first; x != null; x = x.next) {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Building a linked list
 \begin{lstlisting}[language=Java]
 Node first = new Node();
@@ -89,8 +99,10 @@ first.item = "to";
 \end{lstlisting}
 
 \begin{center}
-\includegraphics[scale=0.7]{{./figures/llist1.1}.pdf}
+\visible<2->{\includegraphics[scale=0.7]{{./figures/llist1.1}.pdf}}
 \end{center}
+
+\pause
 
 \begin{lstlisting}[language=Java]
 Node second = new Node();
@@ -99,8 +111,10 @@ first.next = second;
 \end{lstlisting}
 
 \begin{center}
-\includegraphics[scale=0.7]{{./figures/llist1.2}.pdf}
+\visible<3->{\includegraphics[scale=0.7]{{./figures/llist1.2}.pdf}}
 \end{center}
+
+\pause
 
 \begin{lstlisting}[language=Java]
 Node third = new Node();
@@ -109,19 +123,23 @@ second.next = third;
 \end{lstlisting}
 
 \begin{center}
-\includegraphics[scale=0.7]{{./figures/llist1.3}.pdf}
+\visible<4->{\includegraphics[scale=0.7]{{./figures/llist1.3}.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Insert at the beginning
 \begin{lstlisting}[language=Java]
 Node oldfirst = first;
 \end{lstlisting}
 
 \begin{center}
-\includegraphics[scale=0.7]{{./figures/llist2.1}.pdf}
+\visible<2->{\includegraphics[scale=0.7]{{./figures/llist2.1}.pdf}}
 \end{center}
+
+\pause
 
 \begin{lstlisting}[language=Java]
 first = new Node();
@@ -129,38 +147,46 @@ first.item = "not";
 \end{lstlisting}
 
 \begin{center}
-\includegraphics[scale=0.7]{{./figures/llist2.2}.pdf}
+\visible<3->{\includegraphics[scale=0.7]{{./figures/llist2.2}.pdf}}
 \end{center}
+
+\pause
 
 \begin{lstlisting}[language=Java]
 first.next = oldfirst;
 \end{lstlisting}
 
 \begin{center}
-\includegraphics[scale=0.7]{{./figures/llist2.3}.pdf}
+\visible<4->{\includegraphics[scale=0.7]{{./figures/llist2.3}.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Remove from the beginning
 \begin{lstlisting}[language=Java]
 first = first.next;
 \end{lstlisting}
 
 \begin{center}
-\includegraphics[scale=0.7]{./figures/llist3.pdf}
+\visible<2->{\includegraphics[scale=0.7]{./figures/llist3.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Insert at the end
 \begin{lstlisting}[language=Java]
 Node oldlast = last;
 \end{lstlisting}
 
 \begin{center}
-\includegraphics[scale=0.7]{{./figures/llist4.1}.pdf}
+\visible<2->{\includegraphics[scale=0.7]{{./figures/llist4.1}.pdf}}
 \end{center}
+
+\pause
 
 \begin{lstlisting}[language=Java]
 last = new Node();
@@ -168,20 +194,24 @@ last.item = "not";
 \end{lstlisting}
 
 \begin{center}
-\includegraphics[scale=0.7]{{./figures/llist4.2}.pdf}
+\visible<3->{\includegraphics[scale=0.7]{{./figures/llist4.2}.pdf}}
 \end{center}
+
+\pause
 
 \begin{lstlisting}[language=Java]
 oldlast.next = last;
 \end{lstlisting}
 
 \begin{center}
-\includegraphics[scale=0.7]{{./figures/llist4.3}.pdf}
+\visible<4->{\includegraphics[scale=0.7]{{./figures/llist4.3}.pdf}}
 \end{center}
 \end{frame}
 
 \section{Bags}
 \begin{frame}[fragile]
+\pause
+
 A \lstinline{Bag} is an iterable collection that provides clients the ability to collect items
 \begin{center}
 \begin{tabular}{cc}
@@ -193,6 +223,8 @@ method & description \\ \hline
 \lstinline$Iterator<Item> iterator()$ & returns an iterator over the items in the bag
 \end{tabular} 
 \end{center}
+
+\pause
 
 \lstinline{Bag} client
 \begin{lstlisting}[language=Java]
@@ -217,6 +249,8 @@ public class Stats {
 }
 \end{lstlisting}
 
+\pause
+
 \begin{lstlisting}[language={}]
 $ java Stats
 100 99 101 120 98 107 109 81 101 90 <ctrl-d>
@@ -226,6 +260,8 @@ Std dev: 10.51
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \lstinline{Bag} implementation using a linked list
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
@@ -262,10 +298,10 @@ public class LinkedBag<Item> implements Iterable<Item> {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
-    public Iterator<Item> iterator() { 
-        return new ListIterator<Item>(first); 
-    }
+    public Iterator<Item> iterator() { return new ListIterator<Item>(first); }
 
     private class ListIterator<Item> implements Iterator<Item> {
         private Node current;
@@ -280,15 +316,71 @@ public class LinkedBag<Item> implements Iterable<Item> {
             current = current.next; 
             return item;
         }
-        ...
     }
-    ...
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+
+\lstinline{Bag} implementation using a resizing array
+\begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+public class ResizingArrayBag<Item> implements Iterable<Item> {
+    private Item[] a; 
+    private int N;  
+
+    public ResizingArrayBag() {
+        a = (Item[]) new Object[2];
+        N = 0;
+    }
+
+    public boolean isEmpty() { return N == 0; }
+
+    public int size() { return N; }
+
+    private void resize(int capacity) {
+        Item[] temp = (Item[]) new Object[capacity];
+        for (int i = 0; i < N; i++) { temp[i] = a[i]; }
+        a = temp;
+    }
+
+    public void add(Item item) {
+        if (N == a.length) { resize(2 * a.length); }
+        a[N++] = item; 
+    }
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+
+\begin{lstlisting}[language=Java]
+    public Iterator<Item> iterator() { return new ArrayIterator(); }
+
+    private class ArrayIterator implements Iterator<Item> {
+        private int i = 0;
+
+        public boolean hasNext()  { return i < N; }
+        
+        public Item next() {
+            if (!hasNext()) { throw new NoSuchElementException(); }
+            return a[i++];
+        }
+    }
 }
 \end{lstlisting}
 \end{frame}
 
 \section{Queues}
 \begin{frame}[fragile]
+\pause
+
 A \lstinline{Queue} is an iterable collection that is based on the first-in-first-out (FIFO) policy
 \begin{center}
 \begin{tabular}{cc}
@@ -301,6 +393,8 @@ method & description \\ \hline
 \lstinline$Iterator<Item> iterator()$ & returns an iterator over the items in the queue
 \end{tabular} 
 \end{center}
+
+\pause
 
 \lstinline{Queue} client
 \begin{lstlisting}[language=Java]
@@ -317,6 +411,8 @@ public class ReadInts {
 }
 \end{lstlisting}
 
+\pause
+
 \begin{lstlisting}[language={}]
 $ java ReadInts
 100 99 101 120 98 107
@@ -331,6 +427,8 @@ $ java ReadInts
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \lstinline{Queue} implementation using a linked list
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
@@ -366,11 +464,11 @@ public class LinkedQueue<Item> implements Iterable<Item> {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
     public Item dequeue() {
-        if (isEmpty()) { 
-            throw new NoSuchElementException("..."); 
-        }
+        if (isEmpty()) { throw new NoSuchElementException(); }
         Item item = first.item;
         first = first.next;
         N--;
@@ -378,9 +476,7 @@ public class LinkedQueue<Item> implements Iterable<Item> {
         return item;
     }
 
-    public Iterator<Item> iterator() { 
-        return new ListIterator<Item>(first); 
-    }
+    public Iterator<Item> iterator() { return new ListIterator<Item>(first); }
 
     private class ListIterator<Item> implements Iterator<Item> {
         private Node current;
@@ -395,15 +491,92 @@ public class LinkedQueue<Item> implements Iterable<Item> {
             current = current.next; 
             return item;
         }
-        ...
     }
-    ...
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+
+\lstinline{Queue} implementation using a resizing array
+\begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+public class ResizingArrayQueue<Item> implements Iterable<Item> {
+    private Item[] q; 
+    private int N; 
+    private int first; 
+    private int last;
+
+    public ResizingArrayQueue() {
+        q = (Item[]) new Object[2];
+        N = 0;
+        first = 0;
+        last = 0;
+    }
+
+    public boolean isEmpty() { return N == 0; }
+
+    public int size() { return N; }
+
+    private void resize(int max) {
+        Item[] temp = (Item[]) new Object[max];
+        for (int i = 0; i < N; i++) { temp[i] = q[(first + i) % q.length]; }
+        q = temp;
+        first = 0;
+        last  = N;
+    }
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+
+\begin{lstlisting}[language=Java]
+    public void enqueue(Item item) {
+        if (N == q.length) { resize(2 * q.length); }
+        q[last++] = item; 
+        if (last == q.length) { last = 0; }
+        N++;
+    }
+
+    public Item dequeue() {
+        if (isEmpty()) { throw new NoSuchElementException(); }
+        Item item = q[first];
+        q[first] = null; 
+        N--;
+        first++;
+        if (first == q.length) { first = 0; }
+        if (N > 0 && N == q.length / 4) { resize(q.length / 2); } 
+        return item;
+    }
+
+    public Iterator<Item> iterator() { return new ArrayIterator(); }
+
+    private class ArrayIterator implements Iterator<Item> {
+        private int i = 0;
+        
+        public boolean hasNext() { return i < N; }
+
+        public Item next() {
+            if (!hasNext()) { throw new NoSuchElementException(); }
+            Item item = q[(i + first) % q.length];
+            i++;
+            return item;
+        }
+    }
 }
 \end{lstlisting}
 \end{frame}
 
 \section{Stacks}
 \begin{frame}[fragile]
+\pause
+
 A \lstinline{Stack} is an iterable collection that is based on the last-in-first-out (LIFO) policy
 
 \begin{center}
@@ -418,6 +591,8 @@ method & description \\ \hline
 \lstinline$Iterator<Item> iterator()$ & returns an iterator over the items in the stack
 \end{tabular} 
 \end{center}
+
+\pause
 
 \lstinline{Stack} client
 \begin{lstlisting}[language=Java]
@@ -434,6 +609,8 @@ public class Reverse {
 }
 \end{lstlisting}
 
+\pause
+
 \begin{lstlisting}[language={}]
 $ java Reverse 
 1 2 3 4 5 6
@@ -448,6 +625,8 @@ $ java Reverse
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \lstinline{Stack} implementation using a linked list
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
@@ -477,29 +656,25 @@ public class LinkedStack<Item> implements Iterable<Item> {
     }
 
     public Item peek() {
-        if (isEmpty()) { 
-            throw new NoSuchElementException("...");
-        }
+        if (isEmpty()) { throw new NoSuchElementException(); }
         return first.item;
     }
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
     public Item pop() {
-        if (isEmpty()) { 
-            throw new NoSuchElementException("..."); 
-        }
+        if (isEmpty()) { throw new NoSuchElementException(); }
         Item item = first.item; 
         first = first.next; 
         N--;
         return item; 
     }
 
-    public Iterator<Item> iterator() { 
-        return new ListIterator<Item>(first); 
-    }
+    public Iterator<Item> iterator() { return new ListIterator<Item>(first); }
 
     private class ListIterator<Item> implements Iterator<Item> {
         private Node current;
@@ -509,24 +684,98 @@ public class LinkedStack<Item> implements Iterable<Item> {
         public boolean hasNext()  { return current != null; }
 
         public Item next() {
-            if (!hasNext()) throw new NoSuchElementException();
+            if (!hasNext()) { throw new NoSuchElementException(); }
             Item item = current.item;
             current = current.next; 
             return item;
         }
-        ...
     }
-    ...
 }
 \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]
+\pause
+
+\lstinline{Stack} implementation using a resizing array
+\begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+public class ResizingArrayStack<Item> implements Iterable<Item> {
+    private Item[] a; 
+    private int N; 
+    
+    public ResizingArrayStack() {
+        a = (Item[]) new Object[2];
+        N = 0;
+    }
+
+    public boolean isEmpty() { return N == 0; }
+
+    public int size() { return N; }
+
+    private void resize(int capacity) {
+        Item[] temp = (Item[]) new Object[capacity];
+        for (int i = 0; i < N; i++) { temp[i] = a[i]; }
+        a = temp;
+    }
+
+    public void push(Item item) {
+        if (N == a.length) { resize(2 * a.length); }
+        a[N++] = item; 
+    }
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+
+\begin{lstlisting}[language=Java]
+    public Item pop() {
+        if (isEmpty()) { throw new NoSuchElementException(); }
+        Item item = a[N - 1];
+        a[N - 1] = null; 
+        N--;
+        if (N > 0 && N == a.length / 4) { resize(a.length / 2); }
+        return item;
+    }
+
+    public Item peek() {
+        if (isEmpty()) { throw new NoSuchElementException(); }
+        return a[N - 1];
+    }
+
+    public Iterator<Item> iterator() { return new ReverseArrayIterator(); }
+
+    private class ReverseArrayIterator implements Iterator<Item> {
+        private int i;
+
+        public ReverseArrayIterator() { i = N - 1; }
+
+        public boolean hasNext() { return i >= 0; }
+
+        public Item next() {
+            if (!hasNext()) { throw new NoSuchElementException(); }
+            return a[i--];
+        }
+    }
+}
+\end{lstlisting}
+\end{frame}
+
+
 \section{Performance Characteristics}
 \begin{frame}[fragile]
+\pause
+
 In the linked-list implementations of the \lstinline{Bag}, \lstinline{Queue}, and \lstinline{Stack} APIs, all operations take constant time in the worst case
 
+\pause
 \bigskip
 
-The \lstinline{Bag}, \lstinline{Queue}, and \lstinline{Stack} APIs can also be implemented using resizing arrays, in which case, the amortized cost for any sequence of operations is constant in the worst case
+In the resizing-array implementations of the \lstinline{Bag}, \lstinline{Queue}, and \lstinline{Stack} APIs, the amortized cost for any sequence of operations is constant in the worst case
 \end{frame}
 \end{document}

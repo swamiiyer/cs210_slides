@@ -19,12 +19,16 @@
 \section{The Dynamic Connectivity Problem}
 \begin{frame}[fragile]
 \begin{minipage}{250pt}
+\pause
+
 Consider an input sequence of pairs of integers, where each integer represents an object of some type, and the pair $(p, q)$ means that ``$p$ is connected to $q$''
 
+\pause
 \bigskip
 
 The goal of the dynamic connectivity problem is to devise a data structure to decide whether or not a new pair of objects is connected 
 
+\pause
 \bigskip
 
 Applications
@@ -37,20 +41,26 @@ Applications
 \end{itemize}
 \end{minipage}%
 \begin{minipage}{60pt}
-\hfill \includegraphics[scale=0.35]{./figures/dyn_conn.pdf}
+\hfill \visible<2->{\includegraphics[scale=0.35]{./figures/dyn_conn.pdf}}
 \end{minipage}
 \end{frame}
 
-\begin{frame}[fragile]We refer to the objects as sites, the pairs as connections, and the groups of connected sites as components
+\begin{frame}[fragile]
+\pause
 
+We refer to the objects as sites, the pairs as connections, and the groups of connected sites as components
+
+\pause
 \bigskip
 
 For simplicity, we assume that we have $N$ sites with integer names, from 0 to $N-1$
 
+\pause
 \bigskip
 
 We solve the dynamic connectivity problem using the union-find data structure
 
+\pause
 \bigskip
 
 The union-find (\lstinline{UF}) API
@@ -69,6 +79,7 @@ method & description \\ \hline
 \begin{frame}[fragile]
 \begin{minipage}{250pt}
 
+\pause
 \smallskip
 
 \lstinline{UF} client
@@ -93,10 +104,14 @@ public class UFClient {
 }
 \end{lstlisting}
     
+\pause
+
 \begin{lstlisting}[language={}]
 $ more tinyUF.txt
 10 4 3 3 8 6 5 9 4 2 1 8 9 5 0 7 2 6 1 1 0 6 7
 \end{lstlisting}    
+
+\pause
 
 \begin{lstlisting}[language={}]
 $ java UFClient < tinyUF.txt 
@@ -112,12 +127,14 @@ $ java UFClient < tinyUF.txt
 \end{lstlisting}
 \end{minipage}%
 \begin{minipage}{60pt}
-\hfill \includegraphics[scale=0.35]{./figures/dyn_conn.pdf}
+\hfill \visible<2->{\includegraphics[scale=0.35]{./figures/dyn_conn.pdf}}
 \end{minipage}
 \end{frame}
 
-\section{Quick-find}
+\section{Quick Find}
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
 
@@ -128,9 +145,7 @@ public class QuickFindUF {
     public QuickFindUF(int N) {
         id = new int[N];
         count = N;
-        for (int i = 0; i < N; i++) {
-            id[i] = i;
-        }
+        for (int i = 0; i < N; i++) { id[i] = i; }
     }
 
     public int find(int p) { return id[p]; }
@@ -148,13 +163,24 @@ public class QuickFindUF {
         }
         count--;
     }
-    ...
 }
 \end{lstlisting}
 \end{frame}
 
-\section{Quick-union}
 \begin{frame}[fragile]
+\pause
+
+Quick find trace
+
+\begin{center}
+\visible<2->{\includegraphics[scale=0.7]{figures/quick_find_trace.pdf}}
+\end{center}
+\end{frame}
+
+\section{Quick Union}
+\begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
 
@@ -165,15 +191,11 @@ public class QuickUnionUF {
     public QuickUnionUF(int N) {
         parent = new int[N];
         count = N;
-        for (int i = 0; i < N; i++) {
-            parent[i] = i;
-        }
+        for (int i = 0; i < N; i++) { parent[i] = i; }
     }
 
     public int find(int p) {
-        while (p != parent[p]) { 
-            p = parent[p]; 
-        }
+        while (p != parent[p]) { p = parent[p]; }
         return p;
     }
 
@@ -188,13 +210,24 @@ public class QuickUnionUF {
         parent[rootP] = rootQ; 
         count--;
     }
-    ...
 }
 \end{lstlisting}
 \end{frame}
 
-\section{Weighted Quick-union}
 \begin{frame}[fragile]
+\pause
+
+Quick union trace
+
+\begin{center}
+\visible<2->{\includegraphics[scale=0.38]{figures/quick_union_trace.pdf}}
+\end{center}
+\end{frame}
+
+\section{Weighted Quick Union}
+\begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
 
@@ -230,13 +263,24 @@ public class WeightedQuickUnionUF {
         }
         count--;
     }
-    ...
 }
 \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]
+\pause
+
+Weighted quick union trace
+
+\begin{center}
+\visible<2->{\includegraphics[scale=0.38]{figures/weighted_quick_union_trace.pdf}}
+\end{center}
+\end{frame}
+
 \section{Performance Characteristics}
 \begin{frame}[fragile]
+\pause
+
 Worst-case order of growth for $N$ sites
 \begin{center}
 \begin{tabular}{cccc}
@@ -249,5 +293,4 @@ impossible & $N$ & 1 & 1
 \end{tabular} 
 \end{center}
 \end{frame}
-
 \end{document}

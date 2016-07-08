@@ -18,12 +18,16 @@
 
 \section{Using Abstract Data Types}
 \begin{frame}[fragile]
+\pause
+
 An abstract data type (ADT) is one whose representation is hidden from the client
 
+\pause
 \bigskip
 
 We use an API to specify the behavior of an ADT
 
+\pause
 \bigskip
 
 Example (a comparable \lstinline{Counter} data type)
@@ -40,6 +44,8 @@ method & description \\ \hline
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Similarities with a library of static methods
 \begin{itemize}
 \item Both are implemented as a Java class
@@ -47,6 +53,7 @@ Similarities with a library of static methods
 \item They may provide a return value of a specified type or no return value (signified by \lstinline{void})
 \end{itemize}
 
+\pause
 \bigskip
 
 Differences from a library of static methods
@@ -58,16 +65,21 @@ Differences from a library of static methods
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Every Java data type inherits from \lstinline{java.lang.Object}, the \lstinline{toString()}, \lstinline{equals()}, and \lstinline{hashCode()} methods
 
+\pause
 \bigskip
 
 An object is an entity that can take on a data-type value
 
+\pause
 \bigskip
 
 An object is characterized by its state (values from its data type), identity (place in memory), and behavior (effect of data-type operations)
 
+\pause
 \bigskip
 
 To create (or instantiate) an object, we invoke a constructor using the keyword \lstinline{new} followed by the class name, followed by 0 or more arguments, enclosed in parentheses and separated by commas
@@ -77,22 +89,26 @@ Counter heads = new Counter("heads");
 Counter tails = new Counter("tails");
 \end{lstlisting}
 
+\pause
+\bigskip
+
+Object representation in memory
 \begin{center}
-\includegraphics[scale=0.8]{./figures/obj_rep.pdf}
-
-\smallskip
-
-\tiny Object representation in memory
+\visible<6->{\includegraphics[scale=0.8]{./figures/obj_rep.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 The purpose of an instance method is to operate on data-type values
 
+\pause
 \bigskip
 
 An instance method is invoked as object name, followed by a period, followed by the method name, followed by 0 or more arguments, enclosed in parentheses and separated by commas
 
+\pause
 \bigskip
 
 Example (simulating $T$ coin flips)
@@ -119,6 +135,8 @@ public class Flips {
 }
 \end{lstlisting}
 
+\pause
+
 \begin{lstlisting}[language={}]
 $ java Flips 1000000
 499422 heads
@@ -128,12 +146,16 @@ delta: 1156
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 An assignment statement with a reference type creates a copy (an alias) of the reference, not a new object
 
+\pause
 \bigskip
 
 We can pass objects as arguments to methods and can also use an object as a return value from a method
 
+\pause
 \bigskip
 
 Example (simulating $T$ coin flips and finding out if heads or tails is the winner)
@@ -161,6 +183,8 @@ public class FlipsMax {
 }
 \end{lstlisting}
 
+\pause
+
 \begin{lstlisting}[language={}]
 $ java FlipsMax 1000000
 501181 heads wins
@@ -168,12 +192,16 @@ $ java FlipsMax 1000000
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 In Java, every value of any nonprimitive type is an object, and in particular, arrays are objects 
 
+\pause
 \bigskip
 
 Array entries can be of any type, including reference types, ie, they can be objects
 
+\pause
 \bigskip
 
 Example (simulating $T$ rolls of a die)
@@ -198,6 +226,8 @@ public class Rolls {
 }
 \end{lstlisting}
 
+\pause
+
 \begin{lstlisting}[language={}]
 $ java Rolls 1000000
 166674 1's
@@ -211,6 +241,8 @@ $ java Rolls 1000000
 
 \section{Examples of Abstract Data Types}
 \begin{frame}[fragile]
+\pause
+
 Standard Java system types in \lstinline{java.lang}
 \begin{center}
 \begin{tabular}{cc}
@@ -221,6 +253,8 @@ type & description \\ \hline
 $\dots$ & $\dots$
 \end{tabular} 
 \end{center}
+
+\pause
 
 Other Java Types
 \begin{center}
@@ -233,6 +267,8 @@ $\dots$ & $\dots$
 \end{tabular} 
 \end{center}
 
+\pause
+
 Standard IO types from the text
 \begin{center}
 \begin{tabular}{cc}
@@ -242,6 +278,8 @@ type & description \\ \hline
 $\dots$ & $\dots$
 \end{tabular} 
 \end{center}
+
+\pause
 
 Data-oriented types for client examples
 \begin{center}
@@ -255,6 +293,8 @@ $\dots$ & $\dots$
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Types for analysis of algorithms
 \begin{center}
 \begin{tabular}{cc}
@@ -264,6 +304,8 @@ type & description \\ \hline
 $\dots$ & $\dots$
 \end{tabular} 
 \end{center}
+
+\pause
 
 Collection types
 \begin{center}
@@ -275,6 +317,8 @@ $\dots$ & $\dots$
 \end{tabular} 
 \end{center}
 
+\pause
+
 Data-oriented graph types
 \begin{center}
 \begin{tabular}{cc}
@@ -284,6 +328,8 @@ type & description \\ \hline
 $\dots$ & $\dots$
 \end{tabular} 
 \end{center}
+
+\pause
 
 Operations-oriented graph types
 \begin{center}
@@ -297,6 +343,8 @@ $\dots$ & $\dots$
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \lstinline{java.lang.String} API
 \begin{center}
 \begin{tabular}{cc}
@@ -310,13 +358,14 @@ method & description \\ \hline
 \lstinline$String[] split(String delim)$ & strings between occurrences of $delim$ \\
 \lstinline$int compareTo(String t)$ & string comparison \\
 \lstinline$boolean equals(String t)$ & is the string's value the same as $t$'s? \\
-\lstinline$int hashCode()$ & hash code \\
 $\dots$ & $\dots$
 \end{tabular} 
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \lstinline{edu.princeton.cs.algs4.Date} API
 \begin{center}
 \begin{tabular}{cc}
@@ -329,7 +378,6 @@ method & description \\ \hline
 \lstinline$String toString()$ & string representation \\
 \lstinline$boolean equals(Object that)$ & is the date same as $that$? \\
 \lstinline$int compareTo(Date that)$ & compare the date to $that$ \\
-\lstinline$int hashCode()$ & hash code \\
 $\dots$ & $\dots$
 \end{tabular} 
 \end{center}
@@ -337,38 +385,49 @@ $\dots$ & $\dots$
 
 \section{Implementing an Abstract Data Type}
 \begin{frame}[fragile]
+\pause
+
 We implement ADTs with a Java class, putting the code (instance variable declarations, constructors, and instance methods) in a file with the same name as the class, followed by the \lstinline{.java} extension
 
+\pause
 \bigskip
 
 Instance variables define the state of each object, and unlike local variables, each instance variable can have numerous values (one per object)
 
+\pause
 \bigskip
 
 Constructors have the same name as the class, have no return value, and generally, their purpose is to initialize the instance variables
 
+\pause
 \bigskip
 
 Instance methods define the behavior of each object
 
+\pause
 \bigskip
 
 Each instance method has a return type (or \lstinline{void}), a signature, and a body
 
+\pause
 \bigskip
 
 When a client invokes an instance method, the action is the same as for static methods, with one critical distinction: they can access and perform operations on instance variables
 
+\pause
 \bigskip
 
 Within an instance method or a constructor, \lstinline{this} is a reference to the current object --- the object whose method or constructor is being called
 
+\pause
 \bigskip
 
 The most common reason for using the \lstinline{this} keyword is because a field (instance variable) is shadowed by a method or constructor parameter
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \lstinline{edu.princeton.cs.algs4.Counter} API
 \begin{center}
 \begin{tabular}{cc}
@@ -381,6 +440,9 @@ method & description \\ \hline
 \end{tabular} 
 \end{center}
 
+\pause
+
+\lstinline{edu.princeton.cs.algs4.Counter} client
 \begin{lstlisting}[language=Java]
 import edu.princeton.cs.algs4.Counter;
 import edu.princeton.cs.algs4.StdOut;
@@ -403,6 +465,8 @@ public class Flips {
 }
 \end{lstlisting}
 
+\pause
+
 \begin{lstlisting}[language={}]
 $ java Flips 1000000
 499422 heads
@@ -412,6 +476,8 @@ delta: 1156
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \lstinline{edu.princeton.cs.algs4.Counter} implementation
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
@@ -435,12 +501,19 @@ public class Counter implements Comparable<Counter> {
     public String toString() { 
         return tally() + " " + id; 
     }
-    ...
+    
+    public int compareTo(Counter that) {
+        if      (this.count < that.count) { return -1; }
+        else if (this.count > that.count) { return +1; }
+        else                              { return  0; }
+    }
 }
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \lstinline{edu.princeton.cs.algs4.Date} API
 \begin{center}
 \begin{tabular}{cc}
@@ -453,17 +526,17 @@ method & description \\ \hline
 \lstinline$String toString()$ & string representation \\
 \lstinline$boolean equals(Object that)$ & is the date same as $that$? \\
 \lstinline$int compareTo(Date that)$ & compare the date to $that$ \\
-\lstinline$int hashCode()$ & hash code \\
 $\dots$ & $\dots$
 \end{tabular} 
 \end{center}
+
+\pause
 
 \lstinline{edu.princeton.cs.algs4.Date} test client
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
 
 public class Date {
-    ...
     public static void main(String[] args) {
         int m = Integer.parseInt(args[0]);
         int d = Integer.parseInt(args[1]);
@@ -474,6 +547,8 @@ public class Date {
 }
 \end{lstlisting}
 
+\pause
+
 \begin{lstlisting}[language={}]
 $ java Date 12 31 1999
 12/31/1999
@@ -481,6 +556,8 @@ $ java Date 12 31 1999
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \lstinline{edu.princeton.cs.algs4.Date} implementation
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
@@ -514,13 +591,40 @@ public class Date implements Comparable<Date> {
     public int year() { return year; }
     
     public String toString() { return month() + "/" + day() + "/" + year(); }
-    ...
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+
+\begin{lstlisting}[language=Java]
+    public boolean equals(Object other) {
+        if (other == this) { return true; }
+        if (other == null) { return false; }
+        if (other.getClass() != this.getClass()) { return false; }
+        Date that = (Date) other;
+        return (this.month == that.month) && 
+               (this.day == that.day) && 
+               (this.year == that.year);
+    }
+    
+    public int compareTo(Date that) {
+        if (this.year  < that.year)  { return -1; }
+        if (this.year  > that.year)  { return +1; }
+        if (this.month < that.month) { return -1; }
+        if (this.month > that.month) { return +1; }
+        if (this.day   < that.day)   { return -1; }
+        if (this.day   > that.day)   { return +1; }
+        return 0;
+    }
 }
 \end{lstlisting}
 \end{frame}
 
 \section{Data-type Design}
 \begin{frame}[fragile]
+\pause
+
 Encapsulation enables modular programming, allowing us to
 \begin{itemize}
 \item Independently develop client and implementation code
@@ -528,18 +632,23 @@ Encapsulation enables modular programming, allowing us to
 \item Support programs not yet written (the API is a guide for any future client)
 \end{itemize}
 
+\pause
 \bigskip
 
-Write every program as though you will reuse the code someday, and articulate an API for your program, providing to clients only the methods they need and no others
+We write every program as though we will reuse the code someday, and articulate an API for our program, providing to clients only the methods they need and no others
 
+\pause
 \bigskip
 
 Data abstraction provides a natural framework for precisely specifying both what an algorithm needs to accomplish and how a client can make use of the algorithm
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Interface inheritance (aka subtyping) specifies relationship between otherwise unrelated classes by providing in an interface a set of common methods that each implementing class must contain
 
+\pause
 \bigskip
 
 Comparison interfaces
@@ -563,6 +672,8 @@ method & description \\ \hline
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Example (a comparable \lstinline{Planet} data type)
 \begin{lstlisting}[language=Java]
 import edu.princeton.cs.algs4.StdOut;
@@ -595,6 +706,8 @@ public class Planet implements Comparable<Planet> {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
     public static void main(String[] args) {
         Planet[] planets = new Planet[8];
@@ -626,6 +739,8 @@ public class Planet implements Comparable<Planet> {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language={}]
 $ java Planet
 Unsorted:
@@ -659,6 +774,8 @@ Sorted by # of moons:
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Iteration interfaces 
 \begin{itemize}
 \item \lstinline{java.lang.Iterable}
@@ -680,6 +797,7 @@ method & description \\ \hline
 \end{center}
 \end{itemize}
 
+\pause
 \bigskip
 
 An iterable type (arrays included) can be enumerated using the enhanced for statement
@@ -701,6 +819,8 @@ while (iter.hasNext()) {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Example (an iterable \lstinline{Fibonacci} data type)
 \begin{lstlisting}[language=Java]
 import edu.princeton.cs.algs4.StdOut;
@@ -740,6 +860,8 @@ public class Fibonacci implements Iterable<Long> {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language={}]
 $ java Fibonacci 10
 1
@@ -757,28 +879,36 @@ $ java Fibonacci 10
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Implementation inheritance (aka subclassing) enables programmers to define a new class (subclass or derived class) that inherits instance methods and instance variables from another class (superclass or base class)
 
+\pause
 \bigskip
 
 Every class in Java is a subclass of the \lstinline{java.lang.Object} class and therefore inherits its methods
 
+\pause
 \bigskip
 
 Since every Java type inherits \lstinline{toString()} from \lstinline{Object}, any client can invoke \lstinline{toString()} for any object
 
+\pause
 \bigskip
 
 Wrapper types are reference types provided by Java for each of the primitive types (eg, \lstinline{Boolean} for \lstinline{boolean}, \lstinline{Integer} for \lstinline{int}, etc)
 
+\pause
 \bigskip
 
 Java automatically converts primitive types to wrapper types (auto boxing) and wrapper types to primitive types (auto unboxing)
 
+\pause
 \bigskip
 
 If we test equality with \lstinline{a == b} (instead of \lstinline{a.equals(b)}) where \lstinline{a} and \lstinline{b} are reference variables of the same type, we are testing whether they have the same identity, ie, the same address 
 
+\pause
 \bigskip
 
 The ability to assign a new value to a reference variable can lead to orphaned objects
@@ -788,26 +918,33 @@ Date b = new Date(1, 1, 2015);
 b = a;
 \end{lstlisting}
 
+\pause
 \bigskip
 
 Java automatically manages memory (garbage collection) by keeping track of orphaned objects and returning the memory they use to a pool of free memory
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 An immutable data type (eg, \lstinline{Date}) has the property that the value of an object never changes once constructed
 
+\pause
 \bigskip
 
 Java enforces immutability via the \lstinline{final} modifier
 
+\pause
 \bigskip
 
 Exceptions and errors are disruptive events that occur while a program is running
 
+\pause
 \bigskip
 
 Java system methods throw exceptions such as  \lstinline{StackOverflowError}, \lstinline{ArithmeticException}, \lstinline{ArrayIndexOutOfBoundsException}, \lstinline{OutOfMemoryError}, and \lstinline{NullPointerException}
 
+\pause
 \bigskip
 
 We can also raise exceptions within a program, the simplest being a \lstinline{RuntimeException} that terminates execution of the program and prints an error message
@@ -815,9 +952,10 @@ We can also raise exceptions within a program, the simplest being a \lstinline{R
 throw new RuntimeException("Error message here.");
 \end{lstlisting}
 
+\pause
 \bigskip
 
-An assertion is a Boolean expression that we are affirming is true at that point in the program; if the expression is \lstinline{false}, the program will terminate and report an error message
+An assertion is a boolean expression that we are affirming is true at that point in the program; if the expression is \lstinline{false}, the program will terminate and report an error message
 \begin{lstlisting}[language=Java]
 assert index >= 0;
 \end{lstlisting}

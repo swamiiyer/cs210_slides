@@ -18,15 +18,19 @@
 
 \section{Complexity of Algorithms}
 \begin{frame}[fragile]
+\pause
+
 Questions that arise when we write programs that process large amounts of data
 \begin{itemize}
-\item How long will my program take, ie, what's the \emph{time complexity} of my program?
-\item How much memory will my program need, ie, what's the \emph{space complexity} of my program?
+\item How long will my program take, ie, what's the time complexity of my program?
+\item How much memory will my program need, ie, what's the space complexity of my program?
 \end{itemize}
 \end{frame}
 
 \section{Time Complexity}
 \begin{frame}[fragile]
+\pause
+
 Example (3-sum problem)
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
@@ -58,6 +62,8 @@ public class ThreeSum {
 }
 \end{lstlisting}
 
+\pause
+
 \begin{lstlisting}[language={}]
 $ java edu.princeton.cs.algs4.ThreeSum 1Kints.txt 
 elapsed time = 0.334
@@ -69,8 +75,11 @@ elapsed time = 2.643
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 We can carry out experimental analysis of the running time $T(N)$ of a program using a stopwatch, where $N$ is the input size
 
+\pause
 \bigskip
 
 \lstinline{Stopwatch} API
@@ -82,6 +91,7 @@ method & description \\ \hline
 \end{tabular} 
 \end{center}
 
+\pause
 \bigskip
 
 \lstinline{Stopwatch} implementation
@@ -103,6 +113,8 @@ public class Stopwatch {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 A \lstinline{Stopwatch} client that produces experimental data for \lstinline{ThreeSum}
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
@@ -128,6 +140,8 @@ public class DoublingTest {
 } 
 \end{lstlisting}
 
+\pause
+
 \begin{lstlisting}[language={}]
 $ java edu.princeton.cs.algs4.DoublingTest
     250   0.0
@@ -141,10 +155,14 @@ $ java edu.princeton.cs.algs4.DoublingTest
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Plots of the experimental data 
 \begin{center}
-\includegraphics[scale=0.4]{{./figures/threesum}.pdf}
+\visible<2->{\includegraphics[scale=0.4]{{./figures/threesum}.pdf}}
 \end{center}
+
+\pause
 
 From the log-log plot we have $$\lg T(N) = 3\lg N + \lg a,$$ where $a$ is a constant
 
@@ -153,22 +171,29 @@ and since $T(8000)=51.1$, we have $$T(N)=9.98\times 10^{-11}N^3$$
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 We can also derive a mathematical expression for the running time $T(N)$ of a program
 
+\pause
 \bigskip
 
 The total running time of a program is determined by: the cost of executing each statement (property of the computer); and the frequency of execution of each statement (property of the program and the input)
 
+\pause
 \bigskip
 
-We write $\sim f(N)$ (called \emph{tilde approximation}) to represent any function that, when divided by $f(N)$, approaches 1 as $N$ grows, and we write $g(N)\sim f(N)$ to indicate that $g(N)/f(N)$ approaches 1 as $N$ grows
+We write $\sim f(N)$ (called tilde approximation) to represent any function that, when divided by $f(N)$, approaches 1 as $N$ grows, and we write $g(N)\sim f(N)$ to indicate that $g(N)/f(N)$ approaches 1 as $N$ grows
 
+\pause
 \bigskip
 
-Most often, we work with tilde approximations of the form $g(N)\sim af(N)$ where $f(N)=N^b(\log N)^c$ with $a, b$, and $c$ constants and refer to $f(N)$ as the \emph{order of growth} of $g(N)$
+Most often, we work with tilde approximations of the form $g(N)\sim af(N)$ where $f(N)=N^b(\log N)^c$ with $a, b$, and $c$ constants and refer to $f(N)$ as the order of growth of $g(N)$
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Analyzing the running time of \lstinline{ThreeSum.count()}
 \begin{lstlisting}[language=Java, mathescape]
 public static int count(int[] a) {
@@ -186,6 +211,9 @@ public static int count(int[] a) {
     return cnt;
 }
 \end{lstlisting}
+
+\pause
+
 \begin{center}
 \begin{tabular}{cccc}
 statement block & time & frequency & total time\\ \hline \\
@@ -196,18 +224,25 @@ $[B]$ & $t_3$ & $N$  & $t_3N$ \\
 $[A]$ & $t_4$ & $1$  & $t_4$ 
 \end{tabular} 
 \end{center}
+
+\pause
+
 Grand total: $(t_1/6)N^3+(t_2/2-t_1/2)N^2+(t_1/3-t_2/2+t_3)N+t_4+t_0x$
 
+\pause
 \smallskip
 
 Tilde approximation: $\sim(t_1/6)N^3$ (assuming $x$ is small)
 
+\pause
 \smallskip
 
 Order of growth: $N^3$
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 For many programs, developing a mathematical model of running time reduces to the following steps
 \begin{itemize}
 \item Develop an input model, including a definition of the problem size
@@ -216,12 +251,15 @@ For many programs, developing a mathematical model of running time reduces to th
 \item Determine the frequency of execution of those operations for the given input
 \end{itemize}
 
+\pause
 \bigskip
 
 For \lstinline{ThreeSum}, the input model is $N$ numbers; the inner loop is the statements in a triply nested \lstinline{for} loop; the cost model is the number of array accesses; and the number of array accesses is $N^3/2$
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Order-of-growth classifications
 \begin{center}
 \begin{tabular}{cccc}
@@ -236,30 +274,20 @@ exponential & $2^N$ & exhaustive search & check all subsets
 \end{tabular} 
 \end{center}
 
+\pause
 \smallskip
 
 \begin{center}
-\includegraphics[scale=0.47]{{./figures/order_of_growth}.pdf}
+\visible<3->{\includegraphics[scale=0.47]{{./figures/order_of_growth}.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
-Predictions on the basis of order-of-growth functions for a program that takes a few hours for input of size $N$
-\begin{center}
-\begin{tabular}{ccccc}
-description & function & $2x$ factor & $10N$ & $10N$ on $10x$ CPU\\ \hline \\
-linear & $N$ & 2 & a day & a few hours \\
-linearithmic & $N\log N$ & 2 & a day & a few hours \\
-quadratic & $N^2$ & 4 & a few weeks & a day \\
-cubic & $N^3$ & 8 & several months & a few weeks \\
-exponential & $2^N$ & $2^N$ & never & never
-\end{tabular} 
-\end{center}
-\end{frame}
+\pause
 
-\begin{frame}[fragile]
 Search problem: search for a key in a collection of $N$ keys
 
+\pause
 \bigskip
 
 Linear search
@@ -274,31 +302,31 @@ public static int indexOf(int[] a, int key) {
 }
 \end{lstlisting}
 
+\pause
+
 Order of growth: $N$
 
+\pause
 \bigskip
 
-Binary search
+Binary search (successful search for the key 23)
 \begin{center}
-\includegraphics[scale=0.65]{./figures/bs1.pdf}
-
-\smallskip
-
-successful search for the key 23
+\visible<5->{\includegraphics[scale=0.65]{./figures/bs1.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
+Binary search (unsuccessful search for the key 50)
 \begin{center}
-\includegraphics[scale=0.65]{./figures/bs2.pdf}
-
-\smallskip
-
-unsuccessful search for the key 50
+\visible<2->{\includegraphics[scale=0.65]{./figures/bs2.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Binary search and whitelisting
 
 \begin{lstlisting}[language=Java]
@@ -335,6 +363,8 @@ public class BinarySearch {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language={}]
 tinyW.txt tinyT.txt
    84        23
@@ -357,6 +387,8 @@ tinyW.txt tinyT.txt
              68
 \end{lstlisting}
 
+\pause
+
 \begin{lstlisting}[language={}]
 $ java edu.princeton.cs.algs4.BinarySearch tinyW.txt < tinyT.txt
 50
@@ -364,14 +396,20 @@ $ java edu.princeton.cs.algs4.BinarySearch tinyW.txt < tinyT.txt
 13
 \end{lstlisting}
 
+\pause
+\bigskip
+
 Binary search order of growth: $\lg N + 1$ 
 
+\pause
 \bigskip
 
 Whitelisting order of growth: $M(\lg N + 1)$, where $M$ is the number of calls to \lstinline{BinarySearch.indexOf()}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Faster solution to the 3-sum problem
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
@@ -402,10 +440,14 @@ public class ThreeSumFast {
 }
 \end{lstlisting}
 
+\pause
+
 Order of growth: $N^2\log N$
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Caveats
 \begin{itemize}
 \item With leading-term approximations, we ignore constant coefficients in lower-order terms, which may not be justifed
@@ -425,6 +467,8 @@ Caveats
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Coping with dependence on inputs
 \begin{itemize}
 \item Carefully model the kind of input to be processed in the problems that we need to solve
@@ -441,6 +485,8 @@ Coping with dependence on inputs
 
 \section{Space Complexity}
 \begin{frame}[fragile]
+\pause
+
 Memory requirements for primitive types
 \begin{center}
 \begin{tabular}{cc}
@@ -455,42 +501,53 @@ type & bytes \\ \hline \\
 \end{tabular} 
 \end{center}
 
+\pause
 \bigskip
 
 To determine the memory usage of an object, we add the amount of memory used by each instance variable to the overhead associated with each object, which is 16 bytes
 
+\pause
 \bigskip
 
 A \lstinline{Counter} object uses 32 bytes: 16 bytes of overhead, 8 bytes for its \lstinline{String} instance variable (a reference), 4 bytes for its \lstinline{int} instance variable, and 4 bytes of padding
 
+\pause
 \bigskip
 
 A nested non-static (inner) class requires an extra 8 bytes of overhead (for reference to the enclosing instance)
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 An array of primitive-type values typically requires 24 bytes of header information (16 bytes of object overhead, 4 bytes for the length, and 4 bytes of padding) plus the memory needed to store the values
 
+\pause
 \bigskip
 
 For example, an array of $N$ \lstinline{int} values uses $24 + 4N$ bytes 
 
+\pause
 \bigskip
 
 An array of objects is an array of references to objects, so we need to add the space for the references to the space required for the objects
 
+\pause
 \bigskip
 
 For example, an array of $N$ \lstinline{Date} objects uses 24 bytes (array overhead) plus $8N$ bytes (references) plus 32 bytes for each object, for a grand total of $24+40N$ bytes
 
+\pause
 \bigskip
 
 A two-dimensional array is an array of arrays (each array is an object)
 
+\pause
 \bigskip
 
 For example, a two-dimensional $M$-by-$N$ array of \lstinline{double} values uses 24 bytes (overhead for array of arrays) plus $8M$ bytes (references to the row arrays) plus $24M$ bytes (overhead from the row arrays) plus $8MN$ bytes (for the $N$ \lstinline{double} values in each of the $M$ rows) for a grand total of $8MN+32M+24\sim 8MN$ bytes
 
+\pause
 \bigskip
 
 A \lstinline{String} of length $N$ typically uses 32 bytes (for the \lstinline{String} object) plus $24+2N$ bytes (for the array that contains the characters) for a total of $56+2N$ bytes

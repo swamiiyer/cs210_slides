@@ -34,11 +34,11 @@ Example (a comparable \lstinline{Counter} data type)
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
-\lstinline$Counter(String id)$ & creates a counter named $id$ \\
-\lstinline$void increment()$ & increments the counter by one \\
-\lstinline$int tally()$ & returns number of increments since creation \\
-\lstinline$String toString()$ & returns string representation of the counter \\
-\lstinline$int compareTo(Counter that)$ & compares this counter to $that$
+\lstinline$Counter(String id)$ & create a counter named $id$ \\
+\lstinline$void increment()$ & increment the counter by one \\
+\lstinline$int tally()$ & number of increments since creation \\
+\lstinline$String toString()$ & string representation of the counter \\
+\lstinline$int compareTo(Counter that)$ & compare the counter to $that$
 \end{tabular} 
 \end{center}
 \end{frame}
@@ -356,7 +356,7 @@ method & description \\ \hline
 \lstinline$String concat(String t)$ & the string with $t$ appended \\
 \lstinline$String substring(int i, int j)$ & substring of the string from $i$ (inclusive) to $j$ (exclusive) \\
 \lstinline$String[] split(String delim)$ & strings between occurrences of $delim$ \\
-\lstinline$int compareTo(String t)$ & string comparison \\
+\lstinline$int compareTo(String t)$ & compare the string to $t$ \\
 \lstinline$boolean equals(String t)$ & is the string's value the same as $t$'s? \\
 $\dots$ & $\dots$
 \end{tabular} 
@@ -432,11 +432,11 @@ The most common reason for using the \lstinline{this} keyword is because a field
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
-\lstinline$Counter(String id)$ & creates a counter named $id$ \\
-\lstinline$void increment()$ & increments the counter by one \\
-\lstinline$int tally()$ & returns number of increments since creation \\
-\lstinline$String toString()$ & returns string representation of the counter \\
-\lstinline$int compareTo(Counter that)$ & compares this counter to $that$
+\lstinline$Counter(String id)$ & create a counter named $id$ \\
+\lstinline$void increment()$ & increment the counter by one \\
+\lstinline$int tally()$ & number of increments since creation \\
+\lstinline$String toString()$ & string representation of the counter \\
+\lstinline$int compareTo(Counter that)$ & compare the counter to $that$
 \end{tabular} 
 \end{center}
 
@@ -657,7 +657,7 @@ Comparison interfaces
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
-\lstinline$int compareTo(T o)$ & compares the object with $o$ for order
+\lstinline$int compareTo(T o)$ & compare the object with $o$ for order
 \end{tabular} 
 \end{center}
 
@@ -665,7 +665,7 @@ method & description \\ \hline
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
-\lstinline$int compare(T o1, T o2)$ & compares $o_1$ and $o_2$ for order
+\lstinline$int compare(T o1, T o2)$ & compare $o_1$ and $o_2$ for order
 \end{tabular} 
 \end{center}
 \end{itemize}

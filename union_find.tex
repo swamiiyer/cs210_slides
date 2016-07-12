@@ -67,7 +67,7 @@ The union-find (\lstinline{UF}) API
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
-\lstinline$UF(int N)$ & \makecell{initializes an empty union-find data \\ structure with $N$ sites} \\
+\lstinline$UF(int N)$ & \makecell{initialize an empty union-find data \\ structure with $N$ sites} \\
 \lstinline$int find(int p)$ & component identifier for $p$ (0 to $N-1$) \\
 \lstinline$int count()$ & number of components \\
 \lstinline$boolean connected(int p, int q)$ & are $p$ and $q$ in the same component? \\
@@ -170,7 +170,7 @@ public class QuickFindUF {
 \begin{frame}[fragile]
 \pause
 
-Quick find trace
+Trace
 
 \begin{center}
 \visible<2->{\includegraphics[scale=0.7]{figures/quick_find_trace.pdf}}
@@ -217,7 +217,7 @@ public class QuickUnionUF {
 \begin{frame}[fragile]
 \pause
 
-Quick union trace
+Trace
 
 \begin{center}
 \visible<2->{\includegraphics[scale=0.38]{figures/quick_union_trace.pdf}}
@@ -270,7 +270,7 @@ public class WeightedQuickUnionUF {
 \begin{frame}[fragile]
 \pause
 
-Weighted quick union trace
+Trace
 
 \begin{center}
 \visible<2->{\includegraphics[scale=0.38]{figures/weighted_quick_union_trace.pdf}}

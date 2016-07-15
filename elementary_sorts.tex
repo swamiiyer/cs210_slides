@@ -18,27 +18,40 @@
 
 \section{Rules of the Game}
 \begin{frame}[fragile]
-Sorting is the process of rearranging a sequence of objects so as to put them in some logical order; for example, your credit card bill presents transactions ordered by date
+\pause
 
+Sorting is the process of rearranging a sequence of objects so as to put them in some logical order
+
+\pause
+\bigskip
+
+For example, your credit card bill presents transactions ordered by date
+
+\pause
 \bigskip
 
 As a conservative practice, we include the statement \lstinline{assert isSorted(a)} in our test client to certify that array entries are in order after the sort
 
+\pause
 \bigskip
 
 We test algorithm performance by counting the number of basic
 operations (comparisons and exchanges or array accesses)
 
+\pause
 \bigskip
 
 There are two types of sorting algorithms: those that sort in place and use no extra memory, and those that need enough extra memory to hold another copy of the array to be sorted
 
+\pause
 \bigskip
 
 Our sort code is effective for any item type that is comparable
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
 
@@ -75,6 +88,8 @@ public class SortAlgorithm {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
     private static boolean isSorted(Object[] a, Comparator c) {
         return isSorted(a, c, 0, a.length - 1);
@@ -101,16 +116,23 @@ public class SortAlgorithm {
 }
 \end{lstlisting}
 
+\pause
+
 \begin{lstlisting}[language={}]
-$ echo S O R T E X A M P L E | java SortAlgorithm
+$ java SortAlgorithm
+S O R T E X A M P L E
+<ctrl-d>
 A E E L M O P R S T X
 \end{lstlisting}
 \end{frame}
 
 \section{Selection Sort}
 \begin{frame}[fragile]
+\pause
+
 First find the smallest item in the array and exchange it with the first entry, then find the next smallest item and exchange it with the second entry, and so on
 
+\pause
 \bigskip
 
 \begin{lstlisting}[language=Java]
@@ -138,32 +160,32 @@ public class Selection {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
+Trace
 \begin{center}
-\includegraphics[scale=0.65]{./figures/selection_trace.pdf}
-
-\smallskip
-
-Array contents just before each exchange
+\visible<2->{\includegraphics[scale=0.65]{./figures/selection_trace.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Selection sort uses $\sim N^2/2$ comparisons and $N$ exchanges to sort an array of length $N$
 
+\pause
 \bigskip
 
 It takes about as long to run selection sort for an array that is already in order or for an array with all keys equal as it does for a randomly-ordered array
-
-\bigskip
-
-Each of the $N$ exchanges changes the value of two array
-entries, so the number of array accesses is a linear function of the array size, a property that none of the other sorting algorithms that we consider have (most involve linearithmic or quadratic growth)
 \end{frame}
 
 \section{Insertion Sort}
 \begin{frame}[fragile]
+\pause
+
 Similar to the technique that people use to sort bridge hands, ie, consider the cards one at a time, inserting each into its proper place among those already considered
 
+\pause
 \bigskip
 
 \begin{lstlisting}[language=Java]
@@ -187,18 +209,30 @@ public class Insertion {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
+Trace
 \begin{center}
-\includegraphics[scale=0.65]{./figures/insertion_trace.pdf}
-
-\smallskip
-
-Array contents just after each iteration of the inner loop
+\visible<2->{\includegraphics[scale=0.65]{./figures/insertion_trace.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
-Insertion sort uses $\sim N^2 /4$ comparisons and $\sim N^2 /4$ exchanges to sort a randomly ordered array of length $N$ with distinct keys, on the average; the worst case is $\sim N^2 /2$ comparisons and $\sim N^2/2$ exchanges; the best case is $N-1$ comparisons and 0 exchanges
+\pause
 
+Insertion sort uses $\sim N^2 /4$ comparisons and $\sim N^2 /4$ exchanges to sort a randomly ordered array of length $N$ with distinct keys, on the average
+
+\pause
+\bigskip
+
+The worst case is $\sim N^2 /2$ comparisons and $\sim N^2/2$ exchanges
+
+\pause
+\bigskip
+
+The best case is $N-1$ comparisons and 0 exchanges
+
+\pause
 \bigskip
 
 Insertion sort is an excellent method for partially-sorted arrays and is also a fine method for tiny arrays
@@ -206,12 +240,16 @@ Insertion sort is an excellent method for partially-sorted arrays and is also a 
 
 \section{Shell Sort}
 \begin{frame}[fragile]
+\pause
+
 Shell sort is a simple extension of insertion sort that gains speed by allowing exchanges of array entries that are far apart, to produce partially-sorted arrays that can be efficiently sorted, eventually by insertion sort
 
+\pause
 \bigskip
 
 The idea is to rearrange the array such that taking every $h$th entry (starting anywhere) yields an $h$-sorted subsequence
 
+\pause
 \bigskip
 
 \begin{lstlisting}[language=Java]
@@ -240,34 +278,50 @@ public class Shell {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
+Trace
 \begin{center}
-\includegraphics[scale=0.6]{./figures/shell_trace.pdf}
-
-\smallskip
-
-Array contents after each pass
+\visible<2->{\includegraphics[scale=0.45]{./figures/shell_trace.pdf}}
 \end{center}
+\end{frame}
 
+\begin{frame}[fragile]
+\pause
+
+The worst-case number of comparisons is proportional to $N^{3/2}$
+
+\pause
 \bigskip
 
-The worst-case number of comparisons is proportional to $N^{3/2}$; no mathematical results are available for the average-case number of comparisons for randomly ordered input
+No mathematical results are available for the average-case number of comparisons for randomly ordered input
 \end{frame}
 
 \section{Visualizing Sorting Algorithms}
 \begin{frame}[fragile]
+\pause
+
+\href{http://www.sorting-algorithms.com/}{Animations}
+
 \begin{center}
-\includegraphics[scale=0.3]{./figures/algorithm_animations.pdf}
+\visible<2->{\includegraphics[scale=0.3]{./figures/algorithm_animations.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
+\href{https://www.youtube.com/user/AlgoRythmics/videos}{Videos}
+
 \begin{center}
-\includegraphics[scale=0.23]{./figures/algorithm_videos.pdf}
+\visible<2->{\includegraphics[scale=0.23]{./figures/algorithm_videos.pdf}}
 \end{center}
 \end{frame}
 
 \section{Comparing Sorting Algorithms}
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
 import edu.princeton.cs.algs4.*;
 import java.util.Arrays;
@@ -307,6 +361,8 @@ public class SortCompare {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
     public static double timeSortedInput(String alg, int N, int T)  {
         double total = 0.0; 
@@ -337,6 +393,8 @@ public class SortCompare {
     } 
 }
 \end{lstlisting}
+
+\pause
 
 \begin{lstlisting}[language={}]
 $ java SortCompare Shell Selection 10000 100

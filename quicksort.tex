@@ -18,27 +18,28 @@
 
 \section{The Basic Algorithm}
 \begin{frame}[fragile]
+\pause
+
 Quick sort is a divide-and-conquer method for sorting, and it  works by partitioning an array into two subarrays, then sorting the subarrays independently
 
+\pause
 \bigskip
 
+Quick sort overview
 \begin{center}
-\includegraphics[scale=0.6]{{./figures/quicksort_overview}.pdf}
-
-\smallskip
-
-\tiny Quick sort
+\visible<3->{\includegraphics[scale=0.55]{{./figures/quicksort_overview}.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
 
 import java.util.Comparator;
 
 public class Quick {
-    ...
     public static void sort(Comparable[] a) {
         StdRandom.shuffle(a);
         sort(a, 0, a.length - 1);
@@ -50,22 +51,22 @@ public class Quick {
         sort(a, lo, j - 1);
         sort(a, j + 1, hi);
     }
-    ...
 }
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
+Trace
 \begin{center}
-\includegraphics[scale=0.6]{{./figures/quicksort_trace}.pdf}
-
-\smallskip
-
-\tiny The basic quick sort algorithm
+\visible<2->{\includegraphics[scale=0.55]{{./figures/quicksort_trace}.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 The partitioning procedure rearranges the array such that
 \begin{itemize}
 \item The entry \lstinline{a[j]} is in its final place in the array, for some \lstinline{j}
@@ -73,6 +74,7 @@ The partitioning procedure rearranges the array such that
 \item No entry in \lstinline{a[j + 1]} through \lstinline{a[hi]} is less than \lstinline{a[j]}
 \end{itemize}
 
+\pause
 \bigskip
 
 \begin{lstlisting}[language=Java]
@@ -81,7 +83,6 @@ package edu.princeton.cs.algs4;
 import java.util.Comparator;
 
 public class Quick {
-    ...
     private static int partition(Comparable[] a, int lo, int hi) {
         int i = lo;
         int j = hi + 1;
@@ -95,27 +96,34 @@ public class Quick {
         exch(a, lo, j);
         return j;
     }
-    ...
 }
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
+Trace
 \begin{center}
-\includegraphics[scale=0.6]{{./figures/partition_trace}.pdf}
-
-\smallskip
-
-\tiny Partitioning (array contents before and after each exchange)
+\visible<2->{\includegraphics[scale=0.55]{{./figures/partition_trace}.pdf}}
 \end{center}
+\end{frame}
 
+\begin{frame}[fragile]
+\pause
+
+Quick sort uses $\sim 2N\ln N$ comparisons and $\sim N/3\ln N$ exchanges on the average to sort an array of length $N$ with distinct keys
+
+\pause
 \bigskip
 
-Quick sort uses $\sim 2N\ln N$ comparisons and $\sim N/3\ln N$ exchanges on the average to sort an array of length $N$ with distinct keys; and $\sim N^2/2$ comparisons in the worst case, but random shuffling protects against this case
+In the worst case, quick sort uses $\sim N^2/2$ comparisons, but random shuffling protects against this case
 \end{frame}
 
 \section{Algorithmic Improvements}
 \begin{frame}[fragile]
+\pause
+
 An easy way to improve the performance of quick sort is to use insertion sort for tiny subarrays, ie, replace the following statement 
 \begin{lstlisting}[language=Java]
 if (hi <= lo) { return; }
@@ -126,13 +134,18 @@ if (hi <= lo + M) { Insertion.sort(a, lo, hi); return; }
 \end{lstlisting}
 where the optimum value of the cutoff $M$ is system-dependent, but any value between 5 and 15 is likely to work well in most situations
 
+\pause
 \bigskip
 
 A second easy way to improve the performance of quick sort is to use the median of a small sample of items (usually three) taken from the subarray as the partitioning item
 \end{frame}
 
 \begin{frame}[fragile]
-When arrays have a large number of duplicate keys (eg, sorting a large personnel file by year of birth), one straightforward idea (due to Dijkstra), called \emph{3-way quick sort}, is to partition the array into three parts, one each for items with keys smaller than, equal to, and larger than the partitioning item's key
+\pause
+
+When arrays have a large number of duplicate keys (eg, sorting a large personnel file by year of birth), one straightforward idea (due to Dijkstra), called 3-way quick sort, is to partition the array into three parts, one each for items with keys smaller than, equal to, and larger than the partitioning item's key
+
+\pause
 
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
@@ -140,7 +153,6 @@ package edu.princeton.cs.algs4;
 import java.util.Comparator;
 
 public class Quick3way {
-    ...
     private static void sort(Comparable[] a, int lo, int hi) { 
         if (hi <= lo) return;
         int lt = lo, gt = hi;
@@ -155,24 +167,25 @@ public class Quick3way {
         sort(a, lo, lt - 1);
         sort(a, gt + 1, hi);
     }
-    ...
 }
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
+Trace
 \begin{center}
-\includegraphics[scale=0.6]{{./figures/quick3way_trace}.pdf}
-
-\smallskip
-
-\tiny 3-way quick sort (array contents after each iteration)
+\visible<2->{\includegraphics[scale=0.55]{{./figures/quick3way_trace}.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Given $N$ keys with $k$ distinct key values, for each $i$ from 1 to $k$ define $f_i$ to be frequency of occurrence of the $i$th key value and $p_i$  to be $f_i/N$, the probability that the $i$th key value is found when a random entry of the array is sampled
 
+\pause
 \bigskip
 
 The Shannon entropy of the keys (a classic measure of their information content) is defined as
@@ -182,10 +195,12 @@ H &=& -(p_1\lg p_1 + p_2\lg p_2 + \dots + p_k\lg p_k) \nonumber \\
 \end{eqnarray}
 with a minimum value of 0 when the keys are all identical, and a maximum value of $\ln N$ when the keys are all distinct
 
+\pause
 \bigskip
 
 No comparison-based sorting algorithm can guarantee to sort $N$ items with fewer than $NH-N$ comparisons, where $H$ is the Shannon entropy, defined from the frequencies of key values
 
+\pause
 \bigskip
 
 3-way quick sort uses $\sim (2\ln 2)NH$ comparisons to sort $N$ items, where $H$ is the Shannon entropy, defined from the frequencies of key values
@@ -193,6 +208,8 @@ No comparison-based sorting algorithm can guarantee to sort $N$ items with fewer
 
 \section{Quick Sort and Other Sorts}
 \begin{frame}[fragile]
+\pause
+
 A comparison of quick sort and selection sort
 \begin{lstlisting}[language={}]
 $ java SortCompare Quick Selection 10000 100
@@ -200,6 +217,7 @@ For 10000 random Doubles
     Quick is 30.3 times faster than Selection
 \end{lstlisting}
 
+\pause
 \bigskip
 
 A comparison of quick sort and insertion sort
@@ -209,6 +227,7 @@ For 10000 random Doubles
     Quick is 34.1 times faster than Insertion
 \end{lstlisting}
 
+\pause
 \bigskip
 
 A comparison of quick sort and shell sort
@@ -218,6 +237,7 @@ For 10000 random Doubles
     Quick is 0.8 times faster than Shell
 \end{lstlisting}
 
+\pause
 \bigskip
 
 A comparison of quick sort and merge sort
@@ -227,6 +247,7 @@ For 10000 random Doubles
     Quick is 0.9 times faster than Merge
 \end{lstlisting}
 
+\pause
 \bigskip
 
 A comparison of quick sort and system sort

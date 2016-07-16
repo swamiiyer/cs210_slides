@@ -18,24 +18,27 @@
 
 \section{Merging}
 \begin{frame}[fragile]
-Merge sort is based on a simple operation known as \emph{merging}: combining two ordered arrays to make one larger ordered array
+\pause
 
+Merge sort is based on a simple operation known as merging: combining two ordered arrays to make one larger ordered array
+
+\pause
 \bigskip
 
 To sort an array, divide it into two halves, sort the two halves (recursively), and then merge the results
 
+\pause
 \bigskip
 
+Merge sort overview
 \begin{center}
-\includegraphics[scale=0.7]{{./figures/mergesort_overview}.pdf}
-
-\smallskip
-
-\tiny Merge sort
+\visible<4->{\includegraphics[scale=0.55]{{./figures/mergesort_overview}.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 The merge algorithm
 
 \begin{lstlisting}[language=Java]
@@ -44,7 +47,6 @@ package edu.princeton.cs.algs4;
 import java.util.Comparator;
 
 public class Merge {
-    ...
     private static void merge(Comparable[] a, Comparable[] aux, 
                               int lo, int mid, int hi) {
         int i = lo, j = mid + 1;
@@ -58,23 +60,24 @@ public class Merge {
             else                           { a[k] = aux[i++]; }
         }
     }
-    ...
 }
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
+Trace
 \begin{center}
-\includegraphics[scale=0.5]{{./figures/merge_trace}.pdf}
 
-\smallskip
-
-\tiny The merge algorithm
+\visible<2->{\includegraphics[scale=0.55]{{./figures/merge_trace}.pdf}}
 \end{center}
 \end{frame}
 
 \section{Merge Sort}
 \begin{frame}[fragile]
+\pause
+
 Top-down merge sort
 
 \begin{lstlisting}[language=Java]
@@ -83,7 +86,6 @@ package edu.princeton.cs.algs4;
 import java.util.Comparator;
 
 public class Merge {
-    ...
     public static void sort(Comparable[] a) {
         Comparable[] aux = new Comparable[a.length]; 
         sort(a, aux, 0, a.length - 1);
@@ -97,41 +99,53 @@ public class Merge {
         sort(a, aux, mid + 1, hi); 
         merge(a, aux, lo, mid, hi);
     }
-    ...
 }
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
+Trace
 \begin{center}
-\includegraphics[scale=0.5]{{./figures/mergetd_trace}.pdf}
-
-\smallskip
-
-\tiny Top-down merge sort
+\visible<2->{\includegraphics[scale=0.55]{{./figures/mergetd_trace}.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Top-down merge sort uses between $1/2N\lg N$ and $N\lg N$ comparisons and at most $6N\lg N$ array accesses to sort an array of length $N$
 
+\pause
 \bigskip
 
-The \lstinline$MergeX$ variant from the text implements the following improvements
+Merge sort guarantees to sort an array of $N$ items in time proportional to $N \lg N$, no matter what the input
+
+\pause
+\bigskip
+
+The prime disadvantage of merge sort is that it uses extra space proportional to $N$
+
+\pause
+\bigskip
+
+The \lstinline{MergeX} variant from the text implements the following improvements
 
 \begin{itemize}
 \item Handles tiny subarrays using insertion sort
-
 \item Reduces the running time to be linear for arrays that are already in order by adding a test to skip the call to \lstinline$merge()$ if \lstinline$a[mid]$ is less than or equal to \lstinline$a[mid + 1]$
-
 \item Eliminates the time (but not the space) taken to copy to the auxiliary array used for merging by using two invocations of the sort method: one that takes its input from the given array and puts the sorted output in the auxiliary array; the other that takes its input from the auxiliary array and puts the sorted output in the given array
 \end{itemize}
 \end{frame}
 
 \section{Complexity of Sorting}
 \begin{frame}[fragile]
+\pause
+
 No comparison-based sorting algorithm can guarantee to sort $N$ items with fewer than $\lg N! \sim N\lg N$ comparisons (see p. 280 of the text for a nice proof of this proposition)
 
+\pause
 \bigskip
 
 Merge sort is an asymptotically optimal comparison-based sorting algorithm, since the number of comparisons used by merge sort in the worst case is $\sim N\lg N$
@@ -139,6 +153,8 @@ Merge sort is an asymptotically optimal comparison-based sorting algorithm, sinc
 
 \section{Merge Sort and Other Sorts}
 \begin{frame}[fragile]
+\pause
+
 A comparison of merge sort and selection sort
 
 \begin{lstlisting}[language={}]
@@ -147,6 +163,7 @@ For 10000 random Doubles
     Merge is 44.8 times faster than Selection
 \end{lstlisting}
 
+\pause
 \bigskip
 
 A comparison of merge sort and insertion sort
@@ -156,6 +173,7 @@ For 10000 random Doubles
     Merge is 39.1 times faster than Insertion
 \end{lstlisting}
 
+\pause
 \bigskip
 
 A comparison of merge sort and shell sort
@@ -166,6 +184,7 @@ For 10000 random Doubles
     Merge is 1.1 times faster than Shell
 \end{lstlisting}
 
+\pause
 \bigskip
 
 A comparison of merge sort and system sort

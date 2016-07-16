@@ -18,43 +18,51 @@
 
 \section{API}
 \begin{frame}[fragile]
+\pause
+
 Many applications require that we process items having keys in order, but not necessarily in full sorted order and not necessarily all at once
 
+\pause
 \bigskip
 
 An appropriate data structure in such applications is the priority queue (PQ for short), which supports two operations: insert and remove the minimum (or maximum)
 
+\pause
+
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
-\lstinline$MinPQ(int capacity)$ & constructs an empty PQ with the given initial capacity \\
-\lstinline$MinPQ()$ & constructs an empty PQ \\
+\lstinline$MinPQ(int capacity)$ & construct an empty PQ with the given initial capacity \\
+\lstinline$MinPQ()$ & construct an empty PQ \\
 \lstinline$boolean isEmpty()$ & is the PQ empty? \\
 \lstinline$int size()$ & number of keys in the PQ \\
 \lstinline$void insert(Key v)$ & insert a key $v$ into the PQ \\
 \lstinline$Key min()$ & return the smallest key in the PQ \\
 \lstinline$Key delMin()$ & return and remove the smallest key in the PQ \\
-\lstinline$Iterator<Item> iterator()$ & returns an iterator over the keys in the PQ in ascending order \\
+\lstinline$Iterator<Item> iterator()$ & return an iterator over the keys in the PQ in ascending order \\
 $\dots$ & $\dots$
 \end{tabular} 
 \end{center}
 
+\pause
 \smallskip
 
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
-\lstinline$MaxPQ(int capacity)$ & constructs an empty PQ with the given initial capacity \\
-\lstinline$MaxPQ()$ & constructs an empty PQ \\
+\lstinline$MaxPQ(int capacity)$ & construct an empty PQ with the given initial capacity \\
+\lstinline$MaxPQ()$ & construct an empty PQ \\
 \lstinline$Key max()$ & return the largest key in the PQ \\
 \lstinline$Key delMax()$ & return and remove the largest key in the PQ \\
-\lstinline$Iterator<Item> iterator()$ & returns an iterator over the keys in the PQ in descending order \\
+\lstinline$Iterator<Item> iterator()$ & return an iterator over the keys in the PQ in descending order \\
 $\dots$ & $\dots$
 \end{tabular} 
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 A \lstinline{MinPQ} client
 \begin{lstlisting}[language=Java]
 import edu.princeton.cs.algs4.*;
@@ -82,6 +90,8 @@ public class TopM {
 } 
 \end{lstlisting} 
 
+\pause
+
 \begin{lstlisting}[language={}]
 $ more tinyBatch.txt 
 Turing      6/17/1990   644.08
@@ -98,12 +108,16 @@ vonNeumann  3/26/2002  4121.85
 
 \section{Elementary Implementations}
 \begin{frame}[fragile]
+\pause
+
 Elementary implementations of priority queues involve arrays or linked lists, ordered or unordered, which have the property that either the insert or remove the minimum (or maximum) operation takes linear time in the worst case
 
+\pause
 \bigskip
 
 The heap data structure that we consider next enables implementations where both operations are guaranteed to be fast
 
+\pause
 \bigskip
 
 Worst-case running time for priority-queue implementations
@@ -122,28 +136,30 @@ impossible & 1 & 1
 
 \section{Heap Definitions}
 \begin{frame}[fragile]
-A \emph{binary tree} is a tree data structure in which each node has at most two children
+\pause
 
+A binary tree is a tree data structure in which each node has at most two children
+
+\pause
 \bigskip
 
-A \emph{maximum-oriented heap-ordered binary tree} is a binary tree in which each node is larger than or equal to the keys in that node's two children (if any)
+A maximum-oriented heap-ordered binary tree is a binary tree in which each node is larger than or equal to the keys in that node's two children (if any)
 
+\pause
 \bigskip
 
 The largest key in a maximum-oriented heap-ordered binary tree is found at the root
 
+\pause
 \bigskip
 
-A \emph{binary heap} is a collection of keys arranged in a complete heap-ordered binary tree, represented in level order in an array (not using the first entry)
+A binary heap is a collection of keys arranged in a complete heap-ordered binary tree, represented in level order in an array (not using the first entry)
 
 \begin{center}
-\includegraphics[scale=0.6]{{./figures/heap_representation}.pdf}
-
-\smallskip
-
-\tiny A binary heap
+\visible<5->{\includegraphics[scale=0.6]{{./figures/heap_representation}.pdf}}
 \end{center}
 
+\pause
 \bigskip
 
 The height of a complete binary tree of size $N$ is $\floor{\log N}$
@@ -151,8 +167,11 @@ The height of a complete binary tree of size $N$ is $\floor{\log N}$
 
 \section{Algorithms on Heaps}
 \begin{frame}[fragile]
+\pause
+
 Bottom-up reheapify (swim): if the maximum-oriented heap order is violated because a node's key is larger than its parent's key, we can fix the violation by exchanging the node with its parent, until we reach a node with a larger key, or the root
 
+\pause
 \bigskip
 
 \begin{minipage}{150pt}
@@ -166,23 +185,21 @@ private void swim(int k) {
 \end{lstlisting}
 \end{minipage}%
 \begin{minipage}{130pt}
-\hfill \includegraphics[scale=0.35]{./figures/heapify_swim.pdf}
+\hfill \visible<3->{\includegraphics[scale=0.35]{./figures/heapify_swim.pdf}}
 \end{minipage}
 
-\smallskip
-
-\begin{center}
-\tiny {Swim operation in a maximum-oriented heap-ordered binary tree}
-\end{center}
-
+\pause
 \bigskip
 
 Insert: add the new key at the end of the array, increment the size of the heap, and then swim up through the heap with that key to restore the heap condition
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Top-down reheapify (sink): if the maximum-oriented heap order is violated because a node's key is smaller than one or both of its childrens' keys, we can fix the violation by exchanging the node with the larger of its two children, until we reach a node with both children smaller or equal, or the bottom 
 
+\pause
 \bigskip
 
 \begin{minipage}{150pt}
@@ -201,21 +218,18 @@ private void sink(int k) {
 \end{lstlisting}
 \end{minipage}%
 \begin{minipage}{130pt}
-\hfill \includegraphics[scale=0.35]{./figures/heapify_sink.pdf}
+\hfill \visible<3->{\includegraphics[scale=0.35]{./figures/heapify_sink.pdf}}
 \end{minipage}
 
-\smallskip
-
-\begin{center}
-\tiny Sink operation in a maximum-oriented heap-ordered binary tree
-\end{center}
-
+\pause
 \bigskip
 
 Remove the maximum: take the largest key off the top, put the item from the end of the heap at the top, decrement the size of the heap, and then sink down through the heap with that key to restore the heap condition
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
 
@@ -253,6 +267,8 @@ public class MaxPQ<Key> implements Iterable<Key> {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]    
     public Key delMax() {
         if (isEmpty()) { throw new NoSuchElementException("..."); }
@@ -281,27 +297,33 @@ public class MaxPQ<Key> implements Iterable<Key> {
             if (!hasNext()) { throw new NoSuchElementException(); }
             return copy.delMax();
         }
-        ...
     }
-    ...
 }
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 In an $N$-key priority queue, the heap algorithms require no more than $1 + \lg N$ comparisons for insert and no more than $2 \lg N$ comparisons for remove the minimum (or maximum)
 
+\pause
 \bigskip
 
 It is not difficult to modify our code to build heaps based on an array representation of complete heap-ordered ternary trees, and not much more difficult to use $d$-ary heaps for any given $d$
 
+\pause
 \bigskip
 
 The priority queue contains objects that are created by clients but assumes that client code does not change the keys (which might invalidate the heap-order invariant)
 
+\pause
 \bigskip
 
 In many applications, it makes sense to allow clients to refer to items that are already on the priority queue 
+
+\pause
+
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
@@ -317,6 +339,8 @@ $\dots$ & $\dots$
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 An \lstinline{IndexMinPQ} client
 \begin{lstlisting}[language=Java]
 import edu.princeton.cs.algs4.*;
@@ -345,6 +369,8 @@ public class Multiway {
 } 
 \end{lstlisting}
 
+\pause
+
 \begin{lstlisting}[language={}]
 $ more m1.txt 
 A B C F G I I Z
@@ -359,11 +385,16 @@ A A B B B C D E F F G H I I J N P Q Q Z
 
 \section{Heap Sort}
 \begin{frame}[fragile]
+\pause
+
 Insert all the items to be sorted into a minimum-oriented priority queue, then repeatedly remove the minimum to remove them all in order
 
+\pause
 \bigskip
 
 To sort in place, heapify \lstinline$a[]$ containing $N$ items to a maximum-oriented heap-ordered binary tree, and repeatedly exchange the maximum key with the key at index $N$ and reheapify the first $N - 1$ keys 
+
+\pause
 
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
@@ -371,7 +402,6 @@ package edu.princeton.cs.algs4;
 import java.util.Comparator;
 
 public class Heap {
-    ...
     public static void sort(Comparable[] a) {
         int N = a.length;
         for (int k = N / 2; k >= 1; k--) { sink(a, k, N); }
@@ -387,10 +417,10 @@ public class Heap {
             k = j;
         }
     }
-    ...
 }
 \end{lstlisting}
 
+\pause
 \bigskip
 
 Heap sort uses fewer than $2N \lg N + 2N$ comparisons and $N\lg N + N$ exchanges to sort $N$ items

@@ -17,7 +17,9 @@
 
 \section{Sets}
 \begin{frame}[fragile]
-Mathematical set: a collection of distinct keys
+\pause
+
+A mathematical set is a collection of distinct keys
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
@@ -28,17 +30,15 @@ $\dots$ & $\dots$
 \end{tabular}
 \end{center}
 
+\pause
 \bigskip
 
-Exception filter
-\begin{itemize}
-\item Read in a list of words from one file
+An exception filter is a program that reads in a list of words from one file and prints out all words from standard input that are (are not) in the list
 
-\item Print out all words from standard input that are (are not) in the list
-\end{itemize}
+\pause
+\bigskip
 
-\smallskip
-
+Example
 \begin{lstlisting}[language={}]
 $ more list.txt
 was it the of
@@ -67,7 +67,9 @@ times
 \end{frame}
 
 \begin{frame}[fragile]
-Exception filter Applications
+\pause
+
+Exception filter applications
 \begin{center}
 \begin{tabular}{cccc}
 application & purpose & key & in list \\ \hline \\
@@ -82,6 +84,8 @@ credit cards & check for stolen cards & number & stolen cards
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Exception filter Implementations
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
@@ -101,6 +105,8 @@ public class WhiteFilter {
     }
 }
 \end{lstlisting}
+
+\pause
 
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
@@ -124,8 +130,11 @@ public class BlackFilter {
 
 \section{Dictionary Clients}
 \begin{frame}[fragile]
+\pause
+
 Dictionary lookup: given a comma-separated value (CSV) file, a key field, and a value field as command-line arguments, lookup the keys read from standard input and print the corresponding values if they are found
 
+\pause
 \bigskip
 
 Example (DNS lookup)
@@ -138,9 +147,6 @@ msn.com,207.68.172.246
 google.com,64.233.167.99
 baidu.com,202.108.22.33
 adobe.com,192.150.18.60
-yahoo.co.jp,202.93.91.141
-sina.com.cn,202.108.33.32
-ebay.com,66.135.192.87
 ...
 \end{lstlisting}
 \begin{lstlisting}[language={}]
@@ -164,6 +170,8 @@ Not found
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Example (amino acid lookup)
 \begin{lstlisting}[language={}]
 $ more amino.csv
@@ -185,6 +193,7 @@ TGA,Stop,Stop,Stop
 TGG,Trp,W,Tryptophan
 ...
 \end{lstlisting}
+
 \begin{lstlisting}[language={}]
 $ java edu.princeton.cs.algs4.LookupCSV amino.csv 0 3
 TCT
@@ -228,8 +237,14 @@ public class LookupCSV {
 
 \section{Indexing Clients}
 \begin{frame}[fragile]
+\pause
+
 File index: given a list of files, create an index so that you can efficiently find all files containing a given query string
 
+\pause
+\bigskip
+
+Example
 \begin{lstlisting}[language={}]
 $ ls *.txt
 aesop.txt magna.txt moby.txt sawyer.txt tale.txt 
@@ -258,6 +273,8 @@ lamb
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 File index implementation
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
@@ -297,8 +314,14 @@ public class FileIndex {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Concordance: preprocess a text corpus to support concordance queries, ie, given a word, find all occurrences with their immediate contexts
 
+\pause
+\bigskip
+
+Example
 \begin{lstlisting}[language={}]
 $ java edu.princeton.cs.algs4.Concordance tale.txt
 Finished building concordance
@@ -317,6 +340,8 @@ princeton
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Concordance implementation
 
 \begin{lstlisting}[language=Java]
@@ -359,6 +384,8 @@ public class Concordance {
 
 \section{Sparse Vectors and Matrices}
 \begin{frame}[fragile]
+\pause
+
 Sparse vector: standard representation
 \begin{itemize}
 \item Constant time access to elements
@@ -366,6 +393,7 @@ Sparse vector: standard representation
 \item Space proportional to $N$
 \end{itemize}
 
+\pause
 \bigskip
 
 Sparse vector: symbol table representation
@@ -377,6 +405,7 @@ Sparse vector: symbol table representation
 \item Space proportional to number of nonzeros
 \end{itemize}
 
+\pause
 \bigskip
 
 Sparse matrix: standard representation
@@ -388,6 +417,7 @@ Sparse matrix: standard representation
 \item Space proportional to $N^2$
 \end{itemize}
 
+\pause
 \bigskip
 
 Sparse matrix: symbol table representation
@@ -401,6 +431,8 @@ Sparse matrix: symbol table representation
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Sparse vector implementation
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
@@ -416,7 +448,7 @@ public class SparseVector {
 
     public void put(int i, double value) {
         if (i < 0 || i >= N) {
-            throw new IndexOutOfBoundsException(...);
+            throw new IndexOutOfBoundsException();
         }
         if (value == 0.0) { st.delete(i); }
         else              { st.put(i, value); }
@@ -424,7 +456,7 @@ public class SparseVector {
 
     public double get(int i) {
         if (i < 0 || i >= N) { 
-            throw new IndexOutOfBoundsException(...);
+            throw new IndexOutOfBoundsException();
         }
         if (st.contains(i)) { return st.get(i); }
         else                { return 0.0; }
@@ -437,10 +469,12 @@ public class SparseVector {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
     public double dot(SparseVector that) {
         if (this.N != that.N) {
-            throw new IllegalArgumentException(...);
+            throw new IllegalArgumentException();
         }
         double sum = 0.0;
         if (this.st.size() <= that.st.size()) {
@@ -468,6 +502,8 @@ public class SparseVector {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
     public SparseVector scale(double alpha) {
         SparseVector c = new SparseVector(N);
@@ -477,7 +513,7 @@ public class SparseVector {
 
     public SparseVector plus(SparseVector that) {
         if (this.N != that.N) {
-            throw new IllegalArgumentException(...); 
+            throw new IllegalArgumentException(); 
         }
         SparseVector c = new SparseVector(N);
         for (int i : this.st.keys()) { c.put(i, this.get(i)); }
@@ -492,12 +528,13 @@ public class SparseVector {
         }
         return s;
     }
-    ...
 }
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Sparse matrix implementation
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
@@ -514,14 +551,14 @@ public class SparseMatrix {
 
     public void put(int i, int j, double value) {
         if (i < 0 || i >= N || j < 0 || j >= N) { 
-            throw new RuntimeException(...); 
+            throw new RuntimeException(); 
         }
         rows[i].put(j, value);
     }
 
     public double get(int i, int j) {
         if (i < 0 || i >= N || j < 0 || j >= N) { 
-            throw new RuntimeException(...); 
+            throw new RuntimeException(); 
         }
         return rows[i].get(j);
     }
@@ -535,10 +572,12 @@ public class SparseMatrix {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
     public SparseVector times(SparseVector x) {
         if (N != x.size()) {
-            throw new RuntimeException(...);
+            throw new RuntimeException();
         }
         SparseVector b = new SparseVector(N);
         for (int i = 0; i < N; i++) { b.put(i, rows[i].dot(x)); }
@@ -548,7 +587,7 @@ public class SparseMatrix {
     public SparseMatrix plus(SparseMatrix B) {
         SparseMatrix A = this;
         if (A.N != B.N) { 
-            throw new RuntimeException(...); 
+            throw new RuntimeException(); 
         }
         SparseMatrix C = new SparseMatrix(N);
         for (int i = 0; i < N; i++) { 
@@ -564,7 +603,6 @@ public class SparseMatrix {
         }
         return s;
     }
-    ...
 }
 \end{lstlisting}
 \end{frame}

@@ -18,12 +18,16 @@
 
 \section{Hashing}
 \begin{frame}[fragile]
+\pause
+
 The basic idea is to save items in a key-indexed array, where the index is a function of the key
 
+\pause
 \bigskip
 
 Hash function provides a method for computing an array index from a key
 
+\pause
 \bigskip
 
 Issues
@@ -35,6 +39,7 @@ Issues
 \item Collision resolution: algorithm and data structure to handle two keys that hash to the same array index
 \end{itemize}
 
+\pause
 \bigskip
 
 Classic space-time tradeoff
@@ -48,6 +53,8 @@ Classic space-time tradeoff
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Idealistic goal: scramble the keys uniformly to produce a table index that is
 \begin{itemize}
 \item Efficiently computable
@@ -55,6 +62,7 @@ Idealistic goal: scramble the keys uniformly to produce a table index that is
 \item Equally likely for each key
 \end{itemize}
 
+\pause
 \bigskip
 
 Example 1: phone numbers
@@ -64,6 +72,7 @@ Example 1: phone numbers
 \item Better: last three digits
 \end{itemize}
 
+\pause
 \bigskip
 
 Example 2: social security numbers
@@ -73,12 +82,15 @@ Example 2: social security numbers
 \item Better: last three digits
 \end{itemize}
 
+\pause
 \bigskip
 
 Practical challenge: need different approach for each type of key
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Java's hash code conventions
 \begin{itemize}
 \item All Java classes inherit a method \lstinline{hashCode()}, which returns a 32-bit \lstinline{int}
@@ -98,27 +110,33 @@ Java's hash code conventions
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Java library implementations
 \begin{lstlisting}[language=Java]
 public final class Boolean {
     private final boolean value;
-    ...
+
     public int hashCode() { return value ? 1231 : 1237; }
 }
 \end{lstlisting}
 
+\pause
+
 \begin{lstlisting}[language=Java]
 public final class Integer {
     private final int value;
-    ...
+
     public int hashCode() { return value; }
 }
 \end{lstlisting}
 
+\pause
+
 \begin{lstlisting}[language=Java]
 public final class Double {
     private final double value;
-    ...
+
     public int hashCode() {
         long bits = doubleToLongBits(value);
         return (int) (bits ^ (bits >>> 32));
@@ -126,11 +144,13 @@ public final class Double {
 }
 \end{lstlisting}
 
+\pause
+
 \begin{lstlisting}[language=Java]
 public final class String {
     private int hash = 0;
     private final char[] s;
-    ...
+
     public int hashCode() {
         if (hash != 0) { return hash; }
         for (int i = 0; i < length(); i++) { hash = s[i] + (31 * hash); }
@@ -141,13 +161,15 @@ public final class String {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Implementing hash code for user-defined types
 \begin{lstlisting}[language=Java]
 public final class Transaction implements Comparable<Transaction> {
     private final String who;
     private final Date when;
     private final double amount;
-    ...
+
     public int hashCode() {
         int hash = 17;
         hash = 31 * hash + who.hashCode();
@@ -158,6 +180,7 @@ public final class Transaction implements Comparable<Transaction> {
 }
 \end{lstlisting}
 
+\pause
 \bigskip
 
 Hash code design
@@ -175,6 +198,8 @@ Hash code design
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Modular hashing
 \begin{itemize}
 \item Hash code: an \lstinline{int} between $-2^{31}$ and $2^{31} - 1$
@@ -182,39 +207,25 @@ Modular hashing
 \item Hash function: an \lstinline{int} between 0 and $M-1$ (for use as array index)
 \end{itemize}
 
+\pause
 \bigskip
 
-Buggy
-\begin{lstlisting}[language=Java]
-private int hash(Key key) { 
-    return key.hashCode() % M; 
-}
-\end{lstlisting}
+Implementation
 
-\bigskip
-
-Mostly correct
-\begin{lstlisting}[language=Java]
-private int hash(Key key) { 
-    return Math.abs(key.hashCode()) % M;  
-}
-\end{lstlisting}
-
-
-\bigskip
-
-Correct
 \begin{lstlisting}[language=Java]
 private int hash(Key key) { 
     return (key.hashCode() & 0x7fffffff) % M;
 }
 \end{lstlisting}
+
+\pause
+\bigskip
+
+Uniform hashing assumption: each key is equally likely to hash to an integer between 0 and $M-1$
 \end{frame}
 
 \begin{frame}[fragile]
-Uniform hashing assumption: each key is equally likely to hash to an integer between 0 and $M-1$
-
-\bigskip
+\pause
 
 Throw balls uniformly at random into $M$ bins
 \begin{itemize}
@@ -225,14 +236,16 @@ Throw balls uniformly at random into $M$ bins
 \item Load balancing problem: after $M$ tosses, expect most loaded bin has $\Theta(\log M / \log \log M)$ balls
 \end{itemize}
 
+\pause
+\bigskip
+
+Example (hash value frequencies for words in Tale of Two Cities; 10,679 keys; $M = 97$)
+
 \begin{center}
-\includegraphics[scale=0.35]{{./figures/uniform_hashing}.png}
-
-\smallskip
-
-\tiny Hash value frequencies for words in Tale of Two Cities (10,679 keys, $M = 97$)
+\visible<3->{\includegraphics[scale=0.35]{./figures/uniform_hashing.png}}
 \end{center}
 
+\pause
 \bigskip
 
 Collision: two distinct keys hash to the same index
@@ -247,6 +260,8 @@ Collision: two distinct keys hash to the same index
 
 \section{Separate-Chaining Symbol Table}
 \begin{frame}[fragile]
+\pause
+
 Use an array of $M < N$ linked lists
 \begin{itemize}
 \item Hash: map key to integer $i \in [0, M - 1]$
@@ -257,22 +272,22 @@ Use an array of $M < N$ linked lists
 \end{itemize}
 
 \begin{center}
-\includegraphics[scale=0.4]{{./figures/separate_chaining}.png}
-
-\smallskip
-
-\tiny Hashing with separate chaining
+\visible<2->{\includegraphics[scale=0.3]{./figures/separate_chaining.pdf}}
 \end{center}
 
+\pause
 \bigskip
 
-The ratio $N / M$ is called the \emph{load factor} and is denoted by $\alpha$; it is interpreted as the average number of keys per list
+The ratio $N / M$ is called the load factor and is denoted by $\alpha$, and is interpreted as the average number of keys per list
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Under uniform hashing assumption, probability that the number of
 keys in a list is within a constant factor of $\alpha$ is extremely close to 1
 
+\pause
 \bigskip
 
 Consequence: number of probes for search/insert is proportional to $\alpha$
@@ -282,6 +297,7 @@ Consequence: number of probes for search/insert is proportional to $\alpha$
 \item $M$ too small $\implies$ chains too long
 \end{itemize}
 
+\pause
 \bigskip
 
 Goal: $\alpha = $ constant
@@ -293,17 +309,20 @@ Goal: $\alpha = $ constant
 \item Need to rehash all keys when resizing
 \end{itemize}
 
+\pause
 \bigskip
 
 Deleting a key (and its associated value) is easy --- need only consider chain containing key
 
+\pause
 \bigskip
 
 The cost of search, insert, and delete, under the uniform hashing assumption, is constant (between 3 and 5)
 \end{frame}
 
 \begin{frame}[fragile]
-Implementation
+\pause
+
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
 
@@ -341,6 +360,8 @@ public class SeparateChainingHashST<Key, Value>  {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
     public boolean contains(Key key) { return get(key) != null; } 
 
@@ -374,7 +395,6 @@ public class SeparateChainingHashST<Key, Value>  {
         }
         return queue;
     } 
-    ...
 }
 \end{lstlisting}
 \end{frame}

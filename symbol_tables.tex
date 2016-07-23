@@ -18,8 +18,11 @@
 
 \section{What is a Symbol Table?}
 \begin{frame}[fragile]
-A \emph{symbol table} is a data structure for key-value pairs that supports two operations: \emph{insert} (\emph{put}) a new pair into the table and \emph{search} (\emph{get}) the value associated with a given key
+\pause
 
+A symbol table is a data structure for key-value pairs that supports two operations: insert (put) a new pair into the table and search (get) the value associated with a given key
+
+\pause
 \bigskip
 
 Applications 
@@ -33,8 +36,10 @@ web search & find relevant web pages & keyword & list of page names \\
 compiler & find type and value & variable name & type and value \\
 \end{tabular} 
 \end{center}
+\end{frame}
 
-\bigskip
+\begin{frame}[fragile]
+\pause
 
 Conventions
 \begin{itemize}
@@ -50,6 +55,8 @@ Conventions
 
 \section{API}
 \begin{frame}[fragile]
+\pause
+
 Basic symbol table
 \begin{center}
 \begin{tabular}{cc}
@@ -66,6 +73,8 @@ method & description \\ \hline
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Ordered symbol table
 \begin{center}
 \begin{tabular}{cc}
@@ -93,12 +102,13 @@ method & description \\ \hline
 
 \section{Sample Clients}
 \begin{frame}[fragile]
+\pause
+
 Test client
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
 
 public class SequentialSearchST {
-    ...
     public static void main(String[] args) {
         SequentialSearchST<String, Integer> st = 
             new SequentialSearchST<String, Integer>();
@@ -112,6 +122,8 @@ public class SequentialSearchST {
     }
 }
 \end{lstlisting}
+
+\pause
 
 \begin{lstlisting}[language={}]
 $ java edu.princeton.cs.algs4.SequentialSearchST 
@@ -131,6 +143,8 @@ S 0
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Performance client
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
@@ -163,6 +177,8 @@ public class FrequencyCounter {
 }
 \end{lstlisting}
 
+\pause
+
 \begin{lstlisting}[language={}]
 $ java edu.princeton.cs.algs4.FrequencyCounter 8 < tale.txt 
 business 122
@@ -173,6 +189,8 @@ words    = 14346
 
 \section{Implementations}
 \begin{frame}[fragile]
+\pause
+
 Linked list based implementation of the basic symbol table API
 
 \begin{lstlisting}[language=Java]
@@ -212,6 +230,8 @@ public class SequentialSearchST<Key, Value> {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
     public void put(Key key, Value val) {
         if (val == null) { delete(key); return; }
@@ -240,12 +260,13 @@ public class SequentialSearchST<Key, Value> {
         }
         return queue;
     }
-    ...
 }
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Array based implementation of the ordered symbol table API
 
 \begin{lstlisting}[language=Java]
@@ -286,6 +307,8 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
     public Value get(Key key) {
         if (isEmpty()) { return null; }
@@ -326,6 +349,8 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
     public void delete(Key key)  {
         if (isEmpty()) { return; }
@@ -342,12 +367,12 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
     } 
 
     public void deleteMin() {
-        if (isEmpty()) { throw new NoSuchElementException(...); }
+        if (isEmpty()) { throw new NoSuchElementException(); }
         delete(min());
     }
 
     public void deleteMax() {
-        if (isEmpty()) { throw new NoSuchElementException(...); }
+        if (isEmpty()) { throw new NoSuchElementException(); }
         delete(max());
     }
 
@@ -364,6 +389,8 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
     public Key floor(Key key) {
         int i = rank(key);
@@ -389,8 +416,8 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
     public Iterable<Key> keys(Key lo, Key hi) {
         Queue<Key> queue = new Queue<Key>(); 
         if (lo == null && hi == null) { return queue; }
-        if (lo == null) { throw new NullPointerException(...); }
-        if (hi == null) { throw new NullPointerException(...); }
+        if (lo == null) { throw new NullPointerException(); }
+        if (hi == null) { throw new NullPointerException(); }
         if (lo.compareTo(hi) > 0) { return queue; }
         for (int i = rank(lo); i < rank(hi); i++) {
             queue.enqueue(keys[i]);
@@ -404,8 +431,11 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 
 \section{Performance Characteristics}
 \begin{frame}[fragile]
+\pause
+
 When studying symbol table implementations, we count comparisons, and in (rare) cases where comparisons are not in the inner loop, we count array accesses
 
+\pause
 \bigskip
 
 Cost summary for symbol table implementations

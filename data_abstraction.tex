@@ -575,12 +575,12 @@ public class Date implements Comparable<Date> {
     
     public Date(String date) {
         String[] fields = date.split("/");
-        if (fields.length != 3) { throw new IllegalArgumentException("..."); }
+        if (fields.length != 3) { throw new IllegalArgumentException(); }
         month = Integer.parseInt(fields[0]);
         day   = Integer.parseInt(fields[1]);
         year  = Integer.parseInt(fields[2]);
         if (!isValid(month, day, year)) {
-            throw new IllegalArgumentException("...");
+            throw new IllegalArgumentException();
         }
     }
    

@@ -47,7 +47,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -68,7 +68,7 @@
        d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
        x="425.29556"
        y="60.712704"
        id="text3022"
@@ -89,7 +89,7 @@
        d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#800000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#800000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
        x="304.28574"
        y="88.270866"
        id="text3022-4"
@@ -110,7 +110,7 @@
        d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
        x="548.28571"
        y="88.270866"
        id="text3022-5"
@@ -131,7 +131,7 @@
        d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
        x="230.28572"
        y="128.27087"
        id="text3022-1"
@@ -152,7 +152,7 @@
        d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#800000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#800000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
        x="370.28574"
        y="128.27087"
        id="text3022-6"
@@ -173,14 +173,14 @@
        d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
-       x="488.14288"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
+       x="486.14288"
        y="128.41374"
        id="text3022-7"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3024-30"
-         x="488.14288"
+         x="486.14288"
          y="128.41374">O</tspan></text>
     <path
        transform="translate(249.14287,7.7658296)"
@@ -194,7 +194,7 @@
        d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
        x="614.14282"
        y="128.41374"
        id="text3022-16"
@@ -215,7 +215,7 @@
        d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
        x="190.14287"
        y="168.41374"
        id="text3022-2"
@@ -236,14 +236,14 @@
        d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
-       x="270.14288"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
+       x="272.14288"
        y="168.41374"
        id="text3022-9"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3024-9"
-         x="270.14288"
+         x="272.14288"
          y="168.41374">I</tspan></text>
     <path
        transform="translate(-34.857136,47.90869)"
@@ -257,14 +257,14 @@
        d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
-       x="330.14288"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
+       x="328.14288"
        y="168.55659"
        id="text3022-91"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3024-0"
-         x="330.14288"
+         x="328.14288"
          y="168.55659">H</tspan></text>
     <path
        transform="translate(45.142864,47.90869)"
@@ -278,14 +278,14 @@
        d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
-       x="410.14288"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
+       x="408.14288"
        y="168.55659"
        id="text3022-15"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3024-13"
-         x="410.14288"
+         x="408.14288"
          y="168.55659">G</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -360,7 +360,7 @@
        d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#800000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#800000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
        x="425.43842"
        y="219.8688"
        id="text3022-22"
@@ -381,7 +381,7 @@
        d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#800000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#800000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
        x="304.42859"
        y="247.42697"
        id="text3022-4-3"
@@ -402,7 +402,7 @@
        d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
        x="548.42859"
        y="247.42697"
        id="text3022-5-6"
@@ -423,7 +423,7 @@
        d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
        x="230.42859"
        y="287.427"
        id="text3022-1-7"
@@ -444,7 +444,7 @@
        d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#800000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#800000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
        x="370.42859"
        y="287.427"
        id="text3022-6-0"
@@ -465,14 +465,14 @@
        d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
-       x="488.28577"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
+       x="486.28577"
        y="287.56985"
        id="text3022-7-1"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3024-30-7"
-         x="488.28577"
+         x="486.28577"
          y="287.56985">O</tspan></text>
     <path
        transform="translate(249.28573,166.92193)"
@@ -486,7 +486,7 @@
        d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
        x="614.28571"
        y="287.56985"
        id="text3022-16-4"
@@ -507,7 +507,7 @@
        d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
        x="190.28574"
        y="327.56985"
        id="text3022-2-0"
@@ -528,14 +528,14 @@
        d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
-       x="270.28577"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
+       x="272.28577"
        y="327.56985"
        id="text3022-9-2"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3024-9-4"
-         x="270.28577"
+         x="272.28577"
          y="327.56985">I</tspan></text>
     <path
        transform="translate(-34.71427,207.0648)"
@@ -549,14 +549,14 @@
        d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
-       x="330.28577"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
+       x="328.28577"
        y="327.71271"
        id="text3022-91-2"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3024-0-2"
-         x="330.28577"
+         x="328.28577"
          y="327.71271">H</tspan></text>
     <path
        transform="translate(45.28573,207.0648)"
@@ -570,14 +570,14 @@
        d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
-       x="410.28577"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
+       x="408.28577"
        y="327.71271"
        id="text3022-15-4"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3024-13-6"
-         x="410.28577"
+         x="408.28577"
          y="327.71271">G</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -672,6 +672,6 @@
          sodipodi:role="line"
          id="tspan3638"
          x="377.85715"
-         y="286.64789"></tspan></text>
+         y="286.64789" /></text>
   </g>
 </svg>

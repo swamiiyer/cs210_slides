@@ -18,7 +18,9 @@
 
 \section{2-3 Search Trees}
 \begin{frame}[fragile]
-A \emph{2-3 search tree} is a tree that is either empty (null link) or
+\pause
+
+A 2-3 search tree is a tree that is either empty (null link) or
 \begin{itemize}
 \item A 2-node with one key (and associated value) and two links, a left link to a 2-3 search tree with smaller keys, and a right link to a 2-3 search tree with larger keys
 
@@ -26,71 +28,91 @@ A \emph{2-3 search tree} is a tree that is either empty (null link) or
 \end{itemize}
 
 \begin{center}
-\includegraphics[scale=0.4]{{./figures/23_tree}.png}
+\visible<2->{\includegraphics[scale=0.4]{{./figures/23_tree}.pdf}}
 \end{center}
 
+\pause
 \bigskip
 
-A 2-3 search tree has \emph{symmetric order} --- inorder traversal yields keys in ascending order
+A 2-3 search tree has symmetric order --- inorder traversal yields keys in ascending order
 
+\pause
 \bigskip
 
-A \emph{perfectly balanced 2-3 search tree} is one whose null links are all the same distance from the root
+A perfectly balanced 2-3 search tree is one whose null links are all the same distance from the root
 
 \begin{center}
-\includegraphics[scale=0.3]{{./figures/23_tree_perfect_balance}.png}
+\visible<4->{\includegraphics[scale=0.3]{{./figures/23_tree_perfect_balance}.png}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Searching for a key in a 2-3 tree
 \begin{center}
-\includegraphics[scale=0.4]{{./figures/23_tree_search}.png}
+\visible<3->{\includegraphics[scale=0.37]{{./figures/23_tree_search1}.pdf}}\hfill
+\visible<4->{\includegraphics[scale=0.37]{{./figures/23_tree_search2}.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
-Inserting a key into a 2-node
-\begin{center}
-\includegraphics[scale=0.4]{{./figures/23_tree_insert1}.png}
-\end{center}
+\pause
 
-\bigskip
+Inserting a key into a 2-node
+
+\begin{center}
+\visible<2->{\includegraphics[scale=0.5]{{./figures/23_tree_insert1}.pdf}}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
 
 Inserting a key into a single 3-node
 \begin{center}
-\includegraphics[scale=0.4]{{./figures/23_tree_insert2}.png}
+\visible<2->{\includegraphics[scale=0.5]{{./figures/23_tree_insert2}.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Inserting a key into a 3-node whose parent is a 2-node
 \begin{center}
-\includegraphics[scale=0.4]{{./figures/23_tree_insert3}.png}
+\visible<2->{\includegraphics[scale=0.4]{{./figures/23_tree_insert3}.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Inserting a key into a 3-node whose parent is a 3-node
 \begin{center}
-\includegraphics[scale=0.4]{{./figures/23_tree_insert4}.png}
+\visible<2->{\includegraphics[scale=0.3]{{./figures/23_tree_insert4}.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Splitting the root
 \begin{center}
-\includegraphics[scale=0.4]{{./figures/23_tree_insert5}.png}
+\visible<2->{\includegraphics[scale=0.33]{{./figures/23_tree_insert5}.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Splitting a 4-node is a local transformation: constant number of operations
 
+\pause
 \bigskip
 
 Insert operation maintains symmetric order and perfect balance
 
+\pause
 \bigskip
 
 Tree height
@@ -104,23 +126,24 @@ Tree height
 \item Between 18 and 30 for a billion nodes
 \end{itemize}
 
+\pause
 \bigskip
 
 Guaranteed logarithmic performance for search and insert
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Direct implementation is complicated because
 \begin{itemize}
 \item Maintaining multiple node types is cumbersome
-
 \item Need multiple comparisons to move down tree
-
 \item Need to move back up the tree to split 4-nodes
-
 \item Large number of cases for splitting
 \end{itemize}
 
+\pause
 \bigskip
 
 Fantasy code
@@ -136,6 +159,7 @@ public void put(Key key, Value val) {
 }
 \end{lstlisting}
 
+\pause
 \bigskip
 
 Could do it, but there's a better way (use red-black BSTs)
@@ -143,40 +167,46 @@ Could do it, but there's a better way (use red-black BSTs)
 
 \section{Red-Black BSTs}
 \begin{frame}[fragile]
+\pause
+
 We represent a 2-3 tree as a BST, using ``internal'' left-leaning links as ``glue'' for 3-nodes
 
 \begin{center}
-\includegraphics[scale=0.4]{{./figures/red_black_bst1}.png}
+\visible<2->{\includegraphics[scale=0.5]{{./figures/red_black_bst1}.pdf}}
 \end{center}
+\end{frame}
 
-\bigskip
+\begin{frame}[fragile]
+\pause
 
-A \emph{red-black tree} is a BST such that
+A red-black tree is a BST such that
 \begin{itemize}
 \item No node has two red links connected to it
-
 \item Every path from root to null link has the same number of black links (perfect black balance)
-
 \item Red links lean left
 \end{itemize}
 
 \begin{center}
-\includegraphics[scale=0.4]{{./figures/red_black_bst2}.png}
+\visible<2->{\includegraphics[scale=0.5]{{./figures/red_black_bst2}.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 One-to-one correspondence between red-black BSTs and 2-3 trees
 
 \begin{center}
-\includegraphics[scale=0.4]{{./figures/red_black_bst3}.png}
+\visible<2->{\includegraphics[scale=0.35]{{./figures/red_black_bst3}.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Red-black BST representation: each node is pointed to by precisely one link (from its parent) $\implies$ can encode color of links in nodes
 
-\begin{minipage}{180pt}
+\begin{minipage}{170pt}
 \begin{lstlisting}[language=Java]
 private static final boolean RED   = true;
 private static final boolean BLACK = false;
@@ -203,21 +233,35 @@ private boolean isRed(Node x) {
 }
 \end{lstlisting}
 \end{minipage}%
-\begin{minipage}{100pt}
+\hspace{2mm}
+\begin{minipage}{110pt}
 \begin{center}
-\includegraphics[scale=0.4]{{./figures/red_black_bst4}.png}
+\visible<2->{\includegraphics[scale=0.4]{{./figures/red_black_bst4}.pdf}}
 \end{center}
 \end{minipage}
 \end{frame}
 
 \section{Elementary Red-black BST Operations}
 \begin{frame}[fragile]
+\pause
+
 Elementary red-black BST operations (left/right rotation and color flip) maintain symmetric order and perfect black balance
 
+\pause
 \bigskip
 
 Left rotation: orient a (temporarily) right-leaning red link to lean left
-\begin{minipage}{170pt}
+\begin{center}
+\pause
+\visible<4->{\includegraphics[scale=0.4]{{./figures/red_black_bst5}.pdf}}\hspace{10mm}
+\pause
+\visible<5->{\includegraphics[scale=0.4]{{./figures/red_black_bst6}.pdf}}
+\end{center}
+
+\pause
+\bigskip
+
+Implementation of left rotation
 \begin{lstlisting}[language=Java]
 private Node rotateLeft(Node h) {
     Node x = h.right;
@@ -230,28 +274,24 @@ private Node rotateLeft(Node h) {
     return x;
 }
 \end{lstlisting}
-\end{minipage}%
-\begin{minipage}{100pt}
-\begin{center}
-\includegraphics[scale=0.4]{{./figures/red_black_bst5}.png}
-
-\smallskip
-
-Rotate E left (before)
-\end{center}
-\begin{center}
-\includegraphics[scale=0.4]{{./figures/red_black_bst6}.png}
-
-\smallskip
-
-Rotate E left (after)
-\end{center}
-\end{minipage}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Right rotation: orient a left-leaning red link to (temporarily) lean right
-\begin{minipage}{170pt}
+\begin{center}
+\pause
+\visible<3->{\includegraphics[scale=0.4]{{./figures/red_black_bst7}.pdf}}\hspace{10mm}
+\pause
+\visible<4->{\includegraphics[scale=0.4]{{./figures/red_black_bst8}.pdf}}
+\end{center}
+
+\pause
+\bigskip
+
+Implementation of right rotation
+
 \begin{lstlisting}[language=Java]
 private Node rotateRight(Node h) {
     Node x = h.left;
@@ -264,28 +304,24 @@ private Node rotateRight(Node h) {
     return x;
 }
 \end{lstlisting}
-\end{minipage}%
-\begin{minipage}{100pt}
-\begin{center}
-\includegraphics[scale=0.4]{{./figures/red_black_bst7}.png}
-
-\smallskip
-
-Rotate S right (before)
-\end{center}
-\begin{center}
-\includegraphics[scale=0.4]{{./figures/red_black_bst8}.png}
-
-\smallskip
-
-Rotate S right (after)
-\end{center}
-\end{minipage}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Color flip: recolor to split a (temporary) 4-node
-\begin{minipage}{170pt}
+\begin{center}
+\pause
+\visible<3->{\includegraphics[scale=0.35]{{./figures/red_black_bst9}.pdf}}\hspace{5mm}
+\pause
+\visible<4->{\includegraphics[scale=0.35]{{./figures/red_black_bst10}.pdf}}
+\end{center}
+
+\pause
+\bigskip
+
+Implementation of color flip
+
 \begin{lstlisting}[language=Java]
 private void flipColors(Node h) {
     h.color = !h.color;
@@ -293,51 +329,42 @@ private void flipColors(Node h) {
     h.right.color = !h.right.color;
 }
 \end{lstlisting}
-\end{minipage}%
-\begin{minipage}{100pt}
-\begin{center}
-\includegraphics[scale=0.4]{{./figures/red_black_bst9}.png}
-
-\smallskip
-
-Flip colors (before)
-\end{center}
-\begin{center}
-\includegraphics[scale=0.4]{{./figures/red_black_bst10}.png}
-
-\smallskip
-
-Flip colors (after)
-\end{center}
-\end{minipage}
 \end{frame}
 
 \section{Implementation of the Ordered Symbol Table API Using a Red-Black BST}
 \begin{frame}[fragile]
+\pause
+
 Most operations are the same as for BST-based implementation --- ignore color
 
+\pause
 \bigskip
 
 Insertion: the basic strategy is to maintain 1-1 correspondence with 2-3 trees, using the elementary red-black BST operations (left/right rotation and color flip) to maintain symmetric order and perfect balance, but not necessarily color invariants
 
+\pause
 \bigskip
 
 Case 1 (insert into a 2-node at the bottom): do standard BST insert; color new link red; if new red link is a right link, rotate left
 
 \begin{center}
-\includegraphics[scale=0.4]{{./figures/red_black_bst11}.png}
+\visible<4->{\includegraphics[scale=0.4]{{./figures/red_black_bst11}.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Case 2 (insert into a 3-node at the bottom): do standard BST insert; color new link red; rotate to balance the 4-node (if needed); flip colors to pass red link up one level; rotate to make lean left (if needed); repeat case 1 or case 2 up the tree (if needed)
 
 \begin{center}
-\includegraphics[scale=0.32]{{./figures/red_black_bst12}.png}
+\visible<2->{\includegraphics[scale=0.3]{{./figures/red_black_bst12}.pdf}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{minipage}{150pt}
 Implementation (same code for all cases)
 \begin{itemize}
@@ -350,17 +377,22 @@ Implementation (same code for all cases)
 \end{minipage}%
 \begin{minipage}{100pt}
 \begin{center}
-\includegraphics[scale=0.3]{{./figures/red_black_bst13}.png}
+\visible<2->{\includegraphics[scale=0.4]{{./figures/red_black_bst13}.pdf}}
 \end{center}
 \end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
 
 import java.util.NoSuchElementException;
 
-public class BST<Key extends Comparable<Key>, Value> {
+public class RedBlackBST<Key extends Comparable<Key>, Value> {
     private Node root;
-    ...
+
     public void put(Key key, Value val) {
         root = put(root, key, val); root.color = BLACK;
     }
@@ -377,37 +409,41 @@ public class BST<Key extends Comparable<Key>, Value> {
         h.N = size(h.left) + size(h.right) + 1;
         return h;
     }
-    ...
 }
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Deletion: see exercises 3.3.39 -- 3.3.41
 
+\pause
 \bigskip
 
 The height of a red-black BST with $N$ nodes is no more than $2 \lg N$; the average length of a path from the root to a node in a red-black BST with $N$ nodes is $\sim \lg N$
 
+\pause
+\bigskip
+
+Typical red-black BST built from random keys (null links omitted)
 \begin{center}
-\includegraphics[scale=0.35]{{./figures/red_black_bst14}.png}
-
-\smallskip
-
-\small Typical red-black BST built from random keys (null links omitted)
+\visible<4->{\includegraphics[scale=0.35]{{./figures/red_black_bst14}.png}}
 \end{center}
 
+\pause
+\bigskip
+
+Red-black BST built from ascending keys (null links omitted)
 \begin{center}
-\includegraphics[scale=0.35]{{./figures/red_black_bst15}.png}
-
-\smallskip
-
-\small Red-black BST built from ascending keys (null links omitted)
+\visible<5->{\includegraphics[scale=0.35]{{./figures/red_black_bst15}.png}}
 \end{center}
 \end{frame}
 
 \section{Performance Characteristics}
 \begin{frame}[fragile]
+\pause
+
 Symbol table operations summary
 
 \begin{center}

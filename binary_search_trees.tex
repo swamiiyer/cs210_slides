@@ -485,6 +485,32 @@ private void postorder(Node x) {
 In-order traversal of a BST processes keys in ascending order
 \end{frame}
 
+\begin{frame}[fragile]
+\pause
+
+For example, let \lstinline{T} denote the following BST
+\begin{center}
+\visible<2->{\includegraphics[scale=0.6]{./figures/bst.pdf}}
+\end{center}
+
+\pause
+\bigskip
+
+Then, the calls \lstinline{preorder(T)}, \lstinline{inorder(T)}, and \lstinline{postorder(T)} will process the tree in the following orders
+
+\begin{center}
+\lstinline{S    E    A    C    R    H    M    X}
+
+\bigskip
+
+\lstinline{A    C    E    H    M    R    S    X}
+
+\bigskip
+
+\lstinline{C    A    M    H    R    E    X    S}
+\end{center}
+\end{frame}
+
 \section{Performance Characteristics}
 \begin{frame}[fragile]
 \pause

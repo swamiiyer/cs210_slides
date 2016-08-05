@@ -17,89 +17,109 @@
 
 \section{What are Graphs?}
 \begin{frame}[fragile]
-A \emph{graph} is a set of $V$ vertices connected pairwise by $E$ edges
+\pause
+
+A graph is a set of $V$ vertices connected pairwise by $E$ edges
 
 \smallskip
 
 \begin{center}
-\includegraphics[scale=0.4]{{./figures/graph1}.png}
+\visible<2->{\includegraphics[scale=0.45]{{./figures/graph1}.pdf}}
 \end{center}
 
+\pause
 \bigskip
 
 We use the names 0 through $V-1$ for the vertices in a $V$-vertex graph
 
+\pause
 \bigskip
 
 We use the notation $v$-$w$ to refer to an edge that connects vertices $v$ and $w$
 
+\pause
 \bigskip
 
-A \emph{self-loop} is an edge that connects a vertex to itself
+A self-loop is an edge that connects a vertex to itself
 
+\pause
 \bigskip
 
-\emph{Parallel edges} are edges that connect the same pair of vertices  
+Parallel edges are edges that connect the same pair of vertices  
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{minipage}{220pt}
-The \emph{degree} of a vertex is the number of vertices connected to it
+\begin{minipage}{200pt}
+\pause
 
+The degree of a vertex is the number of vertices connected to it
+
+\pause
 \bigskip
 
-A \emph{path} is a sequence of vertices connected by edges
+A path is a sequence of vertices connected by edges
 
+\pause
 \bigskip
 
-A \emph{cycle} is a path with at least one edge whose first and last vertices are the same
+A cycle is a path with at least one edge whose first and last vertices are the same
 
+\pause
 \bigskip
 
-The \emph{length} of a path or a cycle is its number of edges
+The length of a path or a cycle is its number of edges
 
+\pause
 \bigskip
 
-A graph is \emph{connected} if there is a path from every vertex to every other vertex in the graph
+A graph is connected if there is a path from every vertex to every other vertex in the graph
 
+\pause
 \bigskip
 
-A graph that is not connected consists of a set of \emph{connected components}, which are maximal connected subgraphs
-
-\bigskip
-
-An \emph{acyclic graph} is a graph with no cycles
-
-\bigskip
-
-A \emph{tree} is an acyclic connected graph
-
-\bigskip
-
-A \emph{bipartite graph} is a graph whose vertices can be divided into two sets such that all edges connect a vertex in one set with a vertex in the other set
+A graph that is not connected consists of a set of connected components, which are maximal connected subgraphs
 \end{minipage}%
 \begin{minipage}{100pt}
 \begin{center}
-\includegraphics[scale=0.45]{{./figures/graph2}.png}
-
-\tiny anatomy of a graph
-
-\includegraphics[scale=0.45]{{./figures/graph3}.png}
-
-\tiny a tree
-
-\includegraphics[scale=0.45]{{./figures/bipartite}.png}
-
-\tiny a bipartite graph
+\visible<2->{\includegraphics[scale=0.4]{{./figures/graph2}.pdf}}
 \end{center}
 \end{minipage}
 \end{frame}
 
 \begin{frame}[fragile]
+\begin{minipage}{200pt}
+\pause
+
+An acyclic graph is a graph with no cycles
+
+\pause
+\bigskip
+
+A tree is an acyclic connected graph
+
+\pause
+\bigskip
+
+A bipartite graph is a graph whose vertices can be divided into two sets such that all edges connect a vertex in one set with a vertex in the other set
+\end{minipage}%
+\begin{minipage}{100pt}
+\begin{center}
+\visible<2->{\includegraphics[scale=0.4]{{./figures/graph3}.pdf}}
+
+\bigskip
+
+\visible<2->{\includegraphics[scale=0.4]{{./figures/graph4}.pdf}}
+\end{center}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+
 Graph applications
 \begin{center}
 \begin{tabular}{ccc}
-graph & vertex & edge \\ \hline \\
+graph & vertex & edge \\ \hline
 communication & telephone, computer & fiber optic cable \\
 circuit & gate, register, processor & wire \\
 mechanical & joint & rod, beam, spring \\
@@ -116,50 +136,60 @@ molecule & atom & bond
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Example: Internet graph
 
 \smallskip
 
 \begin{center}
-\includegraphics[scale=0.1]{{./figures/internet}.png}
+\visible<2->{\includegraphics[scale=0.1]{{./figures/internet}.png}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Example: facebook graph
 
 \smallskip
 
 \begin{center}
-\includegraphics[scale=0.25]{{./figures/facebook}.png}
+\visible<2->{\includegraphics[scale=0.25]{{./figures/facebook}.png}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Example: c.elegans connectome graph
 
 \smallskip
 
 \begin{center}
-\includegraphics[scale=0.12]{{./figures/celegans}.png}
+\visible<2->{\includegraphics[scale=0.12]{{./figures/celegans}.png}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Example: coauthorship graph
 
 \smallskip
 
 \begin{center}
-\includegraphics[scale=0.25]{{./figures/erdos}.png}
+\visible<2->{\includegraphics[scale=0.25]{{./figures/erdos}.png}}
 \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Some graph-processing problems
 \begin{center}
 \begin{tabular}{cc}
-problem & description \\ \hline \\
+problem & description \\ \hline
 $s$-$t$ path & is there a path between $s$ and $t$? \\ 
 shortest $s$-$t$ path & what is the shortest path between $s$ and $t$? \\
 cycle & is there a cycle in the graph? \\
@@ -176,18 +206,22 @@ graph isomorphism & do two graph representations denote the same graph?
 
 \section{Undirected Graphs}
 \begin{frame}[fragile]
+\pause
+
 Undirected graph API
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
-\lstinline$Graph(int V)$ & creates a $V$-vertex graph with no edges \\ 
-\lstinline$Graph(In in)$ & reads a graph from input stream $in$ \\
-\lstinline$int V()$      & returns number of vertices \\
-\lstinline$int E()$      & returns number of edges \\
-\lstinline$void addEdge(int v, int w)$ & adds edge $v$-$w$ to this graph \\
-\lstinline$Iterable<Integer> adj(int v)$ & returns vertices adjacent to $v$
+\lstinline$Graph(int V)$ & create a $V$-vertex graph with no edges \\ 
+\lstinline$Graph(In in)$ & read a graph from input stream $in$ \\
+\lstinline$int V()$      & number of vertices \\
+\lstinline$int E()$      & number of edges \\
+\lstinline$void addEdge(int v, int w)$ & add edge $v$-$w$ to this graph \\
+\lstinline$Iterable<Integer> adj(int v)$ & vertices adjacent to $v$
 \end{tabular} 
 \end{center}
+
+\pause
 
 Graph input format
 \begin{minipage}{150pt}
@@ -200,10 +234,11 @@ $ more tinyG.txt
 \end{minipage}%
 \begin{minipage}{150pt}
 \begin{center}
-\includegraphics[scale=0.5]{{./figures/graph4}.png}
+\visible<3->{\includegraphics[scale=0.4]{{./figures/graph5}.pdf}}
 \end{center}
 \end{minipage}
 
+\pause
 \bigskip
 
 Typical graph-processing code
@@ -217,6 +252,8 @@ public static int degree(Graph G, int v) {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Graph representations
 \begin{itemize}
 \item Edge list: maintain a list of the edges (linked list or array)
@@ -226,9 +263,13 @@ Graph representations
 \item Adjacency list: maintain a vertex-indexed array of lists
 \end{itemize}
 
+\pause
+\bigskip
+
+Performance characteristics
 \begin{center}
 \begin{tabular}{ccccc}
-representation & space & add edge & is $v$-$w$ an edge? & enumerate \lstinline$adj(v)$ \\ \hline \\
+representation & space & add edge & is $v$-$w$ an edge? & enumerate \lstinline$adj(v)$ \\ \hline
 edge list & $E$ & 1 & $E$ & $E$ \\
 adjacency matrix & $V^2$ & 1$^\dagger$ & 1 & $V$ \\ 
 adjacency list & $E+V$ & 1 & $degree(v)$ & $degree(v)$ 
@@ -241,6 +282,9 @@ adjacency list & $E+V$ & 1 & $degree(v)$ & $degree(v)$
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
+Implementation of \lstinline{Graph} data type using an adjacency list
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
 
@@ -251,7 +295,7 @@ public class Graph {
 
     public Graph(int V) {
         if (V < 0) {
-            throw new IllegalArgumentException(...); 
+            throw new IllegalArgumentException(); 
         }
         this.V = V;
         this.E = 0;
@@ -265,7 +309,7 @@ public class Graph {
         this(in.readInt());
         int E = in.readInt();
         if (E < 0) { 
-            throw new IllegalArgumentException(...);
+            throw new IllegalArgumentException();
         }
         for (int i = 0; i < E; i++) {
             int v = in.readInt();
@@ -277,6 +321,8 @@ public class Graph {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
     public int V() { return V; }
 
@@ -284,7 +330,7 @@ public class Graph {
  
     private void validateVertex(int v) {
         if (v < 0 || v >= V) {
-            throw new IndexOutOfBoundsException(...);
+            throw new IndexOutOfBoundsException();
         }
     }
 
@@ -300,20 +346,23 @@ public class Graph {
         validateVertex(v);
         return adj[v];
     }
-    ...
 }
 \end{lstlisting}
 \end{frame}
 
 \section{Depth-First Search (DFS)}
 \begin{frame}[fragile]
+\pause
+
 \begin{minipage}{210pt}
 Goal: systematically traverse a graph
 
+\pause
 \bigskip
 
 Idea: mimic maze exploration
 
+\pause
 \bigskip
 
 Typical applications
@@ -322,6 +371,7 @@ Typical applications
 \item Find a path between two vertices
 \end{itemize}
 
+\pause
 \bigskip
 
 To visit a vertex $v$
@@ -330,6 +380,7 @@ To visit a vertex $v$
 \item Recursively visit all unmarked vertices adjacent to $v$
 \end{itemize}
 
+\pause
 \bigskip
 
 Data structures
@@ -341,16 +392,14 @@ Data structures
 \end{minipage}
 \begin{minipage}{90pt}
 \begin{center}
-\includegraphics[scale=0.4]{{./figures/graph5}.png}
-
-\smallskip
-
-\small depth-first maze exploration
+\visible<2->{\includegraphics[scale=0.4]{{./figures/dfs_maze}.png}}
 \end{center}
 \end{minipage}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Design pattern for graph processing: decouple graph data type from graph processing
 \begin{itemize}
 \item Create a \lstinline{Graph} object
@@ -361,28 +410,29 @@ Design pattern for graph processing: decouple graph data type from graph process
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
-\lstinline$Paths(Graph G, int s)$ & finds paths in $G$ from source $s$ \\
+\lstinline$Paths(Graph G, int s)$ & find paths in $G$ from source $s$ \\
 \lstinline$boolean hasPathTo(int v)$ & is there a path from $s$ to $v$? \\
-\lstinline$Iterable<Integer> pathTo(int v)$ & returns path from $s$ to $v$, or \lstinline$null$
+\lstinline$Iterable<Integer> pathTo(int v)$ & path from $s$ to $v$, or \lstinline$null$
 \end{tabular} 
 \end{center}
 
+\pause
 \bigskip
 
 Typical graph-processing code
 \begin{lstlisting}[language=Java]
-    ...
     Paths paths = new Paths(G, s);
     for (int v = 0; v < G.V(); v++) {
         if (paths.hasPathTo(v)) {
             StdOut.println(v);
         }
     }
-    ...
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
 
@@ -417,23 +467,23 @@ public class DepthFirstPaths {
         path.push(s);
         return path;
     }
-    ...
 }
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
+Trace
 \begin{center}
-\includegraphics[scale=0.37]{{./figures/graph6}.png}
-
-\smallskip
-
-\small trace of depth-first search to find vertices connected to 0
+\visible<2->{\includegraphics[scale=0.36]{{./figures/dfs_trace}.pdf}}
 \end{center}
 \end{frame}
 
 \section{Breadth-First Search (BFS)}
 \begin{frame}[fragile]
+\pause
+
 \begin{minipage}{210pt}
 Goal: given a graph and a source vertex $s$, support queries of the form
 \begin{itemize}
@@ -442,6 +492,7 @@ Goal: given a graph and a source vertex $s$, support queries of the form
 \item If so, find a shortest such path (one with minimal number of edges)
 \end{itemize}
 
+\pause
 \bigskip
 
 Repeat until queue is empty
@@ -453,16 +504,14 @@ Repeat until queue is empty
 \end{minipage}
 \begin{minipage}{90pt}
 \begin{center}
-\includegraphics[scale=0.4]{{./figures/graph7}.png}
-
-\smallskip
-
-\small breadth-first maze exploration
+\visible<2->{\includegraphics[scale=0.4]{{./figures/bfs_maze}.png}}
 \end{center}
 \end{minipage}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
 
@@ -501,6 +550,8 @@ public class BreadthFirstPaths {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
     public boolean hasPathTo(int v) { return marked[v]; }
 
@@ -516,50 +567,55 @@ public class BreadthFirstPaths {
         path.push(x);
         return path;
     }
-    ...
 }
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
+Trace
 \begin{center}
-\includegraphics[scale=0.37]{{./figures/graph8}.png}
-
-\smallskip
-
-\small trace of breadth-first search to find all paths from 0
+\visible<2->{\includegraphics[scale=0.37]{{./figures/bfs_trace}.pdf}}
 \end{center}
 \end{frame}
 
 \section{Connected Components}
 \begin{frame}[fragile]
-Vertices $v$ and $w$ are \emph{connected} if there is a path between them
+\pause
 
+Vertices $v$ and $w$ are connected if there is a path between them
+
+\pause
 \bigskip
 
-Goal: preprocess graph to answer queries of the form \emph{is $v$ connected to $w$} in constant time
+Goal: preprocess graph to answer queries of the form is $v$ connected to $w$ in constant time
 
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
-\lstinline$CC(Graph G)$ & finds connected components in $G$ \\
+\lstinline$CC(Graph G)$ & find connected components in $G$ \\
 \lstinline$boolean connected(int v, int w)$ & are $v$ and $w$ connected? \\
-\lstinline$int count()$ & returns the number of connected components \\
-\lstinline$int id(int v)$ & returns the component identifier for $v$ \\
-\lstinline$int size(int v)$ & returns the number of vertices in $v$'s component
+\lstinline$int count()$ & number of connected components \\
+\lstinline$int id(int v)$ & component identifier for $v$ \\
+\lstinline$int size(int v)$ & number of vertices in $v$'s component
 \end{tabular} 
 \end{center}
 
+\pause
 \bigskip
 
 Use union-find? not quite
 
+\pause
 \bigskip
 
 Use depth-first search? yes
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
 
@@ -595,17 +651,285 @@ public class CC {
     public int id(int v) { return id[v]; }
 
     public int size(int v) { return size[id[v]]; }
-    ...
 }
 \end{lstlisting} 
 \end{frame}
 
+\section{Symbol Graphs}
+\begin{frame}[fragile]
+\pause
+
+Typical applications involve processing graphs defined in files or
+on web pages, using strings, not integer indices, to define and refer to vertices
+
+\pause
+\bigskip
+
+To accommodate such applications, we define an input format with these properties
+\begin{itemize}
+\item Vertex names are strings
+\item A specified delimiter separates vertex names (to allow for the possibility of spaces in names)
+\item Each line represents a set of edges, connecting the first vertex name on the line to each of the other vertices named on the line
+\item The number of vertices $V$ and the number of edges $E$ are both implicitly defined
+\end{itemize}
+
+\pause
+\bigskip
+
+Example (\lstinline{routes.txt})
+\begin{lstlisting}[language={}]
+JFK MCO
+ORD DEN
+ORD HOU
+DFW PHX
+JFK ATL
+...
+\end{lstlisting}
+
+\pause
+
+Example (\lstinline{movies.txt})
+\begin{lstlisting}[language={}]
+'Breaker' Morant (1980)/Brown, Bryan (I)/Henderson, Dick (II)/...
+'burbs, The (1989)/Jayne, Billy/Howard, Rance/Ducommun, Rick/... 
+'Crocodile' Dundee II (1988)/Jbara, Gregory/Holt, Jim (I)/... 
+*batteries not included (1987)/Aldredge, Tom/Boutsikaris, Dennis/...
+...And Justice for All (1979)/Williams, Jonathan (XI)/...
+...
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+
+API for graphs with symbolic vertex names
+\begin{center}
+\begin{tabular}{cc}
+method & description \\ \hline
+\lstinline$SymbolGraph(String filename, String delim)$ & \makecell{build graph specified in $filename$ \\ using $delim$ to separate vertex names} \\
+\lstinline$boolean contains(String key)$ & is $key$ a vertex? \\
+\lstinline$int index(String key)$ & index associated with $key$ \\
+\lstinline$String name(int v)$ & key associated with index $v$ \\
+\lstinline$Graph G()$ & underlying graph as a \lstinline$Graph$ object
+\end{tabular} 
+\end{center}
+
+\pause
+\bigskip
+
+Test client for symbol graph API
+\begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
+public class SymbolGraph {
+    public static void main(String[] args) {
+        String filename  = args[0];
+        String delimiter = args[1];
+        SymbolGraph sg = new SymbolGraph(filename, delimiter);
+        Graph G = sg.G();
+        while (StdIn.hasNextLine()) {
+            String source = StdIn.readLine();
+            if (sg.contains(source)) {
+                int s = sg.index(source);
+                for (int v : G.adj(s)) { StdOut.println("   " + sg.name(v)); }
+            }
+            else {
+                StdOut.println("input not contain '" + source + "'");
+            }
+        }
+    }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+
+\begin{lstlisting}[language={}]
+$ java edu.princeton.cs.algs4.SymbolGraph routes.txt " "
+Done reading routes.txt
+JFK
+   ORD
+   ATL
+   MCO
+LAX
+   LAS
+   PHX
+<ctrl-d>
+\end{lstlisting}
+
+\pause
+
+\begin{lstlisting}[language={}]
+$ java edu.princeton.cs.algs4.SymbolGraph movies.txt "/"
+Done reading movies.txt
+Tin Men (1987)
+   Hershey, Barbara
+   Geppi, Cindy
+   ...
+   Blumenfeld, Alan
+   DeBoy, David
+Bacon, Kevin
+   Woodsman, The (2004)
+   Wild Things (1998)
+   ...
+   Apollo 13 (1995)
+   Animal House (1978)
+<ctrl-d>
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+
+Implementation of the symbol graph API
+\begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
+public class SymbolGraph {
+    private ST<String, Integer> st;
+    private String[] keys;
+    private Graph G;
+
+    public SymbolGraph(String filename, String delimiter) {
+        st = new ST<String, Integer>();
+        In in = new In(filename);
+        while (!in.isEmpty()) {
+            String[] a = in.readLine().split(delimiter);
+            for (int i = 0; i < a.length; i++) {
+                if (!st.contains(a[i])) {
+                    st.put(a[i], st.size());
+                }
+            }
+        }
+        StdOut.println("Done reading " + filename);
+        keys = new String[st.size()];
+        for (String name : st.keys()) {
+            keys[st.get(name)] = name;
+        }
+        G = new Graph(st.size());
+        in = new In(filename);
+        while (in.hasNextLine()) {
+            String[] a = in.readLine().split(delimiter);
+            int v = st.get(a[0]);
+            for (int i = 1; i < a.length; i++) {
+                int w = st.get(a[i]);
+                G.addEdge(v, w);
+            }
+        }
+    }
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+
+\begin{lstlisting}[language=Java]
+    public boolean contains(String s) { 
+        return st.contains(s); 
+    }
+
+    public int index(String s) { 
+        return st.get(s); 
+    }
+
+    public String name(int v) { 
+        return keys[v]; 
+    }
+
+    public Graph G() { 
+        return G; 
+    }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+
+\lstinline{DegreesOfSeparation} (a \lstinline{SymbolGraph} and \lstinline{BreadthFirstPaths} client)
+
+\begin{lstlisting}[language=Java]
+package edu.princeton.cs.algs4;
+
+public class DegreesOfSeparation {
+    public static void main(String[] args) {
+        String filename  = args[0];
+        String delimiter = args[1];
+        String source    = args[2];
+        SymbolGraph sg = new SymbolGraph(filename, delimiter);
+        Graph G = sg.G();
+        if (!sg.contains(source)) {
+            StdOut.println(source + " not in database.");
+            return;
+        }
+        int s = sg.index(source);
+        BreadthFirstPaths bfs = new BreadthFirstPaths(G, s);
+        while (!StdIn.isEmpty()) {
+            String sink = StdIn.readLine();
+            if (sg.contains(sink)) {
+                int t = sg.index(sink);
+                if (bfs.hasPathTo(t)) {
+                    for (int v : bfs.pathTo(t)) {
+                        StdOut.println("   " + sg.name(v));
+                    }
+                }
+                else { StdOut.println("Not connected"); }
+            }
+            else { StdOut.println("   Not in database."); }
+        }
+    }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+
+\begin{lstlisting}[language={}]
+$ java edu.princeton.cs.algs4.DegreesOfSeparation routes.txt " " JFK
+Done reading routes.txt
+LAS
+   JFK
+   ORD
+   PHX
+   LAS
+DFW
+   JFK
+   ORD
+   DFW
+<ctrl-d>
+\end{lstlisting}
+
+\pause
+
+\begin{lstlisting}[language={}]
+$ java edu.princeton.cs.algs4.DegreesOfSeparation movies.txt "/" "Bacon, Kevin"
+Done reading movies.txt
+Kidman, Nicole
+   Bacon, Kevin
+   Woodsman, The (2004)
+   Grier, David Alan
+   Bewitched (2005)
+   Kidman, Nicole
+Grant, Cary
+   Bacon, Kevin
+   Planes, Trains & Automobiles (1987)
+   Martin, Steve (I)
+   Dead Men Don't Wear Plaid (1982)
+   Grant, Cary
+<ctrl-d>
+\end{lstlisting}
+\end{frame}
+
 \section{Graph Traversal Summary}
 \begin{frame}[fragile]
+\pause
+
 BFS and DFS enables efficient solution of many (but not all) graph problems
 \begin{center}
 \begin{tabular}{cccc}
-problem & BFS & DFS & time \\ \hline \\
+problem & BFS & DFS & time \\ \hline
 path between $s$ and $t$ & \cmark & \cmark & $E + V$ \\
 shortest path between $s$ and $t$ & \cmark & & $E+V$ \\
 cycle & \cmark & \cmark & $E+V$ \\

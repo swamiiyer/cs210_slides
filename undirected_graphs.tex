@@ -245,7 +245,9 @@ Typical graph-processing code
 \begin{lstlisting}[language=Java]
 public static int degree(Graph G, int v) {
     int degree = 0;
-    for (int w : G.adj(v)) { degree++; }
+    for (int w : G.adj(v)) { 
+        degree++; 
+    }
     return degree;
 }
 \end{lstlisting}
@@ -387,7 +389,6 @@ Data structures
 \begin{itemize}
 \item Boolean array \lstinline{marked[][]} to mark visited vertices
 \item Integer array \lstinline{edgeTo[]} to keep track of paths; \lstinline{edgeTo[w] = v} means that edge $v$-$w$ taken to visit $w$ for first time
-\item Function-call stack for recursion
 \end{itemize}
 \end{minipage}
 \begin{minipage}{90pt}
@@ -421,12 +422,12 @@ method & description \\ \hline
 
 Typical graph-processing code
 \begin{lstlisting}[language=Java]
-    Paths paths = new Paths(G, s);
-    for (int v = 0; v < G.V(); v++) {
-        if (paths.hasPathTo(v)) {
-            StdOut.println(v);
-        }
+Paths paths = new Paths(G, s);
+for (int v = 0; v < G.V(); v++) {
+    if (paths.hasPathTo(v)) {
+        StdOut.println(v);
     }
+}
 \end{lstlisting}
 \end{frame}
 
@@ -651,7 +652,41 @@ public class CC {
     public int id(int v) { return id[v]; }
 
     public int size(int v) { return size[id[v]]; }
+\end{lstlisting} 
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+
+\begin{lstlisting}[language=Java]
+    public static void main(String[] args) {
+        In in = new In(args[0]);
+        Graph G = new Graph(in);
+        CC cc = new CC(G);
+        int M = cc.count();
+        StdOut.println(M + " components");
+        LinkedQueue<Integer>[] components = 
+            (LinkedQueue<Integer>[]) new LinkedQueue[M];
+        for (int i = 0; i < M; i++) { 
+            components[i] = new LinkedQueue<Integer>(); 
+        }
+        for (int v = 0; v < G.V(); v++) { components[cc.id(v)].enqueue(v); }
+        for (int i = 0; i < M; i++) {
+            for (int v : components[i]) { StdOut.print(v + " "); }
+            StdOut.println();
+        }
+    }
 }
+\end{lstlisting} 
+
+\pause
+
+\begin{lstlisting}[language=Java]
+$ java edu.princeton.cs.algs4.CC tinyG.txt 
+3 components
+0 1 2 3 4 5 6 
+7 8 
+9 10 11 12 
 \end{lstlisting} 
 \end{frame}
 
@@ -847,8 +882,7 @@ public class SymbolGraph {
 \begin{frame}[fragile]
 \pause
 
-\lstinline{DegreesOfSeparation} (a \lstinline{SymbolGraph} and \lstinline{BreadthFirstPaths} client)
-
+Application (degrees of separation)
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
 

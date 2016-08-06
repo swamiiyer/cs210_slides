@@ -9,7 +9,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="649.94366"
+   width="640.91992"
    height="790.56799"
    id="svg6691"
    version="1.1"
@@ -25,8 +25,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="324.64872"
-     inkscape:cy="440.38271"
+     inkscape:cx="315.62499"
+     inkscape:cy="726.097"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -47,8 +47,8 @@
        visible="true"
        enabled="true"
        snapvisiblegridlinesonly="true"
-       originx="-50.351275px"
-       originy="-248.17429px" />
+       originx="-59.375px"
+       originy="-248.17428px" />
   </sodipodi:namedview>
   <metadata
      id="metadata6696">
@@ -66,7 +66,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-50.351275,-13.619893)">
+     transform="translate(-59.375,-13.619893)">
     <path
        style="fill:#cccccc;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="m 322.33209,146.27581 0.83368,-90.93235"
@@ -559,14 +559,14 @@
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Sans Bold"
-       x="49.763275"
+       x="65.763275"
        y="23.161308"
        id="text3864-4-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3866-0-3"
-         x="49.763275"
-         y="23.161308">queue</tspan></text>
+         x="65.763275"
+         y="23.161308">q</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Sans Bold"

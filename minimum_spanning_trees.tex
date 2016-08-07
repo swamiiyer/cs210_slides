@@ -17,33 +17,66 @@
 
 \section{What are Minimum Spanning Trees?}
 \begin{frame}[fragile]
+\pause
+
 A spanning tree of a graph is a connected subgraph with no cycles that includes all the vertices
 
+\pause
 \bigskip
 
 A minimum spanning tree (MST) of an edge-weighted undirected graph is a spanning tree whose weight (the sum of the weights of its edges) is no larger than the weight of any other spanning tree
 
-\begin{center}
-\includegraphics[scale=0.4]{./figures/mst1.png}
-
-\smallskip
-
-\tiny an edge-weighted graph and its MST
-\end{center}
-
-If the graph is connected and the edge weights are unique, then MST exists and is unique
-
+\pause
 \bigskip
 
-Goal: given a connected undirected graph $G$ with arbitrary (but distinct) edge weights, find the MST of $G$
+An edge-weighted graph and its MST
+\begin{minipage}{150pt}
+\begin{lstlisting}[language={}]
+$ more tinyEWG.txt 
+8
+16
+4 5 0.35
+4 7 0.37
+5 7 0.28
+0 7 0.16
+1 5 0.32
+0 4 0.38
+2 3 0.17
+1 7 0.19
+0 2 0.26
+1 2 0.36
+1 3 0.29
+2 7 0.34
+6 2 0.40
+3 6 0.52
+6 0 0.58
+6 4 0.93
+\end{lstlisting}
+\end{minipage}%
+\begin{minipage}{150pt}
+\begin{center}
+\visible<4->{\includegraphics[scale=0.45]{{./figures/mst1}.pdf}}
+\end{center}
+\end{minipage}
 \end{frame}
 
 \begin{frame}[fragile]
-Typical MST applications
+\pause
 
+If the graph is connected and the edge weights are unique, then MST exists and is unique
+
+\pause
+\bigskip
+
+Goal: given a connected undirected graph $G$ with arbitrary (but distinct) edge weights, find the MST of $G$
+
+\pause
+\bigskip
+
+Typical MST applications
 \begin{center}
 \begin{tabular}{ccc}
-application & vertex & edge \\ \hline \\
+application & vertex & edge \\ \hline
 circuit & component & wire \\
 airline & airport & flight route \\
 power distribution & power plant & transmission lines \\
@@ -53,11 +86,13 @@ image analysis & feature & proximity relationship
 \end{frame}
 
 \section{Edge-Weighted Graph API}
-\begin{frame}[fragile]
+\begin{frame}
+\pause
+
 Weighted-edge data type (API)
 \begin{center}
 \begin{tabular}{cc}
-method & description \\ \hline \\
+method & description \\ \hline 
 \lstinline$Edge(int v, int w, double weight)$ & create a weighted edge $v$-$w$ \\
 \lstinline$double weight()$ & edge weight \\
 \lstinline$int either()$ & either endpoint \\
@@ -67,7 +102,9 @@ method & description \\ \hline \\
 \end{frame}
 
 \begin{frame}[fragile]
-Weighted-edge data type (Implementation)
+\pause
+
+Weighted-edge data type (implementation)
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
 
@@ -96,17 +133,18 @@ public class Edge implements Comparable<Edge> {
         else if (this.weight() > that.weight()) { return +1; }
         else                                    { return  0; }
     }
-    ...
 }
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Edge-weighted graph (API)
 
 \begin{center}
 \begin{tabular}{cc}
-method & description \\ \hline \\
+method & description \\ \hline
 \lstinline$EdgeWeightedGraph(int V)$ & create an empty graph with $V$ vertices \\
 \lstinline$EdgeWeightedGraph(In in)$ & create a graph from input stream \\
 \lstinline$int V()$ & number of vertices  \\
@@ -119,6 +157,8 @@ method & description \\ \hline \\
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Edge-weighted graph (implementation)
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
@@ -158,6 +198,8 @@ public class EdgeWeightedGraph {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
     public void addEdge(Edge e) {
         int v = e.either();
@@ -188,29 +230,31 @@ public class EdgeWeightedGraph {
         }
         return list;
     }
-    ...
 }
 \end{lstlisting}
 \end{frame}
 
 \section{Minimum Spanning Tree API}
 \begin{frame}[fragile]
+\pause
+
 MST API
 \begin{center}
 \begin{tabular}{cc}
-method & description \\ \hline \\
+method & description \\ \hline
 \lstinline$MST(EdgeWeightedGraph G)$ & constructor \\
 \lstinline$Iterable<Edge> edges()$ & all of the MST edges \\
 \lstinline$double weight()$ & weight of MST
 \end{tabular}  
 \end{center}
 
+\pause
+
 MST test client
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
 
 public class KruskalMST {
-    ...
     public static void main(String[] args) {
         In in = new In(args[0]);
         EdgeWeightedGraph G = new EdgeWeightedGraph(in);
@@ -220,9 +264,10 @@ public class KruskalMST {
         }
         StdOut.println(mst.weight());
     }
-    ...
 }
 \end{lstlisting}
+
+\pause
 
 \begin{lstlisting}[language={}]
 $ java edu.princeton.cs.algs4.KruskalMST tinyEWG.txt
@@ -239,26 +284,31 @@ $ java edu.princeton.cs.algs4.KruskalMST tinyEWG.txt
 
 \section{Greedy Algorithm}
 \begin{frame}
-A \emph{cut} of a graph is a partition of its vertices into two nonempty disjoint sets
+\pause
 
+\begin{minipage}{160pt}
+A cut of a graph is a partition of its vertices into two nonempty disjoint sets
+
+\pause
 \bigskip
 
-A \emph{crossing edge} of a cut is an edge that connects a vertex in one set with a vertex in the other
+A crossing edge of a cut is an edge that connects a vertex in one set with a vertex in the other
 
+\pause
 \bigskip
 
 Cut property: given any cut, a crossing edge of minimum weight is in the MST
-
+\end{minipage}%
+\begin{minipage}{140pt}
 \begin{center}
-\includegraphics[scale=0.4]{./figures/mst2.png}
-
-\smallskip
-
-\tiny cut property
+\hfill \visible<2->{\includegraphics[scale=0.4]{{./figures/mst2}.pdf}}
 \end{center}
+\end{minipage}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{minipage}{200pt}
 Greedy MST algorithm
 \begin{itemize}
@@ -269,29 +319,32 @@ Greedy MST algorithm
 \item Repeat until $V - 1$ edges are colored black
 \end{itemize}
 
+\pause
 \bigskip
 
 The greedy algorithm computes the MST
 
+\pause
 \bigskip
 
-Kruskal's and Prim's algorithms that we will encounter later choose cuts and minimum-weight edges efficiently
+Kruskal's algorithm that we consider next chooses cuts and minimum-weight edges efficiently
 \end{minipage}%
 \begin{minipage}{100pt}
 \begin{center}
-\includegraphics[scale=0.4]{./figures/mst3.png}
-
-\smallskip
-
-\tiny trace of greedy MST algorithm
+\visible<2->{\includegraphics[scale=0.35]{./figures/mst3.pdf}}
 \end{center}
 \end{minipage}
 \end{frame}
 
 \section{Kruskal's Algorithm}
 \begin{frame}[fragile]
-\begin{minipage}{240pt}
+\pause
+
 Add edges to tree $T$ in ascending order of weight unless doing so would create a cycle
+
+\pause
+\bigskip
+
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
 
@@ -320,222 +373,22 @@ public class KruskalMST {
     public Iterable<Edge> edges() { return mst; }
 
     public double weight() { return weight; }
-    ...
 }
 \end{lstlisting}
+
+\pause
+\bigskip
 
 Kruskal's algorithm computes MST in time proportional to
 $E \log E$ in the worst case
-\end{minipage}%
-\begin{minipage}{100pt}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+
+Trace
 \begin{center}
-\includegraphics[scale=0.4]{./figures/mst4.png}
-
-\smallskip
-
-\tiny trace of Kruskal's algorithm
+\visible<2->{\includegraphics[scale=0.27]{./figures/mst4.pdf}}
 \end{center}
-\end{minipage}
-\end{frame}
-
-\section{Prim's Algorithm}
-\begin{frame}[fragile]
-Approach
-\begin{itemize}
-\item Start with vertex 0 and greedily grow tree $T$
-
-\item Add to $T$ the minimum-weight edge with exactly one endpoint in $T$
-
-\item Repeat until $V - 1$ edges have been added
-\end{itemize}
-
-\bigskip
-
-Challenge: find the minimum-weight edge with exactly one endpoint in $T$
-\end{frame}
-
-\begin{frame}[fragile]
-Lazy approach: maintain a priority queue (PQ) of edges with (at least) one endpoint in $T$
-\begin{itemize}
-\item Key = edge; priority = weight of edge
-
-\item Delete minimum to determine next edge $e$ = $v$-$w$ to add to $T$
-
-\item Disregard if both endpoints $v$ and $w$ are marked (both in $T$)
-
-\item Otherwise, let $w$ be the unmarked vertex (not in $T$)
-\begin{itemize}
-\item Add to PQ any edge incident to $w$ (assuming other endpoint not in $T$)
-\item Add $e$ to $T$ and mark $w$
-\end{itemize}
-\end{itemize}
-
-\begin{lstlisting}[language=Java]
-package edu.princeton.cs.algs4;
-
-public class LazyPrimMST {
-    private double weight; 
-    private LinkedQueue<Edge> mst; 
-    private boolean[] marked; 
-    private MinPQ<Edge> pq; 
-
-    public LazyPrimMST(EdgeWeightedGraph G) {
-        mst = new LinkedQueue<Edge>();
-        pq = new MinPQ<Edge>();
-        marked = new boolean[G.V()];
-        for (int v = 0; v < G.V(); v++) {
-            if (!marked[v]) { prim(G, v); }  
-        }  
-    }
-\end{lstlisting}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{minipage}{240pt}
-\begin{lstlisting}[language=Java]
-   private void prim(EdgeWeightedGraph G, int s) {
-        scan(G, s);
-        while (!pq.isEmpty()) { 
-            Edge e = pq.delMin(); 
-            int v = e.either(), w = e.other(v);  
-            if (marked[v] && marked[w]) { continue; }  
-            mst.enqueue(e); 
-            weight += e.weight();
-            if (!marked[v]) { scan(G, v); }  
-            if (!marked[w]) { scan(G, w); } 
-        }
-    }
-
-    private void scan(EdgeWeightedGraph G, int v) {
-        marked[v] = true;
-        for (Edge e : G.adj(v)) {
-            if (!marked[e.other(v)]) { pq.insert(e); }
-        }
-    }
-    
-    public Iterable<Edge> edges() { return mst; }
-
-    public double weight() { return weight; }
-    ...
-}
-\end{lstlisting}
-
-Lazy Prim's algorithm computes the MST in time proportional
-to $E \log E$ in the worst case
-\end{minipage}%
-\begin{minipage}{90pt}
-\begin{center}
-\includegraphics[scale=0.4]{./figures/mst5.png}
-
-\smallskip
-
-\tiny trace of Prims's algorithm (lazy approach)
-\end{center}
-\end{minipage}
-\end{frame}
-
-\begin{frame}[fragile]
-Eager approach: maintain a PQ of vertices connected by an edge to $T$, where priority of vertex $v$ = weight of shortest edge connecting $v$ to $T$
-\begin{itemize}
-\item Delete minimum vertex $v$ and add its associated edge $e$ = $v$-$w$ to $T$ 
-
-\item Update PQ by considering all edges $e$ = $v$-$x$ incident to $v$
-
-\begin{itemize}
-\item Ignore if $x$ is already in $T$
-
-\item Add $x$ to PQ if not already on it
-
-\item Decrease priority of $x$ if $v$-$x$ becomes shortest edge connecting $x$ to $T$
-\end{itemize}
-\end{itemize}
-
-\begin{lstlisting}[language=Java]
-package edu.princeton.cs.algs4;
-
-public class PrimMST {
-    private Edge[] edgeTo; 
-    private double[] distTo; 
-    private boolean[] marked; 
-    private IndexMinPQ<Double> pq;
-
-    public PrimMST(EdgeWeightedGraph G) {
-        edgeTo = new Edge[G.V()];
-        distTo = new double[G.V()];
-        marked = new boolean[G.V()];
-        pq = new IndexMinPQ<Double>(G.V());
-        for (int v = 0; v < G.V(); v++) { 
-            distTo[v] = Double.POSITIVE_INFINITY;
-        }
-        for (int v = 0; v < G.V(); v++) {
-            if (!marked[v]) { prim(G, v); }
-        }
-    }
-\end{lstlisting}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{lstlisting}[language=Java]
-    private void prim(EdgeWeightedGraph G, int s) {
-        distTo[s] = 0.0;
-        pq.insert(s, distTo[s]);
-        while (!pq.isEmpty()) {
-            int v = pq.delMin();
-            scan(G, v);
-        }
-    }
-
-    private void scan(EdgeWeightedGraph G, int v) {
-        marked[v] = true;
-        for (Edge e : G.adj(v)) {
-            int w = e.other(v);
-            if (marked[w]) { continue; }
-            if (e.weight() < distTo[w]) {
-                distTo[w] = e.weight();
-                edgeTo[w] = e;
-                if (pq.contains(w)) { pq.decreaseKey(w, distTo[w]); }
-                else                { pq.insert(w, distTo[w]); }
-            }
-        }
-    }
-\end{lstlisting}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{minipage}{240pt}
-\begin{lstlisting}[language=Java]
-    public Iterable<Edge> edges() {
-        LinkedQueue<Edge> mst = new LinkedQueue<Edge>();
-        for (int v = 0; v < edgeTo.length; v++) {
-            Edge e = edgeTo[v];
-            if (e != null) { 
-                mst.enqueue(e); 
-            }
-        }
-        return mst;
-    }
-
-    public double weight() {
-        double weight = 0.0;
-        for (Edge e : edges()) { 
-            weight += e.weight(); 
-        }
-        return weight;
-    }
-    ...
-}
-\end{lstlisting}
-
-A binary heap based implementation of eager Prim's algorithm computes the MST in time proportional to $E \log V$ in the worst case
-\end{minipage}%
-\begin{minipage}{90pt}
-\begin{center}
-\includegraphics[scale=0.4]{./figures/mst6.png}
-
-\smallskip
-
-\tiny trace of Prims's algorithm (eager approach)
-\end{center}
-\end{minipage}
 \end{frame}
 \end{document}

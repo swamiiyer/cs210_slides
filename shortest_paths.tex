@@ -17,26 +17,55 @@
 
 \section{Shortest Paths}
 \begin{frame}[fragile]
+\pause
+
 A shortest path from vertex $s$ to vertex $t$ in an edge-weighted digraph is a directed path from $s$ to $t$ with the property that no other such path has a lower weight
 
-\begin{center}
-\includegraphics[scale=0.4]{./figures/sp1.png}
-
-\smallskip
-
-\small an edge-weighted digraph and a shortest path
-\end{center}
-
+\pause
 \bigskip
+
+An edge-weighted graph and a shortest path
+\begin{minipage}{150pt}
+\begin{lstlisting}[language={}]
+$ more tinyEWD.txt 
+8
+15
+4 5 0.35
+5 4 0.35
+4 7 0.37
+5 7 0.28
+7 5 0.28
+5 1 0.32
+0 4 0.38
+0 2 0.26
+7 3 0.39
+1 3 0.29
+2 7 0.34
+6 2 0.40
+3 6 0.52
+6 0 0.58
+6 4 0.93
+\end{lstlisting}
+\end{minipage}%
+\begin{minipage}{150pt}
+\begin{center}
+\visible<3->{\includegraphics[scale=0.45]{{./figures/sp1}.pdf}}
+\end{center}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
 
 Variants: single source, single sink, source-sink, all pairs
 
+\pause
 \bigskip
 
 Typical shortest-paths applications
 \begin{center}
 \begin{tabular}{ccc}
-application & vertex & edge \\ \hline \\
+application & vertex & edge \\ \hline
 map & intersection & road \\
 network & router & connection \\
 schedule & job & precedence constraint \\
@@ -47,10 +76,12 @@ arbitrage & currency & exchange rate
 
 \section{Edge-Weighted Digraph API}
 \begin{frame}[fragile]
-Weighted directed edge data type (API and implementation)
+\pause
+
+Weighted directed edge data type (API)
 \begin{center}
 \begin{tabular}{cc}
-method & description \\ \hline \\
+method & description \\ \hline
 \lstinline$DirectedEdge(int v, int w, double weight)$ & create a directed weighted edge $v$-$w$ \\
 \lstinline$int from()$ & vertex this edge points from \\
 \lstinline$int to()$ & vertex this edge points to \\
@@ -58,6 +89,10 @@ method & description \\ \hline \\
 \end{tabular}  
 \end{center}
 
+\pause
+\bigskip
+
+Weighted directed edge data type (implementation)
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
 
@@ -79,16 +114,17 @@ public class DirectedEdge {
     public int to() { return w; }
 
     public double weight() { return weight; }
-    ...
 }
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Edge-weighted digraph (API)
 \begin{center}
 \begin{tabular}{cc}
-method & description \\ \hline \\
+method & description \\ \hline
 \lstinline$EdgeWeightedDigraph(int V)$ & edge-weighted digraph with $V$ vertices \\
 \lstinline$EdgeWeightedDigraph(In in)$ & edge-weighted digraph from input stream \\
 \lstinline$void addEdge(DirectedEdge e)$ & add weighted directed edge $e$ \\
@@ -100,6 +136,8 @@ method & description \\ \hline \\
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 Edge-weighted digraph (implementation)
 \begin{lstlisting}[language=Java]
 package edu.cs.princeton.algs4;
@@ -138,6 +176,8 @@ public class EdgeWeightedDigraph {
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language=Java]
     public void addEdge(DirectedEdge e) {
         int v = e.from();
@@ -162,17 +202,18 @@ public class EdgeWeightedDigraph {
         }
         return list;
     } 
-    ...
 }
 \end{lstlisting}
 \end{frame}
 
 \section{Shortest Path API}
 \begin{frame}[fragile]
+\pause
+
 Single-source shortest paths API
 \begin{center}
 \begin{tabular}{cc}
-method & description \\ \hline \\
+method & description \\ \hline
 \lstinline$SP(EdgeWeightedDigraph G, int s)$ & constructor \\
 \lstinline$double distTo(int v)$ & distance from $s$ to $v$, $\infty$ if no path \\
 \lstinline$boolean hasPathTo(int v)$ & path from $s$ to $v$? \\
@@ -180,12 +221,13 @@ method & description \\ \hline \\
 \end{tabular}  
 \end{center}
 
+\pause
+
 SP test client
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
 
 public class DijkstraSP {
-    ...
     public static void main(String[] args) {
        In in = new In(args[0]);
         EdgeWeightedDigraph G = new EdgeWeightedDigraph(in);
@@ -204,12 +246,13 @@ public class DijkstraSP {
             else { StdOut.printf("%d to %d         no path\n", s, t); }
         }
     }
-    ...
 }
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
+\pause
+
 \begin{lstlisting}[language={}]
 $ java edu.princeton.cs.algs4.DijkstraSP tinyEWD.txt 0
 0 to 0 (0.00):
@@ -221,11 +264,14 @@ $ java edu.princeton.cs.algs4.DijkstraSP tinyEWD.txt 0
 0 to 6 (1.51): 0->2 0.26 2->7 0.34 7->3 0.39 3->6 0.52
 0 to 7 (0.60): 0->2 0.26 2->7 0.34
 \end{lstlisting}
+\end{frame}
 
-\bigskip
+\begin{frame}[fragile]
+\pause
 
 A shortest-paths tree solution (SPT) always exists
 
+\pause
 \bigskip
 
 Data structures: can represent the SPT with two vertex-indexed arrays
@@ -236,15 +282,12 @@ Data structures: can represent the SPT with two vertex-indexed arrays
 \end{itemize}
 
 \begin{center}
-\includegraphics[scale=0.45]{./figures/sp2.png}
-
-\smallskip
-
-\small shortest-paths data structures
+\visible<3->{\includegraphics[scale=0.45]{./figures/sp2.pdf}}
 \end{center}
-\end{frame}
 
-\begin{frame}[fragile]
+\pause
+\bigskip
+
 Edge relaxation: relax edge $e = v\to w$
 \begin{itemize}
 \item \lstinline{distTo[v]} is length of shortest known path from $s$ to $v$
@@ -255,7 +298,12 @@ Edge relaxation: relax edge $e = v\to w$
 
 \item if $e = v\to w$ gives shorter path to $w$ through $v$, update both \lstinline{distTo[w]} and \lstinline{edgeTo[w]}
 \end{itemize}
+\end{frame}
 
+\begin{frame}[fragile]
+\pause
+
+Edge relaxation (implementation)
 \begin{lstlisting}[language=Java]
 private void relax(DirectedEdge e) {
     int v = e.from(), w = e.to();
@@ -266,28 +314,28 @@ private void relax(DirectedEdge e) {
 }
 \end{lstlisting}
 
+\pause
+\bigskip
+
+Edge relaxation (two cases)
 \begin{center}
-\includegraphics[scale=0.4]{./figures/sp3.png}
-
-\smallskip
-
-\small edge relaxation (two cases)
+\visible<3->{\includegraphics[scale=0.45]{./figures/sp3.pdf}}
 \end{center}
 \end{frame}
 
 \section{Dijkstra's Algorithm}
 \begin{frame}[fragile]
+\pause
+
 Dijkstra's algorithm computes a SPT in any edge-weighted
-digraph with nonnegative weights
+digraph with nonnegative weights, as follows
 
-\bigskip
-
-Procedure
 \begin{itemize}
-\item Consider vertices in increasing order of distance from $s$ (non-tree vertex with the lowest \lstinline{distTo[]} value)
-\item Add vertex to tree and relax all edges pointing from that vertex
+\item Considers vertices in increasing order of distance from $s$ (non-tree vertex with the lowest \lstinline{distTo[]} value)
+\item Adds vertex to tree and relaxes all edges pointing from that vertex
 \end{itemize}
 
+\pause
 \bigskip
 
 Implementation
@@ -301,7 +349,7 @@ public class DijkstraSP {
     
     public DijkstraSP(EdgeWeightedDigraph G, int s) {
         for (DirectedEdge e : G.edges()) {
-            if (e.weight() < 0) { throw new IllegalArgumentException(...); }
+            if (e.weight() < 0) { throw new IllegalArgumentException(); }
         }
         distTo = new double[G.V()];
         edgeTo = new DirectedEdge[G.V()];
@@ -320,7 +368,8 @@ public class DijkstraSP {
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{minipage}{220pt}
+\pause
+
 \begin{lstlisting}[language=Java]
     public double distTo(int v) { 
         return distTo[v]; 
@@ -340,27 +389,28 @@ public class DijkstraSP {
         }
         return path;
     }
-    ...
 }
 \end{lstlisting}
 
+\pause
 \bigskip
 
 Dijkstra's algorithm using a binary heap based priority queue computes a SPT in an edge-weighted digraph in time proportional to $E\log V$ in the worst case
-\end{minipage}%
-\begin{minipage}{80pt}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+
+Trace
 \begin{center}
-\includegraphics[scale=0.42]{./figures/sp4.png}
-
-\smallskip
-
-\small trace of Dijkstra's algorithm
+\visible<2->{\includegraphics[scale=0.27]{./figures/sp4.pdf}}
 \end{center}
-\end{minipage}
 \end{frame}
 
 \section{Edge-Weighted DAGs}
 \begin{frame}[fragile]
+\pause
+
 It is easier to find shortest paths in an edge-weighted DAG than in a general digraph
 \begin{itemize}
 \item Consider vertices in topological order
@@ -368,10 +418,12 @@ It is easier to find shortest paths in an edge-weighted DAG than in a general di
 \item Relax all edges pointing from that vertex
 \end{itemize}
 
+\pause
 \bigskip
 
 Topological sort algorithm computes SPT in any edge-weighted DAG in time proportional to $E + V$
 
+\pause
 \bigskip
 
 Implementation
@@ -400,7 +452,8 @@ public class AcyclicSP {
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{minipage}{220pt}
+\pause
+
 \begin{lstlisting}[language=Java]
     public double distTo(int v) { 
         return distTo[v]; 
@@ -420,247 +473,30 @@ public class AcyclicSP {
         }
         return path;
     }
-    ...
 }
 \end{lstlisting}
-\end{minipage}%
-\begin{minipage}{80pt}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+
+Trace
 \begin{center}
-\includegraphics[scale=0.42]{./figures/sp5.png}
-
-\smallskip
-
-\small trace of shortest paths in edge-weighted DAG
+\visible<2->{\includegraphics[scale=0.28]{./figures/sp5.pdf}}
 \end{center}
-\end{minipage}
-\end{frame}
-
-\begin{frame}[fragile]
-Applications
-\begin{itemize}
-\item Seam carving: resize an image without distortion for display on cell phones and web browser
-
-\item Longest paths in edge-weighted DAGs: formulate as a shortest paths problem in edge-weighted DAGs (topological sort algorithm works even with negative weights; see \lstinline{AcyclicLP})
-\begin{itemize}
-\item Negate all weights
-
-\item Find shortest paths
-
-\item Negate weights in result
-\end{itemize}
-
-
-\item Parallel job scheduling: given a set of jobs with durations and precedence constraints, schedule the jobs (by finding a start time for each) so as to achieve the minimum completion time, while respecting the constraints
-
-\item Critical path method: to solve a parallel job-scheduling problem, create edge-weighted DAG
-\begin{itemize}
-\item Source and sink vertices
-\item Two vertices (begin and end) for each job
-\item Three edges for each job: begin to end (weighted by duration); source to begin (0 weight); and end to sink (0 weight)
-\item One edge for each precedence constraint (0 weight)
-\end{itemize}
-and use longest path from the source to schedule each job (see \lstinline{CPM})
-\end{itemize}
-\end{frame}
-
-\section{Negative Weights}
-\begin{frame}[fragile]
-Dijkstra's algorithm does not work with negative edge weights
-
-\bigskip
-
-A \emph{negative cycle} is a directed cycle whose sum of edge weights is negative
-
-\bigskip
-
-To find a negative cycle, add two methods to the API for \lstinline{SP}
-\begin{center}
-\begin{tabular}{cc}
-method & description \\ \hline \\
-\lstinline$boolean hasNegativeCycle()$ & is there a negative cycle? \\
-\lstinline$Iterable <DirectedEdge> negativeCycle()$ & negative cycle reachable from $s$
-\end{tabular}  
-\end{center}
-
-\bigskip
-
-Bellman-Ford algorithm
-\begin{itemize}
-\item Initialize \lstinline{distTo[]} to 0 for source vertex $s$ and $\infty$ for all other vertices $v$
-\item Relax each edge $V$ times
-\end{itemize}
-
-\bigskip
-
-If there is a negative cycle, Bellman-Ford algorithm gets stuck in loop, updating \lstinline{distTo[]} and \lstinline{edgeTo[]} entries of vertices in the cycle
-
-\bigskip
-
-If any vertex $v$ is updated in pass $v$, there exists a negative
-cycle (and can trace back \lstinline{edgeTo[v]} entries to find it)
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{lstlisting}[language=Java]
-package edu.princeton.cs.algs4;
-
-public class BellmanFordSP {
-    private double[] distTo; 
-    private DirectedEdge[] edgeTo; 
-    private boolean[] onQueue; 
-    private LinkedQueue<Integer> queue; 
-    private int cost;
-    private Iterable<DirectedEdge> cycle;  
-    
-    public BellmanFordSP(EdgeWeightedDigraph G, int s) {
-        distTo  = new double[G.V()];
-        edgeTo  = new DirectedEdge[G.V()];
-        onQueue = new boolean[G.V()];
-        for (int v = 0; v < G.V(); v++) {
-            distTo[v] = Double.POSITIVE_INFINITY;
-        }
-        distTo[s] = 0.0;
-        queue = new LinkedQueue<Integer>();
-        queue.enqueue(s);
-        onQueue[s] = true;
-        while (!queue.isEmpty() && !hasNegativeCycle()) {
-            int v = queue.dequeue();
-            onQueue[v] = false;
-            relax(G, v);
-        }
-    }
-\end{lstlisting}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{lstlisting}[language=Java]
-    private void relax(EdgeWeightedDigraph G, int v) {
-        for (DirectedEdge e : G.adj(v)) {
-            int w = e.to();
-            if (distTo[w] > distTo[v] + e.weight()) {
-                distTo[w] = distTo[v] + e.weight();
-                edgeTo[w] = e;
-                if (!onQueue[w]) {
-                    queue.enqueue(w);
-                    onQueue[w] = true;
-                }
-            }
-            if (cost++ % G.V() == 0) { findNegativeCycle(); }
-        }
-    }
-    
-    public boolean hasNegativeCycle() { return cycle != null; }
-
-    public Iterable<DirectedEdge> negativeCycle() { return cycle; }
-    
-    private void findNegativeCycle() {
-        int V = edgeTo.length;
-        EdgeWeightedDigraph spt = new EdgeWeightedDigraph(V);
-        for (int v = 0; v < V; v++) {
-            if (edgeTo[v] != null) { spt.addEdge(edgeTo[v]); }
-        }
-        EdgeWeightedDirectedCycle finder = 
-            new EdgeWeightedDirectedCycle(spt);
-        cycle = finder.cycle();
-    }
-\end{lstlisting}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{lstlisting}[language=Java]
-    public double distTo(int v) {
-        if (hasNegativeCycle()) { 
-            throw new UnsupportedOperationException(); 
-        }
-        return distTo[v];
-    }
-
-    public boolean hasPathTo(int v) { 
-        return distTo[v] < Double.POSITIVE_INFINITY; 
-    }
-    
-    public Iterable<DirectedEdge> pathTo(int v) {
-        if (hasNegativeCycle()) { 
-            throw new UnsupportedOperationException(); 
-        }
-        if (!hasPathTo(v)) { return null; }
-        LinkedStack<DirectedEdge> path = new LinkedStack<DirectedEdge>();
-        for (DirectedEdge e = edgeTo[v]; e != null; e = edgeTo[e.from()]) {
-            path.push(e);
-        }
-        return path;
-    }
-    ...
-}
-\end{lstlisting}
-
-\bigskip
-
-Bellman-Ford algorithm computes SPT in any edge-weighted digraph with no negative cycles in time proportional to $E \times V$
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{center}
-
-\includegraphics[scale=0.42]{./figures/sp6.png}
-
-\smallskip
-
-\small trace of Bellman-Ford algorithm (negative weights)
-\end{center}
-\end{frame}
-
-\begin{frame}[fragile]
-\begin{minipage}{200pt}
-Negative cycle application: arbitrage detection (see \lstinline{Arbitrage})
-
-\bigskip
-
-Currency exchange graph
-\begin{itemize}
-\item Vertex = currency
-
-\item Edge = transaction, with weight equal to exchange rate
-
-\item Find a directed cycle whose product of edge weights is $> 1$
-\end{itemize}
-
-\bigskip
-
-Model as a negative cycle detection problem by taking logs
-\begin{itemize}
-\item Let weight of edge $v \to w$ be $-\ln$(exchange rate from currency $v$ to $w$)
-
-\item Multiplication turns to addition; $> 1$ turns to $< 0$
-
-\item Find a directed cycle whose sum of edge weights is $< 0$ (negative cycle)
-\end{itemize}
-\end{minipage}%
-\begin{minipage}{100pt}
-\begin{center}
-\includegraphics[scale=0.43]{./figures/sp7.png}
-
-\smallskip
-
-\small currency exchange graph
-
-\includegraphics[scale=0.43]{./figures/sp8.png}
-
-\smallskip
-
-\small negative cycle represents an arbitrage opportunity
-\end{center}
-\end{minipage}
 \end{frame}
 
 \section{Summary}
 \begin{frame}[fragile]
+\pause
+
 Nonnegative weights
 \begin{itemize}
-\item Arises in many application
+\item Arise in many applications
 \item Dijkstra's algorithm is nearly linear-time
 \end{itemize}
 
+\pause
 \bigskip
 
 Acyclic edge-weighted digraphs
@@ -670,15 +506,17 @@ Acyclic edge-weighted digraphs
 \item Edge weights can be negative
 \end{itemize}
 
+\pause
 \bigskip
 
 Negative weights and negative cycles
 \begin{itemize}
 \item Arise in some applications
-\item If no negative cycles, can find shortest paths via Bellman-Ford
-\item If negative cycles, can find one via Bellman-Ford
+\item If no negative cycles, can find shortest paths using Bellman-Ford algorithm
+\item If negative cycles, can find one using Bellman-Ford algorithm
 \end{itemize}
 
+\pause
 \bigskip
 
 Shortest-paths is a broadly useful problem-solving model

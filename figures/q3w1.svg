@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="149.4662mm"
+   height="93.787636mm"
+   viewBox="0 0 529.60465 332.31839"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="q3w1.svg">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker4721"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend">
+      <path
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path4723"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path4416"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="126.9852"
+     inkscape:cy="200.28168"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="717"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3554"
+       originx="-100.02744"
+       originy="-602.56103" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-100.02745,-117.48279)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.5px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="98.994949"
+       y="184.64117"
+       id="text3336"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3338"
+         x="98.994949"
+         y="184.64117">edu.princeton.cs</tspan><tspan
+         sodipodi:role="line"
+         x="98.994949"
+         y="206.51617"
+         id="tspan3340">com.apple</tspan><tspan
+         sodipodi:role="line"
+         x="98.994949"
+         y="228.39117"
+         id="tspan3342">edu.princeton.cs</tspan><tspan
+         sodipodi:role="line"
+         x="98.994949"
+         y="250.26617"
+         id="tspan3344">com.cnn</tspan><tspan
+         sodipodi:role="line"
+         x="98.994949"
+         y="272.14117"
+         id="tspan3346">com.google</tspan><tspan
+         sodipodi:role="line"
+         x="98.994949"
+         y="294.01617"
+         id="tspan3348">edu.uva.cs</tspan><tspan
+         sodipodi:role="line"
+         x="98.994949"
+         y="315.89117"
+         id="tspan3350">edu.princeton.cs</tspan><tspan
+         sodipodi:role="line"
+         x="98.994949"
+         y="337.76617"
+         id="tspan3352">edu.princeton.cs.www</tspan><tspan
+         sodipodi:role="line"
+         x="98.994949"
+         y="359.64117"
+         id="tspan3354">edu.uva.cs</tspan><tspan
+         sodipodi:role="line"
+         x="98.994949"
+         y="381.51617"
+         id="tspan3356">edu.uva.cs</tspan><tspan
+         sodipodi:role="line"
+         x="98.994949"
+         y="403.39117"
+         id="tspan3358">edu.uva.cs</tspan><tspan
+         sodipodi:role="line"
+         x="98.994949"
+         y="425.26617"
+         id="tspan3360">com.adobe</tspan><tspan
+         sodipodi:role="line"
+         x="98.994949"
+         y="447.14117"
+         id="tspan3362">edu.princeton.ee</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.5px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="419.76199"
+       y="184.18994"
+       id="text3336-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="419.76199"
+         y="184.18994"
+         id="tspan3362-7">com.adobe</tspan><tspan
+         sodipodi:role="line"
+         x="419.76199"
+         y="206.06494"
+         id="tspan3508">com.apple</tspan><tspan
+         sodipodi:role="line"
+         x="419.76199"
+         y="227.93994"
+         id="tspan3510">com.cnn</tspan><tspan
+         sodipodi:role="line"
+         x="419.76199"
+         y="249.81494"
+         id="tspan3512">com.google</tspan><tspan
+         sodipodi:role="line"
+         x="419.76199"
+         y="271.68994"
+         id="tspan3514">edu.princeton.cs</tspan><tspan
+         sodipodi:role="line"
+         x="419.76199"
+         y="293.56494"
+         id="tspan3516">edu.princeton.cs</tspan><tspan
+         sodipodi:role="line"
+         x="419.76199"
+         y="315.43994"
+         id="tspan3518">edu.princeton.cs</tspan><tspan
+         sodipodi:role="line"
+         x="419.76199"
+         y="337.31494"
+         id="tspan3520">edu.princeton.cs.www</tspan><tspan
+         sodipodi:role="line"
+         x="419.76199"
+         y="359.18994"
+         id="tspan3522">edu.princeton.ee</tspan><tspan
+         sodipodi:role="line"
+         x="419.76199"
+         y="381.06494"
+         id="tspan3524">edu.uva.cs</tspan><tspan
+         sodipodi:role="line"
+         x="419.76199"
+         y="402.93994"
+         id="tspan3526">edu.uva.cs</tspan><tspan
+         sodipodi:role="line"
+         x="419.76199"
+         y="424.81494"
+         id="tspan3528">edu.uva.cs</tspan><tspan
+         sodipodi:role="line"
+         x="419.76199"
+         y="446.68994"
+         id="tspan3530">edu.uva.cs </tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="102.02541"
+       y="131.10307"
+       id="text3532"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3534"
+         x="102.02541"
+         y="131.10307">input</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="419.16931"
+       y="130.77869"
+       id="text3532-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3534-5"
+         x="419.16931"
+         y="130.77869">sorted result</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#cccccc;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 410,262.3622 0,100"
+       id="path3556"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#cccccc;fill-rule:evenodd;stroke:#cccccc;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 220,352.3622 0,50"
+       id="path4358"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="327.2796"
+       y="250.0782"
+       id="text3532-6"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3534-6"
+         x="327.2796"
+         y="250.0782">long</tspan><tspan
+         sodipodi:role="line"
+         x="327.2796"
+         y="271.95319"
+         id="tspan4397">prefix</tspan><tspan
+         sodipodi:role="line"
+         x="327.2796"
+         y="293.82819"
+         id="tspan4399">match</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
+       d="m 357.594,267.47368 50.50763,47.47717"
+       id="path4401"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="301.99286"
+       y="370.31058"
+       id="text3532-6-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="301.99286"
+         y="370.31058"
+         id="tspan4399-5">duplicate</tspan><tspan
+         sodipodi:role="line"
+         x="301.99286"
+         y="392.18558"
+         id="tspan4711">keys</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker4721)"
+       d="m 272.74119,378.59046 -49.49748,2.0203"
+       id="path4713"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>

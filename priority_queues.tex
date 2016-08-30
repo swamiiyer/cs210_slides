@@ -75,9 +75,7 @@ public class TopM {
             String line = StdIn.readLine();
             Transaction transaction = new Transaction(line);
             pq.insert(transaction); 
-            if (pq.size() > M) { 
-                pq.delMin(); 
-            }
+            if (pq.size() > M) { pq.delMin(); }
         }
         Stack<Transaction> stack = new Stack<Transaction>();
         for (Transaction transaction : pq) { 
@@ -97,6 +95,11 @@ $ more tinyBatch.txt
 Turing      6/17/1990   644.08
 vonNeumann  3/26/2002  4121.85
 ...
+\end{lstlisting} 
+
+\pause
+
+\begin{lstlisting}[language={}]
 $ java TopM 5 < tinyBatch.txt 
 Thompson    2/27/2000  4747.08
 vonNeumann  2/12/1994  4732.35
@@ -378,6 +381,11 @@ $ more m2.txt
 B D H P Q Q
 $ more m3.txt 
 A B E F J N
+\end{lstlisting}
+
+\pause
+
+\begin{lstlisting}[language={}]
 $ java Multiway m1.txt m2.txt m3.txt 
 A A B B B C D E F F G H I I J N P Q Q Z 
 \end{lstlisting}

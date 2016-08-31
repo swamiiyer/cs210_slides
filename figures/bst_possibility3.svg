@@ -13,7 +13,7 @@
    height="283.10654"
    id="svg3065"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="bst_possibility3.svg">
   <defs
      id="defs3067" />
@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="252.21089"
-     inkscape:cy="132.62153"
+     inkscape:zoom="1.979899"
+     inkscape:cx="239.71089"
+     inkscape:cy="72.012377"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -34,10 +34,10 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="1364"
-     inkscape:window-height="710"
-     inkscape:window-x="1"
-     inkscape:window-y="1"
+     inkscape:window-width="1366"
+     inkscape:window-height="717"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata3070">
@@ -65,18 +65,18 @@
        sodipodi:cy="116.6479"
        sodipodi:rx="10"
        sodipodi:ry="10.714286"
-       d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
+       d="m 379.28571,116.6479 a 10,10.714286 0 0 1 -10,10.71429 10,10.714286 0 0 1 -10,-10.71429 10,10.714286 0 0 1 10,-10.71428 10,10.714286 0 0 1 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
-       x="150.53999"
-       y="84.727348"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       x="149.82571"
+       y="84.013062"
        id="text3022-4-21"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3024-1-7"
-         x="150.53999"
-         y="84.727348">A</tspan></text>
+         x="149.82571"
+         y="84.013062">A</tspan></text>
     <path
        transform="translate(-194.8846,3.769887)"
        sodipodi:type="arc"
@@ -86,17 +86,17 @@
        sodipodi:cy="116.6479"
        sodipodi:rx="10"
        sodipodi:ry="10.714286"
-       d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
+       d="m 379.28571,116.6479 a 10,10.714286 0 0 1 -10,10.71429 10,10.714286 0 0 1 -10,-10.71429 10,10.714286 0 0 1 10,-10.71428 10,10.714286 0 0 1 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
-       x="170.20001"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       x="168.77144"
        y="125.55986"
        id="text3022-4-21-4"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3024-1-7-4"
-         x="170.20001"
+         x="168.77144"
          y="125.55986">C</tspan></text>
     <path
        transform="translate(-175.82374,42.83075)"
@@ -107,17 +107,17 @@
        sodipodi:cy="116.6479"
        sodipodi:rx="10"
        sodipodi:ry="10.714286"
-       d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
+       d="m 379.28571,116.6479 a 10,10.714286 0 0 1 -10,10.71429 10,10.714286 0 0 1 -10,-10.71429 10,10.714286 0 0 1 10,-10.71428 10,10.714286 0 0 1 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
-       x="189.26085"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       x="188.75577"
        y="164.62074"
        id="text3022-4-4"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3024-1-4"
-         x="189.26085"
+         x="188.75577"
          y="164.62074">E</tspan></text>
     <path
        transform="translate(-155.59528,83.125226)"
@@ -128,17 +128,17 @@
        sodipodi:cy="116.6479"
        sodipodi:rx="10"
        sodipodi:ry="10.714286"
-       d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
+       d="m 379.28571,116.6479 a 10,10.714286 0 0 1 -10,10.71429 10,10.714286 0 0 1 -10,-10.71429 10,10.714286 0 0 1 10,-10.71428 10,10.714286 0 0 1 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
-       x="209.48932"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       x="208.47917"
        y="204.91519"
        id="text3022-4-21-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3024-1-7-49"
-         x="209.48932"
+         x="208.47917"
          y="204.91519">H</tspan></text>
     <path
        transform="translate(-134.8795,122.88157)"
@@ -149,17 +149,17 @@
        sodipodi:cy="116.6479"
        sodipodi:rx="10"
        sodipodi:ry="10.714286"
-       d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
+       d="m 379.28571,116.6479 a 10,10.714286 0 0 1 -10,10.71429 10,10.714286 0 0 1 -10,-10.71429 10,10.714286 0 0 1 10,-10.71428 10,10.714286 0 0 1 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
-       x="230.20511"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       x="229.70003"
        y="244.67154"
        id="text3022-4-21-2"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3024-1-7-8"
-         x="230.20511"
+         x="229.70003"
          y="244.67154">R</tspan></text>
     <path
        transform="translate(-115.97087,162.70892)"
@@ -170,7 +170,7 @@
        sodipodi:cy="116.6479"
        sodipodi:rx="10"
        sodipodi:ry="10.714286"
-       d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
+       d="m 379.28571,116.6479 a 10,10.714286 0 0 1 -10,10.71429 10,10.714286 0 0 1 -10,-10.71429 10,10.714286 0 0 1 10,-10.71428 10,10.714286 0 0 1 10,10.71428 z" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
@@ -191,18 +191,18 @@
        sodipodi:cy="116.6479"
        sodipodi:rx="10"
        sodipodi:ry="10.714286"
-       d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
+       d="m 379.28571,116.6479 a 10,10.714286 0 0 1 -10,10.71429 10,10.714286 0 0 1 -10,-10.71429 10,10.714286 0 0 1 10,-10.71428 10,10.714286 0 0 1 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans;text-anchor:start;text-align:start;writing-mode:lr"
-       x="270.31677"
-       y="323.61569"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       x="269.81171"
+       y="324.12076"
        id="text3022-4-2"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3024-1-8"
-         x="270.31677"
-         y="323.61569">X</tspan></text>
+         x="269.81171"
+         y="324.12076">X</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 159.6041,89.686806 10.6066,20.203054"
@@ -275,7 +275,7 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';"
        x="211.64285"
        y="81.290749"
        id="text3729"

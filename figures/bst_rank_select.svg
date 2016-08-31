@@ -13,7 +13,7 @@
    height="209.50612"
    id="svg3163"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="bst_rank_select.svg">
   <defs
      id="defs3165">
@@ -40,15 +40,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="162.76786"
+     inkscape:cx="150.26786"
      inkscape:cy="82.739904"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1364"
-     inkscape:window-height="710"
-     inkscape:window-x="1"
-     inkscape:window-y="1"
+     inkscape:window-width="1366"
+     inkscape:window-height="717"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -90,7 +90,7 @@
        sodipodi:cy="116.6479"
        sodipodi:rx="10"
        sodipodi:ry="10.714286"
-       d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
+       d="m 379.28571,116.6479 a 10,10.714286 0 0 1 -10,10.71429 10,10.714286 0 0 1 -10,-10.71429 10,10.714286 0 0 1 10,-10.71428 10,10.714286 0 0 1 10,10.71428 z" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
@@ -111,18 +111,18 @@
        sodipodi:cy="116.6479"
        sodipodi:rx="10"
        sodipodi:ry="10.714286"
-       d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
+       d="m 379.28571,116.6479 a 10,10.714286 0 0 1 -10,10.71429 10,10.714286 0 0 1 -10,-10.71429 10,10.714286 0 0 1 10,-10.71428 10,10.714286 0 0 1 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
-       x="290.51318"
-       y="289.5856"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       x="289.79892"
+       y="288.87131"
        id="text3022-4-4"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3024-1-4"
-         x="290.51318"
-         y="289.5856">E</tspan></text>
+         x="289.79892"
+         y="288.87131">E</tspan></text>
     <path
        transform="translate(225.2857,167.22419)"
        sodipodi:type="arc"
@@ -132,7 +132,7 @@
        sodipodi:cy="116.6479"
        sodipodi:rx="10"
        sodipodi:ry="10.714286"
-       d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
+       d="m 379.28571,116.6479 a 10,10.714286 0 0 1 -10,10.71429 10,10.714286 0 0 1 -10,-10.71429 10,10.714286 0 0 1 10,-10.71428 10,10.714286 0 0 1 10,10.71428 z" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
@@ -153,18 +153,18 @@
        sodipodi:cy="116.6479"
        sodipodi:rx="10"
        sodipodi:ry="10.714286"
-       d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
+       d="m 379.28571,116.6479 a 10,10.714286 0 0 1 -10,10.71429 10,10.714286 0 0 1 -10,-10.71429 10,10.714286 0 0 1 10,-10.71428 10,10.714286 0 0 1 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
-       x="190.72742"
-       y="329.37131"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       x="190.01314"
+       y="327.94275"
        id="text3022-4-21"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3024-1-7"
-         x="190.72742"
-         y="329.37131">A</tspan></text>
+         x="190.01314"
+         y="327.94275">A</tspan></text>
     <path
        transform="translate(24.7143,207.93848)"
        sodipodi:type="arc"
@@ -174,7 +174,7 @@
        sodipodi:cy="116.6479"
        sodipodi:rx="10"
        sodipodi:ry="10.714286"
-       d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
+       d="m 379.28571,116.6479 a 10,10.714286 0 0 1 -10,10.71429 10,10.714286 0 0 1 -10,-10.71429 10,10.714286 0 0 1 10,-10.71428 10,10.714286 0 0 1 10,10.71428 z" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
@@ -195,17 +195,17 @@
        sodipodi:cy="116.6479"
        sodipodi:rx="10"
        sodipodi:ry="10.714286"
-       d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
+       d="m 379.28571,116.6479 a 10,10.714286 0 0 1 -10,10.71429 10,10.714286 0 0 1 -10,-10.71429 10,10.714286 0 0 1 10,-10.71428 10,10.714286 0 0 1 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
-       x="250.51318"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       x="249.7989"
        y="369.58557"
        id="text3022-4-21-4"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3024-1-7-4"
-         x="250.51318"
+         x="249.7989"
          y="369.58557">C</tspan></text>
     <path
        transform="translate(-34.5714,247.79562)"
@@ -216,17 +216,17 @@
        sodipodi:cy="116.6479"
        sodipodi:rx="10"
        sodipodi:ry="10.714286"
-       d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
+       d="m 379.28571,116.6479 a 10,10.714286 0 0 1 -10,10.71429 10,10.714286 0 0 1 -10,-10.71429 10,10.714286 0 0 1 10,-10.71428 10,10.714286 0 0 1 10,10.71428 z" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
-       x="328.51318"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       x="329.94174"
        y="369.58557"
        id="text3022-4-21-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3024-1-7-49"
-         x="328.51318"
+         x="329.94174"
          y="369.58557">H</tspan></text>
     <path
        transform="translate(4.8572,287.79562)"
@@ -237,7 +237,7 @@
        sodipodi:cy="116.6479"
        sodipodi:rx="10"
        sodipodi:ry="10.714286"
-       d="m 379.28571,116.6479 c 0,5.91734 -4.47716,10.71429 -10,10.71429 -5.52285,0 -10,-4.79695 -10,-10.71429 0,-5.91733 4.47715,-10.71428 10,-10.71428 5.52284,0 10,4.79695 10,10.71428 z" />
+       d="m 379.28571,116.6479 a 10,10.714286 0 0 1 -10,10.71429 10,10.714286 0 0 1 -10,-10.71429 10,10.714286 0 0 1 10,-10.71428 10,10.714286 0 0 1 10,10.71428 z" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
@@ -321,7 +321,7 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans';"
        x="353.07141"
        y="269.70175"
        id="text3109"

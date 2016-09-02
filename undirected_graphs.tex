@@ -690,6 +690,28 @@ $ java edu.princeton.cs.algs4.CC tinyG.txt
 \end{lstlisting} 
 \end{frame}
 
+\section{Graph Traversal Summary}
+\begin{frame}[fragile]
+\pause
+
+BFS and DFS enables efficient solution of many (but not all) graph problems
+\begin{center}
+\begin{tabular}{cccc}
+problem & BFS & DFS & time \\ \hline
+path between $s$ and $t$ & \cmark & \cmark & $E + V$ \\
+shortest path between $s$ and $t$ & \cmark & & $E+V$ \\
+cycle & \cmark & \cmark & $E+V$ \\
+Euler cycle & & \cmark & $E+V$ \\
+Hamilton cycle & & & $2^{1.657V}$ \\
+connected components & \cmark & \cmark & $E+V$ \\
+biconnected components & & \cmark & $E+V$ \\
+bipartiteness & \cmark & \cmark & $E+V$ \\
+planarity & & \cmark & $E+V$ \\
+graph isomorphism & & & $2^{c\sqrt{V\log V}}$ 
+\end{tabular} 
+\end{center}
+\end{frame}
+
 \section{Symbol Graphs}
 \begin{frame}[fragile]
 \pause
@@ -955,27 +977,4 @@ Grant, Cary
 <ctrl-d>
 \end{lstlisting}
 \end{frame}
-
-\section{Graph Traversal Summary}
-\begin{frame}[fragile]
-\pause
-
-BFS and DFS enables efficient solution of many (but not all) graph problems
-\begin{center}
-\begin{tabular}{cccc}
-problem & BFS & DFS & time \\ \hline
-path between $s$ and $t$ & \cmark & \cmark & $E + V$ \\
-shortest path between $s$ and $t$ & \cmark & & $E+V$ \\
-cycle & \cmark & \cmark & $E+V$ \\
-Euler cycle & & \cmark & $E+V$ \\
-Hamilton cycle & & & $2^{1.657V}$ \\
-connected components & \cmark & \cmark & $E+V$ \\
-biconnected components & & \cmark & $E+V$ \\
-bipartiteness & \cmark & \cmark & $E+V$ \\
-planarity & & \cmark & $E+V$ \\
-graph isomorphism & & & $2^{c\sqrt{V\log V}}$ 
-\end{tabular} 
-\end{center}
-\end{frame}
-
 \end{document}

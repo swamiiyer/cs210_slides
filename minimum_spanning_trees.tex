@@ -356,8 +356,7 @@ public class KruskalMST {
         mst =  new LinkedQueue<Edge>();  
         MinPQ<Edge> pq = new MinPQ<Edge>();
         for (Edge e : G.edges()) { pq.insert(e); }
-        WeightedQuickUnionUF uf = 
-            new WeightedQuickUnionUF(G.V());
+        WeightedQuickUnionUF uf = new WeightedQuickUnionUF(G.V());
         while (!pq.isEmpty() && mst.size() < G.V() - 1) {
             Edge e = pq.delMin();
             int v = e.either();

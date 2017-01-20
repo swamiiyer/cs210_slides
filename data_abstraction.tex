@@ -269,7 +269,7 @@ $\dots$ & $\dots$
 
 \pause
 
-File IO types from the text
+File IO types from \lstinline{edu.princeton.cs.algs4}
 \begin{center}
 \begin{tabular}{cc}
 type & description \\ \hline
@@ -281,7 +281,7 @@ $\dots$ & $\dots$
 
 \pause
 
-Data-oriented types for client examples
+Data-oriented types from \lstinline{edu.princeton.cs.algs4}
 \begin{center}
 \begin{tabular}{cc}
 type & description \\ \hline
@@ -295,7 +295,7 @@ $\dots$ & $\dots$
 \begin{frame}[fragile]
 \pause
 
-Types for analysis of algorithms
+Types for analysis of algorithms from \lstinline{edu.princeton.cs.algs4}
 \begin{center}
 \begin{tabular}{cc}
 type & description \\ \hline
@@ -307,7 +307,7 @@ $\dots$ & $\dots$
 
 \pause
 
-Collection types
+Collection types from \lstinline{edu.princeton.cs.algs4}
 \begin{center}
 \begin{tabular}{cc}
 type & description \\ \hline
@@ -319,7 +319,7 @@ $\dots$ & $\dots$
 
 \pause
 
-Data-oriented graph types
+Data-oriented graph types from \lstinline{edu.princeton.cs.algs4}
 \begin{center}
 \begin{tabular}{cc}
 type & description \\ \hline
@@ -331,12 +331,12 @@ $\dots$ & $\dots$
 
 \pause
 
-Operations-oriented graph types
+Operations-oriented graph types from \lstinline{edu.princeton.cs.algs4}
 \begin{center}
 \begin{tabular}{cc}
 type & description \\ \hline
-\lstinline$WeightedQuickUnionUF$ & dynamic connectivity \\
-\lstinline$DepthFirstPaths$ & DFS path searcher \\
+\lstinline$UF$ & dynamic connectivity \\
+\lstinline$DepthFirstPaths$ & depth-first path searcher \\
 $\dots$ & $\dots$
 \end{tabular} 
 \end{center}
@@ -344,8 +344,8 @@ $\dots$ & $\dots$
 
 \begin{frame}[fragile]
 \pause
+The \lstinline{String} data type represents an indexed sequence of \lstinline{char} values
 
-\lstinline{java.lang.String} API
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
@@ -364,23 +364,35 @@ $\dots$ & $\dots$
 \end{frame}
 
 \begin{frame}[fragile]
+\begin{minipage}{250pt}
 \pause
 
-\lstinline{edu.princeton.cs.algs4.Date} API
+Consider an input sequence of pairs of integers, where each integer represents an object of some type, and the pair $(p, q)$ means that ``$p$ is connected to $q$''
+
+\pause
+\bigskip
+
+The goal of the dynamic connectivity problem is to devise a data structure to decide whether or not a new pair of objects is connected 
+
+\pause
+\bigskip
+
+The \lstinline{UF} union-find data type provides that data structure
+
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
-\lstinline$Date(int month, int day, int year)$ & create a date \\
-\lstinline$Date(String date)$ & create a date (parse constructor) \\
-\lstinline$int month()$ &  month \\
-\lstinline$int day()$ & day \\
-\lstinline$int year()$ & year \\
-\lstinline$String toString()$ & string representation \\
-\lstinline$boolean equals(Object that)$ & is the date same as $that$? \\
-\lstinline$int compareTo(Date that)$ & compare the date to $that$ \\
-$\dots$ & $\dots$
+\lstinline$UF(int N)$ & \makecell{initialize an empty union-find data \\ structure with $N$ sites} \\
+\lstinline$int find(int p)$ & \makecell{component identifier \\ for $p$ (0 to $N-1$)} \\
+\lstinline$int count()$ & number of components \\
+\lstinline$boolean connected(int p, int q)$ & are $p$ and $q$ in the same component? \\
+\lstinline$void union(int p, int q)$ & add connection between $p$ and $q$
 \end{tabular} 
-\end{center}
+\end{center} 
+\end{minipage}%
+\begin{minipage}{60pt}
+\hfill \visible<2->{\includegraphics[scale=0.35]{./figures/dyn_conn.pdf}}
+\end{minipage}
 \end{frame}
 
 \section{Implementing an Abstract Data Type}
@@ -506,116 +518,6 @@ public class Counter implements Comparable<Counter> {
         if      (this.count < that.count) { return -1; }
         else if (this.count > that.count) { return +1; }
         else                              { return  0; }
-    }
-}
-\end{lstlisting}
-\end{frame}
-
-\begin{frame}[fragile]
-\pause
-
-\lstinline{edu.princeton.cs.algs4.Date} API
-\begin{center}
-\begin{tabular}{cc}
-method & description \\ \hline
-\lstinline$Date(int month, int day, int year)$ & create a date \\
-\lstinline$Date(String date)$ & create a date (parse constructor) \\
-\lstinline$int month()$ &  month \\
-\lstinline$int day()$ & day \\
-\lstinline$int year()$ & year \\
-\lstinline$String toString()$ & string representation \\
-\lstinline$boolean equals(Object that)$ & is the date same as $that$? \\
-\lstinline$int compareTo(Date that)$ & compare the date to $that$ \\
-$\dots$ & $\dots$
-\end{tabular} 
-\end{center}
-
-\pause
-
-\lstinline{edu.princeton.cs.algs4.Date} test client
-\begin{lstlisting}[language=Java]
-package edu.princeton.cs.algs4;
-
-public class Date {
-    public static void main(String[] args) {
-        int m = Integer.parseInt(args[0]);
-        int d = Integer.parseInt(args[1]);
-        int y = Integer.parseInt(args[2]);
-        Date date = new Date(m, d, y);
-        StdOut.println(date);
-    }
-}
-\end{lstlisting}
-
-\pause
-
-\begin{lstlisting}[language={}]
-$ java Date 12 31 1999
-12/31/1999
-\end{lstlisting}
-\end{frame}
-
-\begin{frame}[fragile]
-\pause
-
-\lstinline{edu.princeton.cs.algs4.Date} implementation
-\begin{lstlisting}[language=Java]
-package edu.princeton.cs.algs4;
-
-public class Date implements Comparable<Date> {
-    private final int month;
-    private final int day;
-    private final int year;
-    
-    public Date(int month, int day, int year) { 
-        this.month = month; 
-        this.day = day; 
-        this.year = year; 
-    }
-    
-    public Date(String date) {
-        String[] fields = date.split("/");
-        if (fields.length != 3) { throw new IllegalArgumentException(); }
-        month = Integer.parseInt(fields[0]);
-        day   = Integer.parseInt(fields[1]);
-        year  = Integer.parseInt(fields[2]);
-        if (!isValid(month, day, year)) {
-            throw new IllegalArgumentException();
-        }
-    }
-   
-    public int month() { return month; }
-
-    public int day() { return day; }
-
-    public int year() { return year; }
-    
-    public String toString() { return month() + "/" + day() + "/" + year(); }
-\end{lstlisting}
-\end{frame}
-
-\begin{frame}[fragile]
-\pause
-
-\begin{lstlisting}[language=Java]
-    public boolean equals(Object other) {
-        if (other == this) { return true; }
-        if (other == null) { return false; }
-        if (other.getClass() != this.getClass()) { return false; }
-        Date that = (Date) other;
-        return (this.month == that.month) && 
-               (this.day == that.day) && 
-               (this.year == that.year);
-    }
-    
-    public int compareTo(Date that) {
-        if (this.year  < that.year)  { return -1; }
-        if (this.year  > that.year)  { return +1; }
-        if (this.month < that.month) { return -1; }
-        if (this.month > that.month) { return +1; }
-        if (this.day   < that.day)   { return -1; }
-        if (this.day   > that.day)   { return +1; }
-        return 0;
     }
 }
 \end{lstlisting}

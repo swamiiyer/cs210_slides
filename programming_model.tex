@@ -1,4 +1,4 @@
-\documentclass[8pt,a4paper,compress]{beamer}
+\documentclass[8pt,a4paper,compress,handout]{beamer}
 
 \usepackage{/home/siyer/lib/slides}
 
@@ -305,7 +305,7 @@ do {
 \pause
 \bigskip
 
-A break statement immediately exits a loop without letting it run to completion
+A break statement immediately exits a loop without letting it run to completion; when used as the last statement in a switch case, exits the switch statement preventing ``fallthrough'' to the following case
 
 \pause
 \bigskip
@@ -316,7 +316,7 @@ A continue statement skips to next iteration of a loop
 \begin{frame}[fragile]
 \pause
 
-A compound assignment statement is shorthand notation for modifying the value of a variable
+A compound assignment statement is shorthand notation for modifying the value of a variable; for example, \lstinline{i += 5;} is equivalent to \lstinline{i = i + 5;}
 
 \pause
 \bigskip

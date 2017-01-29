@@ -77,7 +77,7 @@ elapsed time = 2.643
 \begin{frame}[fragile]
 \pause
 
-We can carry out experimental analysis of the running time $T(N)$ of a program using a stopwatch, where $N$ is the input size
+We can carry out experimental analysis of the order of growth (aka running time) $T(N)$ of a program using a stopwatch, where $N$ is the input size
 
 \pause
 \bigskip
@@ -173,17 +173,17 @@ and since $T(8000)=51.1$, we have $$T(N)=9.98\times 10^{-11}N^3$$
 \begin{frame}[fragile]
 \pause
 
-We can also derive a mathematical expression for the running time $T(N)$ of a program
+We can also derive a mathematical expression for the order of growth $T(N)$ of a program
 
 \pause
 \bigskip
 
-The total running time of a program is determined by: the cost of executing each statement (property of the computer); and the frequency of execution of each statement (property of the program and the input)
+The order of growth of a program is determined by: the cost of executing each statement (property of the computer); and the frequency of execution of each statement (property of the program and the input)
 
 \pause
 \bigskip
 
-We write $\sim f(N)$ (called tilde approximation) to represent any function that, when divided by $f(N)$, approaches 1 as $N$ grows, and we write $g(N)\sim f(N)$ to indicate that $g(N)/f(N)$ approaches 1 as $N$ grows
+We write $g(N) \sim f(N)$ (called tilde approximation) to represent any function $g(N)$ that, when divided by $f(N)$, approaches 1 as $N$ approaches $\infty$
 
 \pause
 \bigskip
@@ -194,7 +194,7 @@ Most often, we work with tilde approximations of the form $g(N)\sim af(N)$ where
 \begin{frame}[fragile]
 \pause
 
-Analyzing the running time of \lstinline{ThreeSum.count()}
+Analyzing the order of growth of \lstinline{ThreeSum.count()}
 \begin{lstlisting}[language=Java, mathescape]
 public static int count(int[] a) {
     int N = a.length;                           $[A]$
@@ -243,7 +243,7 @@ Order of growth: $N^3$
 \begin{frame}[fragile]
 \pause
 
-For many programs, developing a mathematical model of running time reduces to the following steps
+For many programs, developing a mathematical model of order of growth reduces to the following steps
 \begin{itemize}
 \item Develop an input model, including a definition of the problem size
 \item Identify the inner loop
@@ -254,7 +254,7 @@ For many programs, developing a mathematical model of running time reduces to th
 \pause
 \bigskip
 
-For \lstinline{ThreeSum}, the input model is $N$ numbers; the inner loop is the statements in a triply nested \lstinline{for} loop; the cost model is the number of array accesses; and the number of array accesses is $N^3/2$
+For \lstinline{ThreeSum}, the input model is $N$ numbers; the inner loop is the if-statement inside a triply nested \lstinline{for} loop; the cost model is the number of array accesses; and the number of array accesses is $N^3/2$
 \end{frame}
 
 \begin{frame}[fragile]
@@ -443,44 +443,6 @@ public class ThreeSumFast {
 \pause
 
 Order of growth: $N^2\lg N$
-\end{frame}
-
-\begin{frame}[fragile]
-\pause
-
-Caveats
-\begin{itemize}
-\item With leading-term approximations, we ignore constant coefficients in lower-order terms, which may not be justifed
-
-\item The assumption that the inner loop dominates may not always be correct 
-
-\item The assumption that each instruction always takes the same amount of time is not always correct
-
-\item Typically, there are many things going on in your computer and these can affect the reproducibility of experiments
-
-\item Often, when we compare two different programs for the same task, one might be faster in some situations, and slower in others
-
-\item When running time is sensitive to inputs, we may get inconsistent results or be unable to validate our hypotheses
-
-\item We have been focusing on measuring performance as a function of a single parameter, generally the size of the input, but it is not unusual to have several parameters
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\pause
-
-Coping with dependence on inputs
-\begin{itemize}
-\item Carefully model the kind of input to be processed in the problems that we need to solve
-
-\item Take an extremely pessimistic view of the performance of algorithms, and seek the running time in the worst case
-
-\item An important way to provide a performance guarantee is to introduce randomness
-
-\item For many applications, the algorithm ``input'' might be not just data, but the sequence of operations performed by the client
-
-\item Amortize the cost by keeping track of the total cost of all operations, divided by the number of operations
-\end{itemize}
 \end{frame}
 
 \section{Space Complexity}

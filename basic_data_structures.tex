@@ -274,8 +274,8 @@ public class LinkedBag<Item> implements Iterable<Item> {
     private int N;
 
     private class Node {
-        private Item item;
-        private Node next;
+        Item item;
+        Node next;
     }
 
     public LinkedBag() {
@@ -440,6 +440,11 @@ public class LinkedQueue<Item> implements Iterable<Item> {
     private int N; 
     private Node first; 
     private Node last; 
+
+    private class Node {
+        Item item;
+        Node next;
+    }
 
     public LinkedQueue() {
         first = null;
@@ -638,6 +643,11 @@ public class LinkedStack<Item> implements Iterable<Item> {
     private int N; 
     private Node first; 
     
+    private class Node {
+        Item item;
+        Node next;
+    }
+
     public LinkedStack() {
         first = null; 
         N = 0;
@@ -654,11 +664,6 @@ public class LinkedStack<Item> implements Iterable<Item> {
         first.next = oldfirst;
         N++;
     }
-
-    public Item peek() {
-        if (isEmpty()) { throw new NoSuchElementException(); }
-        return first.item;
-    }
 \end{lstlisting}
 \end{frame}
 
@@ -666,6 +671,11 @@ public class LinkedStack<Item> implements Iterable<Item> {
 \pause
 
 \begin{lstlisting}[language=Java]
+    public Item peek() {
+        if (isEmpty()) { throw new NoSuchElementException(); }
+        return first.item;
+    }
+    
     public Item pop() {
         if (isEmpty()) { throw new NoSuchElementException(); }
         Item item = first.item; 

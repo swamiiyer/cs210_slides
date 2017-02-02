@@ -361,6 +361,20 @@ method & description \\ \hline
 $\dots$ & $\dots$
 \end{tabular} 
 \end{center}
+
+\pause
+\bigskip
+
+Example
+\begin{lstlisting}[language=Java]
+public static boolean isPalindrome(String s) {
+    if (s.length() == 0) {
+        return true;
+    } 
+    return s.charAt(0) == s.charAt(s.length() - 1) && 
+        isPalindrome(s.substring(1, s.length() - 1));
+}
+\end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -389,6 +403,61 @@ method & description \\ \hline
 \lstinline$void union(int p, int q)$ & add connection between $p$ and $q$
 \end{tabular} 
 \end{center} 
+\end{minipage}%
+\begin{minipage}{60pt}
+\hfill \visible<2->{\includegraphics[scale=0.35]{./figures/dyn_conn.pdf}}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{minipage}{250pt}
+
+\pause
+\smallskip
+
+\lstinline{UF} client
+\begin{lstlisting}[language=Java]
+import edu.princeton.cs.algs4.WeightedQuickUnionUF;
+import edu.princeton.cs.algs4.StdIn;
+import edu.princeton.cs.algs4.StdOut;
+
+public class UFClient {
+    public static void main(String[] args) {
+        int N = StdIn.readInt();
+        WeightedQuickUnionUF uf = new WeightedQuickUnionUF(N);
+        while (!StdIn.isEmpty()) {
+            int p = StdIn.readInt();
+            int q = StdIn.readInt();
+            if (uf.connected(p, q)) { continue; }
+            uf.union(p, q);
+            StdOut.println(p + " " + q);
+        }
+        StdOut.println(uf.count() + " components");
+    }
+}
+\end{lstlisting}
+    
+\pause
+
+\begin{lstlisting}[language={}]
+$ more tinyUF.txt
+10 4 3 3 8 6 5 9 4 2 1 8 9 5 0 7 2 6 1 1 0 6 7
+\end{lstlisting}    
+
+\pause
+
+\begin{lstlisting}[language={}]
+$ java UFClient < tinyUF.txt 
+4 3
+3 8
+6 5
+9 4
+2 1
+5 0
+7 2
+6 1
+2 components
+\end{lstlisting}
 \end{minipage}%
 \begin{minipage}{60pt}
 \hfill \visible<2->{\includegraphics[scale=0.35]{./figures/dyn_conn.pdf}}
@@ -524,27 +593,6 @@ public class Counter implements Comparable<Counter> {
 \end{frame}
 
 \section{Data-type Design}
-\begin{frame}[fragile]
-\pause
-
-Encapsulation enables modular programming, allowing us to
-\begin{itemize}
-\item Independently develop client and implementation code
-\item Substitute improved implementations without affecting clients
-\item Support programs not yet written (the API is a guide for any future client)
-\end{itemize}
-
-\pause
-\bigskip
-
-We write every program as though we will reuse the code someday, and articulate an API for our program, providing to clients only the methods they need and no others
-
-\pause
-\bigskip
-
-Data abstraction provides a natural framework for precisely specifying both what an algorithm needs to accomplish and how a client can make use of the algorithm
-\end{frame}
-
 \begin{frame}[fragile]
 \pause
 

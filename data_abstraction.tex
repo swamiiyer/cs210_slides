@@ -787,7 +787,7 @@ public class Fibonacci implements Iterable<Long> {
         private int count = 0;
         private long a = 1, b = 1;
 
-        public boolean hasNext() { return count <= n; }
+        public boolean hasNext() { return count < n; }
 
         public Long next() {
             count++;
@@ -824,7 +824,6 @@ $ java Fibonacci 10
 21
 34
 55
-89
 \end{lstlisting}
 \end{frame}
 

@@ -13,7 +13,7 @@
    height="332.30212"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="merge_trace.svg">
   <defs
      id="defs4" />
@@ -26,14 +26,14 @@
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
      inkscape:cx="372.39453"
-     inkscape:cy="136.07524"
+     inkscape:cy="193.2181"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1364"
-     inkscape:window-height="710"
-     inkscape:window-x="1"
-     inkscape:window-y="1"
+     inkscape:window-width="1366"
+     inkscape:window-height="711"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -47,7 +47,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -114,17 +114,6 @@
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
-       x="133.79739"
-       y="98.45018"
-       id="text3018-7"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan3020-1"
-         x="133.79739"
-         y="98.45018">E  E  G  M  R  A  C  E  R  T</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
        x="463.94025"
        y="97.735901"
        id="text3018-6"
@@ -133,18 +122,6 @@
          id="tspan3020-3"
          x="463.94025"
          y="97.735901">E  E  G  M  R  A  C  E  R  T</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
-       x="463.94025"
-       y="77.735901"
-       id="text3018-2"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan3020-34"
-         x="463.94025"
-         y="77.735901"
-         style="font-weight:bold;fill:#999999;-inkscape-font-specification:Courier Bold">-  -  -  -  -  -  -  -  -  -</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier Bold"
@@ -431,8 +408,8 @@
        id="path3436"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:#800000;stroke:#800000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 249.85714,67.362182 0.71429,34.285718"
+       style="fill:#800000;stroke:#800000;stroke-width:0.67087609px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 249.84633,67.373202 0.73591,14.977963"
        id="path3438"
        inkscape:connector-curvature="0" />
     <text

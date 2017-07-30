@@ -426,14 +426,8 @@ A static method is composed of the keywords \lstinline{public static} followed b
 Example (primality testing)
 \begin{lstlisting}[language=Java]
 public static boolean isPrime(int N) {
-    if (N < 2) {
-        return false;
-    }
-    for (int i = 2; i <= N / i; i++) {
-        if (N % i == 0) {
-            return false;
-        }
-    }
+    if (N < 2) { return false; }
+    for (int i = 2; i <= N / i; i++) { if (N % i == 0) { return false; } }
     return true;
 }
 \end{lstlisting}
@@ -451,12 +445,6 @@ When a method call is part of an expression, the method computes a value and tha
 \pause
 \bigskip
 
-A method call followed by a semicolon is a statement that generally causes side effects
-\end{frame}
-
-\begin{frame}[fragile]
-\pause
-
 Properties of methods
 \begin{itemize}
 \item Arguments are passed by value
@@ -464,9 +452,10 @@ Properties of methods
 \item A method has a single return value but may have multiple return statements
 \item A method can have side effects
 \end{itemize}
+\end{frame}
 
+\begin{frame}[fragile]
 \pause
-\bigskip
 
 A recursive method is one that calls itself, has a base case, addresses subproblems that are smaller in some sense, and does not address subproblems that overlap
 
@@ -474,21 +463,57 @@ A recursive method is one that calls itself, has a base case, addresses subprobl
 \bigskip
 
 Example of good recursion (computing $N!$)
+\[
+N! = \begin{dcases*}
+N(N-1)! & if $N > 0$, and \\
+1       & if $N=0$
+\end{dcases*}
+\]
+
 \begin{lstlisting}[language=Java]
-public static int factorial(int N) {
-    return (N == 0) ? 1 : N * factorial(N - 1); 
+public static int f(int N) {
+    return (N == 0) ? 1 : N * f(N - 1); 
 }
 \end{lstlisting}
 
+Call trace for \lstinline{f(5)}
+\begin{lstlisting}[language={}]
+f(5)
+  f(4)
+    f(3)
+      f(2)
+        f(1)
+          f(0)
+            return 1
+          return 1 * 1 = 1            
+        return 2 * 1 = 2
+      return 3 * 2 = 6
+    return 4 * 6 = 24
+  return 5 * 24 = 120
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
 \pause
-\bigskip
 
 Example of bad recursion (computing $N$th Fibonacci number)
+\[
+f(N) = \begin{dcases*}
+f(N-1) + f(N-2) & if $N > 1$, and \\
+1       & if $N=0$ or $N=1$
+\end{dcases*}
+\]
+
 \begin{lstlisting}[language=Java]
-public static int fibonacci(int N) {
-    return (N == 0 || N == 1) ? 1 : fibonacci(N - 1) + fibonacci(N - 2); 
+public static int f(int N) {
+    return (N == 0 || N == 1) ? 1 : f(N - 1) + f(N - 2); 
 }
 \end{lstlisting}
+
+Call trace for \lstinline{f(5)}
+\begin{center}
+\visible<2->{\includegraphics[scale=0.6]{figures/fib_trace.pdf}}
+\end{center}
 \end{frame}
 
 \begin{frame}[fragile]

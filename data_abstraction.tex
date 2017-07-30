@@ -523,42 +523,6 @@ method & description \\ \hline
 
 \pause
 
-\lstinline{edu.princeton.cs.algs4.Counter} client
-\begin{lstlisting}[language=Java]
-import edu.princeton.cs.algs4.Counter;
-import edu.princeton.cs.algs4.StdOut;
-import edu.princeton.cs.algs4.StdRandom;
-
-public class Flips {
-    public static void main(String[] args) {
-        int T = Integer.parseInt(args[0]);
-        Counter heads = new Counter("heads");
-        Counter tails = new Counter("tails");
-        for (int t = 0; t < T; t++) {
-            if (StdRandom.bernoulli(0.5)) { heads.increment(); }
-            else { tails.increment(); }
-        }
-        StdOut.println(heads);
-        StdOut.println(tails);
-        int delta = heads.tally() - tails.tally();
-        StdOut.println("delta: " + Math.abs(delta));
-    }
-}
-\end{lstlisting}
-
-\pause
-
-\begin{lstlisting}[language={}]
-$ java Flips 1000000
-499422 heads
-500578 tails
-delta: 1156
-\end{lstlisting}
-\end{frame}
-
-\begin{frame}[fragile]
-\pause
-
 \lstinline{edu.princeton.cs.algs4.Counter} implementation
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
@@ -567,21 +531,13 @@ public class Counter implements Comparable<Counter> {
     private final String id;
     private int count;
 
-    public Counter(String id) { 
-        this.id = id; 
-    }
+    public Counter(String id) { this.id = id; }
 
-    public void increment() { 
-        count++; 
-    }
+    public void increment() { count++; }
 
-    public int tally() { 
-        return count; 
-    }
+    public int tally() { return count; }
 
-    public String toString() { 
-        return tally() + " " + id; 
-    }
+    public String toString() { return tally() + " " + id; }
     
     public int compareTo(Counter that) {
         if      (this.count < that.count) { return -1; }
@@ -607,7 +563,7 @@ Comparison interfaces
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
-\lstinline$int compareTo(T o)$ & compare the object with $o$ for order
+\lstinline$int compareTo(T o)$ & \makecell{compare $this$ with $o$ for order, and return a negative \\ integer, zero, or positive integer based on the comparison}
 \end{tabular} 
 \end{center}
 
@@ -615,7 +571,7 @@ method & description \\ \hline
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
-\lstinline$int compare(T o1, T o2)$ & compare $o_1$ and $o_2$ for order
+\lstinline$int compare(T o1, T o2)$ & \makecell{compare $o_1$ and $o_2$ for order, and return a negative \\ integer, zero, or positive integer based on \\ the comparison}
 \end{tabular} 
 \end{center}
 \end{itemize}

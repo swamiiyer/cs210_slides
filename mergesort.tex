@@ -135,7 +135,7 @@ The \lstinline{MergeX} variant from the text implements the following improvemen
 \begin{itemize}
 \item Handles tiny subarrays using insertion sort
 \item Reduces the running time to be linear for arrays that are already in order by adding a test to skip the call to \lstinline$merge()$ if \lstinline$a[mid]$ is less than or equal to \lstinline$a[mid + 1]$
-\item Eliminates the time (but not the space) taken to copy to the auxiliary array used for merging by using two invocations of the sort method: one that takes its input from the given array and puts the sorted output in the auxiliary array; the other that takes its input from the auxiliary array and puts the sorted output in the given array
+\item Eliminates the time taken to copy to the auxiliary array by switching the role of the input and auxiliary array in each recursive call
 \end{itemize}
 \end{frame}
 
@@ -143,7 +143,22 @@ The \lstinline{MergeX} variant from the text implements the following improvemen
 \begin{frame}[fragile]
 \pause
 
-No comparison-based sorting algorithm can guarantee to sort $N$ items with fewer than $\lg N! \sim N\lg N$ comparisons (see p. 280 of the text for a nice proof of this proposition)
+No comparison-based sorting algorithm can guarantee to sort $N$ items with fewer than $\lg N! \sim N\lg N$ comparisons
+
+\pause
+\bigskip
+
+\begin{minipage}{150pt}
+Proof: \begin{itemize}
+\item Assume array consists of $N$ distinct values $a_1$ through $a_N$
+\item Worst case dictated by height $h$ of decision tree
+\item Binary tree of height $h$ has at most $2^h$ leaves
+\item $N!$ different orderings $\implies$ at least $N!$ leaves
+\end{itemize}
+\end{minipage}
+\begin{minipage}{150pt}
+\visible<3->{\includegraphics[scale=0.3]{figures/decision_tree.pdf}}
+\end{minipage}
 
 \pause
 \bigskip

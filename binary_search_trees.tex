@@ -521,7 +521,7 @@ Symbol table operations summary
 operation & unordered linked list & ordered array & BST \\ \hline
 search & $N$ & $\lg N$ & $h^\dagger$ \\
 insert & $N$ & $N$ & $h$ \\
-delete & $N$ & $N$ & $N^{\dagger\dagger}$ \\
+delete & $N$ & $N$ & $\sqrt{N}^{\dagger\dagger}$ \\
 min/max & - & 1 & $h$ \\
 floor/ceiling & - & $\lg N$ & $h$\\
 rank & - & $\lg N$ & $h$ \\
@@ -533,7 +533,7 @@ ordered iteration & - & $N$ & $N$
 
 \tiny $\dagger$ $h$ is the height of BST, proportional to $\lg N$ if keys inserted in random order
 
-$\dagger\dagger$ $\sqrt{N}$ in the average case; other operations also become $\sqrt{N}$ if deletions are allowed
+$\dagger\dagger$ other operations also become $\sqrt{N}$ if deletions are allowed
 \end{center}
 \end{frame}
 \end{document}

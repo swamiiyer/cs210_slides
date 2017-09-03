@@ -451,7 +451,7 @@ Symbol table operations summary
 operation & BST & red-black BST \\ \hline
 search & $h^\dagger$ & $2\lg N$ \\
 insert & $h$ & $2\lg N$ \\
-delete & $N^{\dagger\dagger}$ & $2\lg N$ \\
+delete & $\sqrt{N}^{\dagger\dagger}$ & $2\lg N$ \\
 min/max & $h$ & $2\lg N$ \\
 floor/ceiling & $h$ & $2\lg N$ \\
 rank & $h$ & $2\lg N$ \\
@@ -463,7 +463,7 @@ ordered iteration & $N$ & $N$
 
 \tiny $\dagger$ $h$ is the height of BST, proportional to $\lg N$ if keys inserted in random order
 
-$\dagger\dagger$ $\sqrt{N}$ in the average case; other operations also become $\sqrt{N}$ if deletions are allowed
+$\dagger\dagger$ $\sqrt{N}$ other operations also become $\sqrt{N}$ if deletions are allowed
 \end{center} 
 \end{frame}
 \end{document}

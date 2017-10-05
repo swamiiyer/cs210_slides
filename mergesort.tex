@@ -151,9 +151,11 @@ No comparison-based sorting algorithm can guarantee to sort $N$ items with fewer
 \begin{minipage}{150pt}
 Proof: \begin{itemize}
 \item Assume array consists of $N$ distinct values $a_1$ through $a_N$
-\item Worst case dictated by height $h$ of decision tree
+\item Worst-case number of compares is dictated by height $h$ of decision tree
 \item Binary tree of height $h$ has at most $2^h$ leaves
 \item $N!$ different orderings $\implies$ at least $N!$ leaves
+\item $N! \leq \text{number of leaves} \leq 2^h$
+\item $\lg N! \leq h$, or using Stirling's approximation, $N\lg N \leq h$
 \end{itemize}
 \end{minipage}
 \begin{minipage}{150pt}

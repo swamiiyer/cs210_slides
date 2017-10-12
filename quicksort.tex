@@ -153,6 +153,10 @@ package edu.princeton.cs.algs4;
 import java.util.Comparator;
 
 public class Quick3way {
+    public static void sort(Comparable[] a) {
+        sort(a, 0, a.length - 1);
+    }
+
     private static void sort(Comparable[] a, int lo, int hi) { 
         if (hi <= lo) return;
         int lt = lo, gt = hi;

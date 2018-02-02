@@ -188,7 +188,7 @@ We write $g(N) \sim f(N)$ (called tilde approximation) to represent any function
 \pause
 \bigskip
 
-Most often, we work with tilde approximations of the form $g(N)\sim af(N)$ where $f(N)=N^b(\log N)^c$ with $a, b$, and $c$ constants and refer to $f(N)$ as the order of growth of $g(N)$
+Most often, we work with tilde approximations of the form $g(N)\sim af(N)$ where $f(N)=N^b(\log N)^c$ and $a, b$, and $c$ are constants; we refer to $f(N)$ as the order of growth of $g(N)$
 \end{frame}
 
 \begin{frame}[fragile]
@@ -217,11 +217,11 @@ public static int count(int[] a) {
 \begin{center}
 \begin{tabular}{cccc}
 statement block & time & frequency & total time\\ \hline
-$[E]$ & $t_0$ & $x$ (depends on input) & $t_0x$ \\
-$[D]$ & $t_1$ & $N^3/6-N^2/2+N/3$  & $t_1(N^3/6-N^2/2+N/3)$ \\
-$[C]$ & $t_2$ & $N^2/2-N/2$  & $t_2(N^2/2-N/2)$ \\
+$[A]$ & $t_4$ & $1$  & $t_4$ \\
 $[B]$ & $t_3$ & $N$  & $t_3N$ \\
-$[A]$ & $t_4$ & $1$  & $t_4$ 
+$[C]$ & $t_2$ & $N^2/2-N/2$  & $t_2(N^2/2-N/2)$ \\
+$[D]$ & $t_1$ & $N^3/6-N^2/2+N/3$  & $t_1(N^3/6-N^2/2+N/3)$ \\
+$[E]$ & $t_0$ & $x$ (depends on input) & $t_0x$
 \end{tabular} 
 \end{center}
 
@@ -254,7 +254,13 @@ For many programs, developing a mathematical model of order of growth reduces to
 \pause
 \bigskip
 
-For \lstinline{ThreeSum}, the input model is $N$ numbers; the inner loop is the if-statement inside a triply nested \lstinline{for} loop; the cost model is the number of array accesses; and the number of array accesses is $N^3/2$
+For \lstinline{ThreeSum}
+\begin{itemize}
+\item The input model is $N$ numbers
+\item The inner loop is the if-statement inside a triply nested \lstinline{for} loop
+\item The cost model is the number of array accesses
+\item The frequency of array accesses is $N^3/2$
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -399,12 +405,12 @@ $ java edu.princeton.cs.algs4.BinarySearch tinyW.txt < tinyT.txt
 \pause
 \bigskip
 
-Binary search order of growth: $\lg N + 1$ 
+Binary search order of growth: $\lg N$ 
 
 \pause
 \bigskip
 
-Whitelisting order of growth: $M(\lg N + 1)$, where $M$ is the number of calls to \lstinline{BinarySearch.indexOf()}
+Whitelisting order of growth: $M\lg N$, where $M$ is the number of calls to \lstinline{BinarySearch.indexOf()}, ie, the number of binary searches
 \end{frame}
 
 \begin{frame}[fragile]

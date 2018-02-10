@@ -112,12 +112,12 @@ Trace of partition operation
 \begin{frame}[fragile]
 \pause
 
-Quick sort uses $\sim 2N\ln N$ comparisons and $\sim N/3\ln N$ exchanges on the average to sort an array of length $N$ with distinct keys
+Quick sort uses $\sim N\ln N$ comparisons and $\sim N\ln N$ exchanges
 
 \pause
 \bigskip
 
-In the worst case, quick sort uses $\sim N^2/2$ comparisons, but random shuffling protects against this case
+In the worst case, quick sort uses $\sim N^2$ comparisons, but random shuffling protects against this case
 \end{frame}
 
 \section{Algorithmic Improvements}
@@ -137,7 +137,7 @@ where the optimum value of the cutoff $M$ is system-dependent, but any value bet
 \pause
 \bigskip
 
-A second easy way to improve the performance of quick sort is to use the median of a small sample of items (usually three) taken from the subarray as the partitioning item
+Another easy way to improve the performance of quick sort is to use the median of a small sample of items (usually three) taken from the subarray as the partitioning item
 \end{frame}
 
 \begin{frame}[fragile]
@@ -207,7 +207,7 @@ No comparison-based sorting algorithm can guarantee to sort $N$ items with fewer
 \pause
 \bigskip
 
-3-way quick sort uses $\sim (2\ln 2)NH$ comparisons to sort $N$ items, where $H$ is the Shannon entropy, defined from the frequencies of key values
+3-way quick sort uses $\sim NH$ comparisons to sort $N$ items, where $H$ is the Shannon entropy, defined from the frequencies of key values
 \end{frame}
 
 \section{Quick Sort and Other Sorts}

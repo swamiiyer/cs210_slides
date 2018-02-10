@@ -115,12 +115,7 @@ Trace of merge sort
 \begin{frame}[fragile]
 \pause
 
-Top-down merge sort uses between $1/2N\lg N$ and $N\lg N$ comparisons and at most $6N\lg N$ array accesses to sort an array of length $N$
-
-\pause
-\bigskip
-
-Merge sort guarantees to sort an array of $N$ items in time proportional to $N \lg N$, no matter what the input
+Top-down merge sort uses $\sim N\lg N$ comparisons and $\sim N\lg N$ array accesses
 
 \pause
 \bigskip
@@ -151,7 +146,7 @@ No comparison-based sorting algorithm can guarantee to sort $N$ items with fewer
 \begin{minipage}{150pt}
 Proof: \begin{itemize}
 \item Assume array consists of $N$ distinct values $a_1$ through $a_N$
-\item Worst-case number of compares is dictated by height $h$ of decision tree
+\item Worst-case number of comparisons is dictated by height $h$ of decision tree
 \item Binary tree of height $h$ has at most $2^h$ leaves
 \item $N!$ different orderings $\implies$ at least $N!$ leaves
 \item $N! \leq \text{number of leaves} \leq 2^h$
@@ -165,7 +160,7 @@ Proof: \begin{itemize}
 \pause
 \bigskip
 
-Merge sort is an asymptotically optimal comparison-based sorting algorithm, since the number of comparisons used by merge sort in the worst case is $\sim N\lg N$
+Merge sort is an asymptotically optimal comparison-based sorting algorithm, since the number of comparisons used by merge sort is $\sim N\lg N$
 \end{frame}
 
 \section{Merge Sort and Other Sorts}

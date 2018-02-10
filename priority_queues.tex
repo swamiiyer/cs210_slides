@@ -263,7 +263,7 @@ public class MaxPQ<Key> implements Iterable<Key> {
     }
 
     public Key max() {
-        if (isEmpty()) { throw new NoSuchElementException("..."); }
+        if (isEmpty()) { throw new NoSuchElementException(); }
         return pq[1];
     }
 \end{lstlisting}
@@ -274,7 +274,7 @@ public class MaxPQ<Key> implements Iterable<Key> {
 
 \begin{lstlisting}[language=Java]    
     public Key delMax() {
-        if (isEmpty()) { throw new NoSuchElementException("..."); }
+        if (isEmpty()) { throw new NoSuchElementException(); }
         Key max = pq[1];
         exch(1, N--);
         sink(1);
@@ -308,7 +308,7 @@ public class MaxPQ<Key> implements Iterable<Key> {
 \begin{frame}[fragile]
 \pause
 
-In an $N$-key priority queue, the heap algorithms require no more than $1 + \lg N$ comparisons for insert and no more than $2 \lg N$ comparisons for remove the minimum (or maximum)
+In an $N$-key priority queue, the heap algorithms require $\sim \lg N$ comparisons for insert and $\sim \lg N$ comparisons for remove the minimum (or maximum)
 
 \pause
 \bigskip
@@ -431,6 +431,6 @@ public class Heap {
 \pause
 \bigskip
 
-Heap sort uses fewer than $2N \lg N + 2N$ comparisons and half as many exchanges to sort $N$ items
+Heap sort uses $\sim N \lg N$ comparisons and $\sim N \lg N$ exchanges
 \end{frame}
 \end{document}

@@ -242,10 +242,8 @@ We can use sorting algorithms to solve other problems --- a technique in algorit
 
 Examples
 \begin{itemize}
-\item Duplicates: finding duplicate keys in an array of \lstinline$Comparable$ objects
-\item Rankings: finding the Kendall tau distance between two rankings (aka permutations), defined as the number of pairs that are in different order in the two rankings
-\item Priority-queue reductions: finding $M$ items in an input stream with the highest keys or merging $M$ sorted input streams together to make a sorted output stream
-\item Median and order statistics: finding the median (the value with the property that half the keys are no larger and half the keys are no smaller) and other order statistics of a collection of keys
+\item Duplicates: finding duplicates in a collection of keys
+\item Median: finding the median (the value with the property that half the keys are no larger and half the keys are no smaller) of a collection of keys
 \end{itemize}
 \end{frame}
 
@@ -253,35 +251,14 @@ Examples
 \begin{frame}[fragile]
 \pause
 
-Commercial computing: government organizations, financial institutions, and commercial enterprises organize much of their information by sorting it
-
-\pause
-\bigskip
-
 Search for information: keeping data in sorted order makes it possible to efficiently search through it using binary search
 
 \pause
 \bigskip
 
-The classic operations research (a field that develops and applies mathematical models for problem-solving and decision-making) problem known as scheduling makes use of sorting to produce sub-optimal schedules
-
-\pause
-\bigskip
-
-Event-driven simulation: many scientific applications involve simulation, where the point of the computation is to model some aspect of the real world in order to be able to better understand it, and such applications often make use of priority queues
-
-\pause
-\bigskip
-
-Numerical computations: scientific computing is often concerned with accuracy, and some numerical algorithms use priority queues and sorting to control accuracy in calculations
-\end{frame}
-
-\begin{frame}[fragile]
-\pause
-
 Combinatorial search: a classic paradigm in artificial intelligence and in coping with intractable problems is
 \begin{itemize}
-\item To define a set of configurations with well-defined moves from one configuration to the next; a priority associated with each move; a start configuration; and a goal configuration  
+\item To define: a set of configurations with well-defined moves from one configuration to the next; a priority for each move; a start configuration; and a goal configuration  
 
 \item And then apply the well-known $A^\star$ algorithm, which uses a priority queue, to solve the problem
 \end{itemize}
@@ -289,7 +266,7 @@ Combinatorial search: a classic paradigm in artificial intelligence and in copin
 \pause
 \bigskip
 
-Graph algorithms: priority queues play a fundamental role in graph-search algorithms, such as Dijkstra's and Prim's algorithms, where we proceed from item to item along edges
+Graph algorithms: priority queues play a fundamental role in graph-search algorithms, such as Kruskal's and Dijkstra's algorithms, where we proceed from item to item along edges
 
 \pause
 \bigskip

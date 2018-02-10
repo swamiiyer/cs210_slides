@@ -169,7 +169,7 @@ Trace (right before the call to \lstinline{exch()})
 \begin{frame}[fragile]
 \pause
 
-Selection sort uses $\sim N^2/2$ comparisons and $N$ exchanges to sort an array of length $N$
+Selection sort uses $\sim N^2$ comparisons and $N$ exchanges
 
 \pause
 \bigskip
@@ -216,22 +216,12 @@ Trace (right after the inner loop is exhausted)
 \begin{frame}[fragile]
 \pause
 
-Insertion sort uses $\sim N^2 /4$ comparisons and $\sim N^2 /4$ exchanges to sort a randomly ordered array of length $N$ with distinct keys, on the average
+Insertion sort uses $\sim N^2$ comparisons and $\sim N^2$ exchanges
 
 \pause
 \bigskip
 
-The worst case is $\sim N^2 /2$ comparisons and $\sim N^2/2$ exchanges
-
-\pause
-\bigskip
-
-The best case is $N-1$ comparisons and 0 exchanges
-
-\pause
-\bigskip
-
-Insertion sort is an excellent method for partially-sorted arrays and is also a fine method for tiny arrays
+Insertion sort is an excellent method for partially-sorted arrays and also for tiny arrays
 \end{frame}
 
 \section{Shell Sort}
@@ -283,12 +273,12 @@ Trace (right after each $h$-sort)
 \begin{frame}[fragile]
 \pause
 
-The worst-case number of comparisons is proportional to $N^{6/5}$
+Shell short uses $\sim N^{6/5}$ comparisons in the worst case, ie, for reverse ordered input
 
 \pause
 \bigskip
 
-No mathematical results are available for the average-case number of comparisons for randomly ordered input
+No mathematical results are available for the number of comparisons in the average case, ie, for randomly ordered input
 \end{frame}
 
 \section{Visualizing Sorting Algorithms}

@@ -61,6 +61,7 @@ Basic symbol table
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
+\lstinline$ST()$ & initialize an empty symbol table \\
 \lstinline$int size()$ & number of key-value pairs in the table \\
 \lstinline$boolean isEmpty()$ & is the table empty? \\
 \lstinline$boolean contains(Key key)$ & is there a value paired with $key$? \\
@@ -79,6 +80,7 @@ Ordered symbol table
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
+\lstinline$ST()$ & initialize an empty symbol table \\
 \lstinline$int size()$ & number of key-value pairs in the table \\
 \lstinline$boolean isEmpty()$ & is the table empty? \\
 \lstinline$boolean contains(Key key)$ & is there a value paired with $key$? \\
@@ -212,20 +214,16 @@ public class SequentialSearchST<Key, Value> {
         }
     }
 
-    public SequentialSearchST() { }
+    public SequentialSearchST() { 
+        N = 0; 
+        first = null; 
+    }
 
     public int size() { return N; }
 
     public boolean isEmpty() { return size() == 0; }
 
     public boolean contains(Key key) { return get(key) != null; }
-
-    public Value get(Key key) {
-        for (Node x = first; x != null; x = x.next) {
-            if (key.equals(x.key)) { return x.val; }
-        }
-        return null;
-    }
 \end{lstlisting}
 \end{frame}
 
@@ -233,6 +231,13 @@ public class SequentialSearchST<Key, Value> {
 \pause
 
 \begin{lstlisting}[language=Java]
+    public Value get(Key key) {
+        for (Node x = first; x != null; x = x.next) {
+            if (key.equals(x.key)) { return x.val; }
+        }
+        return null;
+    }
+    
     public void put(Key key, Value val) {
         if (val == null) { delete(key); return; }
         for (Node x = first; x != null; x = x.next) {
@@ -278,13 +283,12 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
     private static final int INIT_CAPACITY = 2;
     private Key[] keys;
     private Value[] vals;
-    private int N = 0;
+    private int N;
 
-    public BinarySearchST() { this(INIT_CAPACITY); }   
-
-    public BinarySearchST(int capacity) { 
-        keys = (Key[]) new Comparable[capacity]; 
-        vals = (Value[]) new Object[capacity]; 
+    public BinarySearchST() { 
+        keys = (Key[]) new Comparable[INIT_CAPACITY]; 
+        vals = (Value[]) new Object[INIT_CAPACITY]; 
+        N = 0;
     }   
 
     private void resize(int capacity) {
@@ -294,8 +298,8 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
             tempk[i] = keys[i];
             tempv[i] = vals[i];
         }
-        vals = tempv;
         keys = tempk;
+        vals = tempv;
     }
 
     public boolean contains(Key key) { return get(key) != null; }
@@ -442,10 +446,8 @@ Cost summary for symbol table implementations
 \begin{center}
 \begin{tabular}{ccc}
 operation & unordered linked list & ordered array \\ \hline
-search (worst case) & $N$ & $\lg N$ \\
-insert (worst case) & $N$ & $2N$ \\
-search (average case) & $N/2$ & $\lg N$ \\
-insert (average case) & $N$ & $N$ \\
+search & $N$ & $\lg N$ \\
+insert & $N$ & $N$ \\
 efficiently supports ordered operations? & no & yes
 \end{tabular} 
 \end{center}

@@ -87,6 +87,35 @@ public class Transaction implements Comparable<Transaction> {
     private final Date   when; 
     private final double amount;
 
+   public Transaction(String who, Date when, double amount) {
+        this.who    = who;
+        this.when   = when;
+        this.amount = amount;
+    }
+
+    public Transaction(String transaction) {
+        String[] a = transaction.split("\\s+");
+        who    = a[0];
+        when   = new Date(a[1]);
+        amount = Double.parseDouble(a[2]);
+    }
+    
+    public String toString() {
+        return String.format("%-10s %10s %8.2f", who, when, amount);
+    }
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+
+\begin{lstlisting}[language=Java]
+    public int compareTo(Transaction that) {
+        if      (this.amount < that.amount) { return -1; }
+        else if (this.amount > that.amount) { return +1; }
+        else                                { return  0; }
+    }    
+
     public static class WhoOrder implements Comparator<Transaction> {
         public int compare(Transaction v, Transaction w) { 
             return v.who.compareTo(w.who); 
@@ -223,7 +252,7 @@ heap & no & yes & $N\log N$ & 1
 \pause
 \bigskip
 
-In some performance-critical applications, the focus may be on sorting numbers, and in such cases, we can develop efficient versions of our sorting programs by replacing \lstinline$Comparable$ with the primitive type name, and redefining \lstinline$less()$ or just replacing calls to \lstinline$less()$ with code like \lstinline$a[i] < a[j]$
+For sorting numbers, we can develop efficient versions of our sorting programs by replacing \lstinline$Comparable$ with the primitive type name, and redefining \lstinline$less()$ or just replacing calls to \lstinline$less()$ with code like \lstinline$a[i] < a[j]$
 
 \pause
 \bigskip

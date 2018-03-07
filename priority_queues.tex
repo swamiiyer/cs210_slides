@@ -1,4 +1,4 @@
-\documentclass[8pt,a4paper,compress]{beamer}
+\documentclass[8pt,a4paper,compress,handout]{beamer}
 
 \usepackage{/home/siyer/lib/slides}
 
@@ -236,14 +236,12 @@ Remove the maximum: take the largest key off the top, put the item from the end 
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
 
-import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class MaxPQ<Key> implements Iterable<Key> {
     private Key[] pq;
     private int N;
-    private Comparator<Key> comparator; 
     
     public MaxPQ(int capacity) {
         pq = (Key[]) new Object[capacity + 1];
@@ -289,9 +287,10 @@ public class MaxPQ<Key> implements Iterable<Key> {
         private MaxPQ<Key> copy;
 
         public HeapIterator() {
-            if (comparator == null) { copy = new MaxPQ<Key>(size()); }
-            else { copy = new MaxPQ<Key>(size(), comparator); }
-            for (int i = 1; i <= N; i++) { copy.insert(pq[i]); }
+            copy = new MaxPQ<Key>(size());
+            for (int i = 1; i <= N; i++) { 
+                copy.insert(pq[i]); 
+            }
         }
 
         public boolean hasNext() { return !copy.isEmpty(); }
@@ -309,16 +308,6 @@ public class MaxPQ<Key> implements Iterable<Key> {
 \pause
 
 In an $N$-key priority queue, the heap algorithms require $\sim \lg N$ comparisons for insert and $\sim \lg N$ comparisons for remove the minimum (or maximum)
-
-\pause
-\bigskip
-
-It is not difficult to modify our code to build heaps based on an array representation of complete heap-ordered ternary trees, and not much more difficult to use $d$-ary heaps for any given $d$
-
-\pause
-\bigskip
-
-The priority queue contains objects that are created by clients but assumes that client code does not change the keys (which might invalidate the heap-order invariant)
 
 \pause
 \bigskip
@@ -407,8 +396,6 @@ To sort in place, heapify \lstinline$a[]$ containing $N$ items to a maximum-orie
 \begin{lstlisting}[language=Java]
 package edu.princeton.cs.algs4;
 
-import java.util.Comparator;
-
 public class Heap {
     public static void sort(Comparable[] a) {
         int N = a.length;
@@ -432,5 +419,57 @@ public class Heap {
 \bigskip
 
 Heap sort uses $\sim N \lg N$ comparisons and $\sim N \lg N$ exchanges
+\end{frame}
+
+\section{Heap Sort and Other Sorts}
+\begin{frame}[fragile]
+\pause
+
+A comparison of heap sort and insertion sort
+\begin{lstlisting}[language={}]
+$ java SortCompare Heap Insertion 10000 100
+For 10000 random Doubles
+    Heap is 58.4 times faster than Insertion
+\end{lstlisting}
+
+\pause
+\bigskip
+
+A comparison of heap sort and shell sort
+\begin{lstlisting}[language={}]
+$ java SortCompare Heap Shell 10000 100
+For 10000 random Doubles
+    Heap is 164.8 times faster than Shell
+\end{lstlisting}
+
+\pause
+\bigskip
+
+A comparison of heap sort and merge sort
+\begin{lstlisting}[language={}]
+$ java SortCompare Heap Merge 10000 100
+For 10000 random Doubles
+    Heap is 1.1 times faster than Merge
+\end{lstlisting}
+
+\pause
+\bigskip
+
+A comparison of heap sort and quick sort
+\begin{lstlisting}[language={}]
+$ java SortCompare Heap Quick 10000 100
+For 10000 random Doubles
+    Heap is 0.9 times faster than Quick
+\end{lstlisting}
+
+\pause
+\bigskip
+
+A comparison of heap sort and system sort
+\begin{lstlisting}[language={}]
+$ java SortCompare Heap System 10000 100
+For 10000 random Doubles
+    Heap is 1.8 times faster than System
+\end{lstlisting}
 \end{frame}
 \end{document}

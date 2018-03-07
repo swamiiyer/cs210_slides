@@ -76,7 +76,20 @@ import java.util.NoSuchElementException;
 public class BST<Key extends Comparable<Key>, Value> {
     private Node root;
     
-    public BST() {}
+    private class Node {
+    private Key key; 
+    private Value val; 
+    private Node left, right; 
+    private int N;
+
+        public Node(Key key, Value val, int N) {
+            this.key = key;
+            this.val = val;
+            this.N = N;
+        }
+    }
+    
+    public BST() { root = null; }
     
     public boolean isEmpty() { return size() == 0; }
 
@@ -86,7 +99,13 @@ public class BST<Key extends Comparable<Key>, Value> {
         if (x == null) { return 0; }
         else return x.N;
     }
+\end{lstlisting}
+\end{frame}
 
+\begin{frame}[fragile]
+\pause
+
+\begin{lstlisting}[language=Java]
     public Value get(Key key) { return get(root, key); }
 
     private Value get(Node x, Key key) {
@@ -98,13 +117,7 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     public boolean contains(Key key) { return get(key) != null; }
-\end{lstlisting}
-\end{frame}
-
-\begin{frame}[fragile]
-\pause
-
-\begin{lstlisting}[language=Java]
+    
     public void put(Key key, Value val) {
         if (val == null) { delete(key); return; }
         root = put(root, key, val);

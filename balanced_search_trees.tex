@@ -105,7 +105,7 @@ Splitting the root
 \begin{frame}[fragile]
 \pause
 
-Splitting a 4-node is a local transformation: constant number of operations
+Splitting a 4-node is a local transformation, and thus involves constant number of operations
 
 \pause
 \bigskip
@@ -130,39 +130,6 @@ Tree height
 \bigskip
 
 Guaranteed logarithmic performance for search and insert
-\end{frame}
-
-\begin{frame}[fragile]
-\pause
-
-Direct implementation is complicated because
-\begin{itemize}
-\item Maintaining multiple node types is cumbersome
-\item Need multiple comparisons to move down tree
-\item Need to move back up the tree to split 4-nodes
-\item Large number of cases for splitting
-\end{itemize}
-
-\pause
-\bigskip
-
-Fantasy code
-\begin{lstlisting}[language=Java]
-public void put(Key key, Value val) {
-    Node x = root;
-    while (x.getTheCorrectChild(key) != null) {
-        x = x.getTheCorrectChildKey();
-        if (x.is4Node()) { x.split(); }
-    }
-    if (x.is2Node()) { x.make3Node(key, val); }
-    else if (x.is3Node()) { x.make4Node(key, val); }
-}
-\end{lstlisting}
-
-\pause
-\bigskip
-
-Could do it, but there's a better way (use red-black BSTs)
 \end{frame}
 
 \section{Red-Black BSTs}
@@ -421,7 +388,7 @@ Deletion: see exercises 3.3.39 -- 3.3.41
 \pause
 \bigskip
 
-The height of a red-black BST with $N$ nodes is no more than $2 \lg N$; the average length of a path from the root to a node in a red-black BST with $N$ nodes is $\sim \lg N$
+The average length of a path from the root to a node in a red-black BST with $N$ nodes is $\sim \lg N$
 
 \pause
 \bigskip
@@ -449,13 +416,13 @@ Symbol table operations summary
 \begin{center}
 \begin{tabular}{ccc}
 operation & BST & red-black BST \\ \hline
-search & $h^\dagger$ & $2\lg N$ \\
-insert & $h$ & $2\lg N$ \\
-delete & $\sqrt{N}^{\dagger\dagger}$ & $2\lg N$ \\
-min/max & $h$ & $2\lg N$ \\
-floor/ceiling & $h$ & $2\lg N$ \\
-rank & $h$ & $2\lg N$ \\
-select & $h$ & $2\lg N$ \\
+search & $h^\dagger$ & $\lg N$ \\
+insert & $h$ & $\lg N$ \\
+delete & $\sqrt{N}^{\dagger\dagger}$ & $\lg N$ \\
+min/max & $h$ & $\lg N$ \\
+floor/ceiling & $h$ & $\lg N$ \\
+rank & $h$ & $\lg N$ \\
+select & $h$ & $\lg N$ \\
 ordered iteration & $N$ & $N$ 
 \end{tabular}
 

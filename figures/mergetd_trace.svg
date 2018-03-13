@@ -30,8 +30,8 @@
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1366"
-     inkscape:window-height="711"
+     inkscape:window-width="1920"
+     inkscape:window-height="1056"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -47,7 +47,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -297,7 +297,7 @@
          sodipodi:role="line"
          id="tspan3161"
          x="51"
-         y="79.076462">merge(a, aux, 0, 0, 1)</tspan></text>
+         y="79.076462">sort(a, aux, 0, 0, 1)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -308,7 +308,7 @@
          sodipodi:role="line"
          id="tspan3161-2"
          x="51.234039"
-         y="99.531609">merge(a, aux, 2, 2, 3)</tspan></text>
+         y="99.531609">sort(a, aux, 2, 2, 3)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -319,7 +319,7 @@
          sodipodi:role="line"
          id="tspan3161-1"
          x="31.234039"
-         y="119.53161">merge(a, aux, 0, 1, 3)</tspan></text>
+         y="119.53161">sort(a, aux, 0, 1, 3)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -330,7 +330,7 @@
          sodipodi:role="line"
          id="tspan3161-5"
          x="51.688454"
-         y="139.01834">merge(a, aux, 4, 4, 5)</tspan></text>
+         y="139.01834">sort(a, aux, 4, 4, 5)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -341,7 +341,7 @@
          sodipodi:role="line"
          id="tspan3161-2-9"
          x="51.922493"
-         y="159.47345">merge(a, aux, 6, 6, 7)</tspan></text>
+         y="159.47345">sort(a, aux, 6, 6, 7)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -352,7 +352,7 @@
          sodipodi:role="line"
          id="tspan3161-1-1"
          x="31.922493"
-         y="179.47346">merge(a, aux, 4, 5, 7)</tspan></text>
+         y="179.47346">sort(a, aux, 4, 5, 7)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -363,7 +363,7 @@
          sodipodi:role="line"
          id="tspan3161-4"
          x="5.6884537"
-         y="199.01834">merge(a, aux, 0, 3, 7)</tspan></text>
+         y="199.01834">sort(a, aux, 0, 3, 7)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -374,7 +374,7 @@
          sodipodi:role="line"
          id="tspan3161-2-0"
          x="47.922493"
-         y="219.47345">merge(a, aux, 8, 8, 9)</tspan></text>
+         y="219.47345">sort(a, aux, 8, 8, 9)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -385,7 +385,7 @@
          sodipodi:role="line"
          id="tspan3161-1-7"
          x="47.922493"
-         y="239.47346">merge(a, aux, 10, 10, 11)</tspan></text>
+         y="239.47346">sort(a, aux, 10, 10, 11)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -396,7 +396,7 @@
          sodipodi:role="line"
          id="tspan3161-48"
          x="29.688454"
-         y="259.01834">merge(a, aux, 8, 9, 11)</tspan></text>
+         y="259.01834">sort(a, aux, 8, 9, 11)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -407,7 +407,7 @@
          sodipodi:role="line"
          id="tspan3161-2-4"
          x="47.922493"
-         y="279.47345">merge(a, aux, 12, 12, 13)</tspan></text>
+         y="279.47345">sort(a, aux, 12, 12, 13)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -418,7 +418,7 @@
          sodipodi:role="line"
          id="tspan3161-1-5"
          x="47.922493"
-         y="299.47345">merge(a, aux, 14, 14, 15)</tspan></text>
+         y="299.47345">sort(a, aux, 14, 14, 15)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -429,7 +429,7 @@
          sodipodi:role="line"
          id="tspan3161-6"
          x="27.688454"
-         y="319.01834">merge(a, aux, 12, 13, 15)</tspan></text>
+         y="319.01834">sort(a, aux, 12, 13, 15)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -440,7 +440,7 @@
          sodipodi:role="line"
          id="tspan3161-2-08"
          x="5.922493"
-         y="339.47345">merge(a, aux, 8, 11, 15)</tspan></text>
+         y="339.47345">sort(a, aux, 8, 11, 15)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -451,6 +451,6 @@
          sodipodi:role="line"
          id="tspan3161-1-2"
          x="-16.077507"
-         y="359.47345">merge(a, aux, 0, 7, 15)</tspan></text>
+         y="359.47345">sort(a, aux, 0, 7, 15)</tspan></text>
   </g>
 </svg>

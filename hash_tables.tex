@@ -79,7 +79,7 @@ Example 2: social security numbers
 \begin{itemize}
 \item Bad: first three digits
 
-\item Better: last three digits
+\item Better: last four digits
 \end{itemize}
 
 \pause
@@ -222,19 +222,6 @@ private int hash(Key key) {
 \bigskip
 
 Uniform hashing assumption: each key is equally likely to hash to an integer between 0 and $M-1$
-\end{frame}
-
-\begin{frame}[fragile]
-\pause
-
-Throw balls uniformly at random into $M$ bins
-\begin{itemize}
-\item Birthday problem: expect two balls in the same bin after $\sim \sqrt{\pi M / 2}$ tosses
-
-\item Coupon collector problem: expect every bin to have $\geq 1$ ball after $\sim M \ln M$ tosses
-
-\item Load balancing problem: after $M$ tosses, expect most loaded bin has $\Theta(\log M / \log \log M)$ balls
-\end{itemize}
 
 \pause
 \bigskip
@@ -242,7 +229,7 @@ Throw balls uniformly at random into $M$ bins
 Example (hash value frequencies for words in Tale of Two Cities; 10,679 keys; $M = 97$)
 
 \begin{center}
-\visible<3->{\includegraphics[scale=0.35]{./figures/uniform_hashing.png}}
+\visible<5->{\includegraphics[scale=0.35]{./figures/uniform_hashing.png}}
 \end{center}
 
 \pause
@@ -250,9 +237,9 @@ Example (hash value frequencies for words in Tale of Two Cities; 10,679 keys; $M
 
 Collision: two distinct keys hash to the same index
 \begin{itemize}
-\item Birthday problem $\implies$ can't avoid collisions unless you have a ridiculous (quadratic) amount of memory
+\item Can't avoid collisions unless you have a ridiculous amount of memory
 
-\item Coupon collector + load balancing problems $\implies$ collisions are evenly distributed
+\item Collisions are evenly distributed
 
 \item Challenge: deal with collisions efficiently
 \end{itemize}

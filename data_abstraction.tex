@@ -365,7 +365,7 @@ $\dots$ & $\dots$
 \pause
 \bigskip
 
-Example
+Example (testing if a string is a palindrome)
 \begin{lstlisting}[language=Java]
 public static boolean isPalindrome(String s) {
     if (s.length() == 0) {
@@ -552,12 +552,44 @@ public class Counter implements Comparable<Counter> {
 \begin{frame}[fragile]
 \pause
 
-Interface inheritance (aka subtyping) specifies relationship between otherwise unrelated classes by providing in an interface a set of common methods that each implementing class must contain
+Interface inheritance (aka subtyping) allows programmers to support different implementations for the same API, specified as an interface
 
 \pause
 \bigskip
 
-Comparison interfaces
+Example (\lstinline{Factorial} interface and two different implementations for it)
+\begin{center}
+\begin{tabular}{cc}
+method & description \\ \hline
+\lstinline$int compute(int N)$ & $N!$
+\end{tabular} 
+\end{center}
+
+\begin{lstlisting}[language=Java]
+public class FactorialIter implements Factorial {
+    public int compute(int N) {
+        int result = 1;
+        for (int i = 1; i <= N; i++) {
+            result *= i;
+        }
+        return result;
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=Java]
+public class FactorialRec implements Factorial {
+    public int compute(int N) {
+        return (N == 1) ? 1 : N * compute(N - 1);
+    }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+
+Comparison interfaces for defining comparable data types
 \begin{itemize}
 \item \lstinline{java.lang.Comparable}
 \begin{center}
@@ -682,7 +714,7 @@ Sorted by # of moons:
 \begin{frame}[fragile]
 \pause
 
-Iteration interfaces 
+Iteration interfaces for defining iterable data types
 \begin{itemize}
 \item \lstinline{java.lang.Iterable}
 \begin{center}
@@ -832,7 +864,7 @@ Java automatically manages memory (garbage collection) by keeping track of orpha
 \begin{frame}[fragile]
 \pause
 
-An immutable data type (eg, \lstinline{Date}) has the property that the value of an object never changes once constructed
+An immutable data type (eg, \lstinline{String}) has the property that the value of an object never changes once constructed
 
 \pause
 \bigskip
@@ -852,9 +884,9 @@ Java system methods throw exceptions such as  \lstinline{StackOverflowError}, \l
 \pause
 \bigskip
 
-We can also raise exceptions within a program, the simplest being a \lstinline{RuntimeException} that terminates execution of the program and prints an error message
+We can also raise exceptions within a program, with specific error messages
 \begin{lstlisting}[language=Java]
-throw new RuntimeException("Error message here.");
+throw new RuntimeException("Error message");
 \end{lstlisting}
 
 \pause

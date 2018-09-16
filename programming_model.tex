@@ -180,7 +180,7 @@ Parentheses can be used to override precedence rules
 \pause
 \bigskip
 
-Numbers are automatically promoted to a more inclusive type if no information is lost
+Numbers are automatically promoted to a more inclusive type
 
 \pause
 \bigskip
@@ -706,6 +706,11 @@ public class UseArgument {
 \begin{lstlisting}[language={}]
 $ java UseArgument Alice
 Hi, Alice. How are you?
+\end{lstlisting}
+
+\pause
+
+\begin{lstlisting}[language={}]
 $ java UseArgument Bob
 Hi, Bob. How are you?
 \end{lstlisting}
@@ -809,6 +814,9 @@ Average is 3.0
 Output redirection
 \begin{lstlisting}[language={}]
 $ java RandomSeq 1000 100.0 200.0 > data.txt
+\end{lstlisting}
+
+\begin{lstlisting}[language={}]
 $ head -5 data.txt
 155.83
 191.65

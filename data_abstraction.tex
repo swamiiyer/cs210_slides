@@ -557,32 +557,45 @@ Interface inheritance (aka subtyping) allows programmers to support different im
 \pause
 \bigskip
 
-Example (\lstinline{Factorial} interface and two different implementations for it)
-\begin{center}
-\begin{tabular}{cc}
-method & description \\ \hline
-\lstinline$int compute(int N)$ & $N!$
-\end{tabular} 
-\end{center}
+Example (\lstinline{Factorial} interface for computing $N!$)
 
+\begin{lstlisting}[language=Java]
+public interface Factorial {
+    public int compute(int N);
+}
+\end{lstlisting}
+
+\pause
+
+Iterative implementation of the \lstinline{Factorial} interface
 \begin{lstlisting}[language=Java]
 public class FactorialIter implements Factorial {
     public int compute(int N) {
         int result = 1;
-        for (int i = 1; i <= N; i++) {
-            result *= i;
-        }
+        for (int i = 1; i <= N; i++) { result *= i; }
         return result;
     }
 }
 \end{lstlisting}
 
+\pause
+
+Recursive implementation of the \lstinline{Factorial} interface
 \begin{lstlisting}[language=Java]
 public class FactorialRec implements Factorial {
     public int compute(int N) {
         return (N == 1) ? 1 : N * compute(N - 1);
     }
 }
+\end{lstlisting}
+
+\pause
+
+Client code
+\begin{lstlisting}[language=Java]
+Factorial facIter = new FactorialIter();
+Factorial facRec = new FactorialRec();
+StdOut.println(facIter.compute(5) == facRec.compute(5));
 \end{lstlisting}
 \end{frame}
 

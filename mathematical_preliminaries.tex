@@ -1,0 +1,914 @@
+\documentclass[8pt,a4paper,compress]{beamer}
+
+\usepackage{/home/siyer/lib/slides}
+
+\title{Mathematical Preliminaries}
+\date{}
+
+\newlength{\myMheight}
+\settoheight{\myMheight}{M}
+
+\begin{document}
+\begin{frame}
+\vfill
+\titlepage
+\end{frame}
+
+\section{Numbers}
+\begin{frame}[fragile]
+\pause\transdissolve
+
+An integer is a number that can be written without a fractional component
+
+\pause\transdissolve\bigskip
+
+Examples of integers: -128, 0, 42
+
+\pause\transdissolve\bigskip
+
+An integer is even if it is divisible by 2, and odd otherwise
+
+\pause\transdissolve\bigskip
+
+The set of all integers is denoted as $\mathbb{Z}$
+
+\pause\transdissolve\bigskip
+
+The set $\mathbb{Z}$ includes zero (0), the natural numbers $\mathbb{N}$ ($1, 2, 3, \dots$), and their additive inverses ($-1, -2, -3, \dots$)
+\end{frame}
+
+\begin{frame}[fragile]
+\pause\transdissolve
+
+A rational number is a number that can be expressed as the quotient or fraction $p/q$ of two integers, a numerator $p$ and a non-zero denominator $q$
+
+\pause\transdissolve\bigskip
+
+Examples of rational numbers: 42, 2.5, 1.333...
+
+\pause\transdissolve\bigskip
+
+The set of all rational numbers is denoted as $\mathbb{Q}$
+\end{frame}
+
+\begin{frame}[fragile]
+\pause\transdissolve
+
+A real number is a value of a continuous quantity such as distance or time
+
+\pause\transdissolve\bigskip
+
+Examples of real numbers: 1.333..., $\sqrt{2}$ (1.41421...), $\pi$ (3.14159...), $e$ (2.71828...)
+
+\pause\transdissolve\bigskip
+
+The set of all real numbers is denoted as $\mathbb{R}$
+
+\pause\transdissolve\bigskip
+
+Hierarchy of number systems ($\subset$ means proper subset): $\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}$
+
+\pause\transdissolve\bigskip
+
+A real number that is not rational is called an irrational number
+
+\pause\transdissolve\bigskip
+
+Examples of irrational numbers: $\sqrt{2}$ (1.41421...), $\pi$ (3.14159...), $e$ (2.71828...)
+\end{frame}
+
+\begin{frame}[fragile]
+\pause\transdissolve
+
+A prime number is a natural number greater than 1 that cannot be formed by multiplying two smaller natural numbers
+
+\pause\transdissolve\bigskip
+
+Examples of prime numbers: 5, 43, 97
+
+\pause\transdissolve\bigskip
+
+There are infinitely many primes
+
+\pause\transdissolve\bigskip
+
+A natural number greater than 1 that is not prime is called a composite number
+
+\pause\transdissolve\bigskip
+
+Examples of composite numbers: 8, 46, 99
+
+\pause\transdissolve\bigskip
+
+Prime factorization is the decomposition of a composite number into a product of primes
+
+\pause\transdissolve\bigskip
+
+For example, the prime factorization of 18 is $2 \times 3 \times 3$
+\end{frame}
+
+\section{Operations on Numbers}
+\begin{frame}[fragile]
+\pause\transdissolve
+
+Addition ($x + y$)
+
+\pause\transdissolve\bigskip
+
+Subtraction ($x - y$)
+
+\pause\transdissolve\bigskip
+
+Multiplication ($x \times y$)
+
+\pause\transdissolve\bigskip
+
+Division ($x \div y$)
+
+\pause\transdissolve\bigskip
+
+Exponentiation ($x^y$)
+
+\pause\transdissolve\bigskip
+
+Order of operations: (P)arenthesis, (E)xponents, (M)ultiplication, (D)ivision, (A)ddition, (S)ubtraction
+
+\pause\transdissolve\bigskip
+
+For example, $(5 - 3) \times 2^3 + 24 \div 4 = 22$
+
+\pause\transdissolve\bigskip
+
+If $x$ and $d$ ($\neq 0$) are integers, then there exist unique integers $q$ (quotient) and $r$ (remainder), such that $x = q \times d + r$ and $0 \leq r \leq |d|$
+
+\pause\transdissolve\bigskip
+
+For example, $43 = 8 \times 5 + 3$
+\end{frame}
+
+\begin{frame}[fragile]
+\pause\transdissolve
+
+Laws of exponents
+\visible<2->{
+\tcbox[enhanced,drop shadow southwest,sharp corners,size=fbox,colback=white]{
+\begin{tabular}{ll}
+\textbf{Law} & \textbf{Example} \\ \hline \\
+$x^1=x$ & $6^1=6$ \\
+$x^0=1$ & $7^0=1$ \\
+$x^{-n}=1/x^n$ & $x^{-3}=1/x^3$ \\
+$x^mx^n=x^{m+n}$ & $x^2x^3=x^5$ \\ 
+$x^m/x^n=x^{m-n}$ & $x^6/x^2=x^4$ \\ 
+$(x^m)^n=x^{mn}$ & $(x^2)^3=x^6$ \\
+$(xy)^n=x^ny^n$ & $(xy)^3=x^3y^3$ \\
+$(x/y)^n=x^n/y^n$ & $(x/y)^2=x^2/y^2$ \\
+$x^{m/n}=\sqrt[n]{x^m}=(\sqrt[n]{x})^m$ & $x^{2/3}=\sqrt[3]{x^2}=(\sqrt[3]{x})^2$ \\
+\end{tabular}
+}
+}
+\end{frame}
+
+\section{Functions}
+\begin{frame}[fragile]
+\pause\transdissolve
+
+A function $y = f(x)$ of a single variable can be thought of as a machine that takes a single input $x$ and produces an output $y$
+
+\begin{center}
+\visible<2->{
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$x$};
+\node [block1] (2) [right=of 1] {$f(x)$};
+\node [block2] (3) [right=of 2] {$y$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+}
+\end{center}
+
+\pause\transdissolve\bigskip
+
+For example, consider the function $f(x) = x^2$
+
+\bigskip
+
+\begin{overprint}
+\onslide<3>
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$x$};
+\node [block1] (2) [right=of 1] {$x^2$};
+\node [block2] (3) [right=of 2] {$y$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+\end{center}
+
+\onslide<4>
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$-5$};
+\node [block1] (2) [right=of 1] {$x^2$};
+\node [block2] (3) [right=of 2] {$25$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+\end{center}
+
+\onslide<5>
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$11$};
+\node [block1] (2) [right=of 1] {$x^2$};
+\node [block2] (3) [right=of 2] {$121$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\end{overprint}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause\transdissolve
+
+As another example, consider the function $f(F) = \frac{5}{9}(F - 32)$ that converts temperature $F$ from Fahrenheit to Celsius
+
+\bigskip
+
+\begin{overprint}
+\onslide<3>
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$F$};
+\node [block1] (2) [right=of 1] {$\frac{5}{9}(F - 32)$};
+\node [block2] (3) [right=of 2] {$C$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+\end{center}
+
+\onslide<4>
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$32$};
+\node [block1] (2) [right=of 1] {$\frac{5}{9}(F - 32)$};
+\node [block2] (3) [right=of 2] {$0$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+\end{center}
+
+\onslide<5>
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$212$};
+\node [block1] (2) [right=of 1] {$\frac{5}{9}(F - 32)$};
+\node [block2] (3) [right=of 2] {$100$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\end{overprint}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause\transdissolve
+
+The root(s) of a function are the values of $x$ that satisfy the equation $f(x) = 0$
+
+\pause\transdissolve\bigskip
+
+For example, the two roots of the function $f(x) = x^2 - 4$ are $x = \pm 2$
+\end{frame}
+
+
+\begin{frame}[fragile]
+\pause\transdissolve
+
+A polynomial of degree $n$ is a function of the form $$f(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_2x^2 + a_1x + a_0,$$ where $a_0, \dots, a_n$ are constants and $x$ is variable
+
+\begin{center}
+\visible<2->{
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$x$};
+\node [block1] (2) [right=of 1] {$a_nx^n + a_{n-1}x^{n-1} + \cdots + a_2x^2 + a_1x + a_0$};
+\node [block2] (3) [right=of 2] {$y$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+}
+\end{center}
+
+\pause\transdissolve\bigskip
+
+A polynomial of degree 0 is called a constant function
+
+\visible<3->{
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$x$};
+\node [block1] (2) [right=of 1] {$a_0$};
+\node [block2] (3) [right=of 2] {$a_0$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause\transdissolve
+
+A polynomial of degree 1 is called a linear function
+
+\visible<2->{
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$x$};
+\node [block1] (2) [right=of 1] {$a_1x + a_0$};
+\node [block2] (3) [right=of 2] {$y$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+}
+\end{center}
+
+\pause\transdissolve\bigskip
+
+The linear function is usually written in the form $y = mx + c$
+
+\pause\transdissolve\bigskip
+
+A polynomial of degree 2 is called a quadratic function
+
+\visible<3->{
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$x$};
+\node [block1] (2) [right=of 1] {$a_2x^2 + a_1x + a_0$};
+\node [block2] (3) [right=of 2] {$y$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+}
+\end{center}
+
+\pause\transdissolve\bigskip
+
+The quadratic function is usually written in the form $y = ax^2 + bx + c$
+
+\pause\transdissolve\bigskip
+
+The roots of the quadratic equation $ax^2 + bx + c = 0$ are $$x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}$$
+
+\end{frame}
+
+\begin{frame}[fragile]
+\pause\transdissolve
+
+An exponentiation function is of the form $f(x) = b^x$, where $b$ is constant and $x$ is variable
+
+\visible<2->{
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$x$};
+\node [block1] (2) [right=of 1] {$b^x$};
+\node [block2] (3) [right=of 2] {$y$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+}
+\end{center}
+
+\pause\transdissolve\bigskip
+
+For example, consider the function $f(x) = 3^x$
+
+\bigskip
+
+\begin{overprint}
+\onslide<3>
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$x$};
+\node [block1] (2) [right=of 1] {$3^x$};
+\node [block2] (3) [right=of 2] {$y$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+\end{center}
+
+\onslide<4>
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$-1$};
+\node [block1] (2) [right=of 1] {$3^x$};
+\node [block2] (3) [right=of 2] {$0.333...$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+\end{center}
+
+\onslide<5>
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$4$};
+\node [block1] (2) [right=of 1] {$3^x$};
+\node [block2] (3) [right=of 2] {$81$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\end{overprint}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause\transdissolve
+
+The logarithm function $f(x) = \log_b(x)$ computes the power to which $b$ (constant) must be raised to obtain $x$ (variable)
+
+\visible<2->{
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$x$};
+\node [block1] (2) [right=of 1] {$\log_b(x)$};
+\node [block2] (3) [right=of 2] {$y$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+}
+\end{center}
+
+\pause\transdissolve\bigskip
+
+The logarithm function is the inverse of the exponentiation function
+
+\pause\transdissolve\bigskip
+
+For example, consider the function $f(x) = \log_2(x)$
+
+\bigskip
+
+\begin{overprint}
+\onslide<4>
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$x$};
+\node [block1] (2) [right=of 1] {$\log_2(x)$};
+\node [block2] (3) [right=of 2] {$y$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+\end{center}
+
+\onslide<5>
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$1$};
+\node [block1] (2) [right=of 1] {$\log_2(x)$};
+\node [block2] (3) [right=of 2] {$0$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+\end{center}
+
+\onslide<6>
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$64$};
+\node [block1] (2) [right=of 1] {$\log_2(x)$};
+\node [block2] (3) [right=of 2] {$6$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\end{overprint}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause\transdissolve
+
+Basic properties of logarithms
+\begin{enumerate}
+\pause\transdissolve
+\item $\log_b(xy) = \log_b(x) + \log_b(y)$
+
+\pause\transdissolve
+\item $\log_b(x/y) = \log_b(x) - \log_b(y)$
+
+\pause\transdissolve
+\item $\log_b(x^n) = n\log_b(x)$
+
+\pause\transdissolve
+\item $\log_b(x) = \log_a(x) / \log_a(b)$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause\transdissolve
+
+Trigonometric functions are functions of an angle expressed in radians
+
+\pause\transdissolve\bigskip
+
+1 degree = $\frac{\pi}{180}$ radians
+
+\pause\transdissolve\bigskip
+
+Sine function $f(x) = \sin(x)$
+\visible<3->{
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$x$ (in radians)};
+\node [block1] (2) [right=of 1] {$\sin(x)$};
+\node [block2] (3) [right=of 2] {$y \in [-1, 1]$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+}
+\end{center}
+
+\pause\transdissolve\bigskip
+
+Cosine function $f(x) = \cos(x)$
+\visible<4->{
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$x$ (in radians)};
+\node [block1] (2) [right=of 1] {$\cos(x)$};
+\node [block2] (3) [right=of 2] {$y \in [-1, 1]$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+}
+\end{center}
+
+\pause\transdissolve\bigskip
+
+Tangent function $f(x) = \tan(x)$
+\visible<4->{
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$x$ (in radians)};
+\node [block1] (2) [right=of 1] {$\tan(x)$};
+\node [block2] (3) [right=of 2] {$y \in (-\infty, \infty)$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause\transdissolve
+
+Arcsine function $f(x) = \arcsin(x)$ (inverse of sine function)
+\visible<2->{
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$x \in [-1, 1]$ };
+\node [block1] (2) [right=of 1] {$\arcsin(x)$};
+\node [block2] (3) [right=of 2] {$y \in [-\frac{\pi}{2}, \frac{\pi}{2}]$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+}
+\end{center}
+
+\pause\transdissolve\bigskip
+
+Arccosine function $f(x) = \arccos(x)$ (inverse of cosine function)
+\visible<3->{
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$x \in [-1, 1]$ };
+\node [block1] (2) [right=of 1] {$\arccos(x)$};
+\node [block2] (3) [right=of 2] {$y \in [0, \pi]$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+}
+\end{center}
+
+\pause\transdissolve\bigskip
+
+Arctangent function $f(x) = \arctan(x)$ (inverse of tangent function)
+\visible<4->{
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$x \in (-\infty, \infty)$ };
+\node [block1] (2) [right=of 1] {$\arctan(x)$};
+\node [block2] (3) [right=of 2] {$y \in [-\frac{\pi}{2}, \frac{\pi}{2}]$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\end{scope}
+\end{tikzpicture}
+}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause\transdissolve
+
+The factorial function $n!$ ($n > 0$) is the product of all positive integers less than or equal to $n$ $$n! = n \times (n - 1) \times (n - 2) \times \cdots \times 2 \times 1$$
+
+\pause\transdissolve\bigskip
+
+For example, $5! = 5 \times 4 \times 3 \times 2 \times 1 = 120$
+
+\pause\transdissolve\bigskip
+
+The value of $0!$ is 1
+
+\pause\transdissolve\bigskip
+
+Since $(n - 1) \times (n - 2) \times \cdots \times 2 \times 1$ is $(n - 1)!$, the factorial function $n!$ can be expressed recursively as
+
+\[
+n! = \begin{dcases*}
+n(n-1)! & if $n > 0$, and \\
+1       & if $n = 0$
+\end{dcases*}
+\]
+\end{frame}
+
+\begin{frame}[fragile]
+\pause\transdissolve
+
+The Fibonacci function $F(n)$ computes the $n$th number in the Fibonacci sequence as the sum of the two preceeding numbers
+
+\pause\transdissolve\bigskip
+
+The first two numbers in the Fibonacci sequence are both 1, ie, $F(1) = F(2) = 1$
+
+\pause\transdissolve\bigskip
+
+Recursive definition for $F(n)$
+
+\[
+F(n) = \begin{dcases*}
+F(n - 1) + F(n - 2) & if $n > 2$, and \\
+1       & if $n = 1$ or $2$
+\end{dcases*}
+\]
+
+\pause\transdissolve\bigskip
+
+The beginning of the Fibonacci sequence is
+$$1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, \dots$$
+\end{frame}
+
+\section{Operations on Functions}
+\begin{frame}[fragile]
+\pause\transdissolve
+
+Operations on functions are similar to operations on numbers
+
+\pause\transdissolve\bigskip
+
+Sum of $f(x)$ and $g(x)$: $(f + g)(x) = f(x) + g(x)$
+
+\pause\transdissolve\bigskip
+
+Difference of $f(x)$ and $g(x)$: $(f - g)(x) = f(x) - g(x)$
+
+\pause\transdissolve\bigskip
+
+Product of $f(x)$ and $g(x)$: $(f \cdot g)(x) = f(x) \cdot g(x)$
+
+\pause\transdissolve\bigskip
+
+Quotient of $f(x)$ and $g(x)$: $(f / g)(x) = f(x) / g(x)$, provided $g(x) \neq 0$
+
+\pause\transdissolve\bigskip
+
+Composite of $f(x)$ and $g(x)$: $(f \circ g)(x) = f(g(x))$
+
+\begin{center}
+\begin{tikzpicture}
+\footnotesize
+\begin{scope}[->,thin,
+	   node distance=0.5cm,
+  	   block1/.style={rectangle,draw,align=center},
+	   block2/.style={rectangle,align=center}]
+\node [block2] (1) {$x$};
+\node [block1] (2) [right=of 1] {$g(x)$};
+\node [block1] (3) [right=of 2] {$f(x)$};
+\node [block2] (4) [right=of 3] {$y$};
+\path (1) edge node [above] {} (2);
+\path (2) edge node [above] {} (3);
+\path (3) edge node [above] {} (4);
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause\transdissolve
+
+Functions can have more than one input
+
+\pause\transdissolve\bigskip
+
+For example, the greatest common divisor function $\text{gcd}(x, y)$ of two integers $x$ and $y$ computes the largest positive integer that divides both
+
+\pause\transdissolve\bigskip
+
+$\text{gcd}(54, 24) = 6$
+\end{frame}
+
+\section{Basic Probability}
+\begin{frame}[fragile]
+\pause\transdissolve
+
+Probability of an event $A$, denoted $P(A)$, is defined as $$P(A) = \frac{\text{number of ways } A \text{ can happen}}{\text{total number of outcomes}}$$
+
+\pause\transdissolve\bigskip
+
+For example, the probability $P(E)$ of rolling an even number with a six-sided die is $$P(E) = \frac{3}{6} = \frac{1}{2}$$
+
+\pause\transdissolve\bigskip
+
+The probability of an event can only be between 0 and 1 and can also be written as a percentage
+
+\pause\transdissolve\bigskip
+
+Complement rule: $P(A) = 1 - P(A')$, where $A'$ is the complement of event $A$, consisting of elements of the sample space that are not in $A$
+
+\pause\transdissolve\bigskip
+
+For example, the probability $P(O)$ of rolling an odd number with a six-sided die is $$P(O) = 1 - P(O') = 1 - P(E) = \frac{1}{2}$$
+\end{frame}
+
+\section{Basic Statistics}
+\begin{frame}[fragile]
+\pause\transdissolve
+
+Consider a sample of $n$ numbers $x_1, x_2, \dots, x_n$
+
+\pause\transdissolve\bigskip
+
+The mean $\mu$ of the sample is $$\mu = \frac{x_1 + x_2 + \cdots + x_n}{n}$$
+
+\pause\transdissolve\bigskip
+
+The variance $\text{Var}$ of the sample is $$\frac{(x_1 - \mu)^2 + (x_2 - \mu)^2 + \cdots + (x_n - \mu)^2}{n}$$
+
+\pause\transdissolve\bigskip
+
+The standard deviation $\sigma$ of the sample is $$\sigma = \sqrt{\text{Var}}$$
+
+\pause\transdissolve\bigskip
+
+The median of the sample is the value separating the higher half from the lower half
+\end{frame}
+\end{document}

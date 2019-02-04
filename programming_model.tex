@@ -11,13 +11,7 @@
 \maketitle
 \end{frame}
 
-\begin{frame}
-\frametitle{Outline}
-\tableofcontents
-\end{frame}
-
 \section{Basic Structure of a Java Program}
-
 \begin{frame}[fragile]
 \pause
 
@@ -31,7 +25,7 @@ The Java workflow
 	   node distance=1.6cm,on grid,>=stealth,
   	   block1/.style={rectangle,draw,align=center},
 	   block2/.style={rectangle,align=center}]
-\node [block1] (1) {editor \\ (BlueJ)};
+\node [block1] (1) {editor \\ (Code)};
 \node [block2] (2) [right=of 1] {\lstinline$P.java$};
 \node [block1] (3) [right=of 2] {compiler \\ (\lstinline$javac$)};
 \node [block2] (4) [right=of 3] {\lstinline$P.class$};
@@ -46,28 +40,33 @@ The Java workflow
 \end{tikzpicture}
 \end{center}
 
-\pause
-\bigskip
+\pause\bigskip
 
 A Java program is either a library of static methods (functions) or a data type definition
 
-\pause
-\bigskip
+\pause\bigskip
 
 To create a Java program (class), we use the following programming constructs
 \begin{itemize}
+\pause
 \item Primitive data types and expressions
 
+\pause
 \item Statements
 
+\pause
 \item Arrays
 
+\pause
 \item Static methods
 
+\pause
 \item Strings
 
+\pause
 \item Input and output (IO)
 
+\pause
 \item Data abstraction
 \end{itemize}
 \end{frame}
@@ -77,11 +76,13 @@ To create a Java program (class), we use the following programming constructs
 
 Example (Java program that computes $N!$)
 
-\begin{lstlisting}[language=Java]
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 import edu.princeton.cs.algs4.StdOut;
 
 public class Factorial {
-    // Returns the factorial of N.
+    // Returns N!
     public static int factorial(int N) {
         int result = 1;
         for (int i = 1; i <= N; i++) {
@@ -90,7 +91,7 @@ public class Factorial {
         return result;
     }
 
-    // Test client.
+    // Test client
     public static void main(String[] args) {
         int N = Integer.parseInt(args[0]);
         StdOut.println(N + "! = " + Factorial.factorial(N));
@@ -98,15 +99,15 @@ public class Factorial {
 }
 \end{lstlisting}
 
-\pause
+\pause\bigskip
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ javac Factorial.java
 \end{lstlisting}
 
-\pause
+\pause\bigskip
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java Factorial 5
 5! = 120
 \end{lstlisting}
@@ -119,26 +120,33 @@ $ java Factorial 5
 
 A data type (primitive or reference) is a set of values and a set of operations on those values
 
-\pause
-\bigskip
+\pause\bigskip
 
-Basic primitive types
+Primitive types
 \begin{itemize}
+\pause
 \item \lstinline{boolean}: true and false values with logical operations (\lstinline{!}, \lstinline{||}, and \lstinline{&&})
-\item \lstinline{char}: 16-bit characters with arithmetic operations (\lstinline{+}, \lstinline{-}, \lstinline{*}, \lstinline{/}, and \lstinline{%})
-\item \lstinline{int}: 32-bit integers with arithmetic operations
-\item \lstinline{double}: 64-bit double-precision real numbers with arithmetic operations
-\end{itemize}
 
 \pause
-\bigskip
+\item \lstinline{byte}: 8-bit integers with arithmetic operations (\lstinline{+}, \lstinline{-}, \lstinline{*}, \lstinline{/}, and \lstinline{%})
 
-Other primitive types
-\begin{itemize}
-\item \lstinline{byte}: 8-bit integers with arithmetic operations
+\pause
+\item \lstinline{char}: 16-bit characters with arithmetic operations 
+
+\pause
 \item \lstinline{short}: 16-bit integers with arithmetic operations
+
+\pause
+\item \lstinline{int}: 32-bit integers with arithmetic operations
+
+\pause
 \item \lstinline{float}: 32-bit single-precision real numbers with arithmetic operations
+
+\pause
 \item \lstinline{long}: 64-bit integers with arithmetic operations
+
+\pause
+\item \lstinline{double}: 64-bit double-precision real numbers with arithmetic operations
 \end{itemize}
 \end{frame}
 
@@ -147,46 +155,41 @@ Other primitive types
 
 An expression is a literal, a variable, or a sequence of allowed operations on literals and/or variables that produces a value
 
-\pause
-\bigskip
+\pause\bigskip
 
 Arithmetic operators \lstinline{*} and \lstinline{/} have higher precedence than \lstinline{+} and \lstinline{-}
 
-\pause
-\bigskip
+\pause\bigskip
 
 Among logical operators, \lstinline{!} has the highest precedence, followed by \lstinline{&&} and then \lstinline{||}
 
-\pause
-\bigskip
+\pause\bigskip
 
 Two operands of the same type can be compared using the relational operators \lstinline{==}, \lstinline{!=}, \lstinline{<}, \lstinline{<=}, \lstinline{>}, and \lstinline{>=}, producing a boolean result
 
-\pause
-\bigskip
+\pause\bigskip
 
 Relational operators have higher precedence than logical operators but lower precedence than arithmetic operators
 
-\pause
-\bigskip
+\pause\bigskip
 
 Operators of the same precedence are evaluated left to right
 
-\pause
-\bigskip
+\pause\bigskip
 
 Parentheses can be used to override precedence rules
 
-\pause
-\bigskip
+\pause\bigskip
 
 Numbers are automatically promoted to a more inclusive type
 
-\pause
-\bigskip
+\pause\bigskip
 
 A cast is a type name in parentheses within an expression, and converts the following value into a value of that type
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 double x = (double) 42;
 \end{lstlisting}
 \end{frame}
@@ -197,28 +200,37 @@ double x = (double) 42;
 
 A statement defines computation by creating variables, assigning data-type values to them, and controlling the flow of execution
 
-\pause
-\bigskip
+\pause\bigskip
 
 A declaration statement associates a variable name with a type
-\begin{lstlisting}[language={}]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 <type> <name>;
 \end{lstlisting}
+
+\smallskip
+
 where the initial value for the variable is \lstinline{false} for boolean type, \lstinline{0} for numeric types, and \lstinline{null} for reference types
 
-\pause
-\bigskip
+\pause\bigskip
 
 An assignment statement associates a data-type value with a variable
-\begin{lstlisting}[language={}]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 <name> = <expression>;
 \end{lstlisting}
 
-\pause
-\bigskip
+\pause\bigskip
 
 Declaration and assignment statements can be combined to provide an initial value for a variable
-\begin{lstlisting}[language={}]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 <type> <name> = <expression>;
 \end{lstlisting}
 \end{frame}
@@ -228,11 +240,13 @@ Declaration and assignment statements can be combined to provide an initial valu
 
 A conditional statement is used when different actions are required for different inputs
 
-\pause
-\bigskip
+\pause\bigskip
 
 If statement
-\begin{lstlisting}[language={}]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 if (<boolean expression>) {
     <statements>
 }
@@ -245,19 +259,23 @@ else {
 }
 \end{lstlisting}
 
-\pause
-\bigskip
+\pause\bigskip
 
 Conditional operator (really an expression)
-\begin{lstlisting}[language={}]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 <boolean expression> ? <expression> : <expression>
 \end{lstlisting}
 
-\pause
-\bigskip
+\pause\bigskip
 
 Switch statement
-\begin{lstlisting}[language={}]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 switch (<expression>) {
     case <value>:
         <statements>
@@ -275,43 +293,47 @@ switch (<expression>) {
 
 A loop statement is used for repetitive computations
 
-\pause
-\bigskip
+\pause\bigskip
 
 While statement
-\begin{lstlisting}[language={}]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 while (<boolean expression>) {
     <statements>
 }
 \end{lstlisting}
 
-\pause
-\bigskip
+\pause\bigskip
 
 For statement
-\begin{lstlisting}[language={}]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 for (<initialize>; <boolean expression>; <increment>) {
     <statements>
 }
 \end{lstlisting}
 
-\pause
-\bigskip
+\pause\bigskip
 
 Do-while statement
-\begin{lstlisting}[language={}]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 do {
     <statements>
 } while (<boolean expression>);
 \end{lstlisting}
 
-\pause
-\bigskip
+\pause\bigskip
 
 A break statement immediately exits a loop without letting it run to completion; when used as the last statement in a switch case, exits the switch statement preventing ``fallthrough'' to the following case
 
-\pause
-\bigskip
+\pause\bigskip
 
 A continue statement skips to next iteration of a loop
 \end{frame}
@@ -319,10 +341,23 @@ A continue statement skips to next iteration of a loop
 \begin{frame}[fragile]
 \pause
 
-A compound assignment statement is shorthand notation for modifying the value of a variable; for example, \lstinline{i += 5;} is equivalent to \lstinline{i = i + 5;}
+A compound assignment statement is shorthand notation for modifying the value of a variable
+
+\pause\bigskip
+
+For example
+\begin{itemize}
+\pause
+\item \lstinline{i += 5;} is equivalent to \lstinline{i = i + 5;}
 
 \pause
-\bigskip
+\item \lstinline{i++;} is equivalent to \lstinline{i = i + 1;}
+
+\pause
+\item \lstinline{--i;} is equivalent to \lstinline{i = i - 1;}
+\end{itemize}
+
+\pause\bigskip
 
 The scope of a variable is the statements that follow the declaration in the same block (marked by curly brackets) as the declaration
 \end{frame}
@@ -333,11 +368,13 @@ The scope of a variable is the statements that follow the declaration in the sam
 
 An array stores a sequence of values that are all of the same type 
 
-\pause
-\bigskip
+\pause\bigskip
 
 Making an array in Java involves: declaring the array name and type; creating the array; and initializing the array values
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 int[] a;
 a = new int[10];
 for (int i = 0; i < 10; i++) {
@@ -345,25 +382,28 @@ for (int i = 0; i < 10; i++) {
 }
 \end{lstlisting}
 
-\pause
-\bigskip
+\pause\bigskip
 
 An array when declared is initialized to \lstinline{null}, and once created, each element is initialized to a default value based on the type of the array
 
-\pause
-\bigskip
+\pause\bigskip
 
 Initializing declaration
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 int[] a = {1, 1, 2, 3, 5, 8, 13, 21, 34, 55};
 String[] b = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
 \end{lstlisting}
 
-\pause
-\bigskip
+\pause\bigskip
 
 Example (reversing an array in place)
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 int N = a.length;
 for (int i = 0; i < N / 2; i++) {
     double temp = a[i];
@@ -378,26 +418,29 @@ for (int i = 0; i < N / 2; i++) {
 
 If we assign one array name to another (aliasing), then both refer to the same array
 
-\pause
-\bigskip
+\pause\bigskip
 
 A two-dimensional array in Java is an array of one-dimensional arrays, and may be ragged
 
-\pause
-\bigskip
+\pause\bigskip
 
 Initializing declaration for two-dimensional arrays
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 int[][] I = {{1, 0, 0}, 
              {0, 1, 0}, 
              {0, 0, 1}};
 \end{lstlisting}
 
-\pause
-\bigskip
+\pause\bigskip
 
 Example (matrix multiplication $C_{ij}=\sum_{k=1}^{p} A_{ik}B_{kj},$ where $A$ is an $m\times p$, $B$ is a $p \times n$, and $C$ is an $m\times n$ matrix)
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 int m = A.length;
 int p = B.length;
 int n = B[0].length;
@@ -418,16 +461,17 @@ for (int i = 0; i < m; i++) {
 
 A method encapsulates a computation defined as a sequence of statements
 
-\pause
-\bigskip
+\pause\bigskip
 
 A static method is composed of the keywords \lstinline{public static} followed by a return type (or \lstinline{void}), the signature (method name and a sequence of arguments, each with a declared type), and a body (a sequence of statements enclosed by curly brackets)
 
-\pause
-\bigskip
+\pause\bigskip
 
 Example (primality testing)
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 public static boolean isPrime(int N) {
     if (N < 2) { return false; }
     for (int i = 2; i <= N / i; i++) { if (N % i == 0) { return false; } }
@@ -435,24 +479,28 @@ public static boolean isPrime(int N) {
 }
 \end{lstlisting}
 
-\pause
-\bigskip
+\pause\bigskip
 
 A call on a static method is its name followed by expressions that specify argument values in parentheses, separated by commas
 
-\pause
-\bigskip
+\pause\bigskip
 
 When a method call is part of an expression, the method computes a value and that value is used in place of the call in the expression
 
-\pause
-\bigskip
+\pause\bigskip
 
 Properties of methods
 \begin{itemize}
+\pause
 \item Arguments are passed by value
+
+\pause
 \item Method names can be overloaded 
+
+\pause
 \item A method has a single return value but may have multiple return statements
+
+\pause
 \item A method can have side effects
 \end{itemize}
 \end{frame}
@@ -462,8 +510,7 @@ Properties of methods
 
 A recursive method is one that calls itself, has a base case, addresses subproblems that are smaller in some sense, and does not address subproblems that overlap
 
-\pause
-\bigskip
+\pause\bigskip
 
 Example of good recursion (computing $N!$)
 \[
@@ -473,14 +520,21 @@ N(N-1)! & if $N > 0$, and \\
 \end{dcases*}
 \]
 
-\begin{lstlisting}[language=Java]
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 public static int f(int N) {
     return (N == 0) ? 1 : N * f(N - 1); 
 }
 \end{lstlisting}
 
+\pause\bigskip
+
 Call trace for \lstinline{f(5)}
-\begin{lstlisting}[language={}]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 f(5)
   f(4)
     f(3)
@@ -507,15 +561,19 @@ f(N-1) + f(N-2) & if $N > 1$, and \\
 \end{dcases*}
 \]
 
-\begin{lstlisting}[language=Java]
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 public static int f(int N) {
     return (N == 0 || N == 1) ? 1 : f(N - 1) + f(N - 2); 
 }
 \end{lstlisting}
 
+\pause\bigskip
+
 Call trace for \lstinline{f(5)}
 \begin{center}
-\visible<2->{\includegraphics[scale=0.6]{figures/fib_trace.pdf}}
+\visible<3->{\includegraphics[scale=0.6]{figures/fib_trace.pdf}}
 \end{center}
 \end{frame}
 
@@ -524,14 +582,20 @@ Call trace for \lstinline{f(5)}
 
 A best practice in Java programming is to include a \lstinline{main()} method (aka development or test client) in every library of static methods
 
-\pause
-\bigskip
+\pause\bigskip
 
 We use static methods from four different kinds of libraries
 \begin{itemize}
+\pause
 \item Standard system libraries \lstinline{java.lang.*}
+
+\pause
 \item Imported system libraries such as \lstinline{java.util.Arrays}
+
+\pause
 \item Other libraries in the text
+
+\pause
 \item Standard libraries \lstinline{edu.princeton.cs.algs4.*} from the text
 \end{itemize}
 \end{frame}
@@ -542,18 +606,15 @@ We use static methods from four different kinds of libraries
 
 An application programming interface (API) lists the library name and the return type, signatures, and short descriptions of each of the methods
 
-\pause
-\bigskip
+\pause\bigskip
 
 A client is a program that calls a method in another library
 
-\pause
-\bigskip
+\pause\bigskip
 
 An implementation is Java code that implements the methods in an API
 
-\pause
-\bigskip
+\pause\bigskip
 
 Standard system library (\lstinline{java.lang.Math})
 \begin{center}
@@ -572,8 +633,7 @@ $\dots$ & $\dots$
 \end{tabular} 
 \end{center}
 
-\pause
-\bigskip
+\pause\bigskip
 
 Imported system library (\lstinline{java.util.Arrays})
 \begin{center}
@@ -630,23 +690,19 @@ $\dots$ & $\dots$
 
 A string is a sequence of characters (\lstinline{char} values) 
 
-\pause
-\bigskip
+\pause\bigskip
 
 A string literal is a sequence of characters within double quotes, such as \lstinline{"Hello, World"}
 
-\pause
-\bigskip
+\pause\bigskip
 
 The result of concatenating two strings using the \lstinline{+} operator is a single string, the first string followed by the second
 
-\pause
-\bigskip
+\pause\bigskip
 
 We use Java library methods such as \lstinline{Integer.parseInt()}, \lstinline{Double.parseDouble()}, and so on to convert strings to primitives
 
-\pause
-\bigskip
+\pause\bigskip
 
 We use the \lstinline{+} operator to convert primitives to strings
 \end{frame}
@@ -671,25 +727,35 @@ Bird's-eye biew of a Java program
 \end{tikzpicture}
 \end{center}
 
-\begin{itemize}
-\item Input types: command-line arguments, standard input, file input
-\item Output types: standard output, file output
-\end{itemize}
+\pause\bigskip
 
-\pause
-\bigskip
+Input types: command-line arguments, standard input, file input
+
+\pause\bigskip
+
+Output types: standard output, file output
+
+\pause\bigskip
 
 Command-line arguments are listed after the program name as follows
-\begin{lstlisting}[language=bash]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 $ java P arg_1 arg_2 ... arg_n
 \end{lstlisting}
+
+\smallskip
+
 and accessed within the \lstinline$main()$ method of the program via the array \lstinline$args$  as \lstinline$args[0]$, \lstinline$args[1]$, $\dots$, \lstinline$args[n - 1]$
 
-\pause
-\bigskip
+\pause\bigskip
 
 Example
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 import edu.princeton.cs.algs4.StdOut;
 
 public class UseArgument {
@@ -701,16 +767,16 @@ public class UseArgument {
 }
 \end{lstlisting}
 
-\pause
+\pause\bigskip
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java UseArgument Alice
 Hi, Alice. How are you?
 \end{lstlisting}
 
-\pause
+\pause\bigskip
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java UseArgument Bob
 Hi, Bob. How are you?
 \end{lstlisting}
@@ -729,11 +795,13 @@ $\dots$ & $\dots$
 \end{tabular} 
 \end{center}
 
-\pause
-\bigskip
+\pause\bigskip
 
 Example
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 
@@ -750,9 +818,9 @@ public class RandomSeq {
 }
 \end{lstlisting}
 
-\pause
+\pause\bigskip
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java RandomSeq 2 100.0 200.0
 193.12
 190.79
@@ -769,17 +837,17 @@ method & description \\ \hline
 \lstinline$static boolean isEmpty()$ & \lstinline$true$ if no more values, \lstinline$false$ otherwise \\
 \lstinline$static int readInt()$ & read a value of type \lstinline$int$ \\
 \lstinline$static double readDouble()$ & read a value of type \lstinline$double$ \\
-\lstinline$static boolean readBoolean()$ & read a value of type \lstinline$boolean$ \\
-\lstinline$static char readChar()$ & read a value of type \lstinline$char$ \\
 $\dots$ & $\dots$ 
 \end{tabular} 
 \end{center}
 
-\pause
-\bigskip
+\pause\bigskip
 
 Example
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
@@ -798,7 +866,7 @@ public class Average {
 }
 \end{lstlisting}
 
-\pause
+\pause\bigskip
 
 \begin{lstlisting}[language={}]
 $ java Average
@@ -812,11 +880,16 @@ Average is 3.0
 \pause
 
 Output redirection
-\begin{lstlisting}[language={}]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 $ java RandomSeq 1000 100.0 200.0 > data.txt
 \end{lstlisting}
 
-\begin{lstlisting}[language={}]
+\pause\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 $ head -5 data.txt
 155.83
 191.65
@@ -825,20 +898,24 @@ $ head -5 data.txt
 111.84
 \end{lstlisting}
 
-\pause
-\bigskip
+\pause\bigskip
 
 Input redirection
-\begin{lstlisting}[language={}]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 $ java Average < data.txt
 Average is 149.1812199999999
 \end{lstlisting}
 
-\pause
-\bigskip
+\pause\bigskip
 
 Piping
-\begin{lstlisting}[language={}]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 $ java RandomSeq 1000 100.0 200.0 | java Average
 Average is 150.0588699999999
 \end{lstlisting}

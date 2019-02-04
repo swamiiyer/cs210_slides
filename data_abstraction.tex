@@ -11,24 +11,17 @@
 \titlepage
 \end{frame}
 
-\begin{frame}
-\frametitle{Outline}
-\tableofcontents
-\end{frame}
-
 \section{Using Abstract Data Types}
 \begin{frame}[fragile]
 \pause
 
 An abstract data type (ADT) is one whose representation is hidden from the client
 
-\pause
-\bigskip
+\pause\bigskip
 
 We use an API to specify the behavior of an ADT
 
-\pause
-\bigskip
+\pause\bigskip
 
 Example (a comparable \lstinline{Counter} data type)
 \begin{center}
@@ -48,18 +41,27 @@ method & description \\ \hline
 
 Similarities with a library of static methods
 \begin{itemize}
+\pause
 \item Both are implemented as a Java class
+
+\pause
 \item Instance methods may take zero or more arguments of a specified type, separated by commas and enclosed in parentheses
+
+\pause
 \item They may provide a return value of a specified type or no return value (signified by \lstinline{void})
 \end{itemize}
 
-\pause
-\bigskip
+\pause\bigskip
 
 Differences from a library of static methods
 \begin{itemize}
+\pause
 \item Some entries (called constructors) have the same name as the class and lack a return type
+
+\pause
 \item Instance methods lack the \lstinline{static} modifier, and their purpose is to operate on data type values
+
+\pause
 \item Some instance methods are inherited from parent classes
 \end{itemize}
 \end{frame}
@@ -69,28 +71,26 @@ Differences from a library of static methods
 
 Every Java data type inherits from \lstinline{java.lang.Object}, the \lstinline{toString()}, \lstinline{equals()}, and \lstinline{hashCode()} methods
 
-\pause
-\bigskip
+\pause\bigskip
 
 An object is an entity that can take on a data-type value
 
-\pause
-\bigskip
+\pause\bigskip
 
 An object is characterized by its state (values from its data type), identity (place in memory), and behavior (effect of data-type operations)
 
-\pause
-\bigskip
+\pause\bigskip
 
 To create (or instantiate) an object, we invoke a constructor using the keyword \lstinline{new} followed by the class name, followed by 0 or more arguments, enclosed in parentheses and separated by commas
 
-\begin{lstlisting}[language=Java]
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 Counter heads = new Counter("heads");
 Counter tails = new Counter("tails");
 \end{lstlisting}
 
-\pause
-\bigskip
+\pause\bigskip
 
 Object representation in memory
 \begin{center}
@@ -103,17 +103,17 @@ Object representation in memory
 
 The purpose of an instance method is to operate on data-type values
 
-\pause
-\bigskip
+\pause\bigskip
 
 An instance method is invoked as object name, followed by a period, followed by the method name, followed by 0 or more arguments, enclosed in parentheses and separated by commas
 
-\pause
-\bigskip
+\pause\bigskip
 
 Example (simulating $T$ coin flips)
 
-\begin{lstlisting}[language=Java]
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 import edu.princeton.cs.algs4.Counter;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
@@ -135,9 +135,9 @@ public class Flips {
 }
 \end{lstlisting}
 
-\pause
+\pause\bigskip
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java Flips 1000000
 499422 heads
 500578 tails
@@ -150,16 +150,17 @@ delta: 1156
 
 An assignment statement with a reference type creates a copy (an alias) of the reference, not a new object
 
-\pause
-\bigskip
+\pause\bigskip
 
 We can pass objects as arguments to methods and can also use an object as a return value from a method
 
-\pause
-\bigskip
+\pause\bigskip
 
 Example (simulating $T$ coin flips and finding out if heads or tails is the winner)
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 import edu.princeton.cs.algs4.Counter;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
@@ -183,9 +184,9 @@ public class FlipsMax {
 }
 \end{lstlisting}
 
-\pause
+\pause\bigskip
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java FlipsMax 1000000
 501181 heads wins
 \end{lstlisting}
@@ -196,17 +197,17 @@ $ java FlipsMax 1000000
 
 In Java, every value of any nonprimitive type is an object, and in particular, arrays are objects 
 
-\pause
-\bigskip
+\pause\bigskip
 
 Array entries can be of any type, including reference types, ie, they can be objects
 
-\pause
-\bigskip
+\pause\bigskip
 
 Example (simulating $T$ rolls of a die)
 
-\begin{lstlisting}[language=Java]
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 import edu.princeton.cs.algs4.Counter;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
@@ -216,7 +217,9 @@ public class Rolls {
         int T = Integer.parseInt(args[0]);
         int SIDES = 6;
         Counter[] rolls = new Counter[SIDES + 1];
-        for (int i = 1; i <= SIDES; i++) { rolls[i] = new Counter(i + "'s"); }
+        for (int i = 1; i <= SIDES; i++) { 
+            rolls[i] = new Counter(i + "'s"); 
+        }
         for (int t = 0; t < T; t++) {
             int result = StdRandom.uniform(1, SIDES + 1);
             rolls[result].increment();
@@ -226,15 +229,12 @@ public class Rolls {
 }
 \end{lstlisting}
 
-\pause
+\pause\bigskip
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java Rolls 1000000
 166674 1's
-166337 2's
-166566 3's
-166926 4's
-166822 5's
+...
 166675 6's
 \end{lstlisting}
 \end{frame}
@@ -354,7 +354,7 @@ method & description \\ \hline
 \lstinline$char charAt(int i)$ & $i$th character \\
 \lstinline$int indexOf(String p)$ & first occurrence of $p$ or -1 \\ \lstinline$int indexOf(String p, int i)$ & first occurrence of $p$ after $i$ or -1 \\
 \lstinline$String concat(String t)$ & the string with $t$ appended \\
-\lstinline$String substring(int i, int j)$ & substring of the string from $i$ (inclusive) to $j$ (exclusive) \\
+\lstinline$String substring(int i, int j)$ & \makecell{substring of the string from $i$ (inclusive) \\ to $j$ (exclusive)} \\
 \lstinline$String[] split(String delim)$ & strings between occurrences of $delim$ \\
 \lstinline$int compareTo(String t)$ & compare the string to $t$ \\
 \lstinline$boolean equals(String t)$ & is the string's value the same as $t$'s? \\
@@ -362,11 +362,13 @@ $\dots$ & $\dots$
 \end{tabular} 
 \end{center}
 
-\pause
-\bigskip
+\pause\bigskip
 
 Example (testing if a string is a palindrome)
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 public static boolean isPalindrome(String s) {
     if (s.length() == 0) {
         return true;
@@ -396,10 +398,10 @@ The \lstinline{UF} union-find data type provides that data structure
 \begin{center}
 \begin{tabular}{cc}
 method & description \\ \hline
-\lstinline$UF(int N)$ & \makecell{initialize an empty union-find data \\ structure with $N$ sites} \\
+\lstinline$UF(int N)$ & \makecell{initialize an empty union-find \\ data structure with $N$ sites} \\
 \lstinline$int find(int p)$ & \makecell{component identifier \\ for $p$ (0 to $N-1$)} \\
 \lstinline$int count()$ & number of components \\
-\lstinline$boolean connected(int p, int q)$ & are $p$ and $q$ in the same component? \\
+\lstinline$boolean connected(int p, int q)$ & \makecell{are $p$ and $q$ in the \\ same component?} \\
 \lstinline$void union(int p, int q)$ & add connection between $p$ and $q$
 \end{tabular} 
 \end{center} 
@@ -411,12 +413,13 @@ method & description \\ \hline
 
 \begin{frame}[fragile]
 \begin{minipage}{250pt}
-
 \pause
-\smallskip
 
 \lstinline{UF} client
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
@@ -424,7 +427,8 @@ import edu.princeton.cs.algs4.StdOut;
 public class UFClient {
     public static void main(String[] args) {
         int N = StdIn.readInt();
-        WeightedQuickUnionUF uf = new WeightedQuickUnionUF(N);
+        WeightedQuickUnionUF uf = 
+            new WeightedQuickUnionUF(N);
         while (!StdIn.isEmpty()) {
             int p = StdIn.readInt();
             int q = StdIn.readInt();
@@ -439,14 +443,14 @@ public class UFClient {
     
 \pause
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ more tinyUF.txt
 10 4 3 3 8 6 5 9 4 2 1 8 9 5 0 7 2 6 1 1 0 6 7
 \end{lstlisting}    
 
 \pause
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java UFClient < tinyUF.txt 
 4 3
 3 8
@@ -470,38 +474,31 @@ $ java UFClient < tinyUF.txt
 
 We implement ADTs with a Java class, putting the code (instance variable declarations, constructors, and instance methods) in a file with the same name as the class, followed by the \lstinline{.java} extension
 
-\pause
-\bigskip
+\pause\bigskip
 
 Instance variables define the state of each object, and unlike local variables, each instance variable can have numerous values (one per object)
 
-\pause
-\bigskip
+\pause\bigskip
 
 Constructors have the same name as the class, have no return value, and generally, their purpose is to initialize the instance variables
 
-\pause
-\bigskip
+\pause\bigskip
 
 Instance methods define the behavior of each object
 
-\pause
-\bigskip
+\pause\bigskip
 
 Each instance method has a return type (or \lstinline{void}), a signature, and a body
 
-\pause
-\bigskip
+\pause\bigskip
 
 When a client invokes an instance method, the action is the same as for static methods, with one critical distinction: they can access and perform operations on instance variables
 
-\pause
-\bigskip
+\pause\bigskip
 
 Within an instance method or a constructor, \lstinline{this} is a reference to the current object --- the object whose method or constructor is being called
 
-\pause
-\bigskip
+\pause\bigskip
 
 The most common reason for using the \lstinline{this} keyword is because a field (instance variable) is shadowed by a method or constructor parameter
 \end{frame}
@@ -524,7 +521,10 @@ method & description \\ \hline
 \pause
 
 \lstinline{edu.princeton.cs.algs4.Counter} implementation
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class Counter implements Comparable<Counter> {
@@ -554,21 +554,25 @@ public class Counter implements Comparable<Counter> {
 
 Interface inheritance (aka subtyping) allows programmers to support different implementations for the same API, specified as an interface
 
-\pause
-\bigskip
+\pause\bigskip
 
 Example (\lstinline{Factorial} interface for computing $N!$)
 
-\begin{lstlisting}[language=Java]
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 public interface Factorial {
     public int compute(int N);
 }
 \end{lstlisting}
 
-\pause
+\pause\smallskip
 
 Iterative implementation of the \lstinline{Factorial} interface
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 public class FactorialIter implements Factorial {
     public int compute(int N) {
         int result = 1;
@@ -578,10 +582,13 @@ public class FactorialIter implements Factorial {
 }
 \end{lstlisting}
 
-\pause
+\pause\smallskip
 
 Recursive implementation of the \lstinline{Factorial} interface
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 public class FactorialRec implements Factorial {
     public int compute(int N) {
         return (N == 1) ? 1 : N * compute(N - 1);
@@ -589,10 +596,13 @@ public class FactorialRec implements Factorial {
 }
 \end{lstlisting}
 
-\pause
+\pause\smallskip
 
 Client code
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 Factorial facIter = new FactorialIter();
 Factorial facRec = new FactorialRec();
 StdOut.println(facIter.compute(5) == facRec.compute(5));
@@ -604,6 +614,7 @@ StdOut.println(facIter.compute(5) == facRec.compute(5));
 
 Comparison interfaces for defining comparable data types
 \begin{itemize}
+\pause
 \item \lstinline{java.lang.Comparable}
 \begin{center}
 \begin{tabular}{cc}
@@ -612,6 +623,7 @@ method & description \\ \hline
 \end{tabular} 
 \end{center}
 
+\pause
 \item \lstinline{java.util.Comparator}
 \begin{center}
 \begin{tabular}{cc}
@@ -626,7 +638,10 @@ method & description \\ \hline
 \pause
 
 Example (a comparable \lstinline{Planet} data type)
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 import edu.princeton.cs.algs4.StdOut;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -659,7 +674,7 @@ public class Planet implements Comparable<Planet> {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
     public static void main(String[] args) {
         Planet[] planets = new Planet[8];
         planets[0] = new Planet("Mercury", 0);
@@ -692,7 +707,7 @@ public class Planet implements Comparable<Planet> {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java Planet
 Unsorted:
   Mercury, 0
@@ -729,6 +744,7 @@ Sorted by # of moons:
 
 Iteration interfaces for defining iterable data types
 \begin{itemize}
+\pause
 \item \lstinline{java.lang.Iterable}
 \begin{center}
 \begin{tabular}{cc}
@@ -737,6 +753,7 @@ method & description \\ \hline
 \end{tabular} 
 \end{center}
 
+\pause
 \item \lstinline{java.util.Iterator}
 \begin{center}
 \begin{tabular}{cc}
@@ -748,18 +765,26 @@ method & description \\ \hline
 \end{center}
 \end{itemize}
 
-\pause
-\bigskip
+\pause\bigskip
 
 An iterable type (arrays included) can be enumerated using the enhanced for statement
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 String[] dow = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
 for (String s : dow) {
     StdOut.println(s);
 }
 \end{lstlisting}
+
+\pause\smallskip
+
 which is (roughly) equivalent to
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 String[] dow = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
 Iterator iter = dow.iterator();
 while (iter.hasNext()) {
@@ -773,7 +798,10 @@ while (iter.hasNext()) {
 \pause
 
 Example (an iterable \lstinline{Fibonacci} data type)
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 import edu.princeton.cs.algs4.StdOut;
 import java.util.Iterator;
 
@@ -801,6 +829,13 @@ public class Fibonacci implements Iterable<Long> {
         
         public void remove() {}
     }
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+
+\begin{lstlisting}[language=Java,style=focusin]
 
     public static void main(String[] args) {
         int n = Integer.parseInt(args[0]);
@@ -808,12 +843,10 @@ public class Fibonacci implements Iterable<Long> {
     }
 }
 \end{lstlisting}
-\end{frame}
 
-\begin{frame}[fragile]
-\pause
+\pause\bigskip
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java Fibonacci 10
 1
 1
@@ -833,36 +866,33 @@ $ java Fibonacci 10
 
 Implementation inheritance (aka subclassing) enables programmers to define a new class (subclass or derived class) that inherits instance methods and instance variables from another class (superclass or base class)
 
-\pause
-\bigskip
+\pause\bigskip
 
 Every class in Java is a subclass of the \lstinline{java.lang.Object} class and therefore inherits its methods
 
-\pause
-\bigskip
+\pause\bigskip
 
 Since every Java type inherits \lstinline{toString()} from \lstinline{Object}, any client can invoke \lstinline{toString()} for any object
 
-\pause
-\bigskip
+\pause\bigskip
 
 Wrapper types are reference types provided by Java for each of the primitive types (eg, \lstinline{Boolean} for \lstinline{boolean}, \lstinline{Integer} for \lstinline{int}, etc)
 
-\pause
-\bigskip
+\pause\bigskip
 
 Java automatically converts primitive types to wrapper types (auto boxing) and wrapper types to primitive types (auto unboxing)
 
-\pause
-\bigskip
+\pause\bigskip
 
 If we test equality with \lstinline{a == b} (instead of \lstinline{a.equals(b)}) where \lstinline{a} and \lstinline{b} are reference variables of the same type, we are testing whether they have the same identity, ie, the same address 
 
-\pause
-\bigskip
+\pause\bigskip
 
 The ability to assign a new value to a reference variable can lead to orphaned objects
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 Date a = new Date(12, 31, 2014);
 Date b = new Date(1, 1, 2015);
 b = a;
@@ -879,38 +909,45 @@ Java automatically manages memory (garbage collection) by keeping track of orpha
 
 An immutable data type (eg, \lstinline{String}) has the property that the value of an object never changes once constructed
 
-\pause
-\bigskip
+\pause\bigskip
 
 Java enforces immutability via the \lstinline{final} modifier
 
-\pause
-\bigskip
+\pause\bigskip
 
 Exceptions and errors are disruptive events that occur while a program is running
 
-\pause
-\bigskip
+\pause\bigskip
 
 Java system methods throw exceptions such as  \lstinline{StackOverflowError}, \lstinline{ArithmeticException}, \lstinline{ArrayIndexOutOfBoundsException}, \lstinline{OutOfMemoryError}, and \lstinline{NullPointerException}
 
-\pause
-\bigskip
+\pause\bigskip
 
 We can also raise exceptions within a program, with specific error messages
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 throw new RuntimeException("Error message");
 \end{lstlisting}
 
-\pause
-\bigskip
+\pause\bigskip
 
 An assertion is a boolean expression that we are affirming is true at that point in the program; if the expression is \lstinline{false}, the program will terminate and report an error message
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 assert index >= 0;
 \end{lstlisting}
+
+\smallskip
+
 or
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 assert index >= 0 : "Negative index in method X";
 \end{lstlisting}
 \end{frame}

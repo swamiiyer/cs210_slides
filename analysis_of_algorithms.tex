@@ -11,18 +11,16 @@
 \titlepage
 \end{frame}
 
-\begin{frame}
-\frametitle{Outline}
-\tableofcontents
-\end{frame}
-
 \section{Complexity of Algorithms}
 \begin{frame}[fragile]
 \pause
 
 Questions that arise when we write programs that process large amounts of data
 \begin{itemize}
+\pause
 \item How long will my program take, ie, what's the time complexity of my program?
+
+\pause
 \item How much memory will my program need, ie, what's the space complexity of my program?
 \end{itemize}
 \end{frame}
@@ -32,13 +30,12 @@ Questions that arise when we write programs that process large amounts of data
 \pause
 
 Example (3-sum problem)
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class ThreeSum {
     public static int count(int[] a) {
-        int N = a.length;
-        int cnt = 0;
+        int N = a.length, cnt = 0;
         for (int i = 0; i < N; i++) {
             for (int j = i + 1; j < N; j++) {
                 for (int k = j + 1; k < N; k++) {
@@ -60,17 +57,17 @@ public class ThreeSum {
 }
 \end{lstlisting}
 
-\pause
+\pause\smallskip
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java edu.princeton.cs.algs4.ThreeSum 1Kints.txt 
 elapsed time = 0.334
 70
 \end{lstlisting}
 
-\pause
+\pause\smallskip
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java edu.princeton.cs.algs4.ThreeSum 2Kints.txt 
 elapsed time = 2.643
 528
@@ -82,8 +79,7 @@ elapsed time = 2.643
 
 We can carry out experimental analysis of the order of growth (aka running time) $T(N)$ of a program using a stopwatch, where $N$ is the input size
 
-\pause
-\bigskip
+\pause\bigskip
 
 \lstinline{Stopwatch} API
 \begin{center}
@@ -94,11 +90,13 @@ method & description \\ \hline
 \end{tabular} 
 \end{center}
 
-\pause
-\bigskip
+\pause\bigskip
 
 \lstinline{Stopwatch} implementation
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class Stopwatch {
@@ -119,7 +117,10 @@ public class Stopwatch {
 \pause
 
 A \lstinline{Stopwatch} client that produces experimental data for \lstinline{ThreeSum}
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class DoublingTest {
@@ -143,9 +144,9 @@ public class DoublingTest {
 } 
 \end{lstlisting}
 
-\pause
+\pause\smallskip
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java edu.princeton.cs.algs4.DoublingTest
     250   0.0
     500   0.0
@@ -178,18 +179,15 @@ and since $T(8000)=51.1$, we have $$T(N)=9.98\times 10^{-11}N^3$$
 
 We can also derive a mathematical expression for the order of growth $T(N)$ of a program
 
-\pause
-\bigskip
+\pause\bigskip
 
 The order of growth of a program is determined by: the cost of executing each statement (property of the computer); and the frequency of execution of each statement (property of the program and the input)
 
-\pause
-\bigskip
+\pause\bigskip
 
 We write $g(N) \sim f(N)$ (called tilde approximation) to represent any function $g(N)$ that, when divided by $f(N)$, approaches 1 as $N$ approaches $\infty$
 
-\pause
-\bigskip
+\pause\bigskip
 
 Most often, we work with tilde approximations of the form $g(N)\sim af(N)$ where $f(N)=N^b(\log N)^c$ and $a, b$, and $c$ are constants; we refer to $f(N)$ as the order of growth of $g(N)$
 \end{frame}
@@ -198,7 +196,10 @@ Most often, we work with tilde approximations of the form $g(N)\sim af(N)$ where
 \pause
 
 Analyzing the order of growth of \lstinline{ThreeSum.count()}
-\begin{lstlisting}[language=Java, mathescape]
+
+\smallskip
+
+\begin{lstlisting}[language=Java, mathescape,style=focusin]
 public static int count(int[] a) {
     int N = a.length;                           $[A]$
     int cnt = 0;
@@ -246,22 +247,35 @@ Order of growth: $N^3$
 \begin{frame}[fragile]
 \pause
 
-For many programs, developing a mathematical model of order of growth reduces to the following steps
+Developing a mathematical model of order of growth involves
 \begin{itemize}
-\item Develop an input model, including a definition of the problem size
-\item Identify the inner loop
-\item Define a cost model that includes operations in the inner loop
-\item Determine the frequency of execution of those operations for the given input
-\end{itemize}
+\pause
+\item Developing an input model, including a definition of the problem size
 
 \pause
-\bigskip
+\item Identifying the inner loop
+
+\pause
+\item Defining a cost model that includes operations in the inner loop
+
+\pause
+\item Determining the frequency of execution of those operations for the given input
+\end{itemize}
+
+\pause\bigskip
 
 For \lstinline{ThreeSum}
 \begin{itemize}
+\pause
 \item The input model is $N$ numbers
+
+\pause
 \item The inner loop is the if-statement inside a triply nested \lstinline{for} loop
+
+\pause
 \item The cost model is the number of array accesses
+
+\pause
 \item The frequency of array accesses is $N^3/2$
 \end{itemize}
 \end{frame}
@@ -283,8 +297,7 @@ exponential & $2^N$ & exhaustive search & check all subsets
 \end{tabular} 
 \end{center}
 
-\pause
-\smallskip
+\pause\smallskip
 
 \begin{center}
 \visible<3->{\includegraphics[scale=0.47]{{./figures/order_of_growth}.pdf}}
@@ -296,11 +309,13 @@ exponential & $2^N$ & exhaustive search & check all subsets
 
 Search problem: search for a key in a collection of $N$ keys
 
-\pause
-\bigskip
+\pause\bigskip
 
 Linear search
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 public static int indexOf(int[] a, int key) {
     for (int i = 0; i < a.length; i++) {
         if (a[i] == key) { 
@@ -311,12 +326,11 @@ public static int indexOf(int[] a, int key) {
 }
 \end{lstlisting}
 
-\pause
+\pause\bigskip
 
 Order of growth: $N$
 
-\pause
-\bigskip
+\pause\bigskip
 
 Binary search (successful search for the key 23)
 \begin{center}
@@ -338,7 +352,9 @@ Binary search (unsuccessful search for the key 50)
 
 Binary search and whitelisting
 
-\begin{lstlisting}[language=Java]
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 import java.util.Arrays;
@@ -396,7 +412,7 @@ tinyW.txt tinyT.txt
              68
 \end{lstlisting}
 
-\pause
+\pause\bigskip
 
 \begin{lstlisting}[language={}]
 $ java edu.princeton.cs.algs4.BinarySearch tinyW.txt < tinyT.txt
@@ -405,13 +421,11 @@ $ java edu.princeton.cs.algs4.BinarySearch tinyW.txt < tinyT.txt
 13
 \end{lstlisting}
 
-\pause
-\bigskip
+\pause\bigskip
 
 Binary search order of growth: $\lg N$ 
 
-\pause
-\bigskip
+\pause\bigskip
 
 Whitelisting order of growth: $M\lg N$, where $M$ is the number of calls to \lstinline{BinarySearch.indexOf()}, ie, the number of binary searches
 \end{frame}
@@ -420,7 +434,10 @@ Whitelisting order of growth: $M\lg N$, where $M$ is the number of calls to \lst
 \pause
 
 Faster solution to the 3-sum problem
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 import java.util.Arrays;
@@ -449,7 +466,7 @@ public class ThreeSumFast {
 }
 \end{lstlisting}
 
-\pause
+\pause\bigskip
 
 Order of growth: $N^2\lg N$
 \end{frame}
@@ -472,18 +489,15 @@ type & bytes \\ \hline
 \end{tabular} 
 \end{center}
 
-\pause
-\bigskip
+\pause\bigskip
 
 To determine the memory usage of an object, we add the amount of memory used by each instance variable to the overhead associated with each object, which is 16 bytes
 
-\pause
-\bigskip
+\pause\bigskip
 
 A \lstinline{Counter} object uses 32 bytes: 16 bytes of overhead, 8 bytes for its \lstinline{String} instance variable (a reference), 4 bytes for its \lstinline{int} instance variable, and 4 bytes of padding
 
-\pause
-\bigskip
+\pause\bigskip
 
 A nested non-static (inner) class requires an extra 8 bytes of overhead (for reference to the enclosing instance)
 \end{frame}
@@ -493,33 +507,27 @@ A nested non-static (inner) class requires an extra 8 bytes of overhead (for ref
 
 An array of primitive-type values typically requires 24 bytes of header information (16 bytes of object overhead, 4 bytes for the length, and 4 bytes of padding) plus the memory needed to store the values
 
-\pause
-\bigskip
+\pause\bigskip
 
 For example, an array of $N$ \lstinline{int} values uses $24 + 4N$ bytes 
 
-\pause
-\bigskip
+\pause\bigskip
 
 An array of objects is an array of references to objects, so we need to add the space for the references to the space required for the objects
 
-\pause
-\bigskip
+\pause\bigskip
 
 For example, an array of $N$ \lstinline{Date} objects uses 24 bytes (array overhead) plus $8N$ bytes (references) plus 32 bytes for each object, for a grand total of $24+40N$ bytes
 
-\pause
-\bigskip
+\pause\bigskip
 
 A two-dimensional array is an array of arrays (each array is an object)
 
-\pause
-\bigskip
+\pause\bigskip
 
 For example, a two-dimensional $M$-by-$N$ array of \lstinline{double} values uses 24 bytes (overhead for array of arrays) plus $8M$ bytes (references to the row arrays) plus $24M$ bytes (overhead from the row arrays) plus $8MN$ bytes (for the $N$ \lstinline{double} values in each of the $M$ rows) for a grand total of $8MN+32M+24\sim 8MN$ bytes
 
-\pause
-\bigskip
+\pause\bigskip
 
 A \lstinline{String} of length $N$ typically uses 32 bytes (for the \lstinline{String} object) plus $24+2N$ bytes (for the array that contains the characters) for a total of $56+2N$ bytes
 \end{frame}

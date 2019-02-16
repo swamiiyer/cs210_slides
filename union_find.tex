@@ -11,11 +11,6 @@
 \titlepage
 \end{frame}
 
-\begin{frame}
-\frametitle{Outline}
-\tableofcontents
-\end{frame}
-
 \section{The Dynamic Connectivity Problem}
 \begin{frame}[fragile]
 \begin{minipage}{250pt}
@@ -23,20 +18,21 @@
 
 Consider an input sequence of pairs of integers, where each integer represents an object of some type, and the pair $(p, q)$ means that ``$p$ is connected to $q$''
 
-\pause
-\bigskip
+\pause\bigskip
 
 The goal of the dynamic connectivity problem is to devise a data structure to decide whether or not a new pair of objects is connected 
 
-\pause
-\bigskip
+\pause\bigskip
 
 Applications
 \begin{itemize}
+\pause
 \item Determine if two vertices in a network are connected
 
+\pause
 \item Determine if two variable names in a computer program are equivalent, ie, refer to the same object
 
+\pause
 \item If we think of the integers as belonging to mathematical sets, when we process a pair $(p, q)$, we are asking whether they belong to the same set, and if not, we unite $p$'s set and $q$'s set, putting them in the same set
 \end{itemize}
 \end{minipage}%
@@ -50,18 +46,15 @@ Applications
 
 We refer to the objects as sites, the pairs as connections, and the groups of connected sites as components
 
-\pause
-\bigskip
+\pause\bigskip
 
 For simplicity, we assume that we have $N$ sites with integer names, from 0 to $N-1$
 
-\pause
-\bigskip
+\pause\bigskip
 
 We solve the dynamic connectivity problem using the union-find data structure
 
-\pause
-\bigskip
+\pause\bigskip
 
 The union-find (\lstinline{UF}) API
 \begin{center}
@@ -79,11 +72,13 @@ method & description \\ \hline
 \begin{frame}[fragile]
 \begin{minipage}{250pt}
 
-\pause
-\smallskip
+\pause\smallskip
 
 \lstinline{UF} client
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 import edu.princeton.cs.algs4.QuickFindUF;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
@@ -104,16 +99,16 @@ public class UFClient {
 }
 \end{lstlisting}
     
-\pause
+\pause\smallskip
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ more tinyUF.txt
 10 4 3 3 8 6 5 9 4 2 1 8 9 5 0 7 2 6 1 1 0 6 7
 \end{lstlisting}    
 
-\pause
+\pause\smallskip
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java UFClient < tinyUF.txt 
 4 3
 3 8
@@ -135,7 +130,7 @@ $ java UFClient < tinyUF.txt
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class QuickFindUF {
@@ -181,7 +176,7 @@ Trace of calls to \lstinline{union()}
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class QuickUnionUF {
@@ -228,7 +223,7 @@ Trace of calls to \lstinline{union()}
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class WeightedQuickUnionUF {
@@ -252,6 +247,13 @@ public class WeightedQuickUnionUF {
   
     public boolean connected(int p, int q) { return find(p) == find(q); }
 
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+
+\begin{lstlisting}[language=Java,style=focusin]
     public void union(int p, int q) {
         int rootP = find(p), rootQ = find(q);
         if (rootP == rootQ) { return; }

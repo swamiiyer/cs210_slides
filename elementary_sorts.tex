@@ -11,11 +11,6 @@
 \titlepage
 \end{frame}
 
-\begin{frame}
-\frametitle{Outline}
-\tableofcontents
-\end{frame}
-
 \section{Rules of the Game}
 \begin{frame}[fragile]
 \pause
@@ -52,7 +47,7 @@ Our sort code is effective for any item type that is comparable
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 import java.util.Comparator;
@@ -90,12 +85,13 @@ public class SortAlgorithm {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
     private static boolean isSorted(Object[] a, Comparator c) {
         return isSorted(a, c, 0, a.length - 1);
     }
 
-    private static boolean isSorted(Object[] a, Comparator c, int lo, int hi) {
+    private static boolean isSorted(Object[] a, Comparator c, 
+                                    int lo, int hi) {
         for (int i = lo + 1; i <= hi; i++) {
             if (less(c, a[i], a[i - 1])) { return false; }
         }
@@ -117,8 +113,9 @@ public class SortAlgorithm {
 \end{lstlisting}
 
 \pause
+\bigskip
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java SortAlgorithm
 S O R T E X A M P L E
 <ctrl-d>
@@ -135,7 +132,7 @@ First find the smallest item in the array and exchange it with the first entry, 
 \pause
 \bigskip
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 import java.util.Comparator;
@@ -186,7 +183,7 @@ Similar to the technique that people use to sort bridge hands, ie, consider the 
 \pause
 \bigskip
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 import java.util.Comparator;
@@ -238,7 +235,7 @@ The idea is to rearrange the array such that taking every $h$th entry (starting 
 \pause
 \bigskip
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 import java.util.Comparator;
@@ -306,7 +303,7 @@ No mathematical results are available for the number of comparisons in the avera
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
 import edu.princeton.cs.algs4.*;
 import java.util.Arrays;
 
@@ -327,11 +324,19 @@ public class SortCompare {
         else if (alg.equals("Heap"))            { Heap.sort(a); }
         else if (alg.equals("System"))          { Arrays.sort(a); }
         else {
-            throw new IllegalArgumentException("Invalid algorithm: " + alg);
+            throw new IllegalArgumentException("Invalid algorithm: " + 
+                                                alg);
         }
         return sw.elapsedTime(); 
     } 
 
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+
+\begin{lstlisting}[language=Java,style=focusin]
     public static double timeRandomInput(String alg, int N, int T)  {
         double total = 0.0; 
         Double[] a = new Double[N]; 
@@ -341,13 +346,7 @@ public class SortCompare {
         } 
         return total; 
     }
-\end{lstlisting}
-\end{frame}
 
-\begin{frame}[fragile]
-\pause
-
-\begin{lstlisting}[language=Java]
     public static double timeSortedInput(String alg, int N, int T)  {
         double total = 0.0; 
         Double[] a = new Double[N]; 
@@ -358,6 +357,13 @@ public class SortCompare {
         return total; 
     } 
 
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\pause
+
+\begin{lstlisting}[language=Java,style=focusin]
     public static void main(String[] args) { 
         String alg1 = args[0]; 
         String alg2 = args[1]; 
@@ -378,9 +384,9 @@ public class SortCompare {
 }
 \end{lstlisting}
 
-\pause
+\pause\bigskip
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java SortCompare Shell Selection 10000 100
 For 10000 random Doubles
     Shell is 51.0 times faster than Selection

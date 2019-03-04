@@ -11,11 +11,6 @@
 \titlepage
 \end{frame}
 
-\begin{frame}
-\frametitle{Outline}
-\tableofcontents
-\end{frame}
-
 \section{Sorting Various Types of Data}
 \begin{frame}[fragile]
 \pause
@@ -38,7 +33,9 @@ An array might not remain sorted if a client is allowed to change the values of 
 
 There are many applications where we want to use different orders for the objects we are sorting, and the \lstinline$Comparator$ interface makes this possible
 
-\begin{lstlisting}[language=Java]
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 import java.util.Comparator;
@@ -63,11 +60,16 @@ public class Insertion {
 \bigskip
 
 In typical applications, items have multiple instance variables that might need to serve as sort keys
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 Insertion.sort(a, new Transaction.WhenOrder());
 \end{lstlisting}
 
-\begin{lstlisting}[language=Java]
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 Insertion.sort(a, new Transaction.HowMuchOrder());
 \end{lstlisting}
 \end{frame}
@@ -76,7 +78,10 @@ Insertion.sort(a, new Transaction.HowMuchOrder());
 \pause
 
 The \lstinline{Transaction} data type with alternate orderings
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 import java.util.Arrays;
@@ -109,7 +114,7 @@ public class Transaction implements Comparable<Transaction> {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
     public int compareTo(Transaction that) {
         if      (this.amount < that.amount) { return -1; }
         else if (this.amount > that.amount) { return +1; }
@@ -149,8 +154,10 @@ A sorting method is stable if it preserves the relative order of equal keys in t
 
 Example
 
+\smallskip
+
 \begin{minipage}{65pt}
-\begin{lstlisting}[language={},backgroundcolor=\color{white}]
+\begin{lstlisting}[language={},backgroundcolor=\color{white},style=focusin]
 Chicago 09:00:00
 Phoenix 09:00:03
 Houston 09:00:13
@@ -171,11 +178,14 @@ Seattle 09:36:14
 Phoenix 09:37:44
 \end{lstlisting}
 \begin{center}
+
+\smallskip
+
 \tiny Sorted by time
 \end{center}
 \end{minipage}\hfill
 \begin{minipage}{65pt}
-\begin{lstlisting}[language={},backgroundcolor=\color{white}]
+\begin{lstlisting}[language={},backgroundcolor=\color{white},style=focusin]
 Chicago 09:25:52
 Chicago 09:03:13
 Chicago 09:21:05
@@ -196,11 +206,14 @@ Seattle 09:10:11
 Seattle 09:22:54
 \end{lstlisting}
 \begin{center}
+
+\smallskip
+
 \tiny Sorted by location (unstable)
 \end{center}
 \end{minipage}\hfill
 \begin{minipage}{65pt}
-\begin{lstlisting}[language={},backgroundcolor=\color{white}]
+\begin{lstlisting}[language={},backgroundcolor=\color{white},style=focusin]
 Chicago 09:00:00
 Chicago 09:00:59
 Chicago 09:03:13
@@ -221,7 +234,11 @@ Seattle 09:22:54
 Seattle 09:36:14
 \end{lstlisting}
 \begin{center}
+
+\smallskip
+
 \tiny Sorted by location (stable)
+
 \end{center}
 \end{minipage}
 
@@ -271,7 +288,10 @@ We can use sorting algorithms to solve other problems --- a technique in algorit
 
 Examples
 \begin{itemize}
+\pause
 \item Duplicates: finding duplicates in a collection of keys
+
+\pause
 \item Median: finding the median (the value with the property that half the keys are no larger and half the keys are no smaller) of a collection of keys
 \end{itemize}
 \end{frame}
@@ -287,8 +307,10 @@ Search for information: keeping data in sorted order makes it possible to effici
 
 Combinatorial search: a classic paradigm in artificial intelligence and in coping with intractable problems is
 \begin{itemize}
+\pause
 \item To define: a set of configurations with well-defined moves from one configuration to the next; a priority for each move; a start configuration; and a goal configuration  
 
+\pause
 \item And then apply the well-known $A^\star$ algorithm, which uses a priority queue, to solve the problem
 \end{itemize}
 

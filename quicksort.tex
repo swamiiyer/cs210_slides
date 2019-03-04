@@ -11,11 +11,6 @@
 \titlepage
 \end{frame}
 
-\begin{frame}
-\frametitle{Outline}
-\tableofcontents
-\end{frame}
-
 \section{The Basic Algorithm}
 \begin{frame}[fragile]
 \pause
@@ -34,7 +29,7 @@ Quick sort overview
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 import java.util.Comparator;
@@ -69,15 +64,18 @@ Trace (right after the call to \lstinline{partition()})
 
 The partitioning procedure rearranges the array such that
 \begin{itemize}
+\pause
 \item The entry \lstinline{a[j]} is in its final place in the array, for some \lstinline{j}
+\pause
 \item No entry in \lstinline{a[lo]} through \lstinline{a[j - 1]} is greater than \lstinline{a[j]}
+\pause
 \item No entry in \lstinline{a[j + 1]} through \lstinline{a[hi]} is less than \lstinline{a[j]}
 \end{itemize}
 
 \pause
 \bigskip
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 import java.util.Comparator;
@@ -125,13 +123,25 @@ In the worst case, quick sort uses $\sim N^2$ comparisons, but random shuffling 
 \pause
 
 An easy way to improve the performance of quick sort is to use insertion sort for tiny subarrays, ie, replace the following statement 
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 if (hi <= lo) { return; }
 \end{lstlisting}
+
+\smallskip
+
 in the recursive \lstinline{Quick.sort()} method with the following statement
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 if (hi <= lo + M) { Insertion.sort(a, lo, hi); return; }
 \end{lstlisting}
+
+\smallskip
+
 where the optimum value of the cutoff $M$ is system-dependent, but any value between 5 and 15 is likely to work well in most situations
 
 \pause
@@ -145,9 +155,9 @@ Another easy way to improve the performance of quick sort is to use the median o
 
 When arrays have a large number of duplicate keys (eg, sorting a large personnel file by year of birth), one straightforward idea (due to Dijkstra), called 3-way quick sort, is to partition the array into three parts, one each for items with keys smaller than, equal to, and larger than the partitioning item's key
 
-\pause
+\pause\bigskip
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 import java.util.Comparator;
@@ -215,7 +225,10 @@ No comparison-based sorting algorithm can guarantee to sort $N$ items with fewer
 \pause
 
 A comparison of quick sort and selection sort
-\begin{lstlisting}[language={}]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 $ java SortCompare Quick Selection 10000 100
 For 10000 random Doubles
     Quick is 30.3 times faster than Selection
@@ -225,7 +238,10 @@ For 10000 random Doubles
 \bigskip
 
 A comparison of quick sort and insertion sort
-\begin{lstlisting}[language={}]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 $ java SortCompare Quick Insertion 10000 100
 For 10000 random Doubles
     Quick is 34.1 times faster than Insertion
@@ -235,7 +251,10 @@ For 10000 random Doubles
 \bigskip
 
 A comparison of quick sort and shell sort
-\begin{lstlisting}[language={}]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 $ java SortCompare Quick Shell 10000 100
 For 10000 random Doubles
     Quick is 0.8 times faster than Shell
@@ -245,7 +264,10 @@ For 10000 random Doubles
 \bigskip
 
 A comparison of quick sort and merge sort
-\begin{lstlisting}[language={}]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 $ java SortCompare Quick Merge 10000 100
 For 10000 random Doubles
     Quick is 0.9 times faster than Merge
@@ -255,7 +277,10 @@ For 10000 random Doubles
 \bigskip
 
 A comparison of quick sort and system sort
-\begin{lstlisting}[language={}]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 $ java SortCompare Quick System 10000 100
 For 10000 random Doubles
     Quick is 1.7 times faster than System

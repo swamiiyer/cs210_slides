@@ -11,11 +11,6 @@
 \titlepage
 \end{frame}
 
-\begin{frame}
-\frametitle{Outline}
-\tableofcontents
-\end{frame}
-
 \section{Merging}
 \begin{frame}[fragile]
 \pause
@@ -41,7 +36,9 @@ Merge sort overview
 
 The merge algorithm
 
-\begin{lstlisting}[language=Java]
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 import java.util.Comparator;
@@ -80,7 +77,9 @@ Trace of merge operation
 
 Top-down merge sort
 
-\begin{lstlisting}[language=Java]
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 import java.util.Comparator;
@@ -170,7 +169,9 @@ Merge sort is an asymptotically optimal comparison-based sorting algorithm, sinc
 
 A comparison of merge sort and selection sort
 
-\begin{lstlisting}[language={}]
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 $ java SortCompare Merge Selection 10000 100
 For 10000 random Doubles
     Merge is 44.8 times faster than Selection
@@ -180,7 +181,10 @@ For 10000 random Doubles
 \bigskip
 
 A comparison of merge sort and insertion sort
-\begin{lstlisting}[language={}]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 $ java SortCompare Merge Insertion 10000 100
 For 10000 random Doubles
     Merge is 39.1 times faster than Insertion
@@ -191,7 +195,9 @@ For 10000 random Doubles
 
 A comparison of merge sort and shell sort
 
-\begin{lstlisting}[language={}]
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 $ java SortCompare Merge Shell 10000 100
 For 10000 random Doubles
     Merge is 1.1 times faster than Shell
@@ -202,7 +208,9 @@ For 10000 random Doubles
 
 A comparison of merge sort and system sort
 
-\begin{lstlisting}[language={}]
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 $ java SortCompare Merge System 10000 100
 For 10000 random Doubles
     Merge is 2.0 times faster than System

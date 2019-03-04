@@ -11,11 +11,6 @@
 \titlepage
 \end{frame}
 
-\begin{frame}
-\frametitle{Outline}
-\tableofcontents
-\end{frame}
-
 \section{API}
 \begin{frame}[fragile]
 \pause
@@ -64,7 +59,7 @@ $\dots$ & $\dots$
 \pause
 
 A \lstinline{MinPQ} client
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
 import edu.princeton.cs.algs4.*;
 
 public class TopM {   
@@ -88,18 +83,17 @@ public class TopM {
 } 
 \end{lstlisting} 
 
-\pause
+\pause\smallskip
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ more tinyBatch.txt 
 Turing      6/17/1990   644.08
-vonNeumann  3/26/2002  4121.85
 ...
 \end{lstlisting} 
 
-\pause
+\pause\smallskip
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java TopM 5 < tinyBatch.txt 
 Thompson    2/27/2000  4747.08
 vonNeumann  2/12/1994  4732.35
@@ -177,8 +171,8 @@ Bottom-up reheapify (swim): if the maximum-oriented heap order is violated becau
 \pause
 \bigskip
 
-\begin{minipage}{150pt}
-\begin{lstlisting}[language=Java]
+\begin{minipage}{160pt}
+\begin{lstlisting}[language=Java,style=focusin]
 private void swim(int k) {
     while (k > 1 && less(k / 2, k)) { 
         exch(k, k / 2); 
@@ -187,8 +181,8 @@ private void swim(int k) {
 }
 \end{lstlisting}
 \end{minipage}%
-\begin{minipage}{130pt}
-\hfill \visible<3->{\includegraphics[scale=0.35]{./figures/heapify_swim.pdf}}
+\begin{minipage}{120pt}
+\hfill \visible<3->{\includegraphics[scale=0.3]{./figures/heapify_swim.pdf}}
 \end{minipage}
 
 \pause
@@ -205,8 +199,8 @@ Top-down reheapify (sink): if the maximum-oriented heap order is violated becaus
 \pause
 \bigskip
 
-\begin{minipage}{150pt}
-\begin{lstlisting}[language=Java]
+\begin{minipage}{160pt}
+\begin{lstlisting}[language=Java,style=focusin]
 private void sink(int k) {
     while (2 * k <= N) {
         int j = 2 * k;
@@ -220,8 +214,8 @@ private void sink(int k) {
 }
 \end{lstlisting}
 \end{minipage}%
-\begin{minipage}{130pt}
-\hfill \visible<3->{\includegraphics[scale=0.35]{./figures/heapify_sink.pdf}}
+\begin{minipage}{120pt}
+\hfill \visible<3->{\includegraphics[scale=0.3]{./figures/heapify_sink.pdf}}
 \end{minipage}
 
 \pause
@@ -233,7 +227,7 @@ Remove the maximum: take the largest key off the top, put the item from the end 
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 import java.util.Iterator;
@@ -270,14 +264,16 @@ public class MaxPQ<Key> implements Iterable<Key> {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]    
+\begin{lstlisting}[language=Java,style=focusin]    
     public Key delMax() {
         if (isEmpty()) { throw new NoSuchElementException(); }
         Key max = pq[1];
         exch(1, N--);
         sink(1);
         pq[N + 1] = null; 
-        if ((N > 0) && (N == (pq.length - 1) / 4)) { resize(pq.length / 2); }
+        if ((N > 0) && (N == (pq.length - 1) / 4)) { 
+            resize(pq.length / 2); 
+        }
         return max;
     }
     
@@ -334,7 +330,10 @@ $\dots$ & $\dots$
 \pause
 
 An \lstinline{IndexMinPQ} client
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 import edu.princeton.cs.algs4.*;
 
 public class Multiway { 
@@ -365,28 +364,28 @@ public class Multiway {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ more m1.txt 
 A B C F G I I Z
 \end{lstlisting}
 
-\pause
+\pause\smallskip
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ more m2.txt 
 B D H P Q Q
 \end{lstlisting}
 
-\pause
+\pause\smallskip
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ more m3.txt 
 A B E F J N
 \end{lstlisting}
 
-\pause
+\pause\smallskip
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java Multiway m1.txt m2.txt m3.txt 
 A A B B B C D E F F G H I I J N P Q Q Z 
 \end{lstlisting}
@@ -403,9 +402,9 @@ Insert all the items to be sorted into a minimum-oriented priority queue, then r
 
 To sort in place, heapify \lstinline$a[]$ containing $N$ items to a maximum-oriented heap-ordered binary tree, and repeatedly exchange the maximum key with the key at index $N$ and reheapify the first $N - 1$ keys 
 
-\pause
+\pause\smallskip
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class Heap {
@@ -438,7 +437,10 @@ Heap sort uses $\sim N \lg N$ comparisons and $\sim N \lg N$ exchanges
 \pause
 
 A comparison of heap sort and insertion sort
-\begin{lstlisting}[language={}]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 $ java SortCompare Heap Insertion 10000 100
 For 10000 random Doubles
     Heap is 58.4 times faster than Insertion
@@ -448,7 +450,10 @@ For 10000 random Doubles
 \bigskip
 
 A comparison of heap sort and shell sort
-\begin{lstlisting}[language={}]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 $ java SortCompare Heap Shell 10000 100
 For 10000 random Doubles
     Heap is 164.8 times faster than Shell
@@ -458,7 +463,10 @@ For 10000 random Doubles
 \bigskip
 
 A comparison of heap sort and merge sort
-\begin{lstlisting}[language={}]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 $ java SortCompare Heap Merge 10000 100
 For 10000 random Doubles
     Heap is 1.1 times faster than Merge
@@ -468,7 +476,10 @@ For 10000 random Doubles
 \bigskip
 
 A comparison of heap sort and quick sort
-\begin{lstlisting}[language={}]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 $ java SortCompare Heap Quick 10000 100
 For 10000 random Doubles
     Heap is 0.9 times faster than Quick
@@ -478,7 +489,10 @@ For 10000 random Doubles
 \bigskip
 
 A comparison of heap sort and system sort
-\begin{lstlisting}[language={}]
+
+\smallskip
+
+\begin{lstlisting}[language={},style=focusin]
 $ java SortCompare Heap System 10000 100
 For 10000 random Doubles
     Heap is 1.8 times faster than System

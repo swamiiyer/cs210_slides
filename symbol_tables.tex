@@ -11,11 +11,6 @@
 \titlepage
 \end{frame}
 
-\begin{frame}
-\frametitle{Outline}
-\tableofcontents
-\end{frame}
-
 \section{What is a Symbol Table?}
 \begin{frame}[fragile]
 \pause
@@ -43,12 +38,16 @@ compiler & find type and value & variable name & type and value \\
 
 Conventions
 \begin{itemize}
+\pause
 \item No duplicate keys are allowed; when a client puts a key-value pair into a table already containing that key (and an associated value), the new value replaces the old one
 
+\pause
 \item Keys must not be \lstinline{null}
 
+\pause
 \item No key can be associated with the value \lstinline{null}; otherwise the key is deleted
 
+\pause
 \item Deleting a key involves removing the key (and the associated value) from the table immediately
 \end{itemize}
 \end{frame}
@@ -107,7 +106,10 @@ method & description \\ \hline
 \pause
 
 Test client
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class SequentialSearchST {
@@ -126,8 +128,9 @@ public class SequentialSearchST {
 \end{lstlisting}
 
 \pause
+\bigskip
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java edu.princeton.cs.algs4.SequentialSearchST 
 S E A R C H E X A M P L E
 <ctrl-d>
@@ -148,7 +151,10 @@ S 0
 \pause
 
 Performance client
-\begin{lstlisting}[language=Java]
+
+\bigskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class FrequencyCounter {
@@ -180,8 +186,9 @@ public class FrequencyCounter {
 \end{lstlisting}
 
 \pause
+\bigskip
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java edu.princeton.cs.algs4.FrequencyCounter 8 < tale.txt 
 business 122
 distinct = 5126
@@ -195,7 +202,9 @@ words    = 14346
 
 Linked list based implementation of the basic symbol table API
 
-\begin{lstlisting}[language=Java]
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class SequentialSearchST<Key, Value> {
@@ -230,7 +239,7 @@ public class SequentialSearchST<Key, Value> {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
     public Value get(Key key) {
         for (Node x = first; x != null; x = x.next) {
             if (key.equals(x.key)) { return x.val; }
@@ -274,7 +283,9 @@ public class SequentialSearchST<Key, Value> {
 
 Array based implementation of the ordered symbol table API
 
-\begin{lstlisting}[language=Java]
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 import java.util.NoSuchElementException;
@@ -313,7 +324,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
     public Value get(Key key) {
         if (isEmpty()) { return null; }
         int i = rank(key); 
@@ -355,7 +366,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
     public void delete(Key key)  {
         if (isEmpty()) { return; }
         int i = rank(key);
@@ -395,7 +406,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
     public Key floor(Key key) {
         int i = rank(key);
         if (i < N && key.compareTo(keys[i]) == 0) { return keys[i]; }

@@ -11,11 +11,6 @@
 \titlepage
 \end{frame}
 
-\begin{frame}
-\frametitle{Outline}
-\tableofcontents
-\end{frame}
-
 \section{What is a Binary Search Tree (BST)?}
 \begin{frame}[fragile]
 \pause
@@ -45,8 +40,9 @@ A binary search tree (BST) is a binary tree in symmetric order
 A BST representation in Java is a reference to a root node, which is composed of five fields: a key, a value, a reference to the left subtree, a reference to the right subtree, and the number of nodes in the subtree
 
 \pause
+\bigskip
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
 private class Node {
     private Key key; 
     private Value val; 
@@ -68,7 +64,9 @@ private class Node {
 
 Basic operations
 
-\begin{lstlisting}[language=Java]
+\bigskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 import java.util.NoSuchElementException;
@@ -105,7 +103,7 @@ public class BST<Key extends Comparable<Key>, Value> {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
     public Value get(Key key) { return get(root, key); }
 
     private Value get(Node x, Key key) {
@@ -192,7 +190,7 @@ Minimum and maximum
 
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
     public Key min() {
         if (isEmpty()) { return null; }
         return min(root).key;
@@ -225,19 +223,23 @@ Floor and ceiling
 \end{center}
 
 \smallskip
+\pause
 
 Computing the floor of key $k$
 \begin{itemize}
+\pause
 \item Case 1 ($k$ equals the key in the node): the floor of $k$ is $k$
 
+\pause
 \item Case 2 ($k$ is less than the key in the node): the floor of $k$ is in the left subtree
 
+\pause
 \item Case 3 ($k$ is greater than the key in the node): the floor of $k$ is in the right subtree if there is any key $\leq k$ in there; otherwise, it is the key in the node
 \end{itemize}
 
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
     public Key floor(Key key) {
         Node x = floor(root, key);
         if (x == null) { return null; }
@@ -261,16 +263,19 @@ Computing the floor of key $k$
 
 Computing the ceiling of key $k$
 \begin{itemize}
+\pause
 \item Case 1 ($k$ equals the key in the node): the ceiling of $k$ is $k$
 
+\pause
 \item Case 2 ($k$ is greater than the key in the node): the ceiling of $k$ is in the right subtree
 
+\pause
 \item Case 3 ($k$ is less than the key in the node): the ceiling of $k$ is in the left subtree if there is any key $\geq k$ in there; otherwise, it is the key in the node
 \end{itemize}
 
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
     public Key ceiling(Key key) {
         Node x = ceiling(root, key);
         if (x == null) { return null; }
@@ -300,7 +305,7 @@ Rank and selection
 
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
     public int rank(Key key) { return rank(key, root); } 
 
     private int rank(Key key, Node x) {
@@ -331,7 +336,10 @@ Rank and selection
 \pause
 
 Range count and range search
-\begin{lstlisting}[language=Java]
+
+\bigskip
+
+\begin{lstlisting}[language=Java,style=focusin]
     public int size(Key lo, Key hi) {
         if (lo.compareTo(hi) > 0) { return 0; }
         if (contains(hi)) { return rank(hi) - rank(lo) + 1; }
@@ -363,15 +371,19 @@ Range count and range search
 \pause
 
 Deletion: to delete the minimum (maximum) key
+\pause
 \begin{itemize}
+\pause
 \item Go left (right) until you find a node with null left (right) link
+\pause
 \item Replace that node by its right (left) link
+\pause
 \item Update subtree counts
 \end{itemize}
 
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
     public void deleteMin() {
         if (isEmpty()) { throw new NoSuchElementException(); }
         root = deleteMin(root);
@@ -403,11 +415,13 @@ Deletion: to delete the minimum (maximum) key
 
 \begin{minipage}{200pt}
 Deletion: to delete a node with key $k$ (Hibbard deletion), search for the node $t$ containing key $k$
+\pause
 \begin{itemize}
+\pause
 \item Case 1 (0 children): delete $t$ by setting parent link to null
-
+\pause
 \item Case 2 (1 child): delete $t$ by replacing parent link
-
+\pause
 \item Case 3 (2 children): find successor $x$ of $t$ ($x$ has no left child); delete the minimum in $t$'s right subtree; and put $x$ in $t$'s spot
 \end{itemize}
 and update subtree counts
@@ -422,7 +436,7 @@ and update subtree counts
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
     public void delete(Key key) {
         root = delete(root, key);
     }
@@ -451,7 +465,10 @@ and update subtree counts
 \pause
 
 Pre-order traversal
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 public void preorder() { preorder(root); }
 
 private void preorder(Node x) {
@@ -466,7 +483,10 @@ private void preorder(Node x) {
 \bigskip
 
 In-order traversal
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 public void inorder() { inorder(root); }
 
 private void inorder(Node x) {
@@ -481,7 +501,10 @@ private void inorder(Node x) {
 \bigskip
 
 Post-order traversal
-\begin{lstlisting}[language=Java]
+
+\smallskip
+
+\begin{lstlisting}[language=Java,style=focusin]
 public void postorder() { postorder(root); }
 
 private void postorder(Node x) {
@@ -496,6 +519,9 @@ private void postorder(Node x) {
 \bigskip
 
 In-order traversal of a BST processes keys in ascending order
+
+\smallskip
+
 \end{frame}
 
 \begin{frame}[fragile]

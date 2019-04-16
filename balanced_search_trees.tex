@@ -11,24 +11,22 @@
 \titlepage
 \end{frame}
 
-\begin{frame}
-\frametitle{Outline}
-\tableofcontents
-\end{frame}
-
 \section{2-3 Search Trees}
 \begin{frame}[fragile]
 \pause
 
 A 2-3 search tree is a tree that is either empty (null link) or
 \begin{itemize}
+\pause
 \item A 2-node with one key (and associated value) and two links, a left link to a 2-3 search tree with smaller keys, and a right link to a 2-3 search tree with larger keys
 
+\pause
 \item A 3-node with two keys (and associated values) and three links, a left link to a 2-3 search tree with smaller keys, a middle link to a 2-3 search tree with keys between the node's keys, and a right link to a 2-3 search tree with larger keys
 \end{itemize}
 
+\pause
 \begin{center}
-\visible<2->{\includegraphics[scale=0.4]{{./figures/23_tree}.pdf}}
+\visible<5->{\includegraphics[scale=0.4]{{./figures/23_tree}.pdf}}
 \end{center}
 
 \pause
@@ -42,7 +40,7 @@ A 2-3 search tree has symmetric order --- inorder traversal yields keys in ascen
 A perfectly balanced 2-3 search tree is one whose null links are all the same distance from the root
 
 \begin{center}
-\visible<4->{\includegraphics[scale=0.3]{{./figures/23_tree_perfect_balance}.png}}
+\visible<7->{\includegraphics[scale=0.3]{{./figures/23_tree_perfect_balance}.png}}
 \end{center}
 \end{frame}
 
@@ -117,12 +115,13 @@ Insert operation maintains symmetric order and perfect balance
 
 Tree height
 \begin{itemize}
+\pause
 \item Worst case: $\lg N$ (all 2-nodes)
-
+\pause
 \item Best case: $\log_3 N \approx 0.631 \lg N$ (all 3-nodes)
-
+\pause
 \item Between 12 and 20 for a million nodes
-
+\pause
 \item Between 18 and 30 for a billion nodes
 \end{itemize}
 
@@ -148,13 +147,16 @@ We represent a 2-3 tree as a BST, using ``internal'' left-leaning links as ``glu
 
 A red-black tree is a BST such that
 \begin{itemize}
+\pause
 \item No node has two red links connected to it
+\pause
 \item Every path from root to null link has the same number of black links (perfect black balance)
+\pause
 \item Red links lean left
 \end{itemize}
 
 \begin{center}
-\visible<2->{\includegraphics[scale=0.5]{{./figures/red_black_bst2}.pdf}}
+\visible<6->{\includegraphics[scale=0.5]{{./figures/red_black_bst2}.pdf}}
 \end{center}
 \end{frame}
 
@@ -174,7 +176,7 @@ One-to-one correspondence between red-black BSTs and 2-3 trees
 Red-black BST representation: each node is pointed to by precisely one link (from its parent) $\implies$ can encode color of links in nodes
 
 \begin{minipage}{170pt}
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
 private static final boolean RED   = true;
 private static final boolean BLACK = false;
 
@@ -229,7 +231,7 @@ Left rotation: orient a (temporarily) right-leaning red link to lean left
 \bigskip
 
 Implementation of left rotation
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
 private Node rotateLeft(Node h) {
     Node x = h.right;
     h.right = x.left;
@@ -259,7 +261,7 @@ Right rotation: orient a left-leaning red link to (temporarily) lean right
 
 Implementation of right rotation
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
 private Node rotateRight(Node h) {
     Node x = h.left;
     h.left = x.right;
@@ -289,7 +291,7 @@ Color flip: recolor to split a (temporary) 4-node
 
 Implementation of color flip
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
 private void flipColors(Node h) {
     h.color = !h.color;
     h.left.color = !h.left.color;
@@ -335,16 +337,17 @@ Case 2 (insert into a 3-node at the bottom): do standard BST insert; color new l
 \begin{minipage}{150pt}
 Implementation (same code for all cases)
 \begin{itemize}
+\pause
 \item Right child red, left child black: rotate left
-
+\pause
 \item Left child, left-left grandchild red: rotate right
-
+\pause
 \item Both children red: flip colors
 \end{itemize}
 \end{minipage}%
 \begin{minipage}{100pt}
 \begin{center}
-\visible<2->{\includegraphics[scale=0.4]{{./figures/red_black_bst13}.pdf}}
+\visible<6->{\includegraphics[scale=0.4]{{./figures/red_black_bst13}.pdf}}
 \end{center}
 \end{minipage}
 \end{frame}
@@ -352,7 +355,7 @@ Implementation (same code for all cases)
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=Java,style=focusin]
 package edu.princeton.cs.algs4;
 
 import java.util.NoSuchElementException;

@@ -10,11 +10,6 @@
 \titlepage
 \end{frame}
 
-\begin{frame}
-\frametitle{Outline}
-\tableofcontents
-\end{frame}
-
 \section{Sets}
 \begin{frame}[fragile]
 \pause
@@ -88,7 +83,7 @@ credit cards & check for stolen cards & number & stolen cards
 \pause
 
 Exception filter Implementations
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class WhiteFilter {  
@@ -109,7 +104,7 @@ public class WhiteFilter {
 
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class BlackFilter {  
@@ -209,7 +204,7 @@ Tyrosine
 
 \begin{frame}[fragile]
 Dictionary lookup implementation
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class LookupCSV {
@@ -277,7 +272,7 @@ lamb
 \pause
 
 File index implementation
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
 package edu.princeton.cs.algs4;
 
 import java.io.File;
@@ -345,7 +340,7 @@ princeton
 
 Concordance implementation
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class Concordance {
@@ -435,7 +430,7 @@ Sparse matrix: symbol table representation
 \pause
 
 Sparse vector implementation
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class SparseVector {
@@ -472,7 +467,7 @@ public class SparseVector {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
     public double dot(SparseVector that) {
         if (this.N != that.N) {
             throw new IllegalArgumentException();
@@ -505,7 +500,7 @@ public class SparseVector {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
     public SparseVector scale(double alpha) {
         SparseVector c = new SparseVector(N);
         for (int i : this.st.keys()) { c.put(i, alpha * this.get(i)); }
@@ -537,7 +532,7 @@ public class SparseVector {
 \pause
 
 Sparse matrix implementation
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class SparseMatrix {
@@ -575,7 +570,7 @@ public class SparseMatrix {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
     public SparseVector times(SparseVector x) {
         if (N != x.size()) {
             throw new RuntimeException();

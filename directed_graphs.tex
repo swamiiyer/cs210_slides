@@ -10,11 +10,6 @@
 \titlepage
 \end{frame}
 
-\begin{frame}
-\frametitle{Outline}
-\tableofcontents
-\end{frame}
-
 \section{Directed Graphs}
 \begin{frame}[fragile]
 \pause
@@ -115,7 +110,7 @@ method & description \\ \hline
 
 Graph input format
 \begin{minipage}{150pt}
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ more tinyDG.txt
 13 22 
 4 2 2 3 3 2 6 0 0 1 2 0 11 12 12 9
@@ -133,7 +128,7 @@ $ more tinyDG.txt
 \bigskip
 
 Typical graph-processing code
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
 In in = new In(args[0]);
 Digraph G = new Digraph(in);
 for (int v = 0; v < G.V(); v++) {
@@ -148,7 +143,7 @@ for (int v = 0; v < G.V(); v++) {
 \pause
 
 Implementation of \lstinline{Digraph} data type using an adjacency list
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
 package edu.princeton.cs.algs4;
 
 import java.util.InputMismatchException;
@@ -185,7 +180,7 @@ public class Digraph {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
     public int V() { return V; }
 
     public int E() { return E; }
@@ -278,7 +273,7 @@ Multiple-source shortest paths: given a digraph and a set of source vertices, fi
 \pause
 
 Application (web crawler)
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
 import edu.princeton.cs.algs4.*;
 import java.util.regex.*;
 
@@ -310,7 +305,7 @@ public class WebCrawler {
 
 \pause
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java WebCrawler http://www.swamiiyer.net/
 http://www.swamiiyer.net/
 http://www.w3.org
@@ -365,7 +360,7 @@ Topological order for the precedence-constrained course scheduling problem
 \pause
 
 Directed cycle detection
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class DirectedCycle {
@@ -406,7 +401,7 @@ public class DirectedCycle {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
     public boolean hasCycle() { return cycle != null; }
 
     public Iterable<Integer> cycle() { return cycle; }
@@ -432,7 +427,7 @@ public class DirectedCycle {
 
 \pause
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java edu.princeton.cs.algs4.DirectedCycle tinyDG.txt 
 Directed cycle: 3 5 4 3 
 \end{lstlisting}
@@ -464,7 +459,7 @@ DFS orders
 \bigskip
 
 Implementation of DFS orders
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class DepthFirstOrder {
@@ -492,7 +487,7 @@ public class DepthFirstOrder {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]    
+\begin{lstlisting}[language=java,style=focusin]    
     private void dfs(Digraph G, int v) {
         marked[v] = true;
         pre[v] = preCounter++;
@@ -525,7 +520,7 @@ public class DepthFirstOrder {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
     public static void main(String[] args) {
         In in = new In(args[0]);
         Digraph G = new Digraph(in);
@@ -558,7 +553,7 @@ public class DepthFirstOrder {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java edu.princeton.cs.algs4.DepthFirstOrder tinyDG.txt 
    v  pre post
 --------------
@@ -595,7 +590,7 @@ Topological sort (solution)
 \bigskip
 
 Topological sort (implementation)
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class Topological {
@@ -629,7 +624,7 @@ public class Topological {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ more jobs.txt 
 Algorithms/Theoretical CS/Databases/Scientific Computing
 Introduction to CS/Advanced Programming/Algorithms
@@ -644,7 +639,7 @@ Machine Learning/Neural Networks
 
 \pause
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java edu.princeton.cs.algs4.Topological jobs.txt "/"
 Calculus
 Linear Algebra
@@ -659,120 +654,6 @@ Neural Networks
 Databases
 Scientific Computing
 Computational Biology
-\end{lstlisting}
-\end{frame}
-
-\section{Strong Components}
-\begin{frame}[fragile]
-\pause
-
-Vertices $v$ and $w$ are strongly connected if there is both a directed path from $v$ to $w$ and a directed path from $w$ to $v$
-
-\begin{center}
-\visible<2->{\includegraphics[scale=0.35]{{./figures/digraph6}.pdf}}
-\end{center}
-
-\pause
-\bigskip
-
-A strong component is a maximal subset of strongly-connected vertices
-
-\begin{center}
-\visible<3->{\includegraphics[scale=0.4]{{./figures/digraph7}.pdf}}
-\end{center}
-
-\pause
-\bigskip
-
-Applications
-\begin{itemize}
-\item Ecological food web
-
-\item Software module dependency
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\pause
-
-Computing strong components (solution: Kosaraju-Sharir algorithm)
-\begin{itemize}
-\item Given a digraph $G$, use \lstinline{DepthFirstOrder} to compute the reverse postorder of its reverse, $G^R$
-
-\item Run standard DFS on $G$, but consider the unmarked vertices in the order just computed instead of the standard numerical order
-
-\item All vertices reached on a call to the recursive \lstinline{dfs()} from the constructor are in a strong component, so identify them as in \lstinline{CC}
-\end{itemize}
-
-\pause
-\bigskip
-
-Kosaraju-Sharir algorithm (implementation)
-\begin{lstlisting}[language=Java]
-package edu.princeton.cs.algs4;
-
-public class KosarajuSharirSCC {
-    private boolean[] marked; 
-    private int[] id;  
-    private int count;  
-
-    public KosarajuSharirSCC(Digraph G) {
-        DepthFirstOrder dfs = new DepthFirstOrder(G.reverse());
-        marked = new boolean[G.V()];
-        id = new int[G.V()];
-        for (int v : dfs.reversePost()) {
-            if (!marked[v]) { dfs(G, v); count++; }
-        }
-    }
-
-    private void dfs(Digraph G, int v) { 
-        marked[v] = true;
-        id[v] = count;
-        for (int w : G.adj(v)) { if (!marked[w]) { dfs(G, w); } }
-    }    
-\end{lstlisting}
-\end{frame}
-
-\begin{frame}[fragile]
-\pause
-
-\begin{lstlisting}[language=Java]
-    public int count() { return count; }
-
-    public boolean stronglyConnected(int v, int w) { return id[v] == id[w]; }
-
-    public int id(int v) { return id[v]; }
-
-    public static void main(String[] args) {
-        In in = new In(args[0]);
-        Digraph G = new Digraph(in);
-        KosarajuSharirSCC scc = new KosarajuSharirSCC(G);
-        int M = scc.count();
-        StdOut.println(M + " components");
-        LinkedQueue<Integer>[] components = 
-            (LinkedQueue<Integer>[]) new Queue[M];
-        for (int i = 0; i < M; i++) { 
-            components[i] = new LinkedQueue<Integer>(); 
-        }
-        for (int v = 0; v < G.V(); v++) { components[scc.id(v)].enqueue(v); }
-        for (int i = 0; i < M; i++) {
-            for (int v : components[i]) { StdOut.print(v + " "); }
-            StdOut.println();
-        }
-    }
-}
-\end{lstlisting}
-
-\pause
-
-\begin{lstlisting}[language={}]
-$ java edu.princeton.cs.algs4.KosarajuSharirSCC tinyDG.txt 
-5 components
-1 
-0 2 3 4 5 
-9 10 11 12 
-6 8 
-7 
 \end{lstlisting}
 \end{frame}
 \end{document}

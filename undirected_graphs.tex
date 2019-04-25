@@ -10,11 +10,6 @@
 \titlepage
 \end{frame}
 
-\begin{frame}
-\frametitle{Outline}
-\tableofcontents
-\end{frame}
-
 \section{What are Graphs?}
 \begin{frame}[fragile]
 \pause
@@ -225,7 +220,7 @@ method & description \\ \hline
 
 Graph input format
 \begin{minipage}{150pt}
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ more tinyG.txt
 13 13 
 0 5 4 3 0 1 9 12 6 4 5 4 0 2 
@@ -242,7 +237,7 @@ $ more tinyG.txt
 \bigskip
 
 Typical graph-processing code
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
 public static int degree(Graph G, int v) {
     int degree = 0;
     for (int w : G.adj(v)) { 
@@ -287,7 +282,7 @@ adjacency list & $E+V$ & 1 & $degree(v)$ & $degree(v)$
 \pause
 
 Implementation of \lstinline{Graph} data type using an adjacency list
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class Graph {
@@ -325,7 +320,7 @@ public class Graph {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
     public int V() { return V; }
 
     public int E() { return E; }
@@ -421,7 +416,7 @@ method & description \\ \hline
 \bigskip
 
 Typical graph-processing code
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
 Paths paths = new Paths(G, s);
 for (int v = 0; v < G.V(); v++) {
     if (paths.hasPathTo(v)) {
@@ -434,7 +429,7 @@ for (int v = 0; v < G.V(); v++) {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class DepthFirstPaths {
@@ -513,7 +508,7 @@ Repeat until queue is empty
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class BreadthFirstPaths {
@@ -553,7 +548,7 @@ public class BreadthFirstPaths {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
     public boolean hasPathTo(int v) { return marked[v]; }
 
     public int distTo(int v) { return distTo[v]; }
@@ -581,137 +576,6 @@ Trace
 \end{center}
 \end{frame}
 
-\section{Connected Components}
-\begin{frame}[fragile]
-\pause
-
-Vertices $v$ and $w$ are connected if there is a path between them
-
-\pause
-\bigskip
-
-Goal: preprocess graph to answer queries of the form is $v$ connected to $w$ in constant time
-
-\begin{center}
-\begin{tabular}{cc}
-method & description \\ \hline
-\lstinline$CC(Graph G)$ & find connected components in $G$ \\
-\lstinline$boolean connected(int v, int w)$ & are $v$ and $w$ connected? \\
-\lstinline$int count()$ & number of connected components \\
-\lstinline$int id(int v)$ & component identifier for $v$ \\
-\lstinline$int size(int v)$ & number of vertices in $v$'s component
-\end{tabular} 
-\end{center}
-
-\pause
-\bigskip
-
-Use union-find? not quite
-
-\pause
-\bigskip
-
-Use depth-first search? yes
-\end{frame}
-
-\begin{frame}[fragile]
-\pause
-
-\begin{lstlisting}[language=Java]
-package edu.princeton.cs.algs4;
-
-public class CC {
-    private boolean[] marked; 
-    private int[] id; 
-    private int[] size;  
-    private int count;  
-    
-   public CC(Graph G) {
-        marked = new boolean[G.V()];
-        id = new int[G.V()];
-        size = new int[G.V()];
-        for (int v = 0; v < G.V(); v++) {
-            if (!marked[v]) {
-                dfs(G, v);
-                count++;
-            }
-        }
-    }
-
-    private void dfs(Graph G, int v) {
-        marked[v] = true;
-        id[v] = count;
-        size[count]++;
-        for (int w : G.adj(v)) { if (!marked[w]) { dfs(G, w); } }
-    }
-    
-    public boolean connected(int v, int w) { return id(v) == id(w); }
-
-    public int count() { return count; }
-
-    public int id(int v) { return id[v]; }
-
-    public int size(int v) { return size[id[v]]; }
-\end{lstlisting} 
-\end{frame}
-
-\begin{frame}[fragile]
-\pause
-
-\begin{lstlisting}[language=Java]
-    public static void main(String[] args) {
-        In in = new In(args[0]);
-        Graph G = new Graph(in);
-        CC cc = new CC(G);
-        int M = cc.count();
-        StdOut.println(M + " components");
-        LinkedQueue<Integer>[] components = 
-            (LinkedQueue<Integer>[]) new LinkedQueue[M];
-        for (int i = 0; i < M; i++) { 
-            components[i] = new LinkedQueue<Integer>(); 
-        }
-        for (int v = 0; v < G.V(); v++) { components[cc.id(v)].enqueue(v); }
-        for (int i = 0; i < M; i++) {
-            for (int v : components[i]) { StdOut.print(v + " "); }
-            StdOut.println();
-        }
-    }
-}
-\end{lstlisting} 
-
-\pause
-
-\begin{lstlisting}[language=Java]
-$ java edu.princeton.cs.algs4.CC tinyG.txt 
-3 components
-0 1 2 3 4 5 6 
-7 8 
-9 10 11 12 
-\end{lstlisting} 
-\end{frame}
-
-\section{Graph Traversal Summary}
-\begin{frame}[fragile]
-\pause
-
-BFS and DFS enables efficient solution of many (but not all) graph problems
-\begin{center}
-\begin{tabular}{cccc}
-problem & BFS & DFS & time \\ \hline
-path between $s$ and $t$ & \cmark & \cmark & $E + V$ \\
-shortest path between $s$ and $t$ & \cmark & & $E+V$ \\
-cycle & \cmark & \cmark & $E+V$ \\
-Euler cycle & & \cmark & $E+V$ \\
-Hamilton cycle & & & $2^{1.657V}$ \\
-connected components & \cmark & \cmark & $E+V$ \\
-biconnected components & & \cmark & $E+V$ \\
-bipartiteness & \cmark & \cmark & $E+V$ \\
-planarity & & \cmark & $E+V$ \\
-graph isomorphism & & & $2^{c\sqrt{V\log V}}$ 
-\end{tabular} 
-\end{center}
-\end{frame}
-
 \section{Symbol Graphs}
 \begin{frame}[fragile]
 \pause
@@ -734,7 +598,7 @@ To accommodate such applications, we define an input format with these propertie
 \bigskip
 
 Example (\lstinline{routes.txt})
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 JFK MCO
 ORD DEN
 ORD HOU
@@ -746,7 +610,7 @@ JFK ATL
 \pause
 
 Example (\lstinline{movies.txt})
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 'Breaker' Morant (1980)/Brown, Bryan (I)/Henderson, Dick (II)/...
 'burbs, The (1989)/Jayne, Billy/Howard, Rance/Ducommun, Rick/... 
 'Crocodile' Dundee II (1988)/Jbara, Gregory/Holt, Jim (I)/... 
@@ -775,7 +639,7 @@ method & description \\ \hline
 \bigskip
 
 Test client for symbol graph API
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class SymbolGraph {
@@ -802,7 +666,7 @@ public class SymbolGraph {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java edu.princeton.cs.algs4.SymbolGraph routes.txt " "
 Done reading routes.txt
 JFK
@@ -817,7 +681,7 @@ LAX
 
 \pause
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java edu.princeton.cs.algs4.SymbolGraph movies.txt "/"
 Done reading movies.txt
 Tin Men (1987)
@@ -840,7 +704,7 @@ Bacon, Kevin
 \pause
 
 Implementation of the symbol graph API
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class SymbolGraph {
@@ -881,7 +745,7 @@ public class SymbolGraph {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
     public boolean contains(String s) { 
         return st.contains(s); 
     }
@@ -905,7 +769,7 @@ public class SymbolGraph {
 \pause
 
 Application (degrees of separation)
-\begin{lstlisting}[language=Java]
+\begin{lstlisting}[language=java,style=focusin]
 package edu.princeton.cs.algs4;
 
 public class DegreesOfSeparation {
@@ -942,7 +806,7 @@ public class DegreesOfSeparation {
 \begin{frame}[fragile]
 \pause
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java edu.princeton.cs.algs4.DegreesOfSeparation routes.txt " " JFK
 Done reading routes.txt
 LAS
@@ -959,7 +823,7 @@ DFW
 
 \pause
 
-\begin{lstlisting}[language={}]
+\begin{lstlisting}[language={},style=focusin]
 $ java edu.princeton.cs.algs4.DegreesOfSeparation movies.txt "/" "Bacon, Kevin"
 Done reading movies.txt
 Kidman, Nicole
